@@ -81,10 +81,10 @@ public class Bluetooth extends Activity implements OnItemClickListener {
         }
         else
         {
-            if(!btAdapt.isEnabled())
-            {
+//            if(!btAdapt.isEnabled())
+//            {
 //                turnOnBT();
-            }
+//            }
 //            getPairedDevices();
 //            startDiscovery();
         }
