@@ -81,13 +81,14 @@ public class Bluetooth extends Activity implements OnItemClickListener {
         }
         else
         {
-//            if(!btAdapt.isEnabled())
-//            {
-//                turnOnBT();
-//            }
-//            getPairedDevices();
-//            startDiscovery();
-        }
+
+            if(!btAdapt.isEnabled())
+            {
+                turnOnBT();
+            }
+            getPairedDevices();
+            startDiscovery();
+         }
     }
 
     private void startDiscovery() {
@@ -98,6 +99,7 @@ public class Bluetooth extends Activity implements OnItemClickListener {
     private void turnOnBT() {
         Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
         startActivityForResult(intent, 1);
+        Toast.makeText(getApplicationContext(), "Enabling Bluetooth", Toast.LENGTH_LONG).show();
     }
 
     private void getPairedDevices() {
