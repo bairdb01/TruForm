@@ -21,15 +21,15 @@ public class UserAddedExercise extends Exercise {
     }
 
     public void setReps(int newReps){
-
+        this.targetReps = newReps;
     }
 
     public void setSets(int newSets){
-
+        this.targetSets = newSets;
     }
 
     public void changeCalibration(){
-
+        initialPosition.calibrate();
     }
 
     public void showForm(){
