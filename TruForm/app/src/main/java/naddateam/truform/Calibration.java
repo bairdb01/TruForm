@@ -3,6 +3,7 @@ package naddateam.truform;
 import java.util.ArrayList;
 
 /**
+ * Manages and stores calibration data from the Arduino device.
  * Created by Ben on 2/4/2015.
  */
 
@@ -69,5 +70,9 @@ public class Calibration {
         btData.add(new Double(2.1010));
 
         return btData;
+    }
+
+    public void clearCalibrations() {
+        this.Calibration();
     }
 }

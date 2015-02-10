@@ -7,33 +7,20 @@ import naddateam.truform.Exercise;
  * Created by Ben on 2/10/2015.
  */
 public class UserAddedExercise extends Exercise {
+    private String name;
     private int targetSets;
     private int targetReps;
-    private String name;
     private String formLocation;
-    Calibration initialPosition;
+    private static Calibration initialPosition; //One calibration for all instances
 
-    public UserAddedExercise(int targetSets, int targetReps, String formLocation, String name){
+    public UserAddedExercise(int targetSets, int targetReps, String name){
         this.targetReps = targetReps;
         this.targetSets = targetSets;
-        this.formLocation = formLocation;
         this.name = name;
     }
 
-    public void setReps(int newReps){
-        this.targetReps = newReps;
-    }
-
-    public void setSets(int newSets){
-        this.targetSets = newSets;
-    }
-
-    public void changeCalibration(){
-        initialPosition.calibrate();
-    }
-
-    public void showForm(){
-
+    public void setFormLocation(String location) {
+        this.formLocation = location;
     }
 
 }

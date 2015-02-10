@@ -9,7 +9,12 @@ import java.util.ArrayList;
 public class Workouts {
     private int selectedWorkout;
     private ArrayList<String> userWorkouts;
+    private Exercises allExercises;
 
+    public Workouts(){
+        this.selectedWorkout = 0;
+        this.userWorkouts = new ArrayList<>();
+    }
     public String chooseWorkout(int choice) {
         return null;
     }
@@ -22,20 +27,31 @@ public class Workouts {
         ArrayList <Exercise> newExercises = new ArrayList<>();
         int numExercises = 0;
 
+
+        // Goes through the GUI and adds the exercise to the workout
         for (int counter = 0; numExercises > counter; counter++) {
             // Check Exercise selected
+            //GUI would return which exercises were selected **************************
+            String exName = "Example";
+            int sets = 0;
+            int reps = 0;
+            allExercises.getExercise(exName);
 
             // Check number of sets inputted
+            sets = 1;   //************************ grab from gui
 
             // Check number of reps inputted
+            reps = 1;   //*********************** Grab from gui
 
+            // Add exercise to the workout list
+            newExercises.add(allExercises.createExercise(exName,sets, reps));
         }
 
         return newExercises;
     }
 
     /**
-     * Recommends the user some workouts based on popularity
+     * Recommends the user some workouts based on popularity and their preferences
      * @return
      */
     public ArrayList<Exercise> recommendedWorkouts() {

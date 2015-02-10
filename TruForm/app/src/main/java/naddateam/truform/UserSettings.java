@@ -7,9 +7,9 @@ package naddateam.truform;
 import java.util.HashMap;
 
 public class UserSettings {
-    private String strictness;
-    private HashMap <Calibration, Integer> CalibratedSettings;
-    private HashMap <Exercise, Integer> loggedData;
+    private static String strictness;
+    private static HashMap <Calibration, Integer> CalibratedSettings;
+    private static HashMap <Exercise, Integer> loggedData;
 
     /**
      * Contructor

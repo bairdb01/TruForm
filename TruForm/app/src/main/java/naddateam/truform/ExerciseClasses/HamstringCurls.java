@@ -7,11 +7,11 @@ import naddateam.truform.Exercise;
  * Created by Ben on 2/4/2015.
  */
 public class HamstringCurls extends Exercise{
-    int targetSets;
-    int targetReps;
+    private String name;
+    private int targetSets;
+    private int targetReps;
     private String formLocation;
     private static Calibration initialPosition; //One calibration for all instances
-
     /**
      * Constructor!
      * @param reps target reps for the user to hit
@@ -25,19 +25,5 @@ public class HamstringCurls extends Exercise{
             initialPosition = new Calibration();
     }
 
-    public void setReps(int newReps){
-        this.targetReps = newReps;
-    }
 
-    public void setSets(int newSets){
-        this.targetSets = newSets;
-    }
-
-    public void changeCalibration(){
-        this.initialPosition.calibrate();
-    }
-
-    public void showForm(){
-
-    }
 }
