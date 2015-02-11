@@ -15,6 +15,7 @@ public class Calibration {
     private double gyroX;
     private double gyroY;
     private double gyroZ;
+    private double pushtest;
 
     /**
      * Constructor
