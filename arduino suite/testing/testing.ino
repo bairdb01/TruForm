@@ -136,11 +136,11 @@ int gyroTurn(int time) {
  double pitchGyroValDouble = 0;
  double rollGyroValDouble = 0;
  double totalClicksY = 0;
- double angleY = 0;
+ int angleY = 0;
  double totalClicksP = 0;
- double angleP = 0;
+ int angleP = 0;
  double totalClicksR = 0;
- double angleR = 0;
+ int angleR = 0;
  
  int starttime = millis(); // get start time
  int endtime = starttime; // init end time
