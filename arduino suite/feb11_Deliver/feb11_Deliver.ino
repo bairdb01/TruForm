@@ -210,12 +210,12 @@ void loop()
       
       String s;
       //s = "Accel - X: " + xSend + " Y: " + ySend + " Z: " + zSend + "\n" + "Gyro - Yaw: " + yawSend + " Pitch: " + pitchSend + " Roll: " + rollSend;
-      s = "X: " + xSend + ", Y: " + ySend + ", Z: " + zSend + ", y: " + yawSend + ", p: " + pitchSend + ", r: " + rollSend;
+      s = "" + xSend + "," + ySend + "," + zSend + "," + yawSend + "," + pitchSend + "," + rollSend;
       //int(analogRead(pinX)) + " Y: " + int(analogRead(pinY)) + " Z: " + int(analogRead(pinZ)); 
       //Serial.readString();
 
       // We need to convert the line to bytes, no more than 20 at this time
-      if(s.length() > 20)
+      /*if(s.length() > 20)
       {
          int temp = s.length() % 19;
          if(temp > 0)
@@ -227,9 +227,9 @@ void loop()
       }
       for(int cnt = 0; cnt < loopVal; cnt++)
       {
-        String S = s.substring(subStart, subEnd);
+        String S = s.substring(subStart, subEnd);*/
         uint8_t sendbuffer[20];
-        S.getBytes(sendbuffer, 20);
+        s.getBytes(sendbuffer, 20);
         char sendbuffersize = min(20, s.length());
   
         Serial.print(F("\n* Sending -> \"")); Serial.print((char *)sendbuffer); Serial.println("\"");
@@ -238,8 +238,8 @@ void loop()
         BTLEserial.write(sendbuffer, sendbuffersize);
         subStart = subStart + 19;
         subEnd = subEnd + 19;
-        delay(500);
-      }
+        //delay(500);
+      //}
       //delay(100);
     }
   }
