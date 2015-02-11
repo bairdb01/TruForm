@@ -48,12 +48,13 @@ const int gyroDelayTime = 20; // refresh rate of gyroscope.
 double yawGyroValDouble; // running sums get very large. We need to poll the int from the register and convert it to a double
 double yawGyroValRunSum = 0; // when turning, we poll the gyro thousands of times and accumulate the values help in yawGyroVal
 
-double clicksPerDegCW = -663.33; // a constant used when turning X degrees clockwise. This value can be re-set by turning the calibrate variable to TRUE and following on-screen instructions
-double clicksPerDegCCW = 647.67; // a constant used when turning X degrees counter clockwise. This value can be re-set by turning the calibrate variable to TRUE and following on-screen instructions
+double clicksPerDegCW = -624.67; // a constant used when turning X degrees clockwise. This value can be re-set by turning the calibrate variable to TRUE and following on-screen instructions
+double clicksPerDegCCW = 625.67; // a constant used when turning X degrees counter clockwise. This value can be re-set by turning the calibrate variable to TRUE and following on-screen instructions
 
 // Boolean program controllers for the gyroscope
 boolean calibrate = false; // set to true if you want to recalibrate the gyro (doesn't seem like gyro is detecting accurate number of degrees turned
-boolean testMode = true; // set to true if you want to test the gyro to see if it needs to be recalibrated
+boolean testMode = false; // set to true if you want to test the gyro to see if it needs to be recalibrated
+boolean printVal = true; // calls the print function, allows for visual data
 
 boolean gyroTurnTimeoutError = false; // keeps track of if the gyro has timed out on a turn
 int turnTimeout = 8000; // maximum time required for a turn (ms). Error above is thrown if turn takes longer than this
@@ -86,12 +87,44 @@ void setup(){
     testCalibrationResults();
    
   }
+  
+  /*if(printVal){
+    
+    printVals();
+  }*/
    
  
 
 }
 
 void loop(){
+     double yawGyroD, rollGryoD, pitchGyroD, angle;
+     double totalClicks = 0;
+   while(Serial.available() == 0){
+      gyroTurnTimeoutError = gyroBasedTurns(CLOCKWISE, 45.0);
+      if (gyroTurnTimeoutError) 
+      {
+        Serial.println(P("Error - turn timed out."));
+      } 
+      else 
+      {
+        Serial.print(P("10 Degrees "));
+        Serial.println(totalClicks);
+        totalClicks++;
+      }
+     /*getGyroValues(); 
+  
+     yawGyroD = yawGyroVal;
+  
+     totalClicks += yawGyroD;
+     
+     if(totalClicks > (180*clicksPerDegCCW))
+     {
+       Serial.println(totalClicks);
+       delay(1000);
+       totalClicks = 0;
+     }*/
+   } // wait for user to enter a button
   // The main loop is left empty so that you can incorporate the code developed here into
   // your project. Here is an example of how you may like to use this code in some robotics application...
  
@@ -117,7 +150,28 @@ void loop(){
 
 
 
-
+void printVals()
+{
+  double yawGyroD, rollGryoD, pitchGyroD, angle;
+  double totalClicks = 0;
+  
+  getGyroValues(); 
+  
+  yawGyroD = yawGyroVal;
+  
+  totalClicks += yawGyroD;
+  
+  //Serial.print("");
+  //Serial.print(rollGyroVal);
+   
+  //Serial.print(",");
+  //Serial.print(pitchGyroVal);
+   
+  Serial.print(",");
+  Serial.println(yawGyroVal);
+  delay(500);
+  return;
+}
 
 
 
