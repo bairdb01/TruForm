@@ -18,6 +18,14 @@ import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import naddateam.truform.NavMenuItems.CalibrationsNav;
+import naddateam.truform.NavMenuItems.SchedulesNav;
+import naddateam.truform.NavMenuItems.SettingsNav;
+import naddateam.truform.NavMenuItems.SocialNav;
+import naddateam.truform.NavMenuItems.UserNav;
+import naddateam.truform.NavMenuItems.WelcomeNav;
+import naddateam.truform.NavMenuItems.WorkoutNav;
+
 
 public class Drawer extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -49,10 +57,36 @@ public class Drawer extends ActionBarActivity
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
+
+        Fragment selNavItem = null;
+
+        switch(position) {
+            case 0:
+                selNavItem = new WelcomeNav();
+                break;
+            case 1:
+                selNavItem = new UserNav();
+                break;
+            case 2:
+                selNavItem = new WorkoutNav();
+                break;
+            case 3:
+                selNavItem = new CalibrationsNav();
+                break;
+            case 4:
+                selNavItem = new SchedulesNav();
+                break;
+            case 5:
+                selNavItem = new SocialNav();
+                break;
+            case 6:
+                selNavItem = new SettingsNav();
+                break;
+        }
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                .replace(R.id.container, selNavItem)
                 .commit();
     }
 
@@ -66,6 +100,15 @@ public class Drawer extends ActionBarActivity
                 break;
             case 3:
                 mTitle = getString(R.string.title_section3);
+                break;
+            case 4:
+                mTitle = getString(R.string.title_section4);
+                break;
+            case 5:
+                mTitle = getString(R.string.title_section5);
+                break;
+            case 6:
+                mTitle = getString(R.string.title_section6);
                 break;
         }
     }

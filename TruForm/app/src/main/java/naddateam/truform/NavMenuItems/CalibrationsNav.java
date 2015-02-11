@@ -17,7 +17,7 @@ public class CalibrationsNav extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootview = inflater.inflate(R.layout.user_layout, container, false);
+        rootview = inflater.inflate(R.layout.calibration_layout, container, false);
         return rootview;
     }
 }

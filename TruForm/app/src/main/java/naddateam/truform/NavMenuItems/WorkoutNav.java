@@ -17,7 +17,7 @@ public class WorkoutNav extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootview = inflater.inflate(R.layout.welcome_layout, container, false);
+        rootview = inflater.inflate(R.layout.workout_layout, container, false);
         return rootview;
     }
 }

@@ -17,7 +17,7 @@ public class SettingsNav extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootview = inflater.inflate(R.layout.user_layout, container, false);
+        rootview = inflater.inflate(R.layout.settings_layout, container, false);
         return rootview;
     }
 }
