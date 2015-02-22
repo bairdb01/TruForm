@@ -5,18 +5,28 @@ package naddateam.truform;
  */
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import naddateam.truform.ExerciseClasses.Exercise;
+import naddateam.truform.ExerciseClasses.Exercises;
 
 public class Workouts {
     private int selectedWorkout;
-    private ArrayList<String> userWorkouts;
+    private HashMap<String, ArrayList<Exercise>> userWorkouts;
     private Exercises allExercises;
 
     public Workouts(){
         this.selectedWorkout = 0;
-        this.userWorkouts = new ArrayList<>();
+        this.userWorkouts = new HashMap<>();
     }
-    public String chooseWorkout(int choice) {
-        return null;
+
+    /**
+     * Allows selection of a workout from all the workouts
+     * @param choice the chosen workout's name
+     * @return the chosen workout with all exercises
+     */
+    public ArrayList selectWorkout(String choice) {
+        return userWorkouts.get(choice);
     }
 
     /**
