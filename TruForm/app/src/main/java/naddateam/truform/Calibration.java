@@ -15,7 +15,6 @@ public class Calibration {
     private double gyroX;
     private double gyroY;
     private double gyroZ;
-    private double pushtest;
 
     /**
      * Constructor
@@ -44,7 +43,7 @@ public class Calibration {
 
     /**
      * Sets the initial position of the user
-     * @param calis Calibration data (acceleromter + gyroscope)
+     * @param calis Calibration data (accelerometer + gyroscope)
      * @return 0 if success
      */
     public int saveCalibration(ArrayList<Double> calis) {
@@ -66,6 +65,8 @@ public class Calibration {
         ArrayList<Double> btData = new ArrayList<>();
 
         // Call BT here and receive bunch of numbers
+
+
 
         // Put in the numbers
         btData.add(new Double(2.1010));
