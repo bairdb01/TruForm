@@ -2,6 +2,8 @@ package naddateam.truform;
 
 import java.util.ArrayList;
 
+import naddateam.truform.ExerciseClasses.Exercise;
+
 /**
  * Created by Ben on 2/4/2015.
  */
