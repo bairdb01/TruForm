@@ -6,10 +6,14 @@ package naddateam.truform;
 
 import java.util.HashMap;
 
+import naddateam.truform.ExerciseClasses.Exercise;
+import naddateam.truform.ExerciseClasses.Exercises;
+
 public class UserSettings {
     private static String strictness;
-    private static HashMap <Calibration, Integer> CalibratedSettings;
-    private static HashMap <Exercise, Integer> loggedData;
+    private static HashMap <Integer, Calibration> CalibratedSettings;
+    private static HashMap <Integer, Exercise> loggedData;
+    private static Exercises exercises;
 
     /**
      * Contructor
@@ -23,20 +27,9 @@ public class UserSettings {
     /**
      * Clears the users calibrations and logged data
      */
-    public void defaultSettings(){
+    public void clearAllData(){
         UserSettings();
     }
-
-    /**
-     * Adds a calibration for an exercise
-     */
-    public void addCalibration(){
-
-
-    }
-    /******************************************************
-     * Setters
-     ******************************************************/
 
     /**
     * Sets the level of strictness
@@ -45,10 +38,6 @@ public class UserSettings {
     public void setStrictness(String newStrictness) {
         this.strictness = newStrictness;
     }
-
-    /******************************************************
-     * Getters
-     ******************************************************/
 
     /**
      * Getter for strictness level
@@ -62,7 +51,7 @@ public class UserSettings {
      * Gets the users analysis' on exercises
      * @return loggedData which contains previous analysis' of exercises
      */
-    public HashMap<Exercise,Integer> getLoggedData(){
+    public HashMap<Integer, Exercise> getLoggedData(){
         return loggedData;
     }
 }
