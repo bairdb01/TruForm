@@ -1,7 +1,6 @@
 package naddateam.truform.NavMenuItems;
 
-import android.app.Activity;
-import android.media.audiofx.BassBoost;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,7 +12,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import naddateam.truform.Drawer;
 import naddateam.truform.R;
 
 /**
@@ -26,7 +24,7 @@ public class SettingsNav extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.settings_layout, container, false);
-        myListView = (ListView) rootview.findViewById(R.id.listView);
+        myListView = (ListView) rootview.findViewById(R.id.listOfSettingItems);
 
         strListView = getResources().getStringArray(R.array.my_data_list);
         ArrayAdapter<String> objAdapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, strListView);
@@ -35,7 +33,11 @@ public class SettingsNav extends Fragment {
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(SettingsNav.this.getActivity(), "hello " + strListView[position], Toast.LENGTH_SHORT).show();
+                Toast.makeText(SettingsNav.this.getActivity(), "hello " + position, Toast.LENGTH_SHORT).show();
+                if (position == 0){
+                    Intent goCalib = new Intent(SettingsNav.this.getActivity(), CalibrationsNav.class);
+                    startActivity(goCalib);
+                }
             }
 
 
