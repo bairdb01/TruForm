@@ -11,8 +11,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
+        android:text="Rest Timer"
         android:id="@+id/restTime"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="#FFFF00"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ready"
+        android:id="@+id/button"
+        android:layout_below="@+id/restTime"
+        android:layout_centerHorizontal="true"
+        android:background="#00FF00"/>
+
+
 </RelativeLayout>
