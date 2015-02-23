@@ -1,4 +1,4 @@
-package naddateam.truform.NavMenuItems;
+package naddateam.truform.GUI.GUI.NavMenuItems;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

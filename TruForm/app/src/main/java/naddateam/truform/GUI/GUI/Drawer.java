@@ -1,4 +1,4 @@
-package naddateam.truform;
+package naddateam.truform.GUI.GUI;
 
 import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
@@ -13,12 +13,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 
-import naddateam.truform.NavMenuItems.SchedulesNav;
-import naddateam.truform.NavMenuItems.SettingsNav;
-import naddateam.truform.NavMenuItems.SocialNav;
-import naddateam.truform.NavMenuItems.UserNav;
-import naddateam.truform.NavMenuItems.WelcomeNav;
-import naddateam.truform.NavMenuItems.WorkoutNav;
+import naddateam.truform.GUI.GUI.NavMenuItems.SchedulesNav;
+import naddateam.truform.GUI.GUI.NavMenuItems.SettingsNav;
+import naddateam.truform.GUI.GUI.NavMenuItems.SocialNav;
+import naddateam.truform.GUI.GUI.NavMenuItems.UserNav;
+import naddateam.truform.GUI.GUI.NavMenuItems.WelcomeNav;
+import naddateam.truform.GUI.GUI.NavMenuItems.WorkoutNav;
+import naddateam.truform.R;
 
 
 public class Drawer extends ActionBarActivity

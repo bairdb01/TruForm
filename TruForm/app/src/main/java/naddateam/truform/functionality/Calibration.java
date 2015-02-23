@@ -1,4 +1,4 @@
-package naddateam.truform;
+package naddateam.truform.functionality;
 
 import java.util.ArrayList;
 

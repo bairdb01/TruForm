@@ -10,8 +10,9 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Social Networks"
-        android:id="@+id/textView"
+        android:id="@+id/social"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="false" />
+
 </RelativeLayout>

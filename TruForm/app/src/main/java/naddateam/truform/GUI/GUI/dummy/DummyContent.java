@@ -1,4 +1,4 @@
-package naddateam.truform.NavMenuItems.dummy;
+package naddateam.truform.GUI.GUI.dummy;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,8 +1,6 @@
 package naddateam.truform.ExerciseClasses;
 
-import naddateam.truform.Calibration;
-import naddateam.truform.Exercise;
-import naddateam.truform.UserSettings;
+import naddateam.truform.functionality.Calibration;
 
 /**
  * Created by Ben on 2/4/2015.

@@ -1,4 +1,4 @@
-package naddateam.truform.NavMenuItems;
+package naddateam.truform.GUI.GUI.NavMenuItems;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,6 +21,7 @@ public class SettingsNav extends Fragment {
     View rootview;
     private ListView myListView;
     private String[] strListView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.settings_layout, container, false);
@@ -33,6 +34,7 @@ public class SettingsNav extends Fragment {
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Just to make something happen (TEST)
                 Toast.makeText(SettingsNav.this.getActivity(), "hello " + position, Toast.LENGTH_SHORT).show();
                 if (position == 0){
                     Intent goCalib = new Intent(SettingsNav.this.getActivity(), CalibrationsNav.class);

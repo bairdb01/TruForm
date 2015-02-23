@@ -1,4 +1,4 @@
-package naddateam.truform.NavMenuItems;
+package naddateam.truform.GUI.GUI.workouts;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -7,19 +7,19 @@ import android.view.MenuItem;
 
 import naddateam.truform.R;
 
-public class CalibrationsNav extends ActionBarActivity {
+public class Workout2 extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.calibrations_layout);
+        setContentView(R.layout.activity_workout2);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_calibrations, menu);
+        getMenuInflater().inflate(R.menu.menu_workout2, menu);
         return true;
     }
 

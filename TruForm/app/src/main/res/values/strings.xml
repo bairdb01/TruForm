@@ -23,4 +23,23 @@
     <string name="action_example">T</string>
     <string name="title_activity_calibrations">Calibrations</string>
 
+    <string-array name="dummyList">
+        <item>Item 1</item>
+        <item>Item 2</item>
+        <item>Item 3</item>
+        <item>Item 4</item>
+        <item>Item 5</item>
+        <item>Item 6</item>
+    </string-array>
+
+    <string name="title_activity_workout1">workout1</string>
+    <string name="title_activity_workout0">workout0</string>
+    <string name="title_activity_workout2">workout2</string>
+    <string name="title_activity_workout3">workout3</string>
+    <string name="title_activity_workout4">workout4</string>
+    <string name="title_activity_workout5">workout5</string>
+    <string name="title_activity_workout6">workout6</string>
+    <string name="title_activity_bicep_curl">Bicep Curls</string>
+
+
 </resources>

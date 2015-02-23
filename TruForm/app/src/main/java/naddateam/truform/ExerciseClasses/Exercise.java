@@ -1,4 +1,6 @@
-package naddateam.truform;
+package naddateam.truform.ExerciseClasses;
+
+import naddateam.truform.functionality.Calibration;
 
 /**
  * Created by Ben on 2/4/2015.
@@ -7,7 +9,7 @@ public class Exercise {
     private String name;
     private int targetSets;
     private int targetReps;
-    private int highestWeight;
+    private int maxWeight;
     private String formLocation;
     private static Calibration initialPosition; //One calibration for all instances
 
@@ -42,7 +44,8 @@ public class Exercise {
      * Shows a visual representation of the exercise
      */
     public void showForm(){
-
+        // would return location of proper form img/video
+        // gui displays it
     }
 
     /**
@@ -80,6 +83,12 @@ public class Exercise {
 
 //    }
 
-    public void setHeightWeight() {}
+    /**
+     * Changes the users maximum weight for an exercise
+     * @param newMaxWeight the new maximum weight that was achieved
+     */
+    public void setMaxWeight(int newMaxWeight) {
+        this.maxWeight = newMaxWeight;
+    }
 
 }

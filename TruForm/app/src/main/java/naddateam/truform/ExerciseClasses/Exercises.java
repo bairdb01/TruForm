@@ -1,9 +1,10 @@
-package naddateam.truform;
+package naddateam.truform.ExerciseClasses;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import naddateam.truform.ExerciseClasses.ChestPress;
+import naddateam.truform.ExerciseClasses.Exercise;
 import naddateam.truform.ExerciseClasses.HammerCurls;
 import naddateam.truform.ExerciseClasses.HamstringCurls;
 import naddateam.truform.ExerciseClasses.UserAddedExercise;
@@ -13,7 +14,7 @@ import naddateam.truform.ExerciseClasses.UserAddedExercise;
  * Created by Ben on 2/4/2015.
  */
 public class Exercises {
-    private HashMap<String,Exercise> allExercises; // Stores exercises, Key is the exercise name
+    private static HashMap<String,Exercise> allExercises; // Stores exercises, Key is the exercise name
     private String curExercise; //Current exercise selected?
 
     /**

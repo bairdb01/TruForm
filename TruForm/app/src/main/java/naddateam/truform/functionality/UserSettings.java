@@ -1,4 +1,4 @@
-package naddateam.truform;
+package naddateam.truform.functionality;
 
 /**
  * Created by Ben on 2/4/2015.

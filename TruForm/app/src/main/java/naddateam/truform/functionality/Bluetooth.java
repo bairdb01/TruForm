@@ -1,4 +1,4 @@
-package naddateam.truform;
+package naddateam.truform.functionality;
 
 /**
  * Created by Ben on 2/3/2015.
@@ -31,6 +31,8 @@ import java.util.Set;
 import java.util.UUID;
 //import java.util.logging.Handler;
 import java.util.logging.LogRecord;
+
+import naddateam.truform.R;
 
 import static android.widget.AdapterView.OnItemClickListener;
 
