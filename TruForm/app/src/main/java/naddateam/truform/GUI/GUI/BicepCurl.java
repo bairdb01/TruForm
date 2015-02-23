@@ -48,7 +48,7 @@ public class BicepCurl extends ActionBarActivity {
             public void onTick(long millisUntilFinished) {
                 long secondsRemaining = millisUntilFinished/1000;
                 long decimal = (millisUntilFinished - (secondsRemaining*1000)) / 10;
-                restTime.setText("" + secondsRemaining + "." + (int)decimal);
+                restTime.setText("" + secondsRemaining + "." + (int)decimal + "s");
             }
 
             public void onFinish() {
