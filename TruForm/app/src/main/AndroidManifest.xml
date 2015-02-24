@@ -91,11 +91,17 @@
         </activity>
         <activity
             android:name=".GUI.GUI.BicepCurl"
-            android:label="@string/title_activity_bicep_curl" >
+            android:label="@string/title_activity_bicep_curl"
+            android:parentActivityName=".GUI.GUI.workouts.Workout0"            >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GUI.GUI.workouts.Workout0" />
+
         </activity>
         <activity
             android:name=".GUI.GUI.SettingsItems.RestoreDefNav"
-            android:label="@string/title_activity_restore_def_nav" >
+            android:label="@string/title_activity_restore_def_nav"
+            >
         </activity>
         <activity
             android:name=".GUI.GUI.SettingsItems.AboutNav"

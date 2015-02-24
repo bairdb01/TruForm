@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,12 +18,18 @@ public class BicepCurl extends ActionBarActivity implements View.OnClickListener
     Button startTrack;
     Button abortTrack;
     Button finish;
-    NumberPicker sets;
+    TextView sets;
     NumberPicker reps;
-    NumberPicker weight;
+    EditText weight;
+    int currentSet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Enables back button on action bar
+        //getActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+        currentSet = 0;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bicep_curl);
 
@@ -30,25 +37,20 @@ public class BicepCurl extends ActionBarActivity implements View.OnClickListener
         startTrack = (Button) findViewById(R.id.startBut);
         abortTrack = (Button) findViewById(R.id.abortBut);
         finish = (Button) findViewById(R.id.finBut);
-        sets = (NumberPicker) findViewById(R.id.numberPickerSets);
+        sets = (TextView) findViewById(R.id.textSets);
         reps = (NumberPicker) findViewById(R.id.numberPickerReps);
-        weight = (NumberPicker) findViewById(R.id.numberPickerWeight);
+        weight = (EditText) findViewById(R.id.numberWeight);
 
         //set listeners for buttons
         startTrack.setOnClickListener(this);
         abortTrack.setOnClickListener(this);
         finish.setOnClickListener(this);
-        sets.setOnClickListener(this);
         reps.setOnClickListener(this);
-        weight.setOnClickListener(this);
+
 
         //Setting the numberPickers' range
         reps.setMinValue(1);
         reps.setMaxValue(99);
-        sets.setMinValue(1);
-        sets.setMaxValue(99);
-        weight.setMinValue(1);
-        weight.setMaxValue(1000);
 
 
     }
@@ -105,8 +107,12 @@ public class BicepCurl extends ActionBarActivity implements View.OnClickListener
                 break;
             case(R.id.finBut):
                 Toast.makeText(getApplicationContext(),"Fin",Toast.LENGTH_SHORT);
-                int currentSet = sets.getValue();
-                sets.setValue(currentSet+1);
+                currentSet++;
+                sets.setText(String.valueOf(currentSet));
+                //Grab the weights and sets here
+
+                weight.setText(String.valueOf(0));
+                reps.setValue(reps.getMinValue());
                 startTimer();
                 break;
             case(R.id.abortBut):
