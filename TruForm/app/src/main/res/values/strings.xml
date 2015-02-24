@@ -25,6 +25,14 @@
     <string name="about_details">Made by NADDATEAM (Benjamin Baird, Robert Little, Erik Hoffman and Andrew Huynh). Uses Arduino hardware technology
     with gyroscope and accelerometer data. Made during the CIS3760 course at University of Guelph during the Winter 2015 semester.</string>
 
+    <!-- List of setting items displayed when selecting "Settings" in the Navigation Drawer -->
+    <string-array name="settingsListItems">
+        <item>Calibrations</item>
+        <item>Sounds</item>
+        <item>Reset to Defaults</item>
+        <item>Help</item>
+        <item>About</item>
+    </string-array>
     <string-array name="dummyList">
         <item>Item 1</item>
         <item>Item 2</item>
@@ -39,6 +47,24 @@
         <item>Bicep Curl</item>
         <item>Chest</item>
         <item>Squats</item>
+    </string-array>
+
+    <!-- List of audio settings -->
+    <string-array name="audioListItems">
+        <item>Workout Beep</item>
+        <item>Haptic Feedback</item>
+    </string-array>
+
+    <!--
+    For the Help Navigation.
+    Calibrations = How to Calibrate
+    Workout Creation = How to Create own workout schedules
+    Form = Bunch of workout info talking what they work and how to do it
+    -->
+    <string-array name="helpListItems">
+        <item>Calibrations</item>
+        <item>Workout Creation</item>
+        <item>Exercise Form</item>
     </string-array>
 
     <!-- Types of restoring to defaults -->
@@ -56,8 +82,12 @@
     <string name="title_activity_workout5">workout5</string>
     <string name="title_activity_workout6">workout6</string>
     <string name="title_activity_bicep_curl">Bicep Curls</string>
-    <string name="title_activity_restore_def_nav">RestoreDefNav</string>
+    <string name="title_activity_restore_def_nav">Restore to Defaults</string>
     <string name="title_activity_about">About</string>
-
+    <string name="title_activity_settings_help_nav">Help</string>
+    <string name="title_activity_audio_nav">Audio</string>
+    <string name="title_activity_bicep_curl_tut">Bicep Curls</string>
+    <string name="title_activity_chest_tut">Chests</string>
+    <string name="title_activity_squats_tut">Squats</string>
 
 </resources>

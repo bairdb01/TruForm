@@ -10,9 +10,11 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
+import naddateam.truform.GUI.GUI.SettingsItems.AboutNav;
+import naddateam.truform.GUI.GUI.SettingsItems.AudioNav;
 import naddateam.truform.GUI.GUI.SettingsItems.CalibrationsNav;
+import naddateam.truform.GUI.GUI.SettingsItems.HelpNav;
 import naddateam.truform.GUI.GUI.SettingsItems.RestoreDefNav;
 import naddateam.truform.R;
 
@@ -29,7 +31,7 @@ public class SettingsNav extends Fragment {
         rootview = inflater.inflate(R.layout.settings_layout, container, false);
         myListView = (ListView) rootview.findViewById(R.id.listOfSettingItems);
 
-        strListView = getResources().getStringArray(R.array.my_data_list);
+        strListView = getResources().getStringArray(R.array.settingsListItems);
         ArrayAdapter<String> objAdapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, strListView);
         myListView.setAdapter(objAdapter);
 
@@ -39,12 +41,21 @@ public class SettingsNav extends Fragment {
                 if (position == 0) {
                     Intent goCalib = new Intent(SettingsNav.this.getActivity(), CalibrationsNav.class);
                     startActivity(goCalib);
-                } else if (position == 2) {
+                }
+                else if (position == 1) {
+                    Intent goAudio = new Intent(SettingsNav.this.getActivity(), AudioNav.class);
+                    startActivity(goAudio);
+                }
+                else if (position == 2) {
                     Intent goRestDef = new Intent(SettingsNav.this.getActivity(), RestoreDefNav.class);
                     startActivity(goRestDef);
-                } else if (position == 4) {
-                    Toast.makeText(SettingsNav.this.getActivity(), "About", Toast.LENGTH_SHORT).show();
-                    Intent goAbout = new Intent(SettingsNav.this.getActivity(), About.class);
+                }
+                else if (position == 3) {
+                    Intent goHelp = new Intent(SettingsNav.this.getActivity(), HelpNav.class);
+                    startActivity(goHelp);
+                }
+                else if (position == 4) {
+                    Intent goAbout = new Intent(SettingsNav.this.getActivity(), AboutNav.class);
                     startActivity(goAbout);
                 }
             }
