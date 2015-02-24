@@ -17,9 +17,12 @@ public class CalibrationsNav extends ActionBarActivity implements AdapterView.On
 @Override
 protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.calibrations_layout);
         ListView lv = (ListView)findViewById(R.id.calibrationListView);
+
+        //String [] items = {"0","1","2","3","4","5"};
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.activity_workout0, items);
+
 
         lv.setOnItemClickListener(this);
 
