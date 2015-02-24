@@ -64,7 +64,7 @@ public class Calibration {
     public ArrayList<Double> getBTData(){
         ArrayList<Double> btData = new ArrayList<>();
 
-        // Call BT here and receive bunch of numbers
+        // Call BT here and receive a bunch of numbers
 
 
 

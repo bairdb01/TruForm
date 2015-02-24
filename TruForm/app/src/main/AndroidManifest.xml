@@ -47,7 +47,7 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".GUI.GUI.NavMenuItems.CalibrationsNav"
+            android:name=".GUI.GUI.SettingsItems.CalibrationsNav"
             android:label="@string/title_activity_calibrations" >
         </activity>
         <activity
@@ -81,6 +81,15 @@
         <activity
             android:name=".GUI.GUI.BicepCurl"
             android:label="@string/title_activity_bicep_curl" >
+        </activity>
+        <activity
+<<<<<<< HEAD
+            android:name=".GUI.GUI.SettingsItems.RestoreDefNav"
+            android:label="@string/title_activity_restore_def_nav" >
+=======
+            android:name=".GUI.GUI.NavMenuItems.About"
+            android:label="@string/title_activity_about" >
+>>>>>>> 38581ec15c98091c4e84d10738c4781997928004
         </activity>
     </application>
 

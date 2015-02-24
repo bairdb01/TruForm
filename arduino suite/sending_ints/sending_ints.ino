@@ -17,7 +17,7 @@ All text above, and the splash screen below must be included in any redistributi
 
 #include <SPI.h>
 #include <Wire.h>
-#include <String.h>
+#include <avr/pgmspace.h>
 #include "Adafruit_BLE_UART.h"
 
 // Connect CLK/MISO/MOSI to hardware SPI
@@ -32,9 +32,9 @@ All text above, and the splash screen below must be included in any redistributi
 #define CTRL_REG4 0x23
 #define CTRL_REG5 0x24
 
-char p_buffer[115];
+//char p_buffer[115];
 
-#define P(str) (strcpy_P(p_buffer, PSTR(str)), p_buffer)
+//#define P(str) (strcpy_P(p_buffer, PSTR(str)), p_buffer)
 
 Adafruit_BLE_UART BTLEserial = Adafruit_BLE_UART(ADAFRUITBLE_REQ, ADAFRUITBLE_RDY, ADAFRUITBLE_RST);
 
@@ -42,8 +42,8 @@ int pinX = A1;
 int pinY = A2;
 int pinZ = A3;
 
-const boolean CLOCKWISE = true;
-const boolean COUNTERCLOCKWISE = false;
+//const boolean CLOCKWISE = true;
+//const boolean COUNTERCLOCKWISE = false;
 
 int L3G4200D_Address = 105; //I2C address of the L3G4200D
 
@@ -53,22 +53,13 @@ int yawGyroVal;
 
 const int gyroNoiseThresh = 25; // Ignore gyroscope values below this value
 const int gyroDelayTime = 20; // refresh rate of gyroscope.
-double yawGyroValDouble; // running sums get very large. We need to poll the int from the register and convert it to a double
-double yawGyroValRunSum = 0; // when turning, we poll the gyro thousands of times and accumulate the values help in yawGyroVal
+float yawGyroValDouble; // running sums get very large. We need to poll the int from the register and convert it to a double
 
-double PitchGyroValDouble;
-double RollGyroValDouble;
+float PitchGyroValDouble;
+float RollGyroValDouble;
 
-double clicksPerDegCW = -624.67; // a constant used when turning X degrees clockwise. This value can be re-set by turning the calibrate variable to TRUE and following on-screen instructions
-double clicksPerDegCCW = 625.67; // a constant used when turning X degrees counter clockwise. This value can be re-set by turning the calibrate variable to TRUE and following on-screen instructions
-
-// Boolean program controllers for the gyroscope
-boolean calibrate = false; // set to true if you want to recalibrate the gyro (doesn't seem like gyro is detecting accurate number of degrees turned
-boolean testMode = false; // set to true if you want to test the gyro to see if it needs to be recalibrated
-boolean printVal = true; // calls the print function, allows for visual data
-
-boolean gyroTurnTimeoutError = false; // keeps track of if the gyro has timed out on a turn
-int turnTimeout = 8000; // maximum time required for a turn (ms). Error above is thrown if turn takes longer than this
+float clicksPerDegCW = -624.67; // a constant used when turning X degrees clockwise. This value can be re-set by turning the calibrate variable to TRUE and following on-screen instructions
+float clicksPerDegCCW = 625.67; // a constant used when turning X degrees counter clockwise. This value can be re-set by turning the calibrate variable to TRUE and following on-screen instructions
 
 /**************************************************************************/
 /*!
@@ -80,7 +71,7 @@ void setup(void)
   Wire.begin();
   Serial.begin(9600);
   while(!Serial); // Leonardo/Micro should wait for serial init
-  Serial.println(F("Adafruit Bluefruit Low Energy nRF8001 Print echo demo"));
+  Serial.println(F("echo demo"));
 
   setupL3G4200D(2000);
   delay(1500);
@@ -108,13 +99,13 @@ void loop()
   if (status != laststatus) {
     // print it out!
     if (status == ACI_EVT_DEVICE_STARTED) {
-        Serial.println(F("* Advertising started"));
+        Serial.println(F("* Ad"));
     }
     if (status == ACI_EVT_CONNECTED) {
-        Serial.println(F("* Connected!"));
+        Serial.println(F("Con"));
     }
     if (status == ACI_EVT_DISCONNECTED) {
-        Serial.println(F("* Disconnected or advertising timed out"));
+        Serial.println(F("Dis"));
     }
     // OK set the last status change to this one
     laststatus = status;
@@ -136,40 +127,45 @@ void loop()
     if (Serial.available()) {
       // Read a line from Serial
       Serial.setTimeout(100); // 100 millisecond timeout
- 
-      double clicksToTurn, yawGyroValDouble, pitchGyroValDouble, rollGyroValDouble, totalClicksY, totalClicksP, totalClicksR;
-      int angleY, angleP, angleR, time, xRe, yRe, zRe, loopVal, starttime, endtime, setCnt;
       
-      String results[60];
+      float yawGyroValDouble = 0;
+      float pitchGyroValDouble = 0;
+      float rollGyroValDouble = 0;
+      float totalClicksY = 0;
+      int angleY = 0;
+      float totalClicksP = 0;
+      int angleP = 0;
+      float totalClicksR = 0;
+      int angleR = 0;
+      float time = .5;
       
-      clicksToTurn = 0;
- 
-      yawGyroValDouble = 0;
-      pitchGyroValDouble = 0;
-      rollGyroValDouble = 0;
-      totalClicksY = 0;
-      angleY = 0;
-      totalClicksP = 0;
-      angleP = 0;
-      totalClicksR = 0;
-      angleR = 0;
-      time = 1;
+      int xRe = 0;
+      int yRe = 0;
+      int zRe = 0;
       
-      xRe = 0;
-      yRe = 0;
-      zRe = 0;
-      
-      loopVal = 0;
-      
-      starttime = millis(); // get start time
-      endtime = starttime; // init end time
-      
-      time = time * 3000;
-      /*for(setCnt = 0; setCnt < 60; setCnt++)
+      int loopVal = 20;
+      //String s = "";
+      int res[20][6];
+       
+      time = time * 1000;
+      for(int i = 0; i < loopVal; i++)
       {
-        */
+        yawGyroValDouble = 0;
+        pitchGyroValDouble = 0;
+        rollGyroValDouble = 0;
+        totalClicksY = 0;
+        angleY = 0;
+        totalClicksP = 0;
+        angleP = 0;
+        totalClicksR = 0;
+        angleR = 0;      
+        xRe = 0;
+        yRe = 0;
+        zRe = 0;
         
-        while ((endtime - starttime) < time) 
+        int starttime = millis(); // get start time
+        int endtime = starttime; // init end time
+        while ((endtime - starttime) < time)
         {
           getGyroValues();  // This will update rollGyroVal, pitchGyroVal, and yawGyroVal with new values
           
@@ -179,12 +175,12 @@ void loop()
           }
           
           pitchGyroValDouble =pitchGyroVal;
-          if(abs(yawGyroValDouble) > abs(gyroNoiseThresh)){ // ignore noise
+          if(abs(pitchGyroValDouble) > abs(gyroNoiseThresh)){ // ignore noise
             totalClicksP+=pitchGyroValDouble; // update runsum
           }
           
           rollGyroValDouble =rollGyroVal;
-          if(abs(yawGyroValDouble) > abs(gyroNoiseThresh)){ // ignore noise
+          if(abs(rollGyroValDouble) > abs(gyroNoiseThresh)){ // ignore noise
             totalClicksR+=rollGyroValDouble; // update runsum
           }
           
@@ -197,36 +193,67 @@ void loop()
           delay (gyroDelayTime);
           endtime = millis();
         }
-        
+
         angleY = totalClicksY / clicksPerDegCCW;
         angleP = totalClicksP / clicksPerDegCCW;
         angleR = totalClicksR / clicksPerDegCCW;
+              
+//        String yawSend = String(angleY);
+//        
+//        String pitchSend = String(angleP);
+//        
+//        String rollSend = String(angleR);
+//        
+//        String xSend = String(xRe);
+//        
+//        String ySend = String(yRe);
+//        
+//        String zSend = String(zRe);
         
-        String yawSend = String(angleY);
         
-        String pitchSend = String(angleP);
+        //s = "Accel - X: " + xSend + " Y: " + ySend + " Z: " + zSend + "\n" + "Gyro - Yaw: " + yawSend + " Pitch: " + pitchSend + " Roll: " + rollSend;
+        //s = xSend + "," + ySend + "," + zSend + "," + yawSend + "," + pitchSend + "," + rollSend;
         
-        String rollSend = String(angleR);
+        res[i][0] = angleY;
         
-        String xSend = String(xRe);
+        res[i][1] = angleP;
         
-        String ySend = String(yRe);
+        res[i][2] = angleR;
         
-        String zSend = String(zRe);
+        res[i][3] = xRe;
         
-        String s;
+        res[i][4] = yRe;
         
-        s = xSend + "," + ySend + "," + zSend + "," + yawSend + "," + pitchSend + "," + rollSend;
+        res[i][5] = zRe;
+      }
+      //Serial.println(res[60][0]);
+      
+      //bleSend(res, loopVal);
+      
+      for(int cnt = 0; cnt < loopVal; cnt++)
+      {
+        BTLEserial.pollACI();
         
-        /*Serial.print("here");
-        Serial.println(s);
-        
-        results[setCnt] = s;
+        String s = (String)res[cnt][3] + "," + (String)res[cnt][4] + "," + (String)res[cnt][5] + "," + (String)res[cnt][0] + "," + (String)res[cnt][1] + "," + (String)res[cnt][2];
+        uint8_t sendbuffer[20];
+        s.getBytes(sendbuffer, 20);
+        char sendbuffersize = min(20, s.length());
+    
+        //Serial.print(F("\n* Sending -> \"")); Serial.print((char *)sendbuffer); Serial.println("\"");
+    
+        // write the data
+        BTLEserial.write(sendbuffer, sendbuffersize);
+        //subStart = subStart + 19;
+        //subEnd = subEnd + 19;
+        delay(50);
+      }
+      
+      /*for(int j = 0; j < loopVal; j++)
+      {
+        Serial.println("Array: ");
+        Serial.println(res[j]);
+        delay(500);
       }*/
-      
-      
-      //s = "Accel - X: " + xSend + " Y: " + ySend + " Z: " + zSend + "\n" + "Gyro - Yaw: " + yawSend + " Pitch: " + pitchSend + " Roll: " + rollSend;
-      
       //int(analogRead(pinX)) + " Y: " + int(analogRead(pinY)) + " Z: " + int(analogRead(pinZ)); 
       //Serial.readString();
 
@@ -239,30 +266,37 @@ void loop()
             loopVal = 1;
          }
          temp = s.length()/19;
-         
+         loopVal = loopVal + temp;
       }*/
-      /*loopVal = x;
-      for(int cnt = 0; cnt < loopVal; cnt++)
-      {
-        //String S = s.substring(subStart, subEnd);*/
-        uint8_t sendbuffer[20];
-        s.getBytes(sendbuffer, 20);
-        char sendbuffersize = min(20, s.length());
-  
-        Serial.print(F("\n* Sending -> \"")); Serial.print((char *)sendbuffer); Serial.println("\"");
-  
-        // write the data
-        BTLEserial.write(sendbuffer, sendbuffersize);
-        /*subStart = subStart + 19;
-        subEnd = subEnd + 19;
-        delay(500);*/
-        /*delay(100);
-      }*/
-      
+      //delay(100);
     }
   }
 }
 
+//void bleSend(int results[][6], int loopVal)
+//{
+//  String s = "";
+//  for(int cnt = 0; cnt < loopVal; cnt++)
+//  {
+//    BTLEserial.pollACI();
+//    for(int j = 0; j < 6; j++)
+//    {
+//      s = (String)results[cnt][3] + "," + (String)results[cnt][4] + "," + (String)results[cnt][5] + "," + (String)results[cnt][0] + "," + (String)results[cnt][1] + "," + (String)results[cnt][2];
+//    }
+//    
+//    uint8_t sendbuffer[20];
+//    s.getBytes(sendbuffer, 20);
+//    char sendbuffersize = min(20, s.length());
+//
+//    Serial.print(F("\n* Sending -> \"")); Serial.print((char *)sendbuffer); Serial.println("\"");
+//
+//    // write the data
+//    BTLEserial.write(sendbuffer, sendbuffersize);
+//    //subStart = subStart + 19;
+//    //subEnd = subEnd + 19;
+//    delay(200);
+//  }
+//}
 
 void getGyroValues(){
 
