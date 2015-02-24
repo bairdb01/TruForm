@@ -32,6 +32,13 @@
         <item>Item 6</item>
     </string-array>
 
+    <!--List of workouts to Calibrate-->
+    <string-array name="calibrationItemsArr">
+        <item>Bicep Curl</item>
+        <item>Chest</item>
+        <item>Squats</item>
+    </string-array>
+
     <string name="title_activity_workout1">workout1</string>
     <string name="title_activity_workout0">workout0</string>
     <string name="title_activity_workout2">workout2</string>
