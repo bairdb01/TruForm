@@ -1,11 +1,14 @@
 package naddateam.truform.GUI.GUI.SettingsItems;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -25,14 +28,90 @@ public class RestoreDefNav extends ActionBarActivity implements AdapterView.OnIt
     }
 
     @Override
-/**
- * Opens the exercise screen
- */
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder( this);
+
         if (position == 0) {
-            Toast.makeText(getApplicationContext(), "Clear Calibrations", Toast.LENGTH_SHORT).show();
+            //Set dialog here
+            alertDialogBuilder.setTitle("Warning");
+            //Set message
+            alertDialogBuilder.setMessage("By selecting confirm will clear all workout calibrations. Do you wish to continue?")
+                    .setCancelable(false)
+                    .setPositiveButton("Confirm",new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog,int id) {
+                            Toast.makeText(getApplicationContext(), "Calibrations Cleared", Toast.LENGTH_SHORT).show();
+                            /*
+
+                            * CODE
+                            * HERE
+                            * TO APPLY CLEAR ALL CALIBRATIONS
+                            *
+                            * */
+                        }
+                    })
+                    .setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog,int id) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
+        }
+        else if (position == 1) {
+            //Set dialog here
+            alertDialogBuilder.setTitle("Warning");
+            //Set message
+            alertDialogBuilder.setMessage("By selecting confirm will clear all user information entered. Do you wish to continue?")
+                    .setCancelable(false)
+                    .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Toast.makeText(getApplicationContext(), "User Info Cleared", Toast.LENGTH_SHORT).show();
+                            /*
+
+                            * CODE
+                            * HERE
+                            * TO APPLY CLEAR ALL USER SETTINGS
+                            *
+                            * */
+                        }
+                    })
+                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
+        }
+        else {
+            //Set dialog here
+            alertDialogBuilder.setTitle("Warning");
+            //Set message
+            alertDialogBuilder.setMessage("By selecting confirm will clear everything on this App to its original state. Do you wish to continue?")
+                    .setCancelable(false)
+                    .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Toast.makeText(getApplicationContext(), "Reset to Defaults", Toast.LENGTH_SHORT).show();
+                            /*
+
+                            * CODE
+                            * HERE
+                            * TO APPLY CLEAR EVERYTHING
+                            *
+                            * */
+                        }
+                    })
+                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
         }
     }
+
 
 
     @Override
