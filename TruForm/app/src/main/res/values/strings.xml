@@ -56,10 +56,8 @@
     <string name="title_activity_workout5">workout5</string>
     <string name="title_activity_workout6">workout6</string>
     <string name="title_activity_bicep_curl">Bicep Curls</string>
-<<<<<<< HEAD
     <string name="title_activity_restore_def_nav">RestoreDefNav</string>
-=======
     <string name="title_activity_about">About</string>
->>>>>>> 38581ec15c98091c4e84d10738c4781997928004
+
 
 </resources>
