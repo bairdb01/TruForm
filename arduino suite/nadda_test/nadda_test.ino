@@ -119,7 +119,7 @@ void loop()
 
       // write the data
       BTLEserial.write(sendbuffer, sendbuffersize);
-      delay(100);
+      delay(1000);
     }
   }
 }

@@ -36,18 +36,18 @@ public class WorkoutNav extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.workout_layout, container, false);
         //Sets the view to workout
-        this.getActivity().setContentView(R.layout.workout_layout);
+
 
         //Finds buttons by their ids
-        imageButton0 = (ImageButton) this.getActivity().findViewById(R.id.imageButton0);
-        imageButton1 = (ImageButton) this.getActivity().findViewById(R.id.imageButton1);
-        imageButton2 = (ImageButton) this.getActivity().findViewById(R.id.imageButton2);
-        imageButton3 = (ImageButton) this.getActivity().findViewById(R.id.imageButton3);
-        imageButton4 = (ImageButton) this.getActivity().findViewById(R.id.imageButton4);
-        imageButton5 = (ImageButton) this.getActivity().findViewById(R.id.imageButton5);
-        imageButton6 = (ImageButton) this.getActivity().findViewById(R.id.imageButton6);
+        imageButton0 = (ImageButton) rootview.findViewById(R.id.imageButton0);
+        imageButton1 = (ImageButton) rootview.findViewById(R.id.imageButton1);
+        imageButton2 = (ImageButton) rootview.findViewById(R.id.imageButton2);
+        imageButton3 = (ImageButton) rootview.findViewById(R.id.imageButton3);
+        imageButton4 = (ImageButton) rootview.findViewById(R.id.imageButton4);
+        imageButton5 = (ImageButton) rootview.findViewById(R.id.imageButton5);
+        imageButton6 = (ImageButton) rootview.findViewById(R.id.imageButton6);
 
-        //Sets listeners for each button
+//        //Sets listeners for each button
         imageButton0.setOnClickListener(this);
         imageButton1.setOnClickListener(this);
         imageButton2.setOnClickListener(this);
