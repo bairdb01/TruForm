@@ -82,6 +82,10 @@
             android:name=".GUI.GUI.BicepCurl"
             android:label="@string/title_activity_bicep_curl" >
         </activity>
+        <activity
+            android:name=".GUI.GUI.NavMenuItems.About"
+            android:label="@string/title_activity_about" >
+        </activity>
     </application>
 
 </manifest>

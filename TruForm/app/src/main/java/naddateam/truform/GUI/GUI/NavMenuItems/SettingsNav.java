@@ -36,10 +36,15 @@ public class SettingsNav extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Just to make something happen (TEST)
-                Toast.makeText(SettingsNav.this.getActivity(), "hello " + position, Toast.LENGTH_SHORT).show();
+               // Toast.makeText(SettingsNav.this.getActivity(), "hello " + position, Toast.LENGTH_SHORT).show();
                 if (position == 0){
                     Intent goCalib = new Intent(SettingsNav.this.getActivity(), CalibrationsNav.class);
                     startActivity(goCalib);
+                }
+                else if(position == 4){
+                    Toast.makeText(SettingsNav.this.getActivity(), "About", Toast.LENGTH_SHORT).show();
+                    Intent goAbout = new Intent(SettingsNav.this.getActivity(), About.class);
+                    startActivity(goAbout);
                 }
             }
 
