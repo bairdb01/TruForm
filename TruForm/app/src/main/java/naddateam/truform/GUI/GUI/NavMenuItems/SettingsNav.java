@@ -36,13 +36,25 @@ public class SettingsNav extends Fragment {
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+<<<<<<< HEAD
+=======
+                // Just to make something happen (TEST)
+               // Toast.makeText(SettingsNav.this.getActivity(), "hello " + position, Toast.LENGTH_SHORT).show();
+>>>>>>> 38581ec15c98091c4e84d10738c4781997928004
                 if (position == 0){
                     Intent goCalib = new Intent(SettingsNav.this.getActivity(), CalibrationsNav.class);
                     startActivity(goCalib);
                 }
+<<<<<<< HEAD
                 else if (position == 2){
                     Intent goRestDef = new Intent(SettingsNav.this.getActivity(), RestoreDefNav.class);
                     startActivity(goRestDef);
+=======
+                else if(position == 4){
+                    Toast.makeText(SettingsNav.this.getActivity(), "About", Toast.LENGTH_SHORT).show();
+                    Intent goAbout = new Intent(SettingsNav.this.getActivity(), About.class);
+                    startActivity(goAbout);
+>>>>>>> 38581ec15c98091c4e84d10738c4781997928004
                 }
             }
 
