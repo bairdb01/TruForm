@@ -463,7 +463,7 @@ int setupL3G4200D(int scale){
   }
 
   // CTRL_REG5 controls high-pass filtering of outputs, use it
-  // if you'd like:
+  // if you'd like:&%
   writeRegister(L3G4200D_Address, CTRL_REG5, 0b00000000);
 }
 
