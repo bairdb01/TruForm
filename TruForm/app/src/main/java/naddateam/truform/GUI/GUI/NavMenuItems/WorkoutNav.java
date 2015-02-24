@@ -46,7 +46,7 @@ public class WorkoutNav extends Fragment implements View.OnClickListener {
 //        imageButton4 = (ImageButton) this.getActivity().findViewById(R.id.imageButton4);
 //        imageButton5 = (ImageButton) this.getActivity().findViewById(R.id.imageButton5);
 //        imageButton6 = (ImageButton) this.getActivity().findViewById(R.id.imageButton6);
-//
+
 //        //Sets listeners for each button
 //        imageButton0.setOnClickListener(this);
 //        imageButton1.setOnClickListener(this);
