@@ -83,8 +83,13 @@
             android:label="@string/title_activity_bicep_curl" >
         </activity>
         <activity
+<<<<<<< HEAD
+            android:name=".GUI.GUI.SettingsItems.RestoreDefNav"
+            android:label="@string/title_activity_restore_def_nav" >
+=======
             android:name=".GUI.GUI.NavMenuItems.About"
             android:label="@string/title_activity_about" >
+>>>>>>> 38581ec15c98091c4e84d10738c4781997928004
         </activity>
     </application>
 
