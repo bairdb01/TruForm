@@ -17,7 +17,7 @@ public class SchedulesNav extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootview = inflater.inflate(R.layout.schedules_layout, container, false);
+        rootview = inflater.inflate(R.layout.activity_bluetooth, container, false);
         return rootview;
     }
 }

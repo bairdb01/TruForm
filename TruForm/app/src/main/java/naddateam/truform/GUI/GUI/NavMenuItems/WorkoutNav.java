@@ -36,25 +36,25 @@ public class WorkoutNav extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.workout_layout, container, false);
         //Sets the view to workout
-        this.getActivity().setContentView(R.layout.workout_layout);
-
-        //Finds buttons by their ids
+//        this.getActivity().setContentView(this);
+//
+//        //Finds buttons by their ids
         imageButton0 = (ImageButton) this.getActivity().findViewById(R.id.imageButton0);
-        imageButton1 = (ImageButton) this.getActivity().findViewById(R.id.imageButton1);
-        imageButton2 = (ImageButton) this.getActivity().findViewById(R.id.imageButton2);
-        imageButton3 = (ImageButton) this.getActivity().findViewById(R.id.imageButton3);
-        imageButton4 = (ImageButton) this.getActivity().findViewById(R.id.imageButton4);
-        imageButton5 = (ImageButton) this.getActivity().findViewById(R.id.imageButton5);
-        imageButton6 = (ImageButton) this.getActivity().findViewById(R.id.imageButton6);
-
-        //Sets listeners for each button
-        imageButton0.setOnClickListener(this);
-        imageButton1.setOnClickListener(this);
-        imageButton2.setOnClickListener(this);
-        imageButton3.setOnClickListener(this);
-        imageButton4.setOnClickListener(this);
-        imageButton5.setOnClickListener(this);
-        imageButton6.setOnClickListener(this);
+//        imageButton1 = (ImageButton) this.getActivity().findViewById(R.id.imageButton1);
+//        imageButton2 = (ImageButton) this.getActivity().findViewById(R.id.imageButton2);
+//        imageButton3 = (ImageButton) this.getActivity().findViewById(R.id.imageButton3);
+//        imageButton4 = (ImageButton) this.getActivity().findViewById(R.id.imageButton4);
+//        imageButton5 = (ImageButton) this.getActivity().findViewById(R.id.imageButton5);
+//        imageButton6 = (ImageButton) this.getActivity().findViewById(R.id.imageButton6);
+//
+//        //Sets listeners for each button
+//        imageButton0.setOnClickListener(this);
+//        imageButton1.setOnClickListener(this);
+//        imageButton2.setOnClickListener(this);
+//        imageButton3.setOnClickListener(this);
+//        imageButton4.setOnClickListener(this);
+//        imageButton5.setOnClickListener(this);
+//        imageButton6.setOnClickListener(this);
 
         return rootview;
     }

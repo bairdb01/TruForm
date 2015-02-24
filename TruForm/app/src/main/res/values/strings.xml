@@ -32,8 +32,8 @@
         <item>Item 6</item>
     </string-array>
 
-    <string name="title_activity_workout1">workout1</string>
     <string name="title_activity_workout0">workout0</string>
+    <string name="title_activity_workout1">workout1</string>
     <string name="title_activity_workout2">workout2</string>
     <string name="title_activity_workout3">workout3</string>
     <string name="title_activity_workout4">workout4</string>
