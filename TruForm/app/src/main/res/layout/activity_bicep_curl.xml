@@ -14,14 +14,13 @@
         android:text="Rest Time"
         android:gravity="center"
         android:id="@+id/restTime"
-        android:layout_alignParentTop="true"
         android:textSize="50dp"
         android:background="#FFFF00"
-        android:layout_alignRight="@+id/textView4"
-        android:layout_alignEnd="@+id/textView4"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/textView4" />
+        android:layout_alignParentStart="true" />
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -30,16 +29,16 @@
         android:text="Sets"
         android:textSize="20dp"
         android:id="@+id/setsText"
-        android:layout_above="@+id/numberPickerWeight"
-        android:layout_alignLeft="@+id/numberPickerSets"
-        android:layout_alignStart="@+id/numberPickerSets" />
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Reps"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:id="@+id/repsText"
         android:layout_below="@+id/textView4"
         android:layout_alignLeft="@+id/numberPickerReps"
@@ -52,23 +51,23 @@
         android:text="Weight"
         android:id="@+id/weightText"
         android:textSize="20dp"
-        android:layout_below="@+id/textView4"
-        android:layout_alignLeft="@+id/numberPickerWeight"
-        android:layout_alignStart="@+id/numberPickerWeight" />
+        android:layout_above="@+id/numberPickerReps"
+        android:layout_alignLeft="@+id/numberWeight"
+        android:layout_alignStart="@+id/numberWeight" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="0%"
-        android:textSize="100dp"
+        android:textSize="75dp"
         android:id="@+id/textView4"
         android:gravity="center"
-        android:layout_above="@+id/setsText"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_below="@+id/restTime"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -103,25 +102,30 @@
     <NumberPicker
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/numberPickerWeight"
-        android:layout_alignTop="@+id/numberPickerSets"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:id="@+id/numberPickerReps"
+        android:layout_below="@+id/repsText"
+        android:layout_centerHorizontal="true" />
 
-    <NumberPicker
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/numberPickerSets"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/numberWeight"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/finBut"
+        android:layout_alignStart="@+id/finBut" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="0"
+        android:textSize="54dp"
+        android:id="@+id/textSets"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
-    <NumberPicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/numberPickerReps"
-        android:layout_below="@+id/weightText"
-        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>
