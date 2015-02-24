@@ -22,6 +22,8 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">T</string>
     <string name="title_activity_calibrations">Calibrations</string>
+    <string name="about_details">Made by NADDATEAM (Benjamin Baird, Robert Little, Erik Hoffman and Andrew Huynh). Uses Arduino hardware technology
+    with gyroscope and accelerometer data. Made during the CIS3760 course at University of Guelph during the Winter 2015 semester.</string>
 
     <string-array name="dummyList">
         <item>Item 1</item>
@@ -32,6 +34,20 @@
         <item>Item 6</item>
     </string-array>
 
+    <!-- List of workouts to Calibrate restoreItemsArr -->
+    <string-array name="calibrationItemsArr">
+        <item>Bicep Curl</item>
+        <item>Chest</item>
+        <item>Squats</item>
+    </string-array>
+
+    <!-- Types of restoring to defaults -->
+    <string-array name="restoreItemsArr">
+        <item>Clear Calibrations</item>
+        <item>Clear User Information</item>
+        <item>Reset Entire App</item>
+    </string-array>
+
     <string name="title_activity_workout1">workout1</string>
     <string name="title_activity_workout0">workout0</string>
     <string name="title_activity_workout2">workout2</string>
@@ -40,6 +56,8 @@
     <string name="title_activity_workout5">workout5</string>
     <string name="title_activity_workout6">workout6</string>
     <string name="title_activity_bicep_curl">Bicep Curls</string>
+    <string name="title_activity_restore_def_nav">RestoreDefNav</string>
+    <string name="title_activity_about">About</string>
 
 
 </resources>

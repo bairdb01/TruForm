@@ -33,46 +33,22 @@ public class SettingsNav extends Fragment {
         ArrayAdapter<String> objAdapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, strListView);
         myListView.setAdapter(objAdapter);
 
-        myListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+        myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-<<<<<<< HEAD
-=======
-                // Just to make something happen (TEST)
-               // Toast.makeText(SettingsNav.this.getActivity(), "hello " + position, Toast.LENGTH_SHORT).show();
->>>>>>> 38581ec15c98091c4e84d10738c4781997928004
-                if (position == 0){
+                if (position == 0) {
                     Intent goCalib = new Intent(SettingsNav.this.getActivity(), CalibrationsNav.class);
                     startActivity(goCalib);
-                }
-<<<<<<< HEAD
-                else if (position == 2){
+                } else if (position == 2) {
                     Intent goRestDef = new Intent(SettingsNav.this.getActivity(), RestoreDefNav.class);
                     startActivity(goRestDef);
-=======
-                else if(position == 4){
+                } else if (position == 4) {
                     Toast.makeText(SettingsNav.this.getActivity(), "About", Toast.LENGTH_SHORT).show();
                     Intent goAbout = new Intent(SettingsNav.this.getActivity(), About.class);
                     startActivity(goAbout);
->>>>>>> 38581ec15c98091c4e84d10738c4781997928004
                 }
             }
-
-
         });
         return rootview;
     }
 }
-
-/*
-previous
-
- public class SettingsNav extends Fragment {
-    View rootview;
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootview = inflater.inflate(R.layout.settings_layout, container, false);
-        return rootview;
-    }
-}*/
