@@ -82,6 +82,10 @@
             android:name=".GUI.GUI.BicepCurl"
             android:label="@string/title_activity_bicep_curl" >
         </activity>
+        <activity
+            android:name=".GUI.GUI.SettingsItems.RestoreDefNav"
+            android:label="@string/title_activity_restore_def_nav" >
+        </activity>
     </application>
 
 </manifest>

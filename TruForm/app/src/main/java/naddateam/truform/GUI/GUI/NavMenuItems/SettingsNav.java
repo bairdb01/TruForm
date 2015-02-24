@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import naddateam.truform.GUI.GUI.SettingsItems.CalibrationsNav;
+import naddateam.truform.GUI.GUI.SettingsItems.RestoreDefNav;
 import naddateam.truform.R;
 
 /**
@@ -35,11 +36,13 @@ public class SettingsNav extends Fragment {
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Just to make something happen (TEST)
-                Toast.makeText(SettingsNav.this.getActivity(), "hello " + position, Toast.LENGTH_SHORT).show();
                 if (position == 0){
                     Intent goCalib = new Intent(SettingsNav.this.getActivity(), CalibrationsNav.class);
                     startActivity(goCalib);
+                }
+                else if (position == 2){
+                    Intent goRestDef = new Intent(SettingsNav.this.getActivity(), RestoreDefNav.class);
+                    startActivity(goRestDef);
                 }
             }
 
