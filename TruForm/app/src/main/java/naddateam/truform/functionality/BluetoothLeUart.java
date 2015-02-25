@@ -319,12 +319,12 @@ public class BluetoothLeUart extends BluetoothGattCallback implements BluetoothA
             // Prevent connections to future found devices.
             connectFirst = false;
             // Connect to device.p
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    gatt = device.connectGatt(context, true, temp);
-                }
-            });
+//            runOnUiThread(new Runnable() {
+//                @Override
+//                public void run() {
+                    gatt = device.connectGatt(context, true, this);
+               // }
+            //});
         }
     }
 

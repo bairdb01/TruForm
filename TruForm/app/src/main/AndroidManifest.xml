@@ -92,10 +92,10 @@
         <activity
             android:name=".GUI.GUI.GenericExercise"
             android:label="@string/title_activity_bicep_curl"
-            android:parentActivityName=".GUI.GUI.workouts.Workout0" >
+            android:parentActivityName=".GUI.GUI.workouts.Workout0" > <!-- Adds back button -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".GUI.GUI.workouts.Workout0" />
+                android:value=".GUI.GUI.workouts.Workout0" />   <!-- Also needed for  -->
         </activity>
         <activity
             android:name=".GUI.GUI.SettingsItems.RestoreDefNav"
