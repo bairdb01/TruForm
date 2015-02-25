@@ -110,24 +110,16 @@
             android:label="@string/title_activity_settings_help_nav" >
         </activity>
         <activity
-            android:name=".GUI.GUI.SettingsItems.HelpTutorials.BicepCurlTut"
-            android:label="@string/title_activity_bicep_curl_tut" >
-        </activity>
-        <activity
-            android:name=".GUI.GUI.SettingsItems.HelpTutorials.ChestTut"
-            android:label="@string/title_activity_chest_tut" >
-        </activity>
-        <activity
-            android:name=".GUI.GUI.SettingsItems.HelpTutorials.SquatsTut"
-            android:label="@string/title_activity_squats_tut" >
-        </activity>
-        <activity
-            android:name=".GUI.GUI.SettingsItems.HelpTutorials.MakeWorkoutTut"
-            android:label="@string/title_activity_make_workout_tut" >
-        </activity>
-        <activity
             android:name=".GUI.GUI.SettingsItems.GeneralNav"
-            android:label="@string/title_activity_audio_settings" >
+            android:label="@string/title_activity_audio_nav" >
+        </activity>
+        <activity
+            android:name=".GUI.GUI.UserItems.UserDetailsNav"
+            android:label="@string/title_activity_user_details_nav" >
+        </activity>
+        <activity
+            android:name=".BlueTest"
+            android:label="@string/title_activity_activity_blue_test" >
         </activity>
         <activity
             android:name=".GUI.GUI.BlueTest"

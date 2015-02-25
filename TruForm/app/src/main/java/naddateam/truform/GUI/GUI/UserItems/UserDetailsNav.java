@@ -1,26 +1,40 @@
-package naddateam.truform.GUI.GUI.SettingsItems;
+package naddateam.truform.GUI.GUI.UserItems;
 
-import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import naddateam.truform.R;
 
-public class AboutNav extends ActionBarActivity {
+public class UserDetailsNav extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+        EditText userWeight;
+        EditText userName;
+        EditText userAge;
+        EditText userHeight;
+        TextView BMI = null;
+        //getActionBar().setDisplayHomeAsUpEnabled(true);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.about_layout);
+        setContentView(R.layout.userdetails_layout);
+
+        userWeight = (EditText) findViewById(R.id.userDetailWeightEdit);
+        userName = (EditText) findViewById(R.id.userDetailNameEdit);
+        userAge = (EditText) findViewById(R.id.userDetailAgeEdit);
+        userHeight = (EditText) findViewById(R.id.userDetailHeightEdit);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_about, menu);
+        getMenuInflater().inflate(R.menu.menu_userdetails, menu);
         return true;
     }
 
@@ -38,5 +52,4 @@ public class AboutNav extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 }
