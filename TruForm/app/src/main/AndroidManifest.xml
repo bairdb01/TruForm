@@ -129,6 +129,10 @@
             android:name=".GUI.GUI.SettingsItems.GeneralNav"
             android:label="@string/title_activity_audio_settings" >
         </activity>
+        <activity
+            android:name=".GUI.GUI.BlueTest"
+            android:label="@string/title_activity_blue_test" >
+        </activity>
     </application>
 
 </manifest>

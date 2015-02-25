@@ -11,10 +11,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import naddateam.truform.GUI.GUI.BlueTest;
 import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.BicepCurlTut;
 import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.ChestTut;
 import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.SquatsTut;
 import naddateam.truform.R;
+import naddateam.truform.functionality.Bluetooth;
 
 public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClickListener{
 
@@ -34,8 +36,9 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
  * Third Position = Workout Maker Tutorial
  */
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         if (position == 0) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
             builder.setTitle("Select an Exercise")
                     .setItems(R.array.calibrationItemsArr, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
@@ -60,6 +63,10 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
         }
         else if (position == 2) {
 
+        }
+        else if (position == 3) {
+            Intent goBlue = new Intent(HelpNav.this, Bluetooth.class);
+            startActivity(goBlue);
         }
     }
 

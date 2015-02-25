@@ -137,15 +137,15 @@ void loop()
       int angleP = 0;
       float totalClicksR = 0;
       int angleR = 0;
-      float time = .5;
+      float time = .2;
       
       int xRe = 0;
       int yRe = 0;
       int zRe = 0;
       
-      int loopVal = 20;
+      int loopVal = 1;
       //String s = "";
-      int res[20][6];
+      int res[1][6];
        
       time = time * 1000;
       for(int i = 0; i < loopVal; i++)
@@ -234,14 +234,19 @@ void loop()
       {
         BTLEserial.pollACI();
         
-        String s = (String)res[cnt][3] + "," + (String)res[cnt][4] + "," + (String)res[cnt][5] + "," + (String)res[cnt][0] + "," + (String)res[cnt][1] + "," + (String)res[cnt][2];
+        String acel = "Ac: " + (String)res[cnt][3] + "," + (String)res[cnt][4] + "," + (String)res[cnt][5];
+        String gyro = "Gy: " + (String)res[cnt][0] + "," + (String)res[cnt][1] + "," + (String)res[cnt][2];
         uint8_t sendbuffer[20];
-        s.getBytes(sendbuffer, 20);
-        char sendbuffersize = min(20, s.length());
+        acel.getBytes(sendbuffer, 20);
+        char sendbuffersize = min(20, acel.length());
     
         //Serial.print(F("\n* Sending -> \"")); Serial.print((char *)sendbuffer); Serial.println("\"");
     
         // write the data
+        BTLEserial.write(sendbuffer, sendbuffersize);
+
+        gyro.getBytes(sendbuffer, 20);
+        sendbuffersize = min(20, gyro.length());
         BTLEserial.write(sendbuffer, sendbuffersize);
         //subStart = subStart + 19;
         //subEnd = subEnd + 19;
