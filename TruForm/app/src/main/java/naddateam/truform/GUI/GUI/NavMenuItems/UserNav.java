@@ -39,10 +39,12 @@ public class UserNav extends Fragment {
                     startActivity(goUserDetail);
                 }
                 else if (position == 1) {
-
+                    Intent trackedStats = new Intent(UserNav.this.getActivity(), UserDetailsNav.class);
+                    startActivity(trackedStats);
                 }
                 else if (position == 2) {
-
+                    Intent custWorkouts = new Intent(UserNav.this.getActivity(), UserDetailsNav.class);
+                    startActivity(custWorkouts);
                 }
             }
         });
