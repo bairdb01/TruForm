@@ -67,6 +67,7 @@
         <item>Exercise Form</item>
         <item>Workout Creation</item>
         <item>Calibrations</item>
+        <item>BlueTooth</item>
     </string-array>
 
     <!-- Types of restoring to defaults -->
@@ -109,5 +110,7 @@
     <string name="title_activity_squats_tut">Squats</string>
     <string name="title_activity_make_workout_tut">Create Work Tutorial</string>
     <string name="title_activity_user_details_nav">User Details</string>
+    <string name="title_activity_activity_blue_test">activity_blue_test</string>
+    <string name="title_activity_blue_test">BlueTest</string>
 
 </resources>

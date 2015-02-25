@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="naddateam.truform" >
 
-     <uses-sdk android:minSdkVersion="11"  android:targetSdkVersion="21" />
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="21" />
+
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.SET_DEBUG_APP" />
@@ -11,6 +14,14 @@
         android:name="android.permission.BLUETOOTH"
         android:label="BLUETOOTH" />
     <permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <android:uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
 
     <application
         android:allowBackup="true"
@@ -58,68 +69,62 @@
             android:name=".GUI.GUI.workouts.Workout0"
             android:label="@string/title_activity_workout0" >
         </activity>
-
         <activity
             android:name=".GUI.GUI.workouts.Workout2"
             android:label="@string/title_activity_workout2" >
         </activity>
-
         <activity
             android:name=".GUI.GUI.workouts.Workout3"
             android:label="@string/title_activity_workout3" >
         </activity>
-
         <activity
             android:name=".GUI.GUI.workouts.Workout4"
             android:label="@string/title_activity_workout4" >
         </activity>
-
         <activity
             android:name=".GUI.GUI.workouts.Workout5"
             android:label="@string/title_activity_workout5" >
         </activity>
-
         <activity
             android:name=".GUI.GUI.workouts.Workout6"
             android:label="@string/title_activity_workout6" >
         </activity>
-
         <activity
             android:name=".GUI.GUI.GenericExercise"
             android:label="@string/title_activity_bicep_curl"
-            android:parentActivityName=".GUI.GUI.workouts.Workout0"            >
+            android:parentActivityName=".GUI.GUI.workouts.Workout0" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".GUI.GUI.workouts.Workout0" />
-
         </activity>
-
         <activity
             android:name=".GUI.GUI.SettingsItems.RestoreDefNav"
-            android:label="@string/title_activity_restore_def_nav"
-            >
+            android:label="@string/title_activity_restore_def_nav" >
         </activity>
-
         <activity
             android:name=".GUI.GUI.SettingsItems.AboutNav"
             android:label="@string/title_activity_about" >
         </activity>
-
         <activity
             android:name=".GUI.GUI.SettingsItems.HelpNav"
             android:label="@string/title_activity_settings_help_nav" >
-         </activity>
-
+        </activity>
         <activity
             android:name=".GUI.GUI.SettingsItems.GeneralNav"
             android:label="@string/title_activity_audio_nav" >
         </activity>
-
         <activity
             android:name=".GUI.GUI.UserItems.UserDetailsNav"
             android:label="@string/title_activity_user_details_nav" >
         </activity>
-
+        <activity
+            android:name=".BlueTest"
+            android:label="@string/title_activity_activity_blue_test" >
+        </activity>
+        <activity
+            android:name=".GUI.GUI.BlueTest"
+            android:label="@string/title_activity_blue_test" >
+        </activity>
     </application>
 
 </manifest>
