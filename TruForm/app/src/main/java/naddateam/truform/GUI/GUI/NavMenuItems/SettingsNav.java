@@ -56,6 +56,7 @@ public class SettingsNav extends Fragment {
                 }
                 else if (position == 4) {
                     Intent goAbout = new Intent(SettingsNav.this.getActivity(), AboutNav.class);
+                    goAbout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(goAbout);
                 }
             }

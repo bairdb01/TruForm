@@ -104,6 +104,22 @@
             android:name=".GUI.GUI.SettingsItems.AboutNav"
             android:label="@string/title_activity_about" >
         </activity>
+
+        <activity
+            android:name=".GUI.GUI.SettingsItems.HelpNav"
+            android:label="@string/title_activity_settings_help_nav" >
+         </activity>
+
+        <activity
+            android:name=".GUI.GUI.SettingsItems.GeneralNav"
+            android:label="@string/title_activity_audio_nav" >
+        </activity>
+
+        <activity
+            android:name=".GUI.GUI.UserItems.UserDetailsNav"
+            android:label="@string/title_activity_user_details_nav" >
+        </activity>
+
     </application>
 
 </manifest>

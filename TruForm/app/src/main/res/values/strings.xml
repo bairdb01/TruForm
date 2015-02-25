@@ -17,6 +17,8 @@
     <string name="calibrationsString">Calibrations</string>
     <string name="scheduleString">Schedules</string>
     <string name="socialNetString">Social Networks</string>
+    <string name="social_twitterString">Twitter</string>
+    <string name="social_facebookString">Facebook</string>
     <string name="settingString">Settings</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
