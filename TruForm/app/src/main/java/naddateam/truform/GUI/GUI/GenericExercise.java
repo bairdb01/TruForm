@@ -38,8 +38,8 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
            exerciseName = variables.getString("exName");
         }
 
-        // Setting the layout with proper data
 
+        // Creates an exercise object to change the title, track sets and reps, etc
         Exercises exCreator = new Exercises();
         curExercise = exCreator.createExercise(exerciseName,targetReps,targetSets);
         setTitle(exerciseName);
