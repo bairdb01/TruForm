@@ -129,6 +129,10 @@
             android:name=".GUI.GUI.SettingsItems.GeneralNav"
             android:label="@string/title_activity_audio_settings" >
         </activity>
+        <activity
+            android:name=".GUI.GUI.UserItems.UserDetailsNav"
+            android:label="@string/title_activity_user_details_nav" >
+        </activity>
     </application>
 
 </manifest>

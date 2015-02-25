@@ -74,6 +74,22 @@
         <item>Reset Entire App</item>
     </string-array>
 
+    <!-- List of User navigation items -->
+    <string-array name="userListItems">
+        <item>User Details</item>
+        <item>Tracked Statistics</item>
+        <item>Custom Workouts</item>
+    </string-array>
+
+    <!-- List of User Detail items -->
+    <string-array name="userDetailsListItems">
+        <item>Name</item>
+        <item>Age</item>
+        <item>Height (cm)</item>
+        <item>Weight (kg)</item>
+        <item>BMI</item>
+    </string-array>
+
     <string name="title_activity_workout1">workout1</string>
     <string name="title_activity_workout0">workout0</string>
     <string name="title_activity_workout2">workout2</string>
@@ -90,5 +106,6 @@
     <string name="title_activity_chest_tut">Chests</string>
     <string name="title_activity_squats_tut">Squats</string>
     <string name="title_activity_make_workout_tut">Create Work Tutorial</string>
+    <string name="title_activity_user_details_nav">User Details</string>
 
 </resources>
