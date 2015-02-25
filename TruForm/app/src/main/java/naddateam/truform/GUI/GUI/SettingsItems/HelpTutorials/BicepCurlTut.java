@@ -1,41 +1,25 @@
-package naddateam.truform.GUI.GUI.SettingsItems;
+package naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import naddateam.truform.R;
 
-public class AudioNav extends ActionBarActivity implements AdapterView.OnItemClickListener{
+public class BicepCurlTut extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.audionav_layout);
-        ListView lv = (ListView)findViewById(R.id.audioListView);
-        lv.setOnItemClickListener(this);
-    }
-
-    @Override
-/**
- * Opens the exercise screen
- */
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        if (position == 0) {
-            Toast.makeText(getApplicationContext(), "Position 0", Toast.LENGTH_SHORT).show();
-        }
+        setContentView(R.layout.tut_bicepcurl_layout);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_audionav, menu);
+        getMenuInflater().inflate(R.menu.menu_bicepcurl_tut, menu);
         return true;
     }
 

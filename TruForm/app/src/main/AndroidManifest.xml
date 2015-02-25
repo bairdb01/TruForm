@@ -92,16 +92,14 @@
         <activity
             android:name=".GUI.GUI.BicepCurl"
             android:label="@string/title_activity_bicep_curl"
-            android:parentActivityName=".GUI.GUI.workouts.Workout0"            >
+            android:parentActivityName=".GUI.GUI.workouts.Workout0" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".GUI.GUI.workouts.Workout0" />
-
         </activity>
         <activity
             android:name=".GUI.GUI.SettingsItems.RestoreDefNav"
-            android:label="@string/title_activity_restore_def_nav"
-            >
+            android:label="@string/title_activity_restore_def_nav" >
         </activity>
         <activity
             android:name=".GUI.GUI.SettingsItems.AboutNav"
@@ -112,20 +110,24 @@
             android:label="@string/title_activity_settings_help_nav" >
         </activity>
         <activity
-            android:name=".GUI.GUI.SettingsItems.AudioNav"
-            android:label="@string/title_activity_audio_nav" >
-        </activity>
-        <activity
-            android:name=".GUI.GUI.SettingsItems.WorkoutTuts.BicepCurlTut"
+            android:name=".GUI.GUI.SettingsItems.HelpTutorials.BicepCurlTut"
             android:label="@string/title_activity_bicep_curl_tut" >
         </activity>
         <activity
-            android:name=".GUI.GUI.SettingsItems.WorkoutTuts.ChestTut"
+            android:name=".GUI.GUI.SettingsItems.HelpTutorials.ChestTut"
             android:label="@string/title_activity_chest_tut" >
         </activity>
         <activity
-            android:name=".GUI.GUI.SettingsItems.WorkoutTuts.SquatsTut"
+            android:name=".GUI.GUI.SettingsItems.HelpTutorials.SquatsTut"
             android:label="@string/title_activity_squats_tut" >
+        </activity>
+        <activity
+            android:name=".GUI.GUI.SettingsItems.HelpTutorials.MakeWorkoutTut"
+            android:label="@string/title_activity_make_workout_tut" >
+        </activity>
+        <activity
+            android:name=".GUI.GUI.SettingsItems.GeneralNav"
+            android:label="@string/title_activity_audio_settings" >
         </activity>
     </application>
 

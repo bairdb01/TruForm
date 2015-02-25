@@ -28,7 +28,7 @@
     <!-- List of setting items displayed when selecting "Settings" in the Navigation Drawer -->
     <string-array name="settingsListItems">
         <item>Calibrations</item>
-        <item>Sounds</item>
+        <item>General</item>
         <item>Reset to Defaults</item>
         <item>Help</item>
         <item>About</item>
@@ -62,9 +62,9 @@
     Form = Bunch of workout info talking what they work and how to do it
     -->
     <string-array name="helpListItems">
-        <item>Calibrations</item>
-        <item>Workout Creation</item>
         <item>Exercise Form</item>
+        <item>Workout Creation</item>
+        <item>Calibrations</item>
     </string-array>
 
     <!-- Types of restoring to defaults -->
@@ -89,5 +89,6 @@
     <string name="title_activity_bicep_curl_tut">Bicep Curls</string>
     <string name="title_activity_chest_tut">Chests</string>
     <string name="title_activity_squats_tut">Squats</string>
+    <string name="title_activity_make_workout_tut">Create Work Tutorial</string>
 
 </resources>

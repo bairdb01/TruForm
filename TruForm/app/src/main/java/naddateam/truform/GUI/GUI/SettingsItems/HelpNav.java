@@ -1,5 +1,8 @@
 package naddateam.truform.GUI.GUI.SettingsItems;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -7,8 +10,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
+import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.BicepCurlTut;
+import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.ChestTut;
+import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.SquatsTut;
 import naddateam.truform.R;
 
 public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClickListener{
@@ -24,10 +29,37 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
     @Override
 /**
  * Opens the exercise screen
+ * First Position = Exercise Form Tutorial
+ * Second Position = Calibration Tutorial
+ * Third Position = Workout Maker Tutorial
  */
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         if (position == 0) {
-            Toast.makeText(getApplicationContext(), "Position 0", Toast.LENGTH_SHORT).show();
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Select an Exercise")
+                    .setItems(R.array.calibrationItemsArr, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            if (which == 0) {
+                                Intent goBicepCurlTut = new Intent(HelpNav.this, BicepCurlTut.class);
+                                startActivity(goBicepCurlTut);
+                            }
+                            else if (which == 1) {
+                                Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
+                                startActivity(goChestTut);
+                            }
+                            else if (which == 2) {
+                                Intent goSquatTut = new Intent(HelpNav.this, SquatsTut.class);
+                                startActivity(goSquatTut);
+                            }
+                        }
+                    });
+            builder.create().show();
+        }
+        else if (position == 1) {
+
+        }
+        else if (position == 2) {
+
         }
     }
 

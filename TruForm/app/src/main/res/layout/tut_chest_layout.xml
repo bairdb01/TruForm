@@ -4,14 +4,17 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="naddateam.truform.GUI.GUI.SettingsItems.AudioNav">
+    tools:context="naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.ChestTut">
 
-    <ListView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/audioListView"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="SOME MEN JUST WANT TO WATCH THE WORLD BURN"
+        android:id="@+id/textView2"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:entries="@array/audioListItems"/>
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

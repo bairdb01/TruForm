@@ -12,7 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import naddateam.truform.GUI.GUI.SettingsItems.AboutNav;
-import naddateam.truform.GUI.GUI.SettingsItems.AudioNav;
+import naddateam.truform.GUI.GUI.SettingsItems.GeneralNav;
 import naddateam.truform.GUI.GUI.SettingsItems.CalibrationsNav;
 import naddateam.truform.GUI.GUI.SettingsItems.HelpNav;
 import naddateam.truform.GUI.GUI.SettingsItems.RestoreDefNav;
@@ -43,7 +43,7 @@ public class SettingsNav extends Fragment {
                     startActivity(goCalib);
                 }
                 else if (position == 1) {
-                    Intent goAudio = new Intent(SettingsNav.this.getActivity(), AudioNav.class);
+                    Intent goAudio = new Intent(SettingsNav.this.getActivity(), GeneralNav.class);
                     startActivity(goAudio);
                 }
                 else if (position == 2) {

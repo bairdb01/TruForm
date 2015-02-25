@@ -1,4 +1,4 @@
-package naddateam.truform.GUI.GUI.SettingsItems.WorkoutTuts;
+package naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -7,19 +7,19 @@ import android.view.MenuItem;
 
 import naddateam.truform.R;
 
-public class ChestTut extends ActionBarActivity {
+public class SquatsTut extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.chest_tut_layout);
+        setContentView(R.layout.tut_squats_layout);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_chesttut, menu);
+        getMenuInflater().inflate(R.menu.menu_squatstut, menu);
         return true;
     }
 
