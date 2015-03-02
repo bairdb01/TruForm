@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    -<LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/linearLayout2">
+
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/btn_select"
+        android:text="Connect"
+        android:padding="12dp"/>
+
+</LinearLayout>
+
+
+    -<LinearLayout
+        android:orientation="vertical"
+        android:layout_height="160dp"
+        android:layout_width="match_parent"
+        android:id="@+id/linearLayout3"
+        android:layout_weight="0.31">
+
+
+    -<RelativeLayout
+        android:orientation="vertical"
+        android:layout_height="292dp"
+        android:layout_width="match_parent"
+        android:id="@+id/RelativeLayout1"
+        android:layout_weight="4.11">
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="102dp"
+        android:id="@+id/sendText"
+        android:shadowRadius="1"
+        android:maxLines="1"
+        android:maxLength="20"
+        android:lines="1"
+        android:fontFamily="1"
+        android:enabled="false"
+        android:ems="10"
+        android:layout_toLeftOf="@+id/sendButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"/>
+
+    <ListView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/listMessage"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/sendButton">
+    </ListView>
+
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/sendButton"
+        android:text="Send"
+        android:enabled="false"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>
+
+</LinearLayout>
+
+
+    -<RelativeLayout
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/RelativeLayout1"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/deviceLabel"
+        android:text="@string/device"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/deviceName"
+        android:text="@string/no_device"
+        android:layout_alignParentTop="true"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_toRightOf="@+id/deviceLabel"
+        android:layout_marginLeft="18dp"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/rssival"
+        android:text="_"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+</RelativeLayout>
+
+</LinearLayout>
