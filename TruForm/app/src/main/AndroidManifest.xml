@@ -15,21 +15,28 @@
         android:label="BLUETOOTH" />
     <permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
-    <!--<android:uses-permission-->
-        <!--android:name="android.permission.WRITE_EXTERNAL_STORAGE"-->
-        <!--android:maxSdkVersion="18" />-->
-    <!--<android:uses-permission-->
-        <!--android:name="android.permission.READ_PHONE_STATE" />-->
-    <!--<android:uses-permission-->
-        <!--android:name="android.permission.READ_EXTERNAL_STORAGE"-->
-        <!--android:maxSdkVersion="18" />-->
+    <!-- <android:uses-permission -->
+    <!-- android:name="android.permission.WRITE_EXTERNAL_STORAGE" -->
+    <!-- android:maxSdkVersion="18" /> -->
+    <!-- <android:uses-permission -->
+    <!-- android:name="android.permission.READ_PHONE_STATE" /> -->
+    <!-- <android:uses-permission -->
+    <!-- android:name="android.permission.READ_EXTERNAL_STORAGE" -->
+    <!-- android:maxSdkVersion="18" /> -->
 
     <permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="18" />
+    <permission android:name="android.permission.READ_PHONE_STATE" />
     <permission
-        android:name="android.permission.READ_PHONE_STATE" />
-    <permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+
+    <android:uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="18" />
 
@@ -101,7 +108,7 @@
             android:parentActivityName=".GUI.GUI.workouts.Workout0" > <!-- Adds back button -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".GUI.GUI.workouts.Workout0" />   <!-- Also needed for  -->
+                android:value=".GUI.GUI.workouts.Workout0" /> <!-- Also needed for -->
         </activity>
         <activity
             android:name=".GUI.GUI.SettingsItems.RestoreDefNav"
@@ -127,7 +134,6 @@
             android:name=".GUI.GUI.BlueTest"
             android:label="@string/title_activity_blue_test" >
         </activity>
-
         <activity
             android:name=".GUI.GUI.DeviceListActivity"
             android:label="@string/title_activity_device_list" >
@@ -140,23 +146,38 @@
             android:name=".GUI.GUI.Bluetooth"
             android:label="@string/title_activity_bluetooth" >
         </activity>
-
-        <activity android:name=".GUI.GUI.SettingsItems.HelpTutorials.BicepCurlTut"
+        <activity
+            android:name=".GUI.GUI.SettingsItems.HelpTutorials.BicepCurlTut"
             android:label="@string/title_activity_bicep_curl_tut" >
         </activity>
-
-        <activity android:name=".GUI.GUI.SettingsItems.HelpTutorials.ChestTut"
+        <activity
+            android:name=".GUI.GUI.SettingsItems.HelpTutorials.ChestTut"
             android:label="@string/title_activity_chest_tut" >
         </activity>
-
-        <activity android:name=".GUI.GUI.SettingsItems.HelpTutorials.SquatsTut"
+        <activity
+            android:name=".GUI.GUI.SettingsItems.HelpTutorials.SquatsTut"
             android:label="@string/title_activity_squats_tut" >
         </activity>
-        <activity android:name=".GUI.GUI.SettingsItems.HelpTutorials.MakeWorkoutTut"
+        <activity
+            android:name=".GUI.GUI.SettingsItems.HelpTutorials.MakeWorkoutTut"
             android:label="@string/title_activity_make_workout_tut" >
         </activity>
-
-
+        <activity
+            android:name=".GUI.GUI.SettingsItems.HelpTutorials.HowCalibTut"
+            android:label="@string/title_activity_how_calib_tut" >
+        </activity>
+        <activity
+            android:name=".GUI.GUI.UserItems.TrackStatsNav"
+            android:label="@string/title_activity_track_stats_nav" >
+        </activity>
+        <activity
+            android:name=".GUI.GUI.UserItems.CustomWorkNav"
+            android:label="@string/title_activity_custom_work_nav" >
+        </activity>
+        <activity
+            android:name=".GUI.GUI.SettingsItems.CalibrationPkg.CalibrationAction"
+            android:label="@string/title_activity_calibration_action" >
+        </activity>
     </application>
 
 </manifest>

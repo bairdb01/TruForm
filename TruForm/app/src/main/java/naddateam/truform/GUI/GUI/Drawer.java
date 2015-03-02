@@ -97,7 +97,7 @@ public class Drawer extends ActionBarActivity
                 mTitle = getString(R.string.calibrationsString);
                 break;
             case 5:
-                mTitle = getString(R.string.scheduleString);
+                mTitle = getString(R.string.customWorkoutString);
                 break;
             case 6:
                 mTitle = getString(R.string.settingString);

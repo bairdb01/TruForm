@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import naddateam.truform.GUI.GUI.SettingsItems.CalibrationPkg.CalibrationAction;
 import naddateam.truform.R;
 
 public class CalibrationsNav extends ActionBarActivity implements AdapterView.OnItemClickListener{
@@ -27,13 +29,16 @@ protected void onCreate(Bundle savedInstanceState) {
  */
 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         if (position == 0) {
-            Toast.makeText(getApplicationContext(), "Bicep Curl Selected", Toast.LENGTH_LONG).show();
+            Intent goGenericCalib = new Intent(CalibrationsNav.this, CalibrationAction.class);
+            startActivity(goGenericCalib);
         }
         else if (position == 1) {
-            Toast.makeText(getApplicationContext(), "Chest Selected", Toast.LENGTH_LONG).show();
+            Intent goGenericCalib = new Intent(CalibrationsNav.this, CalibrationAction.class);
+            startActivity(goGenericCalib);
         }
         else if (position == 2) {
-            Toast.makeText(getApplicationContext(), "Bicep Curl Selected", Toast.LENGTH_LONG).show();
+            Intent goGenericCalib = new Intent(CalibrationsNav.this, CalibrationAction.class);
+            startActivity(goGenericCalib);
         }
     }
 

@@ -107,7 +107,7 @@ public class NavigationDrawerFragment extends Fragment {
                         getString(R.string.homeString),
                         getString(R.string.userString),
                         getString(R.string.workoutString),
-                        getString(R.string.scheduleString),
+                        getString(R.string.customWorkoutString),
                         getString(R.string.socialNetString),
                         getString(R.string.settingString),
                 }));
