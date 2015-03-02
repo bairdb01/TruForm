@@ -21,6 +21,13 @@ import naddateam.truform.GUI.GUI.NavMenuItems.WelcomeNav;
 import naddateam.truform.GUI.GUI.NavMenuItems.WorkoutNav;
 import naddateam.truform.R;
 
+/**
+ * CIS3760
+ * Naddateam Truform
+ * WelcomeNav.java
+ * Author: Andrew Huynh
+ * Controls the Drawer and what is seen by it
+ */
 
 public class Drawer extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {

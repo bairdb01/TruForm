@@ -1,5 +1,11 @@
 package naddateam.truform.GUI.GUI;
-
+/**
+ * CIS3760
+ * Naddateam Truform
+ * WelcomeNav.java
+ * Author: Andrew Huynh
+ * Controls what the drawer does when an element is selected from it
+ */
 import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
 import android.support.v7.app.ActionBar;
