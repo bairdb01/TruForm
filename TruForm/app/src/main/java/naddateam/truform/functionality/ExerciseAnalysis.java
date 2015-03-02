@@ -1,5 +1,7 @@
 package naddateam.truform.functionality;
 
+import java.util.ArrayList;
+
 /**
  * CIS3760
  * Naddateam Truform
@@ -14,6 +16,8 @@ public class ExerciseAnalysis {
     private double goodForm;
     private int numReps;
     private int numSets;
+
+    ArrayList<InstanceData> dataPoints = new ArrayList<InstanceData>();
 
     /**
      * Begins tracking of users' motions
@@ -52,4 +56,13 @@ public class ExerciseAnalysis {
     public void caloriesBurned() {
 
     }
+
+    public int getNumReps() {
+        return 0;
+    }
+
+    public int getNumSets() {
+        return 0;
+    }
+
 }

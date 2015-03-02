@@ -23,6 +23,7 @@ import naddateam.truform.R;
 
 public class SocialNav extends Fragment implements View.OnClickListener {
     View rootview;
+    /*Two buttons which lead to associated social network pages, implementation coming later*/
     ImageButton facebookButton;
     ImageButton twitterButton;
 
