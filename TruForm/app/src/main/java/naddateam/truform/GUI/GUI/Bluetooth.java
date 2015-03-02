@@ -82,6 +82,9 @@ public class Bluetooth extends Activity implements RadioGroup.OnCheckedChangeLis
     private Button btnConnectDisconnect,btnSend;
     private EditText edtMessage;
     @Override
+
+
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
@@ -290,7 +293,7 @@ public class Bluetooth extends Activity implements RadioGroup.OnCheckedChangeLis
             Log.e(TAG, ignore.toString());
         }
         unbindService(mServiceConnection);
-        mService.stopSelf();
+        //mService.stopSelf();
         mService= null;
 
     }
@@ -378,7 +381,7 @@ public class Bluetooth extends Activity implements RadioGroup.OnCheckedChangeLis
 
     }
 
-    @Override
+    /*@Override
     public void onBackPressed() {
         if (mState == UART_PROFILE_CONNECTED) {
             Intent startMain = new Intent(Intent.ACTION_MAIN);
@@ -402,5 +405,5 @@ public class Bluetooth extends Activity implements RadioGroup.OnCheckedChangeLis
                     .setNegativeButton("NO", null)
                     .show();
         }
-    }
+    }*/
 }
