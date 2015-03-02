@@ -22,7 +22,7 @@ public class Calibration {
     /**
      * Constructor
      */
-    public void Calibration() {
+    public void CalibrationSet() {
         accelZ = 0;
         accelY = 0;
         accelX = 0;
@@ -78,6 +78,6 @@ public class Calibration {
     }
 
     public void clearCalibrations() {
-        this.Calibration();
+        this.CalibrationSet();
     }
 }
