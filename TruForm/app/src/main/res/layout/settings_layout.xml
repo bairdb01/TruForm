@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--CIS3760-->
+<!--Naddateam Truform-->
+<!--settings_layout.xml-->
+<!--Author: Andrew Huynh-->
+<!--Description: Layout for the Settings Layout when selecting Settings in the Drawer-->
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"

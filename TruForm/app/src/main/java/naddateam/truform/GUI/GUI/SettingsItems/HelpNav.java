@@ -24,7 +24,12 @@ import naddateam.truform.R;
  * Naddateam Truform
  * HelpNav.java
  * Author: Andrew Huynh
- * This class is the Help navigation
+ * This class is the Help page found under Navigation Drawer > Settings Help
+ * It will consist a list of things the users can find information about.
+ * Tutorials of how to do certain exercises
+ * Tutorial how to create custome work outs
+ * Tutorial how to calibrate
+ * Bluetooth settings (temporary)
  */
 
 public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClickListener{

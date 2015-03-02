@@ -1,3 +1,9 @@
+<!--CIS3760-->
+<!--Naddateam Truform-->
+<!--fragment_drawer.xml-->
+<!--Author: Andrew Huynh-->
+<!--Description: The Fragment Drawer premade by the Android studio 1.0.1-->
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
