@@ -38,7 +38,7 @@ public class Workout0 extends ActionBarActivity implements AdapterView.OnItemCli
             workoutName = variables.getString("workoutName");
         }
         setTitle(workoutName);
-        String[] workout = getResources().getStringArray(R.array.Legs);
+        String[] workout = {""};
 
         if (workoutName.equals("Legs")) {
             workout = getResources().getStringArray(R.array.Legs);
