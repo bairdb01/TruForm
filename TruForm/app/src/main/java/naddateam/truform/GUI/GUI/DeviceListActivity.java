@@ -1,3 +1,11 @@
+/**
+ * CIS3760
+ * Naddateam Truform
+ * DeviceListActivity.java
+ * Source: https://developer.mbed.org/forum/wiki-16691-forum/topic/5134/
+ * Last Modified by: Rob Little
+ * This File is used to gather the BlueTooth Devices and display them in the UI
+ */
 package naddateam.truform.GUI.GUI;
 
 /*
@@ -15,7 +23,6 @@ package naddateam.truform.GUI.GUI;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 
         import java.util.ArrayList;
         import java.util.HashMap;

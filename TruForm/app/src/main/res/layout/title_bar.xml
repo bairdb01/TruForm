@@ -1,7 +1,19 @@
 <?xml version="1.0"?>
 
+<!--CIS3760-->
+<!--Naddateam Truform-->
+<!--title_bar.xml-->
+<!--Source: https://developer.mbed.org/forum/wiki-16691-forum/topic/5134/-->
+<!--Last Modified by: Rob Little-->
+<!--This File is used to display the title bar inside of the Bluetooth UI-->
+
 <LinearLayout android:orientation="vertical" android:layout_height="fill_parent" android:layout_width="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView android:layout_height="fill_parent" android:layout_width="fill_parent" android:text="@string/app_name" android:id="@+id/title_devices"> </TextView>
+    <TextView
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:text="@string/app_name"
+        android:id="@+id/title_devices">
+    </TextView>
 
 </LinearLayout>

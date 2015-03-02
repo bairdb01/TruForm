@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!--CIS3760-->
+<!--Naddateam Truform-->
+<!--main.xml-->
+<!--Source: https://developer.mbed.org/forum/wiki-16691-forum/topic/5134/-->
+<!--Last Modified by: Rob Little-->
+<!--This File is the main UI that is displayed to the user when sending and receiving data from the connected device-->
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_height="fill_parent"

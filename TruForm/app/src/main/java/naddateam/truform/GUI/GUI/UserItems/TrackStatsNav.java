@@ -6,7 +6,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import naddateam.truform.R;
-
+/**
+ * CIS3760
+ * Naddateam Truform
+ * TrackStatsNav.java
+ * Author: Andrew Huynh
+ * This class will be the Past Statistics found in Navigation Drawer > User > Tracked Statistics
+ * This page consists of all past tracked user data users have performed. That will be able
+ * Total sets, total reps, percentage of form and able to compare.
+ */
 public class TrackStatsNav extends ActionBarActivity {
 
     @Override

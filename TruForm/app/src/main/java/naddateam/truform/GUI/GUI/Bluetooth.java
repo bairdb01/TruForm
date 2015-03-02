@@ -1,7 +1,16 @@
+/**
+ * CIS3760
+ * Naddateam Truform
+ * Bluetooth.java
+ * Source: https://developer.mbed.org/forum/wiki-16691-forum/topic/5134/
+ * Last Modified by: Rob Little
+ * This File is used to connect to the bluetooth device and send/receive information for the device
+ */
 package naddateam.truform.GUI.GUI;
 
 
 import naddateam.truform.R;
+import naddateam.truform.functionality.InstanceData;
 
 
 /*
@@ -20,11 +29,9 @@ import naddateam.truform.R;
  * limitations under the License.
  */
 
-
 import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.util.Date;
-
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -54,7 +61,6 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 public class Bluetooth extends Activity implements RadioGroup.OnCheckedChangeListener {
     private static final int REQUEST_SELECT_DEVICE = 1;
     private static final int REQUEST_ENABLE_BT = 2;
@@ -75,6 +81,9 @@ public class Bluetooth extends Activity implements RadioGroup.OnCheckedChangeLis
     private Button btnConnectDisconnect,btnSend;
     private EditText edtMessage;
     @Override
+
+
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
@@ -232,6 +241,8 @@ public class Bluetooth extends Activity implements RadioGroup.OnCheckedChangeLis
                     public void run() {
                         try {
                             String text = new String(txValue, "UTF-8");
+                            InstanceData inData = new InstanceData();
+                            inData.setInstanceData(text);
                             String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
                             listAdapter.add("["+currentDateTimeString+"] RX: "+text);
                             messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
@@ -283,7 +294,7 @@ public class Bluetooth extends Activity implements RadioGroup.OnCheckedChangeLis
             Log.e(TAG, ignore.toString());
         }
         unbindService(mServiceConnection);
-        mService.stopSelf();
+        //mService.stopSelf();
         mService= null;
 
     }
@@ -337,7 +348,7 @@ public class Bluetooth extends Activity implements RadioGroup.OnCheckedChangeLis
                     mDevice = BluetoothAdapter.getDefaultAdapter().getRemoteDevice(deviceAddress);
 
                     Log.d(TAG, "... onActivityResultdevice.address==" + mDevice + "mserviceValue" + mService);
-                    ((TextView) findViewById(R.id.deviceName)).setText(mDevice.getName()+" - connecting");
+                    ((TextView) findViewById(R.id.deviceName)).setText(mDevice.getName() + " - connecting");
                     mService.connect(deviceAddress);
 
                     }
@@ -371,7 +382,7 @@ public class Bluetooth extends Activity implements RadioGroup.OnCheckedChangeLis
 
     }
 
-    @Override
+    /*@Override
     public void onBackPressed() {
         if (mState == UART_PROFILE_CONNECTED) {
             Intent startMain = new Intent(Intent.ACTION_MAIN);
@@ -395,5 +406,5 @@ public class Bluetooth extends Activity implements RadioGroup.OnCheckedChangeLis
                     .setNegativeButton("NO", null)
                     .show();
         }
-    }
+    }*/
 }

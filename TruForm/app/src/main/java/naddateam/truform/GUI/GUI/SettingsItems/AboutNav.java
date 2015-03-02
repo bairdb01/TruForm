@@ -1,10 +1,10 @@
-/*
-CIS3760
-Naddateam Truform
-AboutNav.java
-Author: Erik Hoffman
-Java file for the about page
-*/
+/**
+ * CIS3760
+ * Naddateam Truform
+ * AboutNav.java
+ * Author: Erik Hoffman
+ * Description: Java file for the about page
+ */
 
 package naddateam.truform.GUI.GUI.SettingsItems;
 
