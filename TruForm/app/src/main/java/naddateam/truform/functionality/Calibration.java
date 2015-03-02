@@ -2,11 +2,13 @@ package naddateam.truform.functionality;
 
 import java.util.ArrayList;
 
-/**
- * Manages and stores calibration data from the Arduino device.
- * Created by Ben on 2/4/2015.
- */
-
+/*
+CIS3760
+Naddateam Truform
+Calibration.java
+Author: Ben Baird
+Java file for the about page
+*/
 
 public class Calibration {
     private double accelX;

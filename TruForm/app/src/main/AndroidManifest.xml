@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--CIS3760-->
+<!--Naddateam Truform-->
+<!--AndroidManifest.xml-->
+<!--Authors: Ben Baird, Robert Little, Erik Hoffman, Andrew Huynh-->
+<!--Xml manifest for definitions of all xml pages-->
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="naddateam.truform" >
 
