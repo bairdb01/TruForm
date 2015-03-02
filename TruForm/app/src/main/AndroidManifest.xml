@@ -82,32 +82,8 @@
             android:label="@string/title_activity_calibrations" >
         </activity>
         <activity
-            android:name=".GUI.GUI.workouts.Workout1"
-            android:label="@string/title_activity_workout1" >
-        </activity>
-        <activity
             android:name=".GUI.GUI.workouts.Workout0"
             android:label="@string/title_activity_workout0" >
-        </activity>
-        <activity
-            android:name=".GUI.GUI.workouts.Workout2"
-            android:label="@string/title_activity_workout2" >
-        </activity>
-        <activity
-            android:name=".GUI.GUI.workouts.Workout3"
-            android:label="@string/title_activity_workout3" >
-        </activity>
-        <activity
-            android:name=".GUI.GUI.workouts.Workout4"
-            android:label="@string/title_activity_workout4" >
-        </activity>
-        <activity
-            android:name=".GUI.GUI.workouts.Workout5"
-            android:label="@string/title_activity_workout5" >
-        </activity>
-        <activity
-            android:name=".GUI.GUI.workouts.Workout6"
-            android:label="@string/title_activity_workout6" >
         </activity>
         <activity
             android:name=".GUI.GUI.GenericExercise"

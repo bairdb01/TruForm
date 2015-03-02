@@ -8,15 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import naddateam.truform.GUI.GUI.workouts.Workout0;
-import naddateam.truform.GUI.GUI.workouts.Workout1;
-import naddateam.truform.GUI.GUI.workouts.Workout2;
-import naddateam.truform.GUI.GUI.workouts.Workout3;
-import naddateam.truform.GUI.GUI.workouts.Workout4;
-import naddateam.truform.GUI.GUI.workouts.Workout5;
-import naddateam.truform.GUI.GUI.workouts.Workout6;
 import naddateam.truform.R;
 
 

@@ -91,6 +91,8 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
         return super.onOptionsItemSelected(item);
     }
 
+    /**Rest timer begins
+     */
     public void startTimer() {
         new CountDownTimer(30000,10) {
             TextView restTime = (TextView) findViewById(R.id.restTime);
@@ -107,6 +109,9 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
     }
 
     @Override
+    /**
+     * Makes the start/abort/finish buttons perform stuff
+     */
     public void onClick(View v) {
         switch(v.getId()) {
             case(R.id.startBut):

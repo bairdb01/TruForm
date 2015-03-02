@@ -8,7 +8,6 @@
 
 package naddateam.truform.GUI.GUI.NavMenuItems;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -17,8 +16,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
-import naddateam.truform.GUI.GUI.workouts.Workout0;
-import naddateam.truform.GUI.GUI.workouts.Workout1;
 import naddateam.truform.R;
 
 public class SocialNav extends Fragment implements View.OnClickListener {

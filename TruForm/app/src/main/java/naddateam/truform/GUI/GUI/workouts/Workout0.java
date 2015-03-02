@@ -67,6 +67,7 @@ public class Workout0 extends ActionBarActivity implements AdapterView.OnItemCli
 //        switch(position){
 //            case(0):
 
+                // Opens the exercise
                 Intent exercise0 = new Intent(this ,GenericExercise.class);
                 exerciseName = lv.getItemAtPosition(position).toString();
                 exercise0.putExtra("exName",exerciseName); // Pass data to next activity
