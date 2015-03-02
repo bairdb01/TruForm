@@ -8,7 +8,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import naddateam.truform.R;
-
+/**
+ * CIS3760
+ * Naddateam Truform
+ * UserDetails.java
+ * Author: Andrew Huynh
+ * This class is the User Details page that can be found in Nav Drawer > User > User Details
+ * Here the user can enter basic user info to calculate their BMI by entering their height and weight
+ * More types of entering data will come (have yet to finalize the ideas of what)
+ */
 public class UserDetailsNav extends ActionBarActivity {
 
     @Override
@@ -19,7 +27,7 @@ public class UserDetailsNav extends ActionBarActivity {
         EditText userName;
         EditText userAge;
         EditText userHeight;
-        TextView BMI = null;
+        TextView BMI = null; /* Body Mass Index, determined by a person's height and weight */
         //getActionBar().setDisplayHomeAsUpEnabled(true);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.userdetails_layout);

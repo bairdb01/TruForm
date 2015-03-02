@@ -19,6 +19,19 @@ import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.MakeWorkoutTut;
 import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.SquatsTut;
 import naddateam.truform.R;
 
+/**
+ * CIS3760
+ * Naddateam Truform
+ * HelpNav.java
+ * Author: Andrew Huynh
+ * This class is the Help page found under Navigation Drawer > Settings Help
+ * It will consist a list of things the users can find information about.
+ * Tutorials of how to do certain exercises
+ * Tutorial how to create custome work outs
+ * Tutorial how to calibrate
+ * Bluetooth settings (temporary)
+ */
+
 public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClickListener{
 
     @Override
@@ -43,6 +56,10 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
             builder.setTitle("Select an Exercise")
                     .setItems(R.array.calibrationItemsArr, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
+                            /*
+                            * The different selections of what tutorial for exercise they want to
+                            * know about
+                             */
                             if (which == 0) {
                                 Intent goBicepCurlTut = new Intent(HelpNav.this, BicepCurlTut.class);
                                 startActivity(goBicepCurlTut);
@@ -59,14 +76,23 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
                     });
             builder.create().show();
         }
+        /*
+        * How to make a workout
+         */
         else if (position == 1) {
             Intent goMakeWorkoutTut = new Intent(HelpNav.this, MakeWorkoutTut.class);
             startActivity(goMakeWorkoutTut);
         }
+        /*
+        * How to calibrate
+         */
         else if (position == 2) {
             Intent goHowToCalibTut = new Intent(HelpNav.this, HowCalibTut.class);
             startActivity(goHowToCalibTut);
         }
+        /*
+        * Bluetooth settings
+         */
         else if (position == 3) {
             Intent goBlue = new Intent(HelpNav.this, Bluetooth.class);
             startActivity(goBlue);

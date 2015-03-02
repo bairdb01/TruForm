@@ -1,5 +1,14 @@
 package naddateam.truform.GUI.GUI.SettingsItems;
-
+/**
+ * CIS3760
+ * Naddateam Truform
+ * GeneralNav.java
+ * Author: Andrew Huynh
+ * This class is a premade template from creating a "Settings Activity in Android Studio 1.0.1"
+ * It creates numerous examples in which I have deleted some and utilized the examples on my own.
+ * It has no functionality but the user can check which option they prefer to have in the General
+ * Settings in Navigation Drawer > Settings > General
+ */
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Configuration;

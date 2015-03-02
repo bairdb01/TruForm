@@ -12,21 +12,40 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import naddateam.truform.R;
-
+/**
+ * CIS3760
+ * Naddateam Truform
+ * RestoreDefNav.java
+ * Author: Andrew Huynh
+ * This class is the Restore to Defaults for Nav Drawer > Settings > Reset to Defaults
+ * There are different types we thought of. Clearing calibrations, clearing user info and clearing
+ * everything up to the point when they got the app. There is currectly no functionality
+ */
 public class RestoreDefNav extends ActionBarActivity implements AdapterView.OnItemClickListener{
 
     @Override
+    /*
+    * Creates Basic view with a populated listview so users can click what they want
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.restoredef_layout);
         ListView lv = (ListView)findViewById(R.id.restoreDefList);
 
+        /*
+        * Listening for user input
+         */
         lv.setOnItemClickListener(this);
 
     }
 
     @Override
+    /*
+    * This is an alert dialog, that will pop to confiorm the user about the clearing the user.
+    * It will warn the user what they are attempting to do with working confirmation and cancel
+    * button. There is no actual functionality in backend
+     */
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder( this);
