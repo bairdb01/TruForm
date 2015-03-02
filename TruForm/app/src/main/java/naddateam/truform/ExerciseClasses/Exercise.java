@@ -1,3 +1,11 @@
+/**
+ * CIS3760
+ * Naddateam Truform
+ * ChestPress.java
+ * Author: Benjamin Baird
+ * Last Modified March 1, 2015
+ * Description: Generic class for other exercises to follow
+ */
 package naddateam.truform.ExerciseClasses;
 
 import naddateam.truform.functionality.Calibration;
