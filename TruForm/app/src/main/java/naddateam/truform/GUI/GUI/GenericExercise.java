@@ -12,9 +12,11 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import naddateam.truform.ExerciseClasses.Exercise;
+import naddateam.truform.ExerciseClasses.Exercises;
 import naddateam.truform.R;
 
-public class BicepCurl extends ActionBarActivity implements View.OnClickListener{
+public class GenericExercise extends ActionBarActivity implements View.OnClickListener{
     Button startTrack;
     Button abortTrack;
     Button finish;
@@ -22,16 +24,28 @@ public class BicepCurl extends ActionBarActivity implements View.OnClickListener
     NumberPicker reps;
     EditText weight;
     int currentSet;
+    Exercise curExercise;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // Enables back button on action bar
-        //getActionBar().setDisplayHomeAsUpEnabled(true);
+        String exerciseName = "";
+        int targetReps = 0;
+        int targetSets = 0;
+
+        //Retrieving data passed from previous activity
+        Bundle variables = getIntent().getExtras();
+        if (variables != null) {
+           exerciseName = variables.getString("exName");
+        }
 
 
+        // Creates an exercise object to change the title, track sets and reps, etc
+        Exercises exCreator = new Exercises();
+        curExercise = exCreator.createExercise(exerciseName,targetReps,targetSets);
+        setTitle(exerciseName);
         currentSet = 0;
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bicep_curl);
+        setContentView(R.layout.activity_generic_exercise);
 
         //Assign buttons to variables
         startTrack = (Button) findViewById(R.id.startBut);
@@ -60,7 +74,7 @@ public class BicepCurl extends ActionBarActivity implements View.OnClickListener
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_bicep_curl, menu);
+        getMenuInflater().inflate(R.menu.menu_generic_exercise, menu);
         return true;
     }
 

@@ -7,15 +7,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import naddateam.truform.GUI.GUI.BicepCurl;
+import naddateam.truform.GUI.GUI.GenericExercise;
 import naddateam.truform.R;
 
 public class Workout0 extends ActionBarActivity implements AdapterView.OnItemClickListener{
-
+    ListView lv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +24,7 @@ public class Workout0 extends ActionBarActivity implements AdapterView.OnItemCli
 
 
         setContentView(R.layout.activity_workout0);
-        ListView lv = (ListView)findViewById(R.id.listView0);
+        lv = (ListView)findViewById(R.id.listView0);
         //lv.setAdapter(adapter);
 
         lv.setOnItemClickListener(this);
@@ -38,9 +37,12 @@ public class Workout0 extends ActionBarActivity implements AdapterView.OnItemCli
      */
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Toast.makeText(getApplicationContext(), "Pressed" + position, Toast.LENGTH_LONG).show();
+        String exerciseName;
         switch(position){
             case(0):
-                Intent exercise0 = new Intent(this ,BicepCurl.class);
+                Intent exercise0 = new Intent(this ,GenericExercise.class);
+                exerciseName = lv.getItemAtPosition(0).toString();
+                exercise0.putExtra("exName",exerciseName); // Pass data to next activity
                 startActivity(exercise0);
                 break;
             case(1):
