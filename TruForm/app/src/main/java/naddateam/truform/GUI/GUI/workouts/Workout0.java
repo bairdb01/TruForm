@@ -28,7 +28,7 @@ import naddateam.truform.R;
 
 public class Workout0 extends ActionBarActivity implements AdapterView.OnItemClickListener{
     ListView lv;
-    String workoutName;
+    static String workoutName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +38,7 @@ public class Workout0 extends ActionBarActivity implements AdapterView.OnItemCli
             workoutName = variables.getString("workoutName");
         }
         setTitle(workoutName);
-        String[] workout = {""};
+        String[] workout = {"Empty"};
 
         if (workoutName.equals("Legs")) {
             workout = getResources().getStringArray(R.array.Legs);
