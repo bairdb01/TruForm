@@ -137,7 +137,7 @@ void loop()
       int angleP = 0;
       float totalClicksR = 0;
       int angleR = 0;
-      float time = .2;
+      float time = .3;
       
       int xRe = 0;
       int yRe = 0;
@@ -146,6 +146,7 @@ void loop()
       int loopVal = 1;
       //String s = "";
       int res[1][6];
+      String acel, gyro;
        
       time = time * 1000;
       for(int i = 0; i < loopVal; i++)
@@ -233,24 +234,25 @@ void loop()
       for(int cnt = 0; cnt < loopVal; cnt++)
       {
         BTLEserial.pollACI();
-        
-        String acel = "Ac: " + (String)res[cnt][3] + "," + (String)res[cnt][4] + "," + (String)res[cnt][5];
-        String gyro = "Gy: " + (String)res[cnt][0] + "," + (String)res[cnt][1] + "," + (String)res[cnt][2];
+        acel = "";
+        gyro = "";
+        acel = "Ac: " + (String)res[cnt][3] + "," + (String)res[cnt][4] + "," + (String)res[cnt][5];
+        gyro = "Gy: " + (String)res[cnt][0] + "," + (String)res[cnt][1] + "," + (String)res[cnt][2];
         uint8_t sendbuffer[20];
         acel.getBytes(sendbuffer, 20);
         char sendbuffersize = min(20, acel.length());
     
         //Serial.print(F("\n* Sending -> \"")); Serial.print((char *)sendbuffer); Serial.println("\"");
-    
+        
         // write the data
         BTLEserial.write(sendbuffer, sendbuffersize);
-
+        BTLEserial.pollACI();
         gyro.getBytes(sendbuffer, 20);
         sendbuffersize = min(20, gyro.length());
         BTLEserial.write(sendbuffer, sendbuffersize);
         //subStart = subStart + 19;
         //subEnd = subEnd + 19;
-        delay(50);
+        delay(100);
       }
       
       /*for(int j = 0; j < loopVal; j++)
@@ -277,31 +279,6 @@ void loop()
     }
   }
 }
-
-//void bleSend(int results[][6], int loopVal)
-//{
-//  String s = "";
-//  for(int cnt = 0; cnt < loopVal; cnt++)
-//  {
-//    BTLEserial.pollACI();
-//    for(int j = 0; j < 6; j++)
-//    {
-//      s = (String)results[cnt][3] + "," + (String)results[cnt][4] + "," + (String)results[cnt][5] + "," + (String)results[cnt][0] + "," + (String)results[cnt][1] + "," + (String)results[cnt][2];
-//    }
-//    
-//    uint8_t sendbuffer[20];
-//    s.getBytes(sendbuffer, 20);
-//    char sendbuffersize = min(20, s.length());
-//
-//    Serial.print(F("\n* Sending -> \"")); Serial.print((char *)sendbuffer); Serial.println("\"");
-//
-//    // write the data
-//    BTLEserial.write(sendbuffer, sendbuffersize);
-//    //subStart = subStart + 19;
-//    //subEnd = subEnd + 19;
-//    delay(200);
-//  }
-//}
 
 void getGyroValues(){
 

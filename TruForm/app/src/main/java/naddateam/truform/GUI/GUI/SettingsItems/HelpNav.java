@@ -11,12 +11,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import naddateam.truform.GUI.GUI.BlueTest;
+import naddateam.truform.GUI.GUI.Bluetooth;
 import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.BicepCurlTut;
 import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.ChestTut;
 import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.SquatsTut;
 import naddateam.truform.R;
-import naddateam.truform.functionality.Bluetooth;
 
 public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClickListener{
 

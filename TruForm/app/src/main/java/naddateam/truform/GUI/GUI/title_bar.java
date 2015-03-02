@@ -7,19 +7,19 @@ import android.view.MenuItem;
 
 import naddateam.truform.R;
 
-public class BlueTest extends ActionBarActivity {
+public class title_bar extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.title_bar);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_blue_test, menu);
+        getMenuInflater().inflate(R.menu.menu_title_bar, menu);
         return true;
     }
 
