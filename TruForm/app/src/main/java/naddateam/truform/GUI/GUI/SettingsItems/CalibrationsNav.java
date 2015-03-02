@@ -12,20 +12,31 @@ import android.widget.Toast;
 
 import naddateam.truform.GUI.GUI.SettingsItems.CalibrationPkg.CalibrationAction;
 import naddateam.truform.R;
-
+/**
+ * CIS3760
+ * Naddateam Truform
+ * CalibrationsNav.java
+ * Author: Andrew Huynh
+ * This is the Calibrations navigation for Settings > Calibration in the drawer. It will consist
+ * of the dialog for the users to select a specific workout to calibrate. At the moment it does
+ * not do the actual calibrating, just navigate to the placeholding page.
+ */
 public class CalibrationsNav extends ActionBarActivity implements AdapterView.OnItemClickListener{
 
 @Override
 protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.calibrations_layout);
-        ListView lv = (ListView)findViewById(R.id.calibrationListView);
+        setContentView(R.layout.calibrations_layout); /*Display the layout*/
+        ListView lv = (ListView)findViewById(R.id.calibrationListView); /*Populate layout with
+                                                                        listview*/
         lv.setOnItemClickListener(this);
     }
 
 @Override
-/**
- * Opens the exercise screen
+
+/*
+* For the list, waits for input by the user. Depending what item the user hits, it will open
+* a new blank activity. Right now it only opens a generic calibrations page with no functionality.
  */
 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         if (position == 0) {
