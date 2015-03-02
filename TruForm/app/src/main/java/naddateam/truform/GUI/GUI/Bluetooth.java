@@ -10,6 +10,7 @@ package naddateam.truform.GUI.GUI;
 
 
 import naddateam.truform.R;
+import naddateam.truform.functionality.InstanceData;
 
 
 /*
@@ -31,7 +32,6 @@ import naddateam.truform.R;
 import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.util.Date;
-
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -60,7 +60,6 @@ import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 public class Bluetooth extends Activity implements RadioGroup.OnCheckedChangeListener {
     private static final int REQUEST_SELECT_DEVICE = 1;
@@ -242,6 +241,8 @@ public class Bluetooth extends Activity implements RadioGroup.OnCheckedChangeLis
                     public void run() {
                         try {
                             String text = new String(txValue, "UTF-8");
+                            InstanceData inData = new InstanceData();
+                            inData.setInstanceData(text);
                             String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
                             listAdapter.add("["+currentDateTimeString+"] RX: "+text);
                             messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
@@ -347,7 +348,7 @@ public class Bluetooth extends Activity implements RadioGroup.OnCheckedChangeLis
                     mDevice = BluetoothAdapter.getDefaultAdapter().getRemoteDevice(deviceAddress);
 
                     Log.d(TAG, "... onActivityResultdevice.address==" + mDevice + "mserviceValue" + mService);
-                    ((TextView) findViewById(R.id.deviceName)).setText(mDevice.getName()+" - connecting");
+                    ((TextView) findViewById(R.id.deviceName)).setText(mDevice.getName() + " - connecting");
                     mService.connect(deviceAddress);
 
                     }

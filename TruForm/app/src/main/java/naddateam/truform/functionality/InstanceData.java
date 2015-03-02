@@ -25,7 +25,7 @@ public class InstanceData {
         gyroY = 0;
     }
 
-    public void getInstanceData(String datatext) {
+    public void setInstanceData(String datatext) {
         /*Gather the bluetooth data here*/
     }
 
