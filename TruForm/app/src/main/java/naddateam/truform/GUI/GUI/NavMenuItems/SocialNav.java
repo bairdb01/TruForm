@@ -1,9 +1,9 @@
 /**
-CIS3760
-Naddateam Truform
-AboutNav.java
-Author: Erik Hoffman
-Java file for the social network page
+ * CIS3760
+ * Naddateam Truform
+ * AboutNav.java
+ * Author: Erik Hoffman
+ * Description: Java file for the social network page
 */
 
 package naddateam.truform.GUI.GUI.NavMenuItems;
