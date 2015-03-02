@@ -69,8 +69,6 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
 
     }
 
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -112,7 +110,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
     public void onClick(View v) {
         switch(v.getId()) {
             case(R.id.startBut):
-                Toast.makeText(getApplicationContext(),"Start",Toast.LENGTH_SHORT);
+                //Toast.makeText(getApplicationContext(),"Start",Toast.LENGTH_SHORT);
                 // Putting abort button in place of start button
                 startTrack.setEnabled(false);
                 startTrack.setVisibility(View.INVISIBLE);
@@ -120,7 +118,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 abortTrack.setVisibility(View.VISIBLE);
                 break;
             case(R.id.finBut):
-                Toast.makeText(getApplicationContext(),"Fin",Toast.LENGTH_SHORT);
+                //Toast.makeText(getApplicationContext(),"Fin",Toast.LENGTH_SHORT);
                 currentSet++;
                 sets.setText(String.valueOf(currentSet));
                 //Grab the weights and sets here
@@ -130,7 +128,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 startTimer();
                 break;
             case(R.id.abortBut):
-                Toast.makeText(getApplicationContext(),"Abort",Toast.LENGTH_SHORT);
+                //Toast.makeText(getApplicationContext(),"Abort",Toast.LENGTH_SHORT);
                 //Putting start button in place of abort button
                 abortTrack.setEnabled(false);
                 abortTrack.setVisibility(View.INVISIBLE);

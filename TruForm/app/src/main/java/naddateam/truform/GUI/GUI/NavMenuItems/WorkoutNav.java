@@ -35,33 +35,25 @@ public class WorkoutNav extends Fragment implements View.OnClickListener {
     ImageButton imageButton1;
     ImageButton imageButton2;
     ImageButton imageButton3;
-    ImageButton imageButton4;
-    ImageButton imageButton5;
-    ImageButton imageButton6;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.workout_layout, container, false);
-        //Sets the view to workout
-
 
         //Finds buttons by their ids
         imageButton0 = (ImageButton) rootview.findViewById(R.id.imageButton0);
         imageButton1 = (ImageButton) rootview.findViewById(R.id.imageButton1);
         imageButton2 = (ImageButton) rootview.findViewById(R.id.imageButton2);
         imageButton3 = (ImageButton) rootview.findViewById(R.id.imageButton3);
-        imageButton4 = (ImageButton) rootview.findViewById(R.id.imageButton4);
-        imageButton5 = (ImageButton) rootview.findViewById(R.id.imageButton5);
-        imageButton6 = (ImageButton) rootview.findViewById(R.id.imageButton6);
+
 
 //        //Sets listeners for each button
         imageButton0.setOnClickListener(this);
         imageButton1.setOnClickListener(this);
         imageButton2.setOnClickListener(this);
         imageButton3.setOnClickListener(this);
-        imageButton4.setOnClickListener(this);
-        imageButton5.setOnClickListener(this);
-        imageButton6.setOnClickListener(this);
+
 
         return rootview;
     }
@@ -72,37 +64,33 @@ public class WorkoutNav extends Fragment implements View.OnClickListener {
      * @param view
      */
     public void onClick(View view) {
-        Toast.makeText(this.getActivity().getApplicationContext(), "Pressed", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this.getActivity().getApplicationContext(), "Pressed", Toast.LENGTH_LONG).show();
+        Intent workout0 = new Intent(this.getActivity(), Workout0.class);
         switch(view.getId()){
+
             case R.id.imageButton0:
-                Intent workout0 = new Intent(this.getActivity(), Workout0.class);
+                String workoutName0 = "Chest And Triceps";
+                workout0.putExtra("workoutName", workoutName0); // Pass data to next activity
                 this.startActivity(workout0);
                 break;
             case R.id.imageButton1:
-                Intent workout1 = new Intent(this.getActivity(), Workout1.class);
-                this.startActivity(workout1);
+//                Intent workout1 = new Intent(this.getActivity(), Workout1.class);
+                String workoutName1 = "Back And Biceps";
+                workout0.putExtra("workoutName",workoutName1); // Pass data to next activity
+                this.startActivity(workout0);
                 break;
             case R.id.imageButton2:
-                Intent workout2 = new Intent(this.getActivity(), Workout2.class);
-                this.startActivity(workout2);
+//                Intent workout2 = new Intent(this.getActivity(), Workout2.class);
+                String workoutName2 = "Legs";
+                workout0.putExtra("workoutName",workoutName2); // Pass data to next activity
+                this.startActivity(workout0);
                 break;
             case R.id.imageButton3:
-                Intent workout3 = new Intent(this.getActivity(), Workout3.class);
-                this.startActivity(workout3);
+//                Intent workout3 = new Intent(this.getActivity(), Workout3.class);
+                String workoutName3 = "Shoulders";
+                workout0.putExtra("workoutName",workoutName3); // Pass data to next activity
+                this.startActivity(workout0);
                 break;
-            case R.id.imageButton4:
-                Intent workout4 = new Intent(this.getActivity(), Workout4.class);
-                this.startActivity(workout4);
-                break;
-            case R.id.imageButton5:
-                Intent workout5 = new Intent(this.getActivity(), Workout5.class);
-                this.startActivity(workout5);
-                break;
-            case R.id.imageButton6:
-                Intent workout6 = new Intent(this.getActivity(), Workout6.class);
-                this.startActivity(workout6);
-                break;
-
         }
     }
 

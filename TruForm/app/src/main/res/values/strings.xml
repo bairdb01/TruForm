@@ -52,14 +52,39 @@
         <item>Item 6</item>
     </string-array>
 
-    <string-array name="ChestAndBiceps">
+    <string-array name="ChestAndTriceps">
         <item>Dumbbell Chest Press</item>
         <item>Incline Bench Press</item>
         <item>Dumbbell Flies</item>
         <item>Incline Flies</item>
+        <item>Skull Crushers</item>
+        <item>Dips</item>
+        <item>Tricep Extensions</item>
+    </string-array>
+
+    <string-array name="Legs">
+        <item>Squats</item>
+        <item>Front Squats</item>
+        <item>Leg Extensions</item>
+        <item>Hamstring Curls</item>
+        <item>Lying Hamstring Curls</item>
+    </string-array>
+
+    <string-array name="BackAndBiceps">
+        <item>Deadlifts</item>
+        <item>Bentover Rows</item>
+        <item>Wide Grip Pullbar</item>
+        <item>Cable Rows</item>
         <item>Dumbbell Bicep Curls</item>
         <item>Barbell Bicep Curls</item>
         <item>Spider Curls</item>
+    </string-array>
+
+    <string-array name="Shoulders">
+        <item>Shoulder Press</item>
+        <item>Lateral Raises</item>
+        <item>Reverse Flies</item>
+        <item>Upright Barbell Rows</item>
     </string-array>
 
     <!-- List of workouts to Calibrate restoreItemsArr -->
