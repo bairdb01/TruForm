@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
+<!--CIS3760-->
+<!--Naddateam Truform-->
+<!--strings.xml-->
+<!--Authors: Erik Hoffman, Ben Baird, Robert Little, Andrew Huynh-->
+<!--String declarations for use by all other xml pages-->
+
 <resources>
 
     <string name="app_name">TruForm</string>
@@ -15,7 +23,7 @@
     <string name="workoutString">Workout</string>
     <string name="homeString">Home</string>
     <string name="calibrationsString">Calibrations</string>
-    <string name="scheduleString">Schedules</string>
+    <string name="customWorkoutString">Create Workout</string>
     <string name="socialNetString">Social Networks</string>
     <string name="social_twitterString">Twitter</string>
     <string name="social_facebookString">Facebook</string>
@@ -42,6 +50,16 @@
         <item>Item 4</item>
         <item>Item 5</item>
         <item>Item 6</item>
+    </string-array>
+
+    <string-array name="ChestAndBiceps">
+        <item>Dumbbell Chest Press</item>
+        <item>Incline Bench Press</item>
+        <item>Dumbbell Flies</item>
+        <item>Incline Flies</item>
+        <item>Dumbbell Bicep Curls</item>
+        <item>Barbell Bicep Curls</item>
+        <item>Spider Curls</item>
     </string-array>
 
     <!-- List of workouts to Calibrate restoreItemsArr -->
@@ -162,5 +180,9 @@
     <string name="title_activity_device_list">DeviceListActivity</string>
     <string name="title_activity_title_bar">titleBar</string>
     <string name="title_activity_bluetooth">Bluetooth</string>
+    <string name="title_activity_how_calib_tut">How to Calibrate</string>
+    <string name="title_activity_track_stats_nav">Past Statistics</string>
+    <string name="title_activity_custom_work_nav">Custom Workouts</string>
+    <string name="title_activity_calibration_action">Calibrate</string>
 
 </resources>

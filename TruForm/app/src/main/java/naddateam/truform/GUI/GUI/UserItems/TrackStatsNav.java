@@ -1,14 +1,4 @@
-/**
- * CIS3760
- * Naddateam Truform
- * Workout1.java
- * Author: Benjamin Baird
- * Last Modified March 1, 2015
- * Description: Controller for the a workout page (displays all exercises for a workout)
- *              Allows navigation to each exercise
- */
-
-package naddateam.truform.GUI.GUI.workouts;
+package naddateam.truform.GUI.GUI.UserItems;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -17,20 +7,19 @@ import android.view.MenuItem;
 
 import naddateam.truform.R;
 
-
-public class Workout1 extends ActionBarActivity {
+public class TrackStatsNav extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_workout1);
+        setContentView(R.layout.trackstats_layout);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_workout1, menu);
+        getMenuInflater().inflate(R.menu.menu_trackstatsnav, menu);
         return true;
     }
 

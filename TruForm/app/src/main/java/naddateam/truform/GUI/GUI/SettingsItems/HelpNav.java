@@ -14,6 +14,8 @@ import android.widget.ListView;
 import naddateam.truform.GUI.GUI.Bluetooth;
 import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.BicepCurlTut;
 import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.ChestTut;
+import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.HowCalibTut;
+import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.MakeWorkoutTut;
 import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.SquatsTut;
 import naddateam.truform.R;
 
@@ -58,10 +60,12 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
             builder.create().show();
         }
         else if (position == 1) {
-
+            Intent goMakeWorkoutTut = new Intent(HelpNav.this, MakeWorkoutTut.class);
+            startActivity(goMakeWorkoutTut);
         }
         else if (position == 2) {
-
+            Intent goHowToCalibTut = new Intent(HelpNav.this, HowCalibTut.class);
+            startActivity(goHowToCalibTut);
         }
         else if (position == 3) {
             Intent goBlue = new Intent(HelpNav.this, Bluetooth.class);

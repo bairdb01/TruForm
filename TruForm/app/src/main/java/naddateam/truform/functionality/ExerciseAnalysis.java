@@ -1,8 +1,15 @@
 package naddateam.truform.functionality;
 
 /**
- * Created by Ben on 2/4/2015.
+ * CIS3760
+ * Naddateam Truform
+ * ExerciseAnalysis.java
+ * Author: Benjamin Baird and Erik Hoffman
+ * Last Modified March 1, 2015
+ * Description: Analyzing of data from device will be performed here.
+ *
  */
+
 public class ExerciseAnalysis {
     private double goodForm;
     private int numReps;

@@ -11,6 +11,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.lang.annotation.Target;
+
+import naddateam.truform.GUI.GUI.UserItems.CustomWorkNav;
+import naddateam.truform.GUI.GUI.UserItems.TrackStatsNav;
 import naddateam.truform.GUI.GUI.UserItems.UserDetailsNav;
 import naddateam.truform.R;
 
@@ -39,12 +43,12 @@ public class UserNav extends Fragment {
                     startActivity(goUserDetail);
                 }
                 else if (position == 1) {
-                    Intent trackedStats = new Intent(UserNav.this.getActivity(), UserDetailsNav.class);
+                    Intent trackedStats = new Intent(UserNav.this.getActivity(), TrackStatsNav.class);
                     startActivity(trackedStats);
                 }
                 else if (position == 2) {
-                    Intent custWorkouts = new Intent(UserNav.this.getActivity(), UserDetailsNav.class);
-                    startActivity(custWorkouts);
+                    Intent customWorkouts = new Intent(UserNav.this.getActivity(), CustomWorkNav.class);
+                    startActivity(customWorkouts);
                 }
             }
         });

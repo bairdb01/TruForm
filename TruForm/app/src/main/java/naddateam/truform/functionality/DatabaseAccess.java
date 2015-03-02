@@ -5,8 +5,14 @@ import java.util.ArrayList;
 import naddateam.truform.ExerciseClasses.Exercise;
 
 /**
- * Created by Ben on 2/4/2015.
+ * CIS3760
+ * Naddateam Truform
+ * DatabaseAccess.java
+ * Author: Benjamin Baird
+ * Last Modified March 1, 2015
+ * Description: Will allow connections to a database and transfers to store data remotely.
  */
+
 public class DatabaseAccess {
     private String dbLocation;
 
