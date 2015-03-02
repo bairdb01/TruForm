@@ -144,6 +144,14 @@
         <activity android:name=".GUI.GUI.SettingsItems.HelpTutorials.BicepCurlTut"
             android:label="@string/title_activity_bicep_curl_tut" >
         </activity>
+
+        <activity android:name=".GUI.GUI.SettingsItems.HelpTutorials.ChestTut"
+            android:label="@string/title_activity_chest_tut" >
+        </activity>
+
+        <activity android:name=".GUI.GUI.SettingsItems.HelpTutorials.SquatsTut"
+            android:label="@string/title_activity_squats_tut" >
+        </activity>
         <activity android:name=".GUI.GUI.SettingsItems.HelpTutorials.MakeWorkoutTut"
             android:label="@string/title_activity_make_workout_tut" >
         </activity>
