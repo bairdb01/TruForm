@@ -1,3 +1,12 @@
+/**
+ * CIS3760
+ * Naddateam Truform
+ * Exercises.java
+ * Author: Benjamin Baird
+ * Last Modified March 1, 2015
+ * Description: Stores data on all exercises to use in the app
+ */
+
 package naddateam.truform.ExerciseClasses;
 
 import java.util.HashMap;

@@ -1,3 +1,12 @@
+/**
+ * CIS3760
+ * Naddateam Truform
+ * Workout0.java
+ * Author: Benjamin Baird
+ * Last Modified March 1, 2015
+ * Description: Test data
+ */
+
 package naddateam.truform.GUI.GUI.dummy;
 
 import java.util.ArrayList;

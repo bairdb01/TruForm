@@ -1,3 +1,13 @@
+/**
+ * CIS3760
+ * Naddateam Truform
+ * GenericExercise.java
+ * Author: Benjamin Baird
+ * Last Modified March 1, 2015
+ * Description: Controller for the workout page (displays all exercises for a workout)
+ *              Allows navigation to each exercise
+ */
+
 package naddateam.truform.GUI.GUI;
 
 import android.os.CountDownTimer;

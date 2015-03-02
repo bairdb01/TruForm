@@ -1,3 +1,4 @@
+
 package naddateam.truform.GUI.GUI.SettingsItems.CalibrationPkg;
 
 import android.support.v7.app.ActionBarActivity;
@@ -6,7 +7,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import naddateam.truform.R;
-
+/**
+ * CIS3760
+ * Naddateam Truform
+ * WelcomeNav.java
+ * Author: Andrew Huynh
+ * Selections of the calibrations menu are done here
+ */
 public class CalibrationAction extends ActionBarActivity {
 
     @Override

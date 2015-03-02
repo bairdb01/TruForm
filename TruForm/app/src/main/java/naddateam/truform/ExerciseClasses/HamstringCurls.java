@@ -1,3 +1,12 @@
+/**
+ * CIS3760
+ * Naddateam Truform
+ * HamstringCurls.java
+ * Author: Benjamin Baird
+ * Last Modified March 1, 2015
+ * Description: Stores data of HamstringCurls
+ */
+
 package naddateam.truform.ExerciseClasses;
 
 import naddateam.truform.functionality.Calibration;

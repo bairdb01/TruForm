@@ -1,3 +1,12 @@
+/**
+ * CIS3760
+ * Naddateam Truform
+ * UserAddedExercise.java
+ * Author: Benjamin Baird
+ * Last Modified March 1, 2015
+ * Description: Custom exercises created by the workout data will be stored here
+ */
+
 package naddateam.truform.ExerciseClasses;
 
 import naddateam.truform.functionality.Calibration;

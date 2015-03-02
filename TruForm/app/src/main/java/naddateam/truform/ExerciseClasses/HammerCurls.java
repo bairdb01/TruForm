@@ -1,3 +1,13 @@
+/**
+ * CIS3760
+ * Naddateam Truform
+ * HammerCurls.java
+ * Author: Benjamin Baird
+ * Last Modified March 1, 2015
+ * Description: Stores data of hammer curls
+ *              Allows navigation to each exercise
+ */
+
 package naddateam.truform.ExerciseClasses;
 
 import naddateam.truform.functionality.Calibration;
