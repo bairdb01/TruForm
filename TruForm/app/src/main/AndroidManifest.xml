@@ -138,16 +138,8 @@
             android:label="@string/title_activity_user_details_nav" >
         </activity>
         <activity
-            android:name=".GUI.GUI.BlueTest"
-            android:label="@string/title_activity_blue_test" >
-        </activity>
-        <activity
             android:name=".GUI.GUI.DeviceListActivity"
             android:label="@string/title_activity_device_list" >
-        </activity>
-        <activity
-            android:name=".GUI.GUI.title_bar"
-            android:label="@string/title_activity_title_bar" >
         </activity>
         <activity
             android:name=".GUI.GUI.Bluetooth"

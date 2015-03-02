@@ -1,2 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TextView android:textSize="15dp" android:text="sss" android:singleLine="false" android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/message_text" xmlns:android="http://schemas.android.com/apk/res/android"/>
+
+<!--CIS3760-->
+<!--Naddateam Truform-->
+<!--message_detail.xml-->
+<!--Source: https://developer.mbed.org/forum/wiki-16691-forum/topic/5134/-->
+<!--Last Modified by: Rob Little-->
+<!--This File is used to display the messages being sent/recived to/from the connected devices-->
+
+<TextView
+    android:textSize="15dp"
+    android:text="sss"
+    android:singleLine="false"
+    android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+    android:id="@+id/message_text"
+    xmlns:android="http://schemas.android.com/apk/res/android"/>
