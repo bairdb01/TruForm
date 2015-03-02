@@ -44,6 +44,16 @@
         <item>Item 6</item>
     </string-array>
 
+    <string-array name="ChestAndBiceps">
+        <item>Dumbbell Chest Press</item>
+        <item>Incline Bench Press</item>
+        <item>Dumbbell Flies</item>
+        <item>Incline Flies</item>
+        <item>Dumbbell Bicep Curls</item>
+        <item>Barbell Bicep Curls</item>
+        <item>Spider Curls</item>
+    </string-array>
+
     <!-- List of workouts to Calibrate restoreItemsArr -->
     <string-array name="calibrationItemsArr">
         <item>Bicep Curl</item>

@@ -1,3 +1,14 @@
+/**
+ * CIS3760
+ * Naddateam Truform
+ * Workout0.java
+ * Author: Benjamin Baird
+ * Last Modified March 1, 2015
+ * Description: Controller for the workout page (displays all exercises for a workout)
+ *              Allows navigation to each exercise
+ */
+
+
 package naddateam.truform.GUI.GUI.workouts;
 
 import android.content.Intent;
@@ -46,14 +57,22 @@ public class Workout0 extends ActionBarActivity implements AdapterView.OnItemCli
                 startActivity(exercise0);
                 break;
             case(1):
-
+                Intent exercise1 = new Intent(this ,GenericExercise.class);
+                exerciseName = lv.getItemAtPosition(0).toString();
+                exercise1.putExtra("exName",exerciseName); // Pass data to next activity
+                startActivity(exercise1);
                 break;
-
             case(2):
-
+                Intent exercise2 = new Intent(this ,GenericExercise.class);
+                exerciseName = lv.getItemAtPosition(0).toString();
+                exercise2.putExtra("exName",exerciseName); // Pass data to next activity
+                startActivity(exercise2);
                 break;
-
             case(3):
+                Intent exercise3 = new Intent(this ,GenericExercise.class);
+                exerciseName = lv.getItemAtPosition(0).toString();
+                exercise3.putExtra("exName",exerciseName); // Pass data to next activity
+                startActivity(exercise3);
                 break;
         }
     }

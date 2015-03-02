@@ -1,9 +1,14 @@
 package naddateam.truform.functionality;
 
 /**
- * Created by Ben on 2/4/2015.
+ * CIS3760
+ * Naddateam Truform
+ * Workouts.java
+ * Author: Benjamin Baird
+ * Last Modified March 1, 2015
+ * Description: The central point of workouts. Contains all workouts created and returns workouts(s)
+ *              on method calls.
  */
-
 import java.util.ArrayList;
 import java.util.HashMap;
 

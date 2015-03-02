@@ -1,7 +1,13 @@
 package naddateam.truform.functionality;
 
 /**
- * Created by Ben on 2/4/2015.
+ * CIS3760
+ * Naddateam Truform
+ * UserSettings.java
+ * Author: Benjamin Baird
+ * Last Modified March 1, 2015
+ * Description: Manages settings that the user has selected as preferences.
+ *              Stores all calibration data and exercise logs
  */
 
 import java.util.HashMap;

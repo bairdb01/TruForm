@@ -19,9 +19,16 @@ import naddateam.truform.GUI.GUI.workouts.Workout5;
 import naddateam.truform.GUI.GUI.workouts.Workout6;
 import naddateam.truform.R;
 
+
 /**
- * Created by VYMPA on 11/02/2015.
+ * CIS3760
+ * Naddateam Truform
+ * WorkoutNav.java
+ * Author: Benjamin Baird
+ * Last Modified March 1, 2015
+ * Description: Controller for the layout that contains the shown list of workouts
  */
+
 public class WorkoutNav extends Fragment implements View.OnClickListener {
     View rootview;
     ImageButton imageButton0;
@@ -60,6 +67,10 @@ public class WorkoutNav extends Fragment implements View.OnClickListener {
     }
 
 
+    /**
+     * Provides listener functionality for buttons
+     * @param view
+     */
     public void onClick(View view) {
         Toast.makeText(this.getActivity().getApplicationContext(), "Pressed", Toast.LENGTH_LONG).show();
         switch(view.getId()){

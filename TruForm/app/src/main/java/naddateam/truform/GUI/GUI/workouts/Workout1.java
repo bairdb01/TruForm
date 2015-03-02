@@ -1,3 +1,13 @@
+/**
+ * CIS3760
+ * Naddateam Truform
+ * Workout1.java
+ * Author: Benjamin Baird
+ * Last Modified March 1, 2015
+ * Description: Controller for the a workout page (displays all exercises for a workout)
+ *              Allows navigation to each exercise
+ */
+
 package naddateam.truform.GUI.GUI.workouts;
 
 import android.support.v7.app.ActionBarActivity;
