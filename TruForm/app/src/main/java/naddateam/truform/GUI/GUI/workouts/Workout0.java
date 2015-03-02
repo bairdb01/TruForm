@@ -11,6 +11,14 @@
 
 package naddateam.truform.GUI.GUI.workouts;
 
+/*
+CIS3760
+Naddateam Truform
+Workout0.java
+Author: Ben Baird
+Java file for the first exercise slot
+*/
+
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;

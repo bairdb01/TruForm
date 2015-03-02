@@ -1,22 +1,4 @@
-/**
- * CIS3760
- * Naddateam Truform
- * Workout4.java
- * Author: Benjamin Baird
- * Last Modified March 1, 2015
- * Description: Controller for the workout page (displays all exercises for a workout)
- *              Allows navigation to each exercise
- */
-
-package naddateam.truform.GUI.GUI.workouts;
-
-/*
-CIS3760
-Naddateam Truform
-Workout4.java
-Author: Ben Baird
-Java file for the fifth exercise slot
-*/
+package naddateam.truform.GUI.GUI.SettingsItems.CalibrationPkg;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -25,20 +7,19 @@ import android.view.MenuItem;
 
 import naddateam.truform.R;
 
-
-public class Workout4 extends ActionBarActivity {
+public class CalibrationAction extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_workout4);
+        setContentView(R.layout.calibrateaction_layout);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_workout4, menu);
+        getMenuInflater().inflate(R.menu.menu_calibrationaction, menu);
         return true;
     }
 
