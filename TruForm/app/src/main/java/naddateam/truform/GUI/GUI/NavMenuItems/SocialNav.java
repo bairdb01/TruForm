@@ -1,3 +1,11 @@
+/*
+CIS3760
+Naddateam Truform
+AboutNav.java
+Author: Erik Hoffman
+Java file for the social network page
+*/
+
 package naddateam.truform.GUI.GUI.NavMenuItems;
 
 import android.os.Bundle;
@@ -9,9 +17,6 @@ import android.view.ViewGroup;
 
 import naddateam.truform.R;
 
-/**
- * Created by VYMPA on 11/02/2015.
- */
 public class SocialNav extends Fragment {
     View rootview;
 
