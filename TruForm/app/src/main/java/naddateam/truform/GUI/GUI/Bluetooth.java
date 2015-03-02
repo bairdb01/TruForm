@@ -20,6 +20,15 @@ import naddateam.truform.R;
  * limitations under the License.
  */
 
+/**
+ * CIS3760
+ * Naddateam Truform
+ * Bluetooth.java
+ * Source: https://developer.mbed.org/forum/wiki-16691-forum/topic/5134/
+ * Last Modified by: Rob Little
+ * This File is used to connect to the bluetooth device and send/receive information for the device
+*/
+
 
 import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
