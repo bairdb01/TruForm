@@ -10,14 +10,6 @@
 
 package naddateam.truform.GUI.GUI.workouts;
 
-/*
-CIS3760
-Naddateam Truform
-Workout4.java
-Author: Ben Baird
-Java file for the fifth exercise slot
-*/
-
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
