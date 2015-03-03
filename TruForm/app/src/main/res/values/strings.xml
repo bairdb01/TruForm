@@ -35,6 +35,14 @@
     <string name="about_details">Made by NADDATEAM (Benjamin Baird, Robert Little, Erik Hoffman and Andrew Huynh). Uses Arduino hardware technology
     with gyroscope and accelerometer data. Made during the CIS3760 course at University of Guelph during the Winter 2015 semester.</string>
 
+    <!-- String items for the Calibration Action page-->
+    <string name="title_calibActionCountdown">Countdown</string>
+    <string name="title_calibActionStatus">Status</string>
+    <string name="title_calibActionConfirm">Confirm</string>
+    <string name="title_calibActionHelp">Help</string>
+    <string name="title_calibActionStart">Calibrate</string>
+    <string name="title_calibActionStop">Stop Calibrating</string>
+
     <!-- List of setting items displayed when selecting "Settings" in the Navigation Drawer -->
     <string-array name="settingsListItems">
         <item>Calibrations</item>
@@ -43,6 +51,7 @@
         <item>Help</item>
         <item>About</item>
     </string-array>
+
     <string-array name="dummyList">
         <item>Item 1</item>
         <item>Item 2</item>
