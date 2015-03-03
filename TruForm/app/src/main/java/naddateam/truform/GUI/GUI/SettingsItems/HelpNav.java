@@ -11,13 +11,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import naddateam.truform.GUI.GUI.Bluetooth.Bluetooth;
+import naddateam.truform.functionality.Bluetooth.Bluetooth;
 import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.BicepCurlTut;
 import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.ChestTut;
 import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.HowCalibTut;
 import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.MakeWorkoutTut;
 import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.SquatsTut;
 import naddateam.truform.R;
+import naddateam.truform.Tester;
 
 /**
  * CIS3760
@@ -96,6 +97,12 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
         else if (position == 3) {
             Intent goBlue = new Intent(HelpNav.this, Bluetooth.class);
             startActivity(goBlue);
+        }
+        else {
+            if (position == 4) {
+                Intent test = new Intent(this, Tester.class);
+                startActivity(test);
+            }
         }
     }
 

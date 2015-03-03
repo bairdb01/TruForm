@@ -6,7 +6,7 @@
  * Last Modified by: Rob Little
  * This File is used to connect to the bluetooth device and send/receive information for the device
  */
-package naddateam.truform.GUI.GUI.Bluetooth;
+package naddateam.truform.functionality.Bluetooth;
 
 
 import naddateam.truform.R;

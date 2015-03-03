@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<!--CIS3760-->
-<!--Naddateam Truform-->
-<!--AndroidManifest.xml-->
-<!--Authors: Ben Baird, Robert Little, Erik Hoffman, Andrew Huynh-->
-<!--Xml manifest for definitions of all xml pages-->
-
+<!-- CIS3760 -->
+<!-- Naddateam Truform -->
+<!-- AndroidManifest.xml -->
+<!-- Authors: Ben Baird, Robert Little, Erik Hoffman, Andrew Huynh -->
+<!-- Xml manifest for definitions of all xml pages -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="naddateam.truform" >
 
@@ -114,11 +112,11 @@
             android:label="@string/title_activity_user_details_nav" >
         </activity>
         <activity
-            android:name=".GUI.GUI.Bluetooth.DeviceListActivity"
+            android:name=".functionality.Bluetooth.DeviceListActivity"
             android:label="@string/title_activity_device_list" >
         </activity>
         <activity
-            android:name=".GUI.GUI.Bluetooth.Bluetooth"
+            android:name=".functionality.Bluetooth.Bluetooth"
             android:label="@string/title_activity_bluetooth" >
         </activity>
         <activity
@@ -152,6 +150,10 @@
         <activity
             android:name=".GUI.GUI.SettingsItems.CalibrationPkg.CalibrationAction"
             android:label="@string/title_activity_calibration_action" >
+        </activity>
+        <activity
+            android:name=".Tester"
+            android:label="@string/title_activity_tester" >
         </activity>
     </application>
 
