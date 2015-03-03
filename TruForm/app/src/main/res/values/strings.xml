@@ -104,6 +104,7 @@
         <item>Workout Creation</item>
         <item>Calibrations</item>
         <item>BlueTooth</item>
+        <item>Tests</item>
     </string-array>
 
     <!-- Types of restoring to defaults -->
