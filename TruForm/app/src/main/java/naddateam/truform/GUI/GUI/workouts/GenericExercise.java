@@ -4,13 +4,12 @@
  * GenericExercise.java
  * Author: Benjamin Baird
  * Last Modified March 1, 2015
- * Description: Controller for the workout page (displays all exercises for a workout)
- *              Allows navigation to each exercise
+ * Description: Controls the exercise pages that are shown
+ *              Includes rest timers, start button, abort, etc
  */
 
-package naddateam.truform.GUI.GUI;
+package naddateam.truform.GUI.GUI.workouts;
 
-import android.os.CountDownTimer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -20,8 +19,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import naddateam.truform.functionality.CountDown;
 import naddateam.truform.ExerciseClasses.Exercise;
 import naddateam.truform.ExerciseClasses.Exercises;
 import naddateam.truform.R;
@@ -35,6 +34,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
     EditText weight;
     int currentSet;
     Exercise curExercise;
+    CountDown restTimer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +48,8 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
            exerciseName = variables.getString("exName");
         }
 
-
+        //Setting the countdown timer
+        restTimer = new CountDown();
         // Creates an exercise object to change the title, track sets and reps, etc
         Exercises exCreator = new Exercises();
         curExercise = exCreator.createExercise(exerciseName,targetReps,targetSets);
@@ -101,22 +102,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
         return super.onOptionsItemSelected(item);
     }
 
-    /**Rest timer begins
-     */
-    public void startTimer() {
-        new CountDownTimer(30000,10) {
-            TextView restTime = (TextView) findViewById(R.id.restTime);
-            public void onTick(long millisUntilFinished) {
-                long secondsRemaining = millisUntilFinished/1000;
-                long decimal = (millisUntilFinished - (secondsRemaining*1000)) / 10;
-                restTime.setText("" + secondsRemaining + "." + (int)decimal + "s");
-            }
 
-            public void onFinish() {
-                restTime.setText("Rest Over!");
-            }
-        }.start();
-    }
 
     @Override
     /**
@@ -140,7 +126,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
 
                 weight.setText(String.valueOf(0));
                 reps.setValue(reps.getMinValue());
-                startTimer();
+                restTimer.startTimer((TextView) findViewById(R.id.restTime));
                 break;
             case(R.id.abortBut):
                 //Toast.makeText(getApplicationContext(),"Abort",Toast.LENGTH_SHORT);

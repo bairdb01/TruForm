@@ -1,4 +1,4 @@
-package naddateam.truform.GUI.GUI;
+package naddateam.truform.GUI.GUI.NavDrawer;
 /**
  * CIS3760
  * Naddateam Truform

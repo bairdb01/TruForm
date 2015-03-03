@@ -14,4 +14,4 @@ android studio 1.0.1-->
     android:divider="@android:color/transparent"
     android:dividerHeight="0dp"
     android:background="#cccc"
-    tools:context="naddateam.truform.GUI.GUI.NavigationDrawerFragment" />
+    tools:context="naddateam.truform.GUI.GUI.NavDrawer.NavigationDrawerFragment" />

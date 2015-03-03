@@ -21,9 +21,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import naddateam.truform.GUI.GUI.GenericExercise;
 import naddateam.truform.R;
 
 public class Workout0 extends ActionBarActivity implements AdapterView.OnItemClickListener{
@@ -40,6 +38,8 @@ public class Workout0 extends ActionBarActivity implements AdapterView.OnItemCli
         setTitle(workoutName);
         String[] workout = {"Empty"};
 
+        // Selects the workout based on name
+        // Should be changed to access the Workouts/Exercises class
         if (workoutName.equals("Legs")) {
             workout = getResources().getStringArray(R.array.Legs);
         } else if (workoutName.equals("Back And Biceps")) {
@@ -49,6 +49,7 @@ public class Workout0 extends ActionBarActivity implements AdapterView.OnItemCli
         } else if (workoutName.equals("Shoulders")) {
             workout = getResources().getStringArray(R.array.Shoulders);
         }
+
         setContentView(R.layout.activity_workout0);
         lv = (ListView)findViewById(R.id.listView0);
 //        ArrayAdapter<String> itemsAdapter =
@@ -64,34 +65,13 @@ public class Workout0 extends ActionBarActivity implements AdapterView.OnItemCli
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         //Toast.makeText(getApplicationContext(), "Pressed" + position, Toast.LENGTH_LONG).show();
         String exerciseName;
-//        switch(position){
-//            case(0):
 
-                // Opens the exercise
-                Intent exercise0 = new Intent(this ,GenericExercise.class);
-                exerciseName = lv.getItemAtPosition(position).toString();
-                exercise0.putExtra("exName",exerciseName); // Pass data to next activity
-                startActivity(exercise0);
+            // Opens the exercise
+            Intent exercise0 = new Intent(this ,GenericExercise.class);
+            exerciseName = lv.getItemAtPosition(position).toString();
+            exercise0.putExtra("exName",exerciseName); // Pass data to next activity
+            startActivity(exercise0);
 
-//                break;
-//            case(1):
-//                Intent exercise1 = new Intent(this ,GenericExercise.class);
-//                exerciseName = lv.getItemAtPosition(0).toString();
-//                exercise1.putExtra("exName",exerciseName); // Pass data to next activity
-//                startActivity(exercise1);
-//                break;
-//            case(2):
-//                Intent exercise2 = new Intent(this ,GenericExercise.class);
-//                exerciseName = lv.getItemAtPosition(0).toString();
-//                exercise2.putExtra("exName",exerciseName); // Pass data to next activity
-//                startActivity(exercise2);
-//                break;
-//            case(3):
-//                Intent exercise3 = new Intent(this ,GenericExercise.class);
-//                exerciseName = lv.getItemAtPosition(0).toString();
-//                exercise3.putExtra("exName",exerciseName); // Pass data to next activity
-//                startActivity(exercise3);
-//                break;
 //        }
     }
 

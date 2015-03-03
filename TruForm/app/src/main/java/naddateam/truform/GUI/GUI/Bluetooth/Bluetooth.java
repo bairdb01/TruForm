@@ -6,7 +6,7 @@
  * Last Modified by: Rob Little
  * This File is used to connect to the bluetooth device and send/receive information for the device
  */
-package naddateam.truform.GUI.GUI;
+package naddateam.truform.GUI.GUI.Bluetooth;
 
 
 import naddateam.truform.R;
@@ -34,14 +34,12 @@ import java.text.DateFormat;
 import java.util.Date;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;

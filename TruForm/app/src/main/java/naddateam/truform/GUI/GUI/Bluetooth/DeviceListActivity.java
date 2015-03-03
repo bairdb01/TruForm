@@ -6,7 +6,7 @@
  * Last Modified by: Rob Little
  * This File is used to gather the BlueTooth Devices and display them in the UI
  */
-package naddateam.truform.GUI.GUI;
+package naddateam.truform.GUI.GUI.Bluetooth;
 
 /*
  * Copyright (C) 2013 The Android Open Source Project
