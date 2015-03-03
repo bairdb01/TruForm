@@ -1,5 +1,7 @@
 package naddateam.truform.GUI.GUI.SettingsItems;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -33,25 +35,205 @@ protected void onCreate(Bundle savedInstanceState) {
     }
 
 @Override
-
 /*
 * For the list, waits for input by the user. Depending what item the user hits, it will open
 * a new blank activity. Right now it only opens a generic calibrations page with no functionality.
  */
 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        if (position == 0) {
-            Intent goGenericCalib = new Intent(CalibrationsNav.this, CalibrationAction.class);
-            startActivity(goGenericCalib);
-        }
-        else if (position == 1) {
-            Intent goGenericCalib = new Intent(CalibrationsNav.this, CalibrationAction.class);
-            startActivity(goGenericCalib);
-        }
-        else if (position == 2) {
-            Intent goGenericCalib = new Intent(CalibrationsNav.this, CalibrationAction.class);
-            startActivity(goGenericCalib);
-        }
+
+    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+    /* SHOULDERS -----------------------------------------------------------------------------------
+    * 0 Dumbbell Chest Press
+    * 1 Incline Bench Press
+    * 2 Dumbbell Flies
+    * 3 Incline Flies
+    * 4 Skull Crushers
+    * 5 Dips
+    * 6 Tricep Extensions
+     */
+    if (position == 0) {
+        builder.setTitle("Select an Exercise")
+                .setItems(R.array.ChestAndTriceps, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (which == 0) {
+                            Intent goGenericCalib = new Intent(CalibrationsNav.this,
+                                    CalibrationAction.class);
+                            startActivity(goGenericCalib);
+                        }
+                        else if (which == 1) {
+                            Intent goGenericCalib = new Intent(CalibrationsNav.this,
+                                    CalibrationAction.class);
+                            startActivity(goGenericCalib);
+                        }
+                        else if (which == 2) {
+                            Intent goGenericCalib = new Intent(CalibrationsNav.this,
+                                    CalibrationAction.class);
+                            startActivity(goGenericCalib);
+                        }
+                        else if (which == 3) {
+                            Intent goGenericCalib = new Intent(CalibrationsNav.this,
+                                    CalibrationAction.class);
+                            startActivity(goGenericCalib);
+                        }
+                        else if (which == 4) {
+                            Intent goGenericCalib = new Intent(CalibrationsNav.this,
+                                    CalibrationAction.class);
+                            startActivity(goGenericCalib);
+                        }
+                        else if (which == 5) {
+                            Intent goGenericCalib = new Intent(CalibrationsNav.this,
+                                    CalibrationAction.class);
+                            startActivity(goGenericCalib);
+                        }
+                        else if (which == 6) {
+                            Intent goGenericCalib = new Intent(CalibrationsNav.this,
+                                    CalibrationAction.class);
+                            startActivity(goGenericCalib);
+                        }
+                    }
+                });
+        builder.create().show();
     }
+
+    /* SHOULDERS -----------------------------------------------------------------------------------
+    * 0 Squats
+    * 1 Front Squats
+    * 2 Leg Extensions
+    * 3 Hamstring Curls
+    * 4 Lying Hamstring Curls
+    * 5 Dips
+    * 6 Tricep Extensions
+     */
+    else if (position == 1) {
+        builder.setTitle("Select an Exercise")
+                .setItems(R.array.Legs, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (which == 0) {
+                            Intent goGenericCalib = new Intent(CalibrationsNav.this,
+                                    CalibrationAction.class);
+                            startActivity(goGenericCalib);
+                        }
+                        else if (which == 1) {
+                            Intent goGenericCalib = new Intent(CalibrationsNav.this,
+                                    CalibrationAction.class);
+                            startActivity(goGenericCalib);
+                        }
+                        else if (which == 2) {
+                            Intent goGenericCalib = new Intent(CalibrationsNav.this,
+                                    CalibrationAction.class);
+                            startActivity(goGenericCalib);
+                        }
+                        else if (which == 3) {
+                            Intent goGenericCalib = new Intent(CalibrationsNav.this,
+                                    CalibrationAction.class);
+                            startActivity(goGenericCalib);
+                        }
+                        else if (which == 4) {
+                            Intent goGenericCalib = new Intent(CalibrationsNav.this,
+                                    CalibrationAction.class);
+                            startActivity(goGenericCalib);
+                        }
+                    }
+                });
+        builder.create().show();
+    }
+
+    /* SHOULDERS -----------------------------------------------------------------------------------
+    * 0 Deadlifts
+    * 1 Bentover Rows
+    * 2 Wide Grip Pullbar
+    * 3 Cable Rows
+    * 4 Dumbbell Bicep Curls
+    * 5 Barbell Bicep Curls
+    * 6 Tricep Extensions
+    * 7 Spider Curls
+     */
+    else if (position == 2) {
+        builder.setTitle("Select an Exercise")
+                .setItems(R.array.BackAndBiceps, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (which == 0) {
+                            Intent goGenericCalib = new Intent(CalibrationsNav.this,
+                                    CalibrationAction.class);
+                            startActivity(goGenericCalib);
+                        }
+                        else if (which == 1) {
+                            Intent goGenericCalib = new Intent(CalibrationsNav.this,
+                                    CalibrationAction.class);
+                            startActivity(goGenericCalib);
+                        }
+                        else if (which == 2) {
+                            Intent goGenericCalib = new Intent(CalibrationsNav.this,
+                                    CalibrationAction.class);
+                            startActivity(goGenericCalib);
+                        }
+                        else if (which == 3) {
+                            Intent goGenericCalib = new Intent(CalibrationsNav.this,
+                                    CalibrationAction.class);
+                            startActivity(goGenericCalib);
+                        }
+                        else if (which == 4) {
+                            Intent goGenericCalib = new Intent(CalibrationsNav.this,
+                                    CalibrationAction.class);
+                            startActivity(goGenericCalib);
+                        }
+                        else if (which == 5) {
+                            Intent goGenericCalib = new Intent(CalibrationsNav.this,
+                                    CalibrationAction.class);
+                            startActivity(goGenericCalib);
+                        }
+                        else if (which == 6) {
+                            Intent goGenericCalib = new Intent(CalibrationsNav.this,
+                                    CalibrationAction.class);
+                            startActivity(goGenericCalib);
+                        }
+                        else if (which == 7) {
+                            Intent goGenericCalib = new Intent(CalibrationsNav.this,
+                                    CalibrationAction.class);
+                            startActivity(goGenericCalib);
+                        }
+                    }
+                });
+        builder.create().show();
+    }
+
+
+    /* SHOULDERS ----------------------------------------------------------------------------------
+    * 0 Shoulder Press
+    * 1 Lateral Raises
+    * 2 Reverse Flies
+    * 3 Upright Barbell Rows
+     */
+    else if (position == 3) {
+        builder.setTitle("Select an Exercise")
+                .setItems(R.array.Shoulders, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (which == 0) {
+                            Intent goGenericCalib = new Intent(CalibrationsNav.this,
+                                    CalibrationAction.class);
+                            startActivity(goGenericCalib);
+                        }
+                        else if (which == 1) {
+                            Intent goGenericCalib = new Intent(CalibrationsNav.this,
+                                    CalibrationAction.class);
+                            startActivity(goGenericCalib);
+                        }
+                        else if (which == 2) {
+                            Intent goGenericCalib = new Intent(CalibrationsNav.this,
+                                    CalibrationAction.class);
+                            startActivity(goGenericCalib);
+                        }
+                        else if (which == 3) {
+                            Intent goGenericCalib = new Intent(CalibrationsNav.this,
+                                    CalibrationAction.class);
+                            startActivity(goGenericCalib);
+                        }
+                    }
+                });
+        builder.create().show();
+    }
+}
 
 
     @Override

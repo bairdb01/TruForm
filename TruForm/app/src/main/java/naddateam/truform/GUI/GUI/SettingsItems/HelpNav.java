@@ -52,7 +52,6 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         if (position == 0) {
-
             builder.setTitle("Select an Exercise")
                     .setItems(R.array.calibrationItemsArr, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {

@@ -102,9 +102,10 @@
 
     <!-- List of workouts to Calibrate -->
     <string-array name="calibrationItemsArr">
-        <item>Bicep Curl</item>
-        <item>Chest</item>
-        <item>Squats</item>
+        <item>Chest and Triceps Curl</item>
+        <item>Legs</item>
+        <item>Back and Biceps</item>
+        <item>Shoulders</item>
     </string-array>
 
     <!-- List of audio settings -->
