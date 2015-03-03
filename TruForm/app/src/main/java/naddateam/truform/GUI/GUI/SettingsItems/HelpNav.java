@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import naddateam.truform.GUI.GUI.Bluetooth;
+import naddateam.truform.GUI.GUI.Bluetooth.Bluetooth;
 import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.BicepCurlTut;
 import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.ChestTut;
 import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.HowCalibTut;

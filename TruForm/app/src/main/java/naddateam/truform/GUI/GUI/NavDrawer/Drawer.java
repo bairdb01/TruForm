@@ -1,4 +1,4 @@
-package naddateam.truform.GUI.GUI;
+package naddateam.truform.GUI.GUI.NavDrawer;
 
 import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
