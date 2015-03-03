@@ -43,7 +43,7 @@ public void onItemClick(AdapterView<?> parent, View view, int position, long id)
 
     AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-    /* SHOULDERS -----------------------------------------------------------------------------------
+    /* CHEST AND TRICEPS ---------------------------------------------------------------------------
     * 0 Dumbbell Chest Press
     * 1 Incline Bench Press
     * 2 Dumbbell Flies
@@ -96,7 +96,7 @@ public void onItemClick(AdapterView<?> parent, View view, int position, long id)
         builder.create().show();
     }
 
-    /* SHOULDERS -----------------------------------------------------------------------------------
+    /* LEGS ----------------------------------------------------------------------------------------
     * 0 Squats
     * 1 Front Squats
     * 2 Leg Extensions
@@ -139,7 +139,7 @@ public void onItemClick(AdapterView<?> parent, View view, int position, long id)
         builder.create().show();
     }
 
-    /* SHOULDERS -----------------------------------------------------------------------------------
+    /* BACK AND BICEPS -----------------------------------------------------------------------------
     * 0 Deadlifts
     * 1 Bentover Rows
     * 2 Wide Grip Pullbar
