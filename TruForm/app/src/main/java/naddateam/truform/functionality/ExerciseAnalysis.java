@@ -17,7 +17,7 @@ public class ExerciseAnalysis {
     private int numReps;
     private int numSets;
 
-    ArrayList<InstanceData> dataPoints = new ArrayList<InstanceData>();
+    private ArrayList<InstanceData> dataPoints = new ArrayList<InstanceData>();
 
     /**
      * Begins tracking of users' motions
