@@ -111,6 +111,7 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
+        android:text="0lbs"
         android:id="@+id/numberWeight"
         android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/finBut"

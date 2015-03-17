@@ -10,6 +10,7 @@
 
 package naddateam.truform.GUI.GUI.workouts;
 
+import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -19,12 +20,24 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import naddateam.truform.functionality.CountDown;
 import naddateam.truform.ExerciseClasses.Exercise;
 import naddateam.truform.ExerciseClasses.Exercises;
 import naddateam.truform.R;
 
+/**
+ * Note to self: need to store reps individually for sets
+ */
 public class GenericExercise extends ActionBarActivity implements View.OnClickListener{
     Button startTrack;
     Button abortTrack;
@@ -35,24 +48,32 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
     int currentSet;
     Exercise curExercise;
     CountDown restTimer;
+    int exNumber;
+    String workoutName;
+    String exerciseName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        String exerciseName = "";
-        int targetReps = 0;
-        int targetSets = 0;
+        //Initialization of null variables
+        exerciseName = "";
+        exNumber = 0;
+        workoutName = "";
+        int completedReps = 0;
+        int completedSets = 0;
 
         //Retrieving data passed from previous activity
         Bundle variables = getIntent().getExtras();
         if (variables != null) {
-           exerciseName = variables.getString("exName");
+            exerciseName = variables.getString("exName");
+            exNumber = variables.getInt("exNum");
+            workoutName = variables.getString("workoutName");
         }
 
         //Setting the countdown timer
         restTimer = new CountDown();
         // Creates an exercise object to change the title, track sets and reps, etc
         Exercises exCreator = new Exercises();
-        curExercise = exCreator.createExercise(exerciseName,targetReps,targetSets);
+        curExercise = exCreator.createExercise(exerciseName,completedReps,completedSets);
         setTitle(exerciseName);
         currentSet = 0;
         super.onCreate(savedInstanceState);
@@ -77,7 +98,35 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
         reps.setMinValue(1);
         reps.setMaxValue(99);
 
+        // Checking if previous cache data is available in case workout incomplete
 
+        try {
+            // Finds all exercises files and writes to the workouts file
+            File file = new File(getCacheDir(), workoutName + "-exercise" + exNumber);
+            //FileInputStream fis = new FileInputStream(file);
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+
+            if (file == null)
+                Toast.makeText(this, "NULL FILE", Toast.LENGTH_SHORT).show();
+
+            String test = "";
+            while ((test = bufferedReader.readLine()) != null) {
+                if (test.regionMatches(true,0,"reps",0, 4)) {
+                    reps.setValue(Integer.parseInt(test.replaceAll("[^0-9]+","")));
+                } else if (test.regionMatches(0,"sets",0,4)) {
+                    sets.setText(test.replaceAll("[^0-9]+",""));
+                } else if (test.regionMatches(0,"weight",0,6)){
+                    weight.setText(test.replaceAll("[^0-9]+",""));
+                }
+                Toast.makeText(this, test, Toast.LENGTH_SHORT).show();
+            }
+
+
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -122,9 +171,10 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 //Toast.makeText(getApplicationContext(),"Fin",Toast.LENGTH_SHORT);
                 currentSet++;
                 sets.setText(String.valueOf(currentSet));
-                //Grab the weights and sets here
+                //Grab the weights, sets, reps here
 
-                weight.setText(String.valueOf(0));
+
+                //Reset Reps and start the rest time
                 reps.setValue(reps.getMinValue());
                 restTimer.startTimer((TextView) findViewById(R.id.restTime));
                 break;
@@ -135,8 +185,46 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 abortTrack.setVisibility(View.INVISIBLE);
                 startTrack.setEnabled(true);
                 startTrack.setVisibility(View.VISIBLE);
+
+                // Just goes back to previous screen without saving anything
+                super.onBackPressed();
                 break;
         }
+    }
 
+    @Override
+    /**
+     * Caches the data of the current exercise when back button is pressed
+     */
+    public void onBackPressed() {
+        // Stores data in a file
+        String filename = workoutName + "-exercise"+ Integer.toString(exNumber);
+        String text = "text";
+
+        try {
+            File file;
+            FileWriter fileWriter;
+            file = File.createTempFile(filename,null) ;
+            fileWriter = new FileWriter(file);
+
+            // Writes exercise name, sets, reps, and weight to cache file
+            fileWriter.write(exerciseName);
+            fileWriter.write((System.getProperty( "line.separator" )));
+            fileWriter.write("set="+sets.getText());
+            fileWriter.write((System.getProperty( "line.separator" )));
+            fileWriter.write("rep="+reps.getValue());
+            fileWriter.write((System.getProperty( "line.separator" )));
+            fileWriter.write("weight="+weight.getText());
+            fileWriter.write((System.getProperty( "line.separator" )));
+            fileWriter.flush();
+            fileWriter.close();
+            Toast.makeText(this,"Cached",Toast.LENGTH_SHORT).show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        super.onBackPressed();
     }
 }
