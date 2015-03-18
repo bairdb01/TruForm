@@ -29,6 +29,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import naddateam.truform.functionality.CountDown;
 import naddateam.truform.ExerciseClasses.Exercise;
@@ -51,6 +52,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
     int exNumber;
     String workoutName;
     String exerciseName;
+    ArrayList <String> repsDone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +62,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
         workoutName = "";
         int completedReps = 0;
         int completedSets = 0;
-
+        repsDone = new ArrayList<String>();
         //Retrieving data passed from previous activity
         Bundle variables = getIntent().getExtras();
         if (variables != null) {
@@ -103,30 +105,33 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
         try {
             // Finds all exercises files and writes to the workouts file
             File file = new File(getCacheDir(), workoutName + "-exercise" + exNumber);
-            //FileInputStream fis = new FileInputStream(file);
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
 
-            if (file == null)
+            if (file.exists())
+                Toast.makeText(this, "FILE EXISTS", Toast.LENGTH_SHORT).show();
+            else
                 Toast.makeText(this, "NULL FILE", Toast.LENGTH_SHORT).show();
+
+//            FileInputStream fis = new FileInputStream(file);
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
 
             String test = "";
             while ((test = bufferedReader.readLine()) != null) {
-                if (test.regionMatches(true,0,"reps",0, 4)) {
-                    reps.setValue(Integer.parseInt(test.replaceAll("[^0-9]+","")));
-                } else if (test.regionMatches(0,"sets",0,4)) {
-                    sets.setText(test.replaceAll("[^0-9]+",""));
+                Toast.makeText(this, test, Toast.LENGTH_LONG).show();
+                //if (test.regionMatches(true,0,"rep",0, 3)) {
+                    //reps.setValue(Integer.parseInt(test.replaceAll("[^0-9]+", "")));
+                if (test.regionMatches(0,"set",0,3)) {
+                    sets.setText(test.replaceAll("[^0-9]+","")); //Need to get this to match
+                    currentSet = Integer.parseInt(test.replaceAll("[^0-9]+",""));
                 } else if (test.regionMatches(0,"weight",0,6)){
                     weight.setText(test.replaceAll("[^0-9]+",""));
                 }
-                Toast.makeText(this, test, Toast.LENGTH_SHORT).show();
             }
-
-
-
 
         } catch (Exception e) {
             e.printStackTrace();
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
         }
+        //Toast.makeText(this, "End of Creation", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -172,7 +177,8 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 currentSet++;
                 sets.setText(String.valueOf(currentSet));
                 //Grab the weights, sets, reps here
-
+                String repString = sets.getText().toString() + reps.getValue() + weight.getText();
+                repsDone.add(repString);
 
                 //Reset Reps and start the rest time
                 reps.setValue(reps.getMinValue());
@@ -198,13 +204,13 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
      */
     public void onBackPressed() {
         // Stores data in a file
-        String filename = workoutName + "-exercise"+ Integer.toString(exNumber);
+        String filename = workoutName + "-exercise" + exNumber;
         String text = "text";
 
         try {
             File file;
             FileWriter fileWriter;
-            file = File.createTempFile(filename,null) ;
+            file = new File(getCacheDir(), filename) ;
             fileWriter = new FileWriter(file);
 
             // Writes exercise name, sets, reps, and weight to cache file
@@ -212,10 +218,18 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
             fileWriter.write((System.getProperty( "line.separator" )));
             fileWriter.write("set="+sets.getText());
             fileWriter.write((System.getProperty( "line.separator" )));
-            fileWriter.write("rep="+reps.getValue());
+
+            // Writes all the reps per set
+            for (int i = 0; i < repsDone.size(); i++) {
+                fileWriter.write(repsDone.get(i));
+                fileWriter.write((System.getProperty( "line.separator" )));
+            }
+
             fileWriter.write((System.getProperty( "line.separator" )));
             fileWriter.write("weight="+weight.getText());
             fileWriter.write((System.getProperty( "line.separator" )));
+
+
             fileWriter.flush();
             fileWriter.close();
             Toast.makeText(this,"Cached",Toast.LENGTH_SHORT).show();
