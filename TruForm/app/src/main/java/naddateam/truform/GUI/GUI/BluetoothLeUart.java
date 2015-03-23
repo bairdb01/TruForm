@@ -7,7 +7,7 @@
  * Service for managing connection and data communication with a GATT server hosted on a
  * given Bluetooth LE device.
  */
-package naddateam.truform.functionality.Bluetooth;
+package naddateam.truform.GUI.GUI;
 
 /*
  * Copyright (C) 2013 The Android Open Source Project

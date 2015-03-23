@@ -6,7 +6,7 @@
  * Last Modified by: Rob Little
  * This File is used to connect to the bluetooth device and send/receive information for the device
  */
-package naddateam.truform.functionality.Bluetooth;
+package naddateam.truform.GUI.GUI;
 
 
 import naddateam.truform.R;
@@ -349,8 +349,8 @@ public class Bluetooth extends Activity implements RadioGroup.OnCheckedChangeLis
                     ((TextView) findViewById(R.id.deviceName)).setText(mDevice.getName() + " - connecting");
                     mService.connect(deviceAddress);
 
-                    }
-                    break;
+                }
+                break;
             case REQUEST_ENABLE_BT:
                 // When the request to enable Bluetooth returns
                 if (resultCode == Activity.RESULT_OK) {

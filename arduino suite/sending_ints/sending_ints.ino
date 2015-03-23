@@ -236,8 +236,8 @@ void loop()
         BTLEserial.pollACI();
         acel = "";
         gyro = "";
-        acel = "Ac: " + (String)res[cnt][3] + "," + (String)res[cnt][4] + "," + (String)res[cnt][5];
-        gyro = "Gy: " + (String)res[cnt][0] + "," + (String)res[cnt][1] + "," + (String)res[cnt][2];
+        acel = "Ac: " + (String)res[cnt][3] + " " + (String)res[cnt][4] + " " + (String)res[cnt][5];
+        gyro = "Gy: " + (String)res[cnt][0] + " " + (String)res[cnt][1] + " " + (String)res[cnt][2];
         uint8_t sendbuffer[20];
         acel.getBytes(sendbuffer, 20);
         char sendbuffersize = min(20, acel.length());
