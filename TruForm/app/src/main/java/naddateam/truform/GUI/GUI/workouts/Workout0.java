@@ -24,9 +24,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 
 import naddateam.truform.R;
 
@@ -109,29 +112,78 @@ public class Workout0 extends ActionBarActivity implements AdapterView.OnItemCli
     @Override
     public void onBackPressed(){
         // Writes the cached data from the exercises to a single non-volatile file
-        String filename = workoutName+"-stats";
-        FileOutputStream outputStream;
+        String woFilename = workoutName+"-stats";
+        File file;
+        FileWriter fileWriter;
 
         try {
-            outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
             // Finds all exercises files and writes to the workouts file
-            for (int i = 0; i < lv.getCount(); i ++) {
-                try {
-                    File file = new File(getCacheDir(), workoutName + "-exercise" + i);
-                    FileInputStream fis = new FileInputStream(file);
-                    Toast.makeText(this,fis.toString(), Toast.LENGTH_SHORT).show();
-                    outputStream.write(fis.toString().getBytes());
+            file = new File(getFilesDir(), woFilename) ; // Saves to app internal storage location
+            fileWriter = new FileWriter(file);
 
+            // Writes exercises name, sets, reps, and weight from cache file to permanent file
+            for (int exNumber = 0; exNumber < lv.getCount(); exNumber ++) {
+                try {
+                    // Open exercise data
+                    Toast.makeText(this,"Start for", Toast.LENGTH_SHORT).show();
+                    String exFilename = workoutName + "-exercise" + exNumber;
+                    File exData = new File(getCacheDir(),exFilename);
+//                    Toast.makeText(this,exFilename, Toast.LENGTH_SHORT).show();
+                    BufferedReader bf = new BufferedReader(new FileReader(exData));
+//                    Toast.makeText(this,"BF", Toast.LENGTH_SHORT).show();
+
+
+                    String line = "empty";
+                    while ((line = bf.readLine()) != null) {
+                        //Toast.makeText(this,line, Toast.LENGTH_SHORT).show();
+                        fileWriter.write(line);
+                        fileWriter.write("\r\n");
+                    }
+                    //Toast.makeText(this,"End while", Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
                     e.printStackTrace();
+                    Toast.makeText(this,"Error reading exercise data", Toast.LENGTH_SHORT).show();
                 }
-
             }
-            outputStream.close();
+            Toast.makeText(this,"Flush and Close", Toast.LENGTH_SHORT).show();
+            fileWriter.flush();
+            fileWriter.close();
         } catch (Exception e) {
             Toast.makeText(this,"Error writing", Toast.LENGTH_SHORT).show();
         }
-        Toast.makeText(this,Integer.toString(lv.getCount()), Toast.LENGTH_SHORT).show();
+        deleteCache(this);
         super.onBackPressed();
+    }
+
+
+    /**
+     * Taken from: http://stackoverflow.com/questions/6898090/how-to-clear-cache-android
+     * @param context Just use this or reference an activity
+     */
+    public static void deleteCache(Context context) {
+        try {
+            File dir = context.getCacheDir();
+            if (dir != null && dir.isDirectory()) {
+                deleteDir(dir);
+            }
+        } catch (Exception e) {}
+    }
+
+    /**
+     * Provided by http://stackoverflow.com/questions/6898090/how-to-clear-cache-android
+     * @param dir
+     * @return true if the directory was deleted
+     */
+    public static boolean deleteDir(File dir) {
+        if (dir != null && dir.isDirectory()) {
+            String[] children = dir.list();
+            for (int i = 0; i < children.length; i++) {
+                boolean success = deleteDir(new File(dir, children[i]));
+                if (!success) {
+                    return false;
+                }
+            }
+        }
+        return dir.delete();
     }
 }

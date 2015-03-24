@@ -1,6 +1,7 @@
 package naddateam.truform.GUI.GUI.SettingsItems;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -10,6 +11,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import java.io.File;
 
 import naddateam.truform.R;
 /**
@@ -111,13 +114,7 @@ public class RestoreDefNav extends ActionBarActivity implements AdapterView.OnIt
                     .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             Toast.makeText(getApplicationContext(), "Reset to Defaults", Toast.LENGTH_SHORT).show();
-                            /*
-
-                            * CODE
-                            * HERE
-                            * TO APPLY CLEAR EVERYTHING
-                            *
-                            * */
+                            deleteAllFiles(getApplicationContext());
                         }
                     })
                     .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -153,4 +150,40 @@ public class RestoreDefNav extends ActionBarActivity implements AdapterView.OnIt
 
         return super.onOptionsItemSelected(item);
     }
+
+    /**
+     * Taken from: http://stackoverflow.com/questions/6898090/how-to-clear-cache-android
+     * @param context Just use this or reference an activity
+     */
+    public static void deleteAllFiles(Context context) {
+        try {
+            File dir = context.getCacheDir();
+            if (dir != null && dir.isDirectory()) {
+                deleteDir(dir);
+            }
+            dir = context.getFilesDir();
+            if (dir != null && dir.isDirectory()) {
+                deleteDir(dir);
+            }
+        } catch (Exception e) {}
+    }
+
+    /**
+     * Provided by http://stackoverflow.com/questions/6898090/how-to-clear-cache-android
+     * @param dir
+     * @return true if the directory was deleted
+     */
+    public static boolean deleteDir(File dir) {
+        if (dir != null && dir.isDirectory()) {
+            String[] children = dir.list();
+            for (int i = 0; i < children.length; i++) {
+                boolean success = deleteDir(new File(dir, children[i]));
+                if (!success) {
+                    return false;
+                }
+            }
+        }
+        return dir.delete();
+    }
+
 }
