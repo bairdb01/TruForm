@@ -9,15 +9,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal">
+    android:gravity="center_horizontal"
+    android:background="#16a085">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Custom Workouts here"
+        android:text="Custom Workouts"
         android:id="@+id/schedules"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="false" />
+        android:layout_alignParentStart="false"
+        android:background="#ecf0f1" />
 </RelativeLayout>
