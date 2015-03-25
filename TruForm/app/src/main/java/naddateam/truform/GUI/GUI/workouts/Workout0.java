@@ -64,7 +64,7 @@ public class Workout0 extends ActionBarActivity implements AdapterView.OnItemCli
         lv = (ListView)findViewById(R.id.listView0);
 //        ArrayAdapter<String> itemsAdapter =
 //                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,workout);
-        lv.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,workout));
+        lv.setAdapter(new ArrayAdapter<String>(this, R.layout.listviewcloud_text,workout));
         lv.setOnItemClickListener(this);
     }
 

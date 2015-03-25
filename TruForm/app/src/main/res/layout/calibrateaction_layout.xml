@@ -15,7 +15,7 @@
         android:gravity="center"
         android:id="@+id/calibActionCountdown"
         android:textSize="50dp"
-        android:background="#FFFF00"
+        android:background="#f1c40f"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
@@ -31,7 +31,8 @@
         android:gravity="center"
         android:layout_below="@+id/calibActionCountdown"
         android:layout_centerHorizontal="true"
-        android:paddingTop="16dp" />
+        android:paddingTop="16dp"
+        android:textColor="#ecf0f1" />
 
     <Button
         android:layout_width="wrap_content"
