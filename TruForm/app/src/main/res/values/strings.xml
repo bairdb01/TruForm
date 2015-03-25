@@ -1,28 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 48da528e809c45c0f7861772c8d358d2c71bc8f4
+
 <!-- CIS3760 -->
 <!-- Naddateam Truform -->
 <!-- strings.xml -->
 <!-- Authors: Erik Hoffman, Ben Baird, Robert Little, Andrew Huynh -->
 <!-- String declarations for use by all other xml pages -->
-<<<<<<< HEAD
-=======
 
-
-<!--CIS3760-->
-<!--Naddateam Truform-->
-<!--strings.xml-->
-<!--Authors: Erik Hoffman, Ben Baird, Robert Little, Andrew Huynh-->
-<!--String declarations for use by all other xml pages-->
-    <!-- Organized by Andrew, THE DISORGANIZATION WAS DRIVING ME NUTS -->
-
->>>>>>> 2c0b8886c433911cd3ad1ab7d8292f639194196b
-=======
-<!-- Organized by Andrew, THE DISORGANIZATION WAS DRIVING ME NUTS -->
->>>>>>> 48da528e809c45c0f7861772c8d358d2c71bc8f4
 <resources>
 
     <!-- Large string stuff -->
