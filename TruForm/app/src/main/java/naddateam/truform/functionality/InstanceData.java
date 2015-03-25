@@ -1,18 +1,5 @@
 package naddateam.truform.functionality;
 
-<<<<<<< HEAD
-import android.support.v7.app.ActionBarActivity;
-import android.widget.ListView;
-import android.widget.TextView;
-import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.util.Scanner;
-import naddateam.truform.R;
-import naddateam.truform.Tester;
-
-=======
->>>>>>> 2a26fa4edf5e3ed5a84ab9d17f2d796f0fbecaaa
 /**
  * CIS3760
  * Naddateam Truform
@@ -21,18 +8,6 @@ import naddateam.truform.Tester;
  * Last Modified March 1, 2015
  * Description: Class file for the data points returned by the device
  */
-<<<<<<< HEAD
-
-public class InstanceData {
-
-    private double accelX;
-    private double accelY;
-    private double accelZ;
-    private double gyroX;
-    private double gyroY;
-    private double gyroZ;
-    public String test1;
-=======
 
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -45,6 +20,30 @@ public class InstanceData {
     private double Z;
     private int type;
 
+    public void constructInstance() {
+        Z = 0;
+        Y = 0;
+        X = 0;
+        type = 0;
+    }
+
+    /*sets the stuff*/
+    public void setInstanceData(String dataText) {
+        /*Gather the bluetooth data here*/
+        /*String format (for parsing)
+        AC: 123, 123, 123
+        GY: 18, 20, -32
+         */
+        Scanner scanner = new Scanner(dataText);
+        scanner.useDelimiter(" ");
+        String type = scanner.next();
+        int val1 = Integer.parseInt(scanner.next());
+        int val2 = Integer.parseInt(scanner.next());
+        int val3 = Integer.parseInt(scanner.next());
+
+        this.X = val1;
+        this.Y = val2;
+        this.Z = val3;
 
         if(type == "AC:") {
             this.type = 0;
