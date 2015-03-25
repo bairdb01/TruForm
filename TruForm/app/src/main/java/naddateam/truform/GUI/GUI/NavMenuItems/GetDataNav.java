@@ -7,18 +7,24 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+
+import naddateam.truform.GUI.GUI.Bluetooth;
 import naddateam.truform.R;
 import naddateam.truform.functionality.ExerciseAnalysis;
+import naddateam.truform.functionality.InstanceData;
 
 public class GetDataNav extends ActionBarActivity {
     ExerciseAnalysis exerciseAnalysis = new ExerciseAnalysis();
+    Bluetooth stuff = new Bluetooth();
     ListView lv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_data_nav);
+        exerciseAnalysis.analyzeForm(stuff.dataArr, 4);
         lv = (ListView)findViewById(R.id.listView0);
-        ArrayAdapter<Integer> arrayAdapter = new ArrayAdapter<Integer>(
+        ArrayAdapter<Integer> arrayAdapter = new ArrayAdapter<Integer> (
             this,
             android.R.layout.simple_list_item_1,
             exerciseAnalysis.form ) ;
