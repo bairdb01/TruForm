@@ -3,7 +3,11 @@ package naddateam.truform.functionality;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import naddateam.truform.GUI.GUI.NavMenuItems.GetDataNav;
 import naddateam.truform.functionality.InstanceData;
+import android.widget.ListView;
+import naddateam.truform.R;
 
 /**
  * CIS3760
@@ -15,9 +19,13 @@ import naddateam.truform.functionality.InstanceData;
  *
  */
 
-public class ExerciseAnalysis {
-    private int numGoodReps;
-    private int[] form = null;
+public class ExerciseAnalysis extends GetDataNav {
+    private static int numGoodReps;
+    public static ArrayList<Integer> form = new ArrayList<Integer>();
+
+    private GetDataNav dataNav = new GetDataNav();
+    private ListView messageListView;
+
 
     //private ArrayList<InstanceData> dataPoints = new ArrayList<InstanceData>();
 
@@ -39,6 +47,8 @@ public class ExerciseAnalysis {
      * Checks whether the users form is correct based off an algorithm
      */
     public void analyzeForm(ArrayList<InstanceData> dataPoints, int numReps) {
+
+
         /*Constants*/
         int LOWER_BOUND = 64;
         int UPPER_BOUND = 85;
@@ -51,7 +61,6 @@ public class ExerciseAnalysis {
 
         double[] up = null;
         double[] down = null;
-
 
         double prevX = 0;
         double prevY = 0;
@@ -127,29 +136,30 @@ public class ExerciseAnalysis {
         0 is somewhat close form (not good)
         -1 is bad form
         -2 is too long of a rest
-         */
+          */
         i = 0;
         for(i = 0; i<j; i++)
         {
             if(numZeroes[j] > 3)
             {
-                this.form[i] = -2;
+                this.form.add(-2);
             }
             else if((up[i] >= LOWER_BOUND) && (up[i] <= UPPER_BOUND) && (down[i] >= LOWER_BOUND) && (down[i] <= UPPER_BOUND))
             {
-                this.form[i] = 1;
+                this.form.add(1);
             }
             else if((up[i] > 40) && (up[i] < LOWER_BOUND) && (down[i] > 40) && (down[i] < LOWER_BOUND))
             {
-                this.form[i] = 0;
+                this.form.add(0);
             }
             else
             {
-                this.form[i] = -1;
+                this.form.add(-1);
             }
         }
 
         this.numGoodReps = j;
+        return;
 
     }
 
