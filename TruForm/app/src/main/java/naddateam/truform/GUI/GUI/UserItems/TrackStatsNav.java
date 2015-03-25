@@ -1,26 +1,62 @@
 package naddateam.truform.GUI.GUI.UserItems;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 
+import java.io.File;
+import java.util.ArrayList;
+
+import naddateam.truform.GUI.GUI.workouts.GenericExercise;
 import naddateam.truform.R;
+import naddateam.truform.Workout_History;
+
 /**
  * CIS3760
  * Naddateam Truform
  * TrackStatsNav.java
- * Author: Andrew Huynh
- * This class will be the Past Statistics found in Navigation Drawer > User > Tracked Statistics
- * This page consists of all past tracked user data users have performed. That will be able
- * Total sets, total reps, percentage of form and able to compare.
+ * Author: Benjamin Baird
+ * Allows the user to be able to view their past workouts
+ *
+ *
+ *
+ *
+ *
+ * Bugs: Currently crashes when item is clicked, sends a null position or something of that sort
  */
-public class TrackStatsNav extends ActionBarActivity {
+public class TrackStatsNav extends ActionBarActivity implements AdapterView.OnItemClickListener{
+    ListView lv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trackstats_layout);
+
+        ArrayList pastWorkouts = new ArrayList();
+
+        // Grab file names and add them to the list of past workouts
+        try {
+            File dirFiles = getFilesDir();
+            for (String filename : dirFiles.list()) {
+                pastWorkouts.add(filename);
+            }
+
+            String[] woList = new String[pastWorkouts.size()];
+            pastWorkouts.toArray(woList);
+
+            lv = (ListView) findViewById(R.id.pastWorkouts);
+            lv.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, woList));
+            lv.setOnItemClickListener(this);
+        } catch (Exception e) {
+            Toast.makeText(this,"Error",Toast.LENGTH_SHORT);
+        }
     }
 
 
@@ -44,5 +80,14 @@ public class TrackStatsNav extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        // Opens the exercise
+        Toast.makeText(this, String.valueOf(position) ,Toast.LENGTH_SHORT).show();
+        Intent workout = new Intent(this , Workout_History.class);
+        String workoutName = lv.getItemAtPosition(position).toString();
+        workout.putExtra("workoutName",workoutName); //Sends workout name
+        startActivity(workout);
     }
 }
