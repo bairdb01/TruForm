@@ -24,8 +24,6 @@ import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -37,7 +35,7 @@ import naddateam.truform.ExerciseClasses.Exercises;
 import naddateam.truform.R;
 
 /**
- * Note to self: need to store reps individually for sets
+ * Note to self: Currently overwrites last reps/sets/weight completed on exit of screen
  */
 public class GenericExercise extends ActionBarActivity implements View.OnClickListener{
     Button startTrack;
@@ -53,6 +51,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
     String workoutName;
     String exerciseName;
     ArrayList <String> repsDone;
+    ArrayList <String> weightDone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +62,8 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
         int completedReps = 0;
         int completedSets = 0;
         repsDone = new ArrayList<String>();
+        weightDone = new ArrayList<String>();
+
         //Retrieving data passed from previous activity
         Bundle variables = getIntent().getExtras();
         if (variables != null) {
@@ -114,16 +115,16 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
 //            FileInputStream fis = new FileInputStream(file);
             BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
 
-            String test = "";
-            while ((test = bufferedReader.readLine()) != null) {
-                Toast.makeText(this, test, Toast.LENGTH_LONG).show();
+            String line = "";
+            while ((line = bufferedReader.readLine()) != null) {
+                Toast.makeText(this, line, Toast.LENGTH_LONG).show();
                 //if (test.regionMatches(true,0,"rep",0, 3)) {
                     //reps.setValue(Integer.parseInt(test.replaceAll("[^0-9]+", "")));
-                if (test.regionMatches(0,"set",0,3)) {
-                    sets.setText(test.replaceAll("[^0-9]+","")); //Need to get this to match
-                    currentSet = Integer.parseInt(test.replaceAll("[^0-9]+",""));
-                } else if (test.regionMatches(0,"weight",0,6)){
-                    weight.setText(test.replaceAll("[^0-9]+",""));
+                if (line.regionMatches(0,"set",0,3)) {
+                    sets.setText(line.replaceAll("[^0-9]+","")); //Need to get this to match
+                    currentSet = Integer.parseInt(line.replaceAll("[^0-9]+",""));
+                } else if (line.regionMatches(0,"weight",0,6)){
+                    weight.setText(line.replaceAll("[^0-9]+",""));
                 }
             }
 
@@ -176,9 +177,11 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 //Toast.makeText(getApplicationContext(),"Fin",Toast.LENGTH_SHORT);
                 currentSet++;
                 sets.setText(String.valueOf(currentSet));
+
                 //Grab the weights, sets, reps here
-                String repString = sets.getText().toString() + reps.getValue() + weight.getText();
+                String repString = Integer.toString(reps.getValue());
                 repsDone.add(repString);
+                weightDone.add(weight.getText().toString());
 
                 //Reset Reps and start the rest time
                 reps.setValue(reps.getMinValue());
@@ -215,24 +218,25 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
 
             // Writes exercise name, sets, reps, and weight to cache file
             fileWriter.write(exerciseName);
-            fileWriter.write((System.getProperty( "line.separator" )));
+            fileWriter.write("\r\n");
             fileWriter.write("set="+sets.getText());
-            fileWriter.write((System.getProperty( "line.separator" )));
+            fileWriter.write("\r\n");
 
             // Writes all the reps per set
             for (int i = 0; i < repsDone.size(); i++) {
-                fileWriter.write(repsDone.get(i));
-                fileWriter.write((System.getProperty( "line.separator" )));
+                fileWriter.write("reps="+repsDone.get(i));
+                fileWriter.write("\r\n");
             }
 
-            fileWriter.write((System.getProperty( "line.separator" )));
-            fileWriter.write("weight="+weight.getText());
-            fileWriter.write((System.getProperty( "line.separator" )));
-
+            // Writes all the weights per set
+            for (int i = 0; i < weightDone.size(); i++) {
+                fileWriter.write("weight="+weightDone.get(i));
+                fileWriter.write("\r\n");
+            }
 
             fileWriter.flush();
             fileWriter.close();
-            Toast.makeText(this,"Cached",Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this,"Cached",Toast.LENGTH_SHORT).show();
 
         } catch (IOException e) {
             e.printStackTrace();

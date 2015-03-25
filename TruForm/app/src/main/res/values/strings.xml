@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 48da528e809c45c0f7861772c8d358d2c71bc8f4
 <!-- CIS3760 -->
 <!-- Naddateam Truform -->
 <!-- strings.xml -->
 <!-- Authors: Erik Hoffman, Ben Baird, Robert Little, Andrew Huynh -->
 <!-- String declarations for use by all other xml pages -->
+<<<<<<< HEAD
 =======
 
 
@@ -16,6 +20,9 @@
     <!-- Organized by Andrew, THE DISORGANIZATION WAS DRIVING ME NUTS -->
 
 >>>>>>> 2c0b8886c433911cd3ad1ab7d8292f639194196b
+=======
+<!-- Organized by Andrew, THE DISORGANIZATION WAS DRIVING ME NUTS -->
+>>>>>>> 48da528e809c45c0f7861772c8d358d2c71bc8f4
 <resources>
 
     <!-- Large string stuff -->
@@ -23,8 +30,8 @@
     <string name="about_details">Made by NADDATEAM (Benjamin Baird, Robert Little, Erik Hoffman and Andrew Huynh). Uses Arduino hardware technology
     with gyroscope and accelerometer data. Made during the CIS3760 course at University of Guelph during the Winter 2015 semester.</string>
 
-    <!-- TITLES and any other strings with "title" in it-->
-    <!-- String items for the Calibration Action page-->
+    <!-- TITLES and any other strings with "title" in it -->
+    <!-- String items for the Calibration Action page -->
     <string name="title_calibActionCountdown">Countdown</string>
     <string name="title_calibActionStatus">Status</string>
     <string name="title_calibActionConfirm">Confirm</string>
@@ -62,8 +69,8 @@
         <item>Reset to Defaults</item>
         <item>Help</item>
         <item>About</item>
+        <item>Get Data</item>
     </string-array>
-
     <string-array name="dummyList">
         <item>Item 1</item>
         <item>Item 2</item>
@@ -156,7 +163,7 @@
     </string-array>
 
     <string name="app_name">TruForm</string>
-    <string name="action_settings">Perderders</string>
+    <string name="action_settings">Thanks for using Truform</string>
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Send</string>
     <string name="title_activity_main_activity2">MainActivity2</string>
@@ -222,16 +229,6 @@
     <string name="ble_not_supported">Bluetooth Low Energy not supported</string>
     <string name="scan">Scan</string>
     <string name="cancel">Cancel</string>
-<<<<<<< HEAD
-    <string name="title_activity_device_list">DeviceListActivity</string>
-    <string name="title_activity_title_bar">titleBar</string>
-    <string name="title_activity_bluetooth">Bluetooth</string>
-    <string name="title_activity_how_calib_tut">How to Calibrate</string>
-    <string name="title_activity_track_stats_nav">Past Statistics</string>
-    <string name="title_activity_custom_work_nav">Custom Workouts</string>
-    <string name="title_activity_calibration_action">Calibrate</string>
-    <string name="title_activity_tester">tester</string>
-=======
->>>>>>> 2c0b8886c433911cd3ad1ab7d8292f639194196b
+    <string name="title_activity_get_data_nav">GetDataNav</string>
 
 </resources>
