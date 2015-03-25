@@ -9,6 +9,7 @@
 package naddateam.truform.GUI.GUI;
 
 
+import naddateam.truform.GUI.GUI.NavMenuItems.GetDataNav;
 import naddateam.truform.R;
 import naddateam.truform.functionality.ExerciseAnalysis;
 import naddateam.truform.functionality.InstanceData;

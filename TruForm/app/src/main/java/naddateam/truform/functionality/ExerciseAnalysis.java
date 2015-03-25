@@ -3,6 +3,8 @@ package naddateam.truform.functionality;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import naddateam.truform.GUI.GUI.NavMenuItems.GetDataNav;
 import naddateam.truform.functionality.InstanceData;
 
 /**
@@ -15,7 +17,7 @@ import naddateam.truform.functionality.InstanceData;
  *
  */
 
-public class ExerciseAnalysis {
+public class ExerciseAnalysis extends GetDataNav {
     private int numGoodReps;
     private int[] form = null;
 
@@ -52,6 +54,7 @@ public class ExerciseAnalysis {
         double[] up = null;
         double[] down = null;
 
+        GetDataNav dataNav = new GetDataNav();
 
         double prevX = 0;
         double prevY = 0;
