@@ -17,7 +17,7 @@ public class GetDataNav extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_data_nav);
-        lv = (ListView)findViewById(R.id.listView);
+        lv = (ListView)findViewById(R.id.listView0);
         ArrayAdapter<Integer> arrayAdapter = new ArrayAdapter<Integer>(
             this,
             android.R.layout.simple_list_item_1,

@@ -159,6 +159,7 @@ public class ExerciseAnalysis extends GetDataNav {
         }
 
         this.numGoodReps = j;
+        return;
 
     }
 
