@@ -15,30 +15,30 @@ import naddateam.truform.functionality.Calibration;
  */
 public class Exercise {
     private String name;
-    private int targetSets;
-    private int targetReps;
+    private int completedSets;
+    private int completedReps;
     private int maxWeight;
     private String formLocation;
     private static Calibration initialPosition; //One calibration for all instances
 
     public Exercise() {
         this.name = "NotAName!";
-        targetReps = 0;
-        targetReps = 0;
+        completedReps = 0;
+        completedReps = 0;
     }
 
     /**
      * Allows the user to set the number of reps for an exercise
      */
     public void setReps(int newReps){
-        this.targetReps = newReps;
+        this.completedReps = newReps;
     }
 
     /**
      * Allows the user to set the number of sets for an exercise
      */
     public void setSets(int newSets){
-        this.targetSets = newSets;
+        this.completedSets = newSets;
     }
 
     /**
@@ -64,8 +64,8 @@ public class Exercise {
     }
 
     public Object clone(Exercise cloneInto) throws CloneNotSupportedException {
-        cloneInto.setReps(this.targetReps);
-        cloneInto.setSets(this.targetSets);
+        cloneInto.setReps(this.completedReps);
+        cloneInto.setSets(this.completedSets);
         cloneInto.changeName(this.name);
         //copyCalibration(cloneInto);
         return super.clone();

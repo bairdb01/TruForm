@@ -12,6 +12,7 @@
 package naddateam.truform.GUI.GUI.workouts;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -21,12 +22,18 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 
 import naddateam.truform.R;
 
 public class Workout0 extends ActionBarActivity implements AdapterView.OnItemClickListener{
     ListView lv;
     static String workoutName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,13 +73,14 @@ public class Workout0 extends ActionBarActivity implements AdapterView.OnItemCli
         //Toast.makeText(getApplicationContext(), "Pressed" + position, Toast.LENGTH_LONG).show();
         String exerciseName;
 
-            // Opens the exercise
-            Intent exercise0 = new Intent(this ,GenericExercise.class);
-            exerciseName = lv.getItemAtPosition(position).toString();
-            exercise0.putExtra("exName",exerciseName); // Pass data to next activity
-            startActivity(exercise0);
+        // Opens the exercise
+        Intent exercise0 = new Intent(this ,GenericExercise.class);
+        exerciseName = lv.getItemAtPosition(position).toString();
+        exercise0.putExtra("exName",exerciseName); // Pass exercise name
+        exercise0.putExtra("exNum",position); //Sends which exercise number was clicked
+        exercise0.putExtra("workoutName",workoutName); //Sends workout name
+        startActivity(exercise0);
 
-//        }
     }
 
 
@@ -98,4 +106,32 @@ public class Workout0 extends ActionBarActivity implements AdapterView.OnItemCli
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onBackPressed(){
+        // Writes the cached data from the exercises to a single non-volatile file
+        String filename = workoutName+"-stats";
+        FileOutputStream outputStream;
+
+        try {
+            outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
+            // Finds all exercises files and writes to the workouts file
+            for (int i = 0; i < lv.getCount(); i ++) {
+                try {
+                    File file = new File(getCacheDir(), workoutName + "-exercise" + i);
+                    FileInputStream fis = new FileInputStream(file);
+                    Toast.makeText(this,fis.toString(), Toast.LENGTH_SHORT).show();
+                    outputStream.write(fis.toString().getBytes());
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+            outputStream.close();
+        } catch (Exception e) {
+            Toast.makeText(this,"Error writing", Toast.LENGTH_SHORT).show();
+        }
+        Toast.makeText(this,Integer.toString(lv.getCount()), Toast.LENGTH_SHORT).show();
+        super.onBackPressed();
+    }
 }

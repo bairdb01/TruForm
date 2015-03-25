@@ -51,31 +51,203 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
  * Third Position = Workout Maker Tutorial
  */
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        if (position == 0) {
 
-            builder.setTitle("Select an Exercise")
+        final AlertDialog.Builder builderContain = new AlertDialog.Builder(this);
+        final AlertDialog.Builder builderOne = new AlertDialog.Builder(this);
+        final AlertDialog.Builder builderTwo = new AlertDialog.Builder(this);
+        final AlertDialog.Builder builderThree = new AlertDialog.Builder(this);
+        final AlertDialog.Builder builderFour = new AlertDialog.Builder(this);
+
+        if (position == 0) {
+            builderContain.setTitle("Select a category.")
                     .setItems(R.array.calibrationItemsArr, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            /*
-                            * The different selections of what tutorial for exercise they want to
-                            * know about
+
+
+                            /* CHEST AND TRICEPS ---------------------------------------------------
+                            * 0 Dumbbell Chest Press
+                            * 1 Incline Bench Press
+                            * 2 Dumbbell Flies
+                            * 3 Incline Flies
+                            * 4 Skull Crushers
+                            * 5 Dips
+                            * 6 Tricep Extensions
                              */
                             if (which == 0) {
-                                Intent goBicepCurlTut = new Intent(HelpNav.this, BicepCurlTut.class);
-                                startActivity(goBicepCurlTut);
+                                builderOne.setTitle("Select an Exercise")
+                                        .setItems(R.array.ChestAndTriceps, new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                if (which == 0) {
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
+                                                    //  startActivity(goChestTut);
+                                                }
+                                                else if (which == 1) {
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
+                                                    //  startActivity(goChestTut);
+                                                }
+                                                else if (which == 2) {
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
+                                                    //  startActivity(goChestTut);
+                                                }
+                                                else if (which == 3) {
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
+                                                    //  startActivity(goChestTut);
+                                                }
+                                                else if (which == 4) {
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
+                                                    //  startActivity(goChestTut);
+                                                }
+                                                else if (which == 5) {
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
+                                                    //  startActivity(goChestTut);
+                                                }
+                                                else if (which == 6) {
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
+                                                    //  startActivity(goChestTut);
+                                                }
+                                            }
+                                        });
+                                builderOne.create().show();
                             }
+
+                            /* LEGS ----------------------------------------------------------------
+                            * 0 Squats
+                            * 1 Front Squats
+                            * 2 Leg Extensions
+                            * 3 Hamstring Curls
+                            * 4 Lying Hamstring Curls
+                            * 5 Dips
+                            * 6 Tricep Extensions
+                             */
                             else if (which == 1) {
-                                Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
-                                startActivity(goChestTut);
+                                builderTwo.setTitle("Select an Exercise")
+                                        .setItems(R.array.Legs, new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                if (which == 0) {
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
+                                                    //  startActivity(goChestTut);
+                                                }
+                                                else if (which == 1) {
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
+                                                    //  startActivity(goChestTut);
+                                                }
+                                                else if (which == 2) {
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
+                                                    //  startActivity(goChestTut);
+                                                }
+                                                else if (which == 3) {
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
+                                                    //  startActivity(goChestTut);
+                                                }
+                                                else if (which == 4) {
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
+                                                    //  startActivity(goChestTut);
+                                                }
+                                            }
+                                        });
+                                builderTwo.create().show();
                             }
+
+                            /* BACK AND BICEPS -----------------------------------------------------
+                            * 0 Deadlifts
+                            * 1 Bentover Rows
+                            * 2 Wide Grip Pullbar
+                            * 3 Cable Rows
+                            * 4 Dumbbell Bicep Curls
+                            * 5 Barbell Bicep Curls
+                            * 6 Tricep Extensions
+                            * 7 Spider Curls
+                             */
                             else if (which == 2) {
-                                Intent goSquatTut = new Intent(HelpNav.this, SquatsTut.class);
-                                startActivity(goSquatTut);
+                                builderThree.setTitle("Select an Exercise")
+                                        .setItems(R.array.BackAndBiceps, new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                if (which == 0) {
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
+                                                    //  startActivity(goChestTut);
+                                                }
+                                                else if (which == 1) {
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
+                                                    //  startActivity(goChestTut);
+                                                }
+                                                else if (which == 2) {
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
+                                                    //  startActivity(goChestTut);
+                                                }
+                                                else if (which == 3) {
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
+                                                    //  startActivity(goChestTut);
+                                                }
+                                                else if (which == 4) {
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
+                                                    //  startActivity(goChestTut);
+                                                }
+                                                else if (which == 5) {
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
+                                                    //  startActivity(goChestTut);
+                                                }
+                                                else if (which == 6) {
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
+                                                    //  startActivity(goChestTut);
+                                                }
+                                                else if (which == 7) {
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
+                                                    //  startActivity(goChestTut);
+                                                }
+                                            }
+                                        });
+                                builderThree.create().show();
+                            }
+
+                                /* SHOULDERS -------------------------------------------------------
+                                * 0 Shoulder Press
+                                * 1 Lateral Raises
+                                * 2 Reverse Flies
+                                * 3 Upright Barbell Rows
+                                 */
+                            else if (which == 3) {
+                                builderFour.setTitle("Select an Exercise")
+                                        .setItems(R.array.Shoulders, new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                if (which == 0) {
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
+                                                    //  startActivity(goChestTut);
+                                                }
+                                                else if (which == 1) {
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
+                                                    //  startActivity(goChestTut);
+                                                }
+                                                else if (which == 2) {
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
+                                                    //  startActivity(goChestTut);
+                                                }
+                                                else if (which == 3) {
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
+                                                    //  startActivity(goChestTut);
+                                                }
+                                                else if (which == 4) {
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
+                                                    //  startActivity(goChestTut);
+                                                }
+                                                else if (which == 5) {
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
+                                                    //  startActivity(goChestTut);
+                                                }
+                                                else if (which == 6) {
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
+                                                    //  startActivity(goChestTut);
+                                                }
+                                                else if (which == 7) {
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
+                                                    //  startActivity(goChestTut);
+                                                }
+                                            }
+                                        });
+                                builderFour.create().show();
                             }
                         }
                     });
-            builder.create().show();
+            builderContain.create().show();
         }
         /*
         * How to make a workout

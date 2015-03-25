@@ -57,8 +57,8 @@ double clicksPerDegCCW = 625.67; // a constant used when turning X degrees count
 
 // Boolean program controllers for the gyroscope
 boolean calibrate = false; // set to true if you want to recalibrate the gyro (doesn't seem like gyro is detecting accurate number of degrees turned
-boolean testMode = false; // set to true if you want to test the gyro to see if it needs to be recalibrated
-boolean printVal = true; // calls the print function, allows for visual data
+boolean testMode = true; // set to true if you want to test the gyro to see if it needs to be recalibrated
+boolean printVal = false; // calls the print function, allows for visual data
 
 boolean gyroTurnTimeoutError = false; // keeps track of if the gyro has timed out on a turn
 int turnTimeout = 8000; // maximum time required for a turn (ms). Error above is thrown if turn takes longer than this
@@ -207,7 +207,7 @@ boolean gyroBasedTurns(boolean dir, double angleDegrees) {
  while (abs(totalClicks) < abs(clicksToTurn)) {
   getGyroValues();  // This will update rollGyroVal, pitchGyroVal, and yawGyroVal with new values
 
-  PitchGyroValDouble =pitchGyroVal;
+  PitchGyroValDouble =rollGyroVal;
   if(abs(PitchGyroValDouble) > abs(gyroNoiseThresh)){ // ignore noise
       totalClicks+=PitchGyroValDouble; // update runsum
     }
@@ -343,7 +343,7 @@ int setCountPerDegCW(int currentVal, int gyroDelayTime) {
   while ((endtime - starttime) <=5000) // do this loop for up to 5000mS
   {
     getGyroValues();  // This will update rollGyroVal, pitchGyroVal, and yawGyroVal with new values
-    yawGyroValDouble =yawGyroVal; // convert to double
+    yawGyroValDouble =rollGyroVal; // convert to double
     if(abs(yawGyroValDouble) > abs(gyroNoiseThresh)){ // ignore noise
       yawGyroValRunSum += yawGyroValDouble; // add to running sum
     }
@@ -375,7 +375,7 @@ int setCountPerDegCCW(int currentVal, int gyroDelayTime) {
   while ((endtime - starttime) <=5000) // do this loop for up to 5000mS
   {
     getGyroValues();  // This will update rollGyroVal, pitchGyroVal, and yawGyroVal with new values
-    yawGyroValDouble =yawGyroVal; // convert to double
+    yawGyroValDouble =rollGyroVal; // convert to double
     if(abs(yawGyroValDouble) > abs(gyroNoiseThresh)){ // ignore noise
       yawGyroValRunSum += yawGyroValDouble; // update running sum
     }

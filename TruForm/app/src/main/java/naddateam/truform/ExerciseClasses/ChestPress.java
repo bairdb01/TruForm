@@ -16,8 +16,8 @@ import naddateam.truform.functionality.Calibration;
  */
 public class ChestPress extends Exercise{
     private String name;
-    private int targetSets;
-    private int targetReps;
+    private int completedSets;
+    private int completedReps;
     private String formLocation;
     private static Calibration initialPosition; //One calibration for all instances
 
@@ -27,8 +27,8 @@ public class ChestPress extends Exercise{
      * @param sets target sets for the user to hit
      */
     public ChestPress(int reps, int sets){
-        this.targetReps = reps;
-        this.targetSets = sets;
+        this.completedReps = reps;
+        this.completedSets = sets;
         this.name = "ChestPress";
         if (initialPosition == null) {
             initialPosition = new Calibration();

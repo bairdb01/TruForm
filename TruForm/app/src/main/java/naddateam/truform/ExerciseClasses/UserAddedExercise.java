@@ -16,14 +16,14 @@ import naddateam.truform.functionality.Calibration;
  */
 public class UserAddedExercise extends Exercise {
     private String name;
-    private int targetSets;
-    private int targetReps;
+    private int completedSets;
+    private int completedReps;
     private String formLocation;
     private static Calibration initialPosition; //One calibration for all instances
 
-    public UserAddedExercise(int targetSets, int targetReps, String name){
-        this.targetReps = targetReps;
-        this.targetSets = targetSets;
+    public UserAddedExercise(int completedSets, int completedReps, String name){
+        this.completedReps = completedReps;
+        this.completedSets = completedSets;
         this.name = name;
     }
 

@@ -14,11 +14,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Select to Calibrate"
+        android:text="Select a Category"
         android:id="@+id/calibrations"
         android:gravity="center_horizontal"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="12dp"
+        android:textSize="20dp" />
 
     <ListView
         android:layout_width="wrap_content"

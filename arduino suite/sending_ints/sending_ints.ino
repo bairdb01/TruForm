@@ -58,8 +58,9 @@ float yawGyroValDouble; // running sums get very large. We need to poll the int 
 float PitchGyroValDouble;
 float RollGyroValDouble;
 
-float clicksPerDegCW = -624.67; // a constant used when turning X degrees clockwise. This value can be re-set by turning the calibrate variable to TRUE and following on-screen instructions
-float clicksPerDegCCW = 625.67; // a constant used when turning X degrees counter clockwise. This value can be re-set by turning the calibrate variable to TRUE and following on-screen instructions
+float clicksPerDegCCWR = 607.00;
+float clicksPerDegCCWY = 625.67;
+
 
 /**************************************************************************/
 /*!
@@ -195,9 +196,9 @@ void loop()
           endtime = millis();
         }
 
-        angleY = totalClicksY / clicksPerDegCCW;
-        angleP = totalClicksP / clicksPerDegCCW;
-        angleR = totalClicksR / clicksPerDegCCW;
+        angleY = totalClicksY / clicksPerDegCCWY;
+        angleP = totalClicksP / clicksPerDegCCWR; 
+        angleR = totalClicksR / clicksPerDegCCWR;
               
 //        String yawSend = String(angleY);
 //        
@@ -246,7 +247,7 @@ void loop()
         
         // write the data
         BTLEserial.write(sendbuffer, sendbuffersize);
-        BTLEserial.pollACI();
+        //BTLEserial.pollACI();
         gyro.getBytes(sendbuffer, 20);
         sendbuffersize = min(20, gyro.length());
         BTLEserial.write(sendbuffer, sendbuffersize);

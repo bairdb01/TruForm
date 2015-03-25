@@ -46,10 +46,10 @@ public class Exercises {
     public int addExercise () {
         String name = "Ex.Name";
 //        String formLocation = "";
-        int targetReps = 0;
-        int targetSets = 0;
+        int completedReps = 0;
+        int completedSets = 0;
 
-        UserAddedExercise newExercise = new UserAddedExercise(targetSets, targetReps, name);
+        UserAddedExercise newExercise = new UserAddedExercise(completedSets, completedReps, name);
 //        newExercise.setFormLocation();
         this.allExercises.put(name, newExercise);
 

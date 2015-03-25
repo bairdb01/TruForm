@@ -10,6 +10,7 @@
 
 package naddateam.truform.GUI.GUI.workouts;
 
+import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -19,12 +20,25 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 
 import naddateam.truform.functionality.CountDown;
 import naddateam.truform.ExerciseClasses.Exercise;
 import naddateam.truform.ExerciseClasses.Exercises;
 import naddateam.truform.R;
 
+/**
+ * Note to self: need to store reps individually for sets
+ */
 public class GenericExercise extends ActionBarActivity implements View.OnClickListener{
     Button startTrack;
     Button abortTrack;
@@ -35,24 +49,33 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
     int currentSet;
     Exercise curExercise;
     CountDown restTimer;
+    int exNumber;
+    String workoutName;
+    String exerciseName;
+    ArrayList <String> repsDone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        String exerciseName = "";
-        int targetReps = 0;
-        int targetSets = 0;
-
+        //Initialization of null variables
+        exerciseName = "";
+        exNumber = 0;
+        workoutName = "";
+        int completedReps = 0;
+        int completedSets = 0;
+        repsDone = new ArrayList<String>();
         //Retrieving data passed from previous activity
         Bundle variables = getIntent().getExtras();
         if (variables != null) {
-           exerciseName = variables.getString("exName");
+            exerciseName = variables.getString("exName");
+            exNumber = variables.getInt("exNum");
+            workoutName = variables.getString("workoutName");
         }
 
         //Setting the countdown timer
         restTimer = new CountDown();
         // Creates an exercise object to change the title, track sets and reps, etc
         Exercises exCreator = new Exercises();
-        curExercise = exCreator.createExercise(exerciseName,targetReps,targetSets);
+        curExercise = exCreator.createExercise(exerciseName,completedReps,completedSets);
         setTitle(exerciseName);
         currentSet = 0;
         super.onCreate(savedInstanceState);
@@ -77,7 +100,38 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
         reps.setMinValue(1);
         reps.setMaxValue(99);
 
+        // Checking if previous cache data is available in case workout incomplete
 
+        try {
+            // Finds all exercises files and writes to the workouts file
+            File file = new File(getCacheDir(), workoutName + "-exercise" + exNumber);
+
+            if (file.exists())
+                Toast.makeText(this, "FILE EXISTS", Toast.LENGTH_SHORT).show();
+            else
+                Toast.makeText(this, "NULL FILE", Toast.LENGTH_SHORT).show();
+
+//            FileInputStream fis = new FileInputStream(file);
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+
+            String test = "";
+            while ((test = bufferedReader.readLine()) != null) {
+                Toast.makeText(this, test, Toast.LENGTH_LONG).show();
+                //if (test.regionMatches(true,0,"rep",0, 3)) {
+                    //reps.setValue(Integer.parseInt(test.replaceAll("[^0-9]+", "")));
+                if (test.regionMatches(0,"set",0,3)) {
+                    sets.setText(test.replaceAll("[^0-9]+","")); //Need to get this to match
+                    currentSet = Integer.parseInt(test.replaceAll("[^0-9]+",""));
+                } else if (test.regionMatches(0,"weight",0,6)){
+                    weight.setText(test.replaceAll("[^0-9]+",""));
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+        }
+        //Toast.makeText(this, "End of Creation", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -122,9 +176,11 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 //Toast.makeText(getApplicationContext(),"Fin",Toast.LENGTH_SHORT);
                 currentSet++;
                 sets.setText(String.valueOf(currentSet));
-                //Grab the weights and sets here
+                //Grab the weights, sets, reps here
+                String repString = sets.getText().toString() + reps.getValue() + weight.getText();
+                repsDone.add(repString);
 
-                weight.setText(String.valueOf(0));
+                //Reset Reps and start the rest time
                 reps.setValue(reps.getMinValue());
                 restTimer.startTimer((TextView) findViewById(R.id.restTime));
                 break;
@@ -135,8 +191,54 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 abortTrack.setVisibility(View.INVISIBLE);
                 startTrack.setEnabled(true);
                 startTrack.setVisibility(View.VISIBLE);
+
+                // Just goes back to previous screen without saving anything
+                super.onBackPressed();
                 break;
         }
+    }
 
+    @Override
+    /**
+     * Caches the data of the current exercise when back button is pressed
+     */
+    public void onBackPressed() {
+        // Stores data in a file
+        String filename = workoutName + "-exercise" + exNumber;
+        String text = "text";
+
+        try {
+            File file;
+            FileWriter fileWriter;
+            file = new File(getCacheDir(), filename) ;
+            fileWriter = new FileWriter(file);
+
+            // Writes exercise name, sets, reps, and weight to cache file
+            fileWriter.write(exerciseName);
+            fileWriter.write((System.getProperty( "line.separator" )));
+            fileWriter.write("set="+sets.getText());
+            fileWriter.write((System.getProperty( "line.separator" )));
+
+            // Writes all the reps per set
+            for (int i = 0; i < repsDone.size(); i++) {
+                fileWriter.write(repsDone.get(i));
+                fileWriter.write((System.getProperty( "line.separator" )));
+            }
+
+            fileWriter.write((System.getProperty( "line.separator" )));
+            fileWriter.write("weight="+weight.getText());
+            fileWriter.write((System.getProperty( "line.separator" )));
+
+
+            fileWriter.flush();
+            fileWriter.close();
+            Toast.makeText(this,"Cached",Toast.LENGTH_SHORT).show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        super.onBackPressed();
     }
 }
