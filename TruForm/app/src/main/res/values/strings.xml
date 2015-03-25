@@ -144,7 +144,7 @@
     </string-array>
 
     <string name="app_name">TruForm</string>
-    <string name="action_settings">Perderders</string>
+    <string name="action_settings">Thanks for using Truform</string>
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Send</string>
     <string name="title_activity_main_activity2">MainActivity2</string>
