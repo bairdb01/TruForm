@@ -61,7 +61,7 @@ public class Workout_History extends ActionBarActivity  implements AdapterView.O
         // Populate list
         String [] exList = new String[allExercise.size()];
         allExercise.toArray(exList);
-        lv.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, exList));
+        lv.setAdapter(new ArrayAdapter<String>(this, R.layout.listviewcloud_text, exList));
         lv.setOnItemClickListener(this);
     }
 

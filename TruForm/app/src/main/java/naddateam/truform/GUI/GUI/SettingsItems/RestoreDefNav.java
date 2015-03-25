@@ -105,6 +105,32 @@ public class RestoreDefNav extends ActionBarActivity implements AdapterView.OnIt
             AlertDialog alertDialog = alertDialogBuilder.create();
             alertDialog.show();
         }
+        else if (position == 2) {
+            //Set dialog here
+            alertDialogBuilder.setTitle("Warning");
+            //Set message
+            alertDialogBuilder.setMessage("By selecting confirm will clear all past workouts entered. Do you wish to continue?")
+                    .setCancelable(false)
+                    .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Toast.makeText(getApplicationContext(), "Workout History cleared", Toast.LENGTH_SHORT).show();
+                            /*
+
+                            * CODE
+                            * HERE
+                            * TO APPLY CLEAR ALL USER SETTINGS
+                            *
+                            * */
+                        }
+                    })
+                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
+        }
         else {
             //Set dialog here
             alertDialogBuilder.setTitle("Warning");
