@@ -16,7 +16,6 @@ import java.util.ArrayList;
 
 import naddateam.truform.GUI.GUI.workouts.GenericExercise;
 import naddateam.truform.R;
-import naddateam.truform.Workout_History;
 
 /**
  * CIS3760

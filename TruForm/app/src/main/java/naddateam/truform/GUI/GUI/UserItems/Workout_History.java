@@ -1,4 +1,4 @@
-package naddateam.truform;
+package naddateam.truform.GUI.GUI.UserItems;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -14,6 +14,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
+
+import naddateam.truform.R;
 
 
 public class Workout_History extends ActionBarActivity  implements AdapterView.OnItemClickListener{

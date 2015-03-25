@@ -153,6 +153,9 @@
             android:label="@string/title_activity_calibration_action" >
         </activity>
         <activity
+            android:name=".GUI.GUI.UserItems.Workout_History" >
+        </activity>
+        <activity
 
             android:name=".GUI.GUI.NavMenuItems.GetDataNav"
             android:label="@string/title_activity_get_data_nav" >
