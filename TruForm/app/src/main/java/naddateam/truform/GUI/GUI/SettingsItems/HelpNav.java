@@ -179,8 +179,8 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
                                                     //  startActivity(goChestTut);
                                                 }
                                                 else if (which == 4) {
-                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
-                                                    //  startActivity(goChestTut);
+                                                    Intent goBicepCurlTut = new Intent(HelpNav.this, BicepCurlTut.class);
+                                                    startActivity(goBicepCurlTut);
                                                 }
                                                 else if (which == 5) {
                                                     //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);

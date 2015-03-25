@@ -10,6 +10,7 @@ package naddateam.truform.GUI.GUI;
 
 
 import naddateam.truform.R;
+import naddateam.truform.functionality.ExerciseAnalysis;
 import naddateam.truform.functionality.InstanceData;
 
 
@@ -31,6 +32,7 @@ import naddateam.truform.functionality.InstanceData;
 
 import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import android.app.Activity;
@@ -67,6 +69,7 @@ public class Bluetooth extends Activity implements RadioGroup.OnCheckedChangeLis
     private static final int UART_PROFILE_CONNECTED = 20;
     private static final int UART_PROFILE_DISCONNECTED = 21;
     private static final int STATE_OFF = 10;
+    private static final ArrayList<InstanceData> dataArr = new ArrayList<InstanceData>();
 
     TextView mRemoteRssiVal;
     RadioGroup mRg;
@@ -240,7 +243,9 @@ public class Bluetooth extends Activity implements RadioGroup.OnCheckedChangeLis
                         try {
                             String text = new String(txValue, "UTF-8");
                             InstanceData inData = new InstanceData();
+                            inData.constructInstance();
                             inData.setInstanceData(text);
+                            dataArr.add(inData);
                             String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
                             listAdapter.add("["+currentDateTimeString+"] RX: "+text);
                             messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
@@ -283,6 +288,9 @@ public class Bluetooth extends Activity implements RadioGroup.OnCheckedChangeLis
 
     @Override
     public void onDestroy() {
+        ExerciseAnalysis exerciseAnalysis = new ExerciseAnalysis();
+        exerciseAnalysis.analyzeForm(dataArr,4);
+
         super.onDestroy();
         Log.d(TAG, "onDestroy()");
 
@@ -294,7 +302,6 @@ public class Bluetooth extends Activity implements RadioGroup.OnCheckedChangeLis
         unbindService(mServiceConnection);
         //mService.stopSelf();
         mService= null;
-
     }
 
     @Override

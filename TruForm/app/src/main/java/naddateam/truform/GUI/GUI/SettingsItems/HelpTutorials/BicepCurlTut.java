@@ -2,39 +2,26 @@ package naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 
-import naddateam.truform.R;
+import java.io.IOException;
+import java.io.InputStream;
+
+import naddateam.truform.functionality.GifWebView;
 
 public class BicepCurlTut extends ActionBarActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tut_bicepcurl_layout);
-    }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_bicepcurl_tut, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        InputStream stream = null;
+        try {
+            stream = getAssets().open("db_curl.gif");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        GifWebView view = new GifWebView(this, "file:///android_asset/db_curl.gif");
 
-        return super.onOptionsItemSelected(item);
+        setContentView(view);
     }
 }
