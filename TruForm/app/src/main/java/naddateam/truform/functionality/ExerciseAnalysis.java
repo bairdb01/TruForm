@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import naddateam.truform.GUI.GUI.NavMenuItems.GetDataNav;
 import naddateam.truform.functionality.InstanceData;
+import android.widget.ListView;
+import naddateam.truform.R;
 
 /**
  * CIS3760
@@ -18,8 +20,12 @@ import naddateam.truform.functionality.InstanceData;
  */
 
 public class ExerciseAnalysis extends GetDataNav {
-    private int numGoodReps;
-    private int[] form = null;
+    private static int numGoodReps;
+    public static ArrayList<Integer> form = new ArrayList<Integer>();
+
+    private GetDataNav dataNav = new GetDataNav();
+    private ListView messageListView;
+
 
     //private ArrayList<InstanceData> dataPoints = new ArrayList<InstanceData>();
 
@@ -41,6 +47,8 @@ public class ExerciseAnalysis extends GetDataNav {
      * Checks whether the users form is correct based off an algorithm
      */
     public void analyzeForm(ArrayList<InstanceData> dataPoints, int numReps) {
+
+
         /*Constants*/
         int LOWER_BOUND = 64;
         int UPPER_BOUND = 85;
@@ -53,8 +61,6 @@ public class ExerciseAnalysis extends GetDataNav {
 
         double[] up = null;
         double[] down = null;
-
-        GetDataNav dataNav = new GetDataNav();
 
         double prevX = 0;
         double prevY = 0;
@@ -136,19 +142,19 @@ public class ExerciseAnalysis extends GetDataNav {
         {
             if(numZeroes[j] > 3)
             {
-                this.form[i] = -2;
+                this.form.add(-2);
             }
             else if((up[i] >= LOWER_BOUND) && (up[i] <= UPPER_BOUND) && (down[i] >= LOWER_BOUND) && (down[i] <= UPPER_BOUND))
             {
-                this.form[i] = 1;
+                this.form.add(1);
             }
             else if((up[i] > 40) && (up[i] < LOWER_BOUND) && (down[i] > 40) && (down[i] < LOWER_BOUND))
             {
-                this.form[i] = 0;
+                this.form.add(0);
             }
             else
             {
-                this.form[i] = -1;
+                this.form.add(-1);
             }
         }
 
