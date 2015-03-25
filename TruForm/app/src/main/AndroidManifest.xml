@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<!--CIS3760-->
-<!--Naddateam Truform-->
-<!--AndroidManifest.xml-->
-<!--Authors: Ben Baird, Robert Little, Erik Hoffman, Andrew Huynh-->
-<!--Xml manifest for definitions of all xml pages-->
-
+<!-- CIS3760 -->
+<!-- Naddateam Truform -->
+<!-- AndroidManifest.xml -->
+<!-- Authors: Ben Baird, Robert Little, Erik Hoffman, Andrew Huynh -->
+<!-- Xml manifest for definitions of all xml pages -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="naddateam.truform" >
 
@@ -153,6 +151,10 @@
         <activity
             android:name=".GUI.GUI.SettingsItems.CalibrationPkg.CalibrationAction"
             android:label="@string/title_activity_calibration_action" >
+        </activity>
+        <activity
+            android:name=".GUI.GUI.NavMenuItems.GetDataNav"
+            android:label="@string/title_activity_get_data_nav" >
         </activity>
     </application>
 

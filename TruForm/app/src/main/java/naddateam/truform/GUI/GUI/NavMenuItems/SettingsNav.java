@@ -85,6 +85,10 @@ public class SettingsNav extends Fragment {
                     goAbout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(goAbout);
                 }
+                else if (position == 5) {
+                    Intent goGetData = new Intent(SettingsNav.this.getActivity(), GetDataNav.class);
+                    startActivity(goGetData);
+                }
             }
         });
         return rootview;

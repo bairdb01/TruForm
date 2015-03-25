@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-<!--CIS3760-->
-<!--Naddateam Truform-->
-<!--strings.xml-->
-<!--Authors: Erik Hoffman, Ben Baird, Robert Little, Andrew Huynh-->
-<!--String declarations for use by all other xml pages-->
-    <!-- Organized by Andrew, THE DISORGANIZATION WAS DRIVING ME NUTS -->
-
+<!-- CIS3760 -->
+<!-- Naddateam Truform -->
+<!-- strings.xml -->
+<!-- Authors: Erik Hoffman, Ben Baird, Robert Little, Andrew Huynh -->
+<!-- String declarations for use by all other xml pages -->
+<!-- Organized by Andrew, THE DISORGANIZATION WAS DRIVING ME NUTS -->
 <resources>
 
     <!-- Large string stuff -->
@@ -15,8 +12,8 @@
     <string name="about_details">Made by NADDATEAM (Benjamin Baird, Robert Little, Erik Hoffman and Andrew Huynh). Uses Arduino hardware technology
     with gyroscope and accelerometer data. Made during the CIS3760 course at University of Guelph during the Winter 2015 semester.</string>
 
-    <!-- TITLES and any other strings with "title" in it-->
-    <!-- String items for the Calibration Action page-->
+    <!-- TITLES and any other strings with "title" in it -->
+    <!-- String items for the Calibration Action page -->
     <string name="title_calibActionCountdown">Countdown</string>
     <string name="title_calibActionStatus">Status</string>
     <string name="title_calibActionConfirm">Confirm</string>
@@ -54,8 +51,8 @@
         <item>Reset to Defaults</item>
         <item>Help</item>
         <item>About</item>
+        <item>Get Data</item>
     </string-array>
-
     <string-array name="dummyList">
         <item>Item 1</item>
         <item>Item 2</item>
@@ -64,7 +61,6 @@
         <item>Item 5</item>
         <item>Item 6</item>
     </string-array>
-
     <string-array name="ChestAndTriceps">
         <item>Dumbbell Chest Press</item>
         <item>Incline Bench Press</item>
@@ -74,7 +70,6 @@
         <item>Dips</item>
         <item>Tricep Extensions</item>
     </string-array>
-
     <string-array name="Legs">
         <item>Squats</item>
         <item>Front Squats</item>
@@ -82,7 +77,6 @@
         <item>Hamstring Curls</item>
         <item>Lying Hamstring Curls</item>
     </string-array>
-
     <string-array name="BackAndBiceps">
         <item>Deadlifts</item>
         <item>Bentover Rows</item>
@@ -92,7 +86,6 @@
         <item>Barbell Bicep Curls</item>
         <item>Spider Curls</item>
     </string-array>
-
     <string-array name="Shoulders">
         <item>Shoulder Press</item>
         <item>Lateral Raises</item>
@@ -217,5 +210,6 @@
     <string name="ble_not_supported">Bluetooth Low Energy not supported</string>
     <string name="scan">Scan</string>
     <string name="cancel">Cancel</string>
+    <string name="title_activity_get_data_nav">GetDataNav</string>
 
 </resources>
