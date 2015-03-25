@@ -4,35 +4,20 @@
 <!-- strings.xml -->
 <!-- Authors: Erik Hoffman, Ben Baird, Robert Little, Andrew Huynh -->
 <!-- String declarations for use by all other xml pages -->
-<<<<<<< HEAD
-=======
 
-
-
-<!--CIS3760-->
-<!--Naddateam Truform-->
-<!--strings.xml-->
-<!--Authors: Erik Hoffman, Ben Baird, Robert Little, Andrew Huynh-->
-<!--String declarations for use by all other xml pages-->
-    <!-- Organized by Andrew, THE DISORGANIZATION WAS DRIVING ME NUTS -->
-
->>>>>>> 964139498571a76ab09c110a090f8ec0c241accb
-<!-- Organized by Andrew, THE DISORGANIZATION WAS DRIVING ME NUTS -->
 <resources>
 
     <!-- Large string stuff -->
     <!-- About information -->
     <string name="about_details">Made by NADDATEAM (Benjamin Baird, Robert Little, Erik Hoffman and Andrew Huynh). Uses Arduino hardware technology
     with gyroscope and accelerometer data. Made during the CIS3760 course at University of Guelph during the Winter 2015 semester.</string>
-<<<<<<< HEAD
-=======
+
     <string name="bicep_curl_tut">Instructions:
 1) Stand with feet shoulder width apart and knees slightly bent or sit in upright position.
 2) Start position: Grasp DB’s with underhand grip (palms facing forward) and allow arms to hang down at sides. Elbows should be close to sides.
 3) Flex at the elbows and curl DB’s up to approximately shoulder level. Keep elbows close to sides throughout movement. This exercise may be done one arm at a time.
 4) Return to start position.
 5) Remember to keep back and head straight in a neutral position throughout movement. Shoulders should be stabilized by squeezing shoulder blades together slightly - only the elbow joint should be moving.</string>
->>>>>>> 964139498571a76ab09c110a090f8ec0c241accb
 
     <!-- TITLES and any other strings with "title" in it -->
     <!-- String items for the Calibration Action page -->
@@ -233,10 +218,10 @@
     <string name="ble_not_supported">Bluetooth Low Energy not supported</string>
     <string name="scan">Scan</string>
     <string name="cancel">Cancel</string>
-<<<<<<< HEAD
+
     <string name="title_activity_workout__history">Workout_History</string>
-=======
+
     <string name="title_activity_get_data_nav">GetDataNav</string>
->>>>>>> 964139498571a76ab09c110a090f8ec0c241accb
+
 
 </resources>

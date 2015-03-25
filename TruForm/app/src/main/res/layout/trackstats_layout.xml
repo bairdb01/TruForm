@@ -20,7 +20,6 @@
         android:text="Previous Workouts"
         android:id="@+id/textView5"
         android:layout_alignParentTop="true"
-<<<<<<< HEAD
         android:layout_centerHorizontal="true" />
 
     <ListView
@@ -29,9 +28,6 @@
         android:id="@+id/pastWorkouts"
         android:layout_below="@+id/textView5"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true" />
-=======
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
         android:textColor="#ecf0f1" />
->>>>>>> 964139498571a76ab09c110a090f8ec0c241accb
 </RelativeLayout>
