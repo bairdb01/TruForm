@@ -39,7 +39,7 @@ public class SettingsNav extends Fragment {
 
         strListView = getResources().getStringArray(R.array.settingsListItems);
         ArrayAdapter<String> objAdapter = new ArrayAdapter<String>(this.getActivity(),
-                android.R.layout.simple_list_item_1, strListView);
+                R.layout.listviewcloud_text, strListView);
         myListView.setAdapter(objAdapter);
 
         /*
@@ -84,6 +84,10 @@ public class SettingsNav extends Fragment {
                     Intent goAbout = new Intent(SettingsNav.this.getActivity(), AboutNav.class);
                     goAbout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(goAbout);
+                }
+                else if (position == 5) {
+                    Intent goGetData = new Intent(SettingsNav.this.getActivity(), GetDataNav.class);
+                    startActivity(goGetData);
                 }
             }
         });

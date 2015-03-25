@@ -6,7 +6,7 @@
  * Last Modified by: Rob Little
  * This File is used to gather the BlueTooth Devices and display them in the UI
  */
-package naddateam.truform.GUI.GUI.Bluetooth;
+package naddateam.truform.GUI.GUI;
 
 /*
  * Copyright (C) 2013 The Android Open Source Project
@@ -35,8 +35,6 @@ package naddateam.truform.GUI.GUI.Bluetooth;
         import android.bluetooth.BluetoothAdapter;
         import android.bluetooth.BluetoothDevice;
         import android.bluetooth.BluetoothManager;
-        import android.content.BroadcastReceiver;
-        import android.content.ComponentName;
         import android.content.Context;
         import android.content.Intent;
         import android.content.IntentFilter;
@@ -45,8 +43,6 @@ package naddateam.truform.GUI.GUI.Bluetooth;
         import android.graphics.Color;
         import android.os.Bundle;
         import android.os.Handler;
-        import android.os.IBinder;
-        import android.os.Message;
         import android.util.Log;
         import android.view.Gravity;
         import android.view.LayoutInflater;

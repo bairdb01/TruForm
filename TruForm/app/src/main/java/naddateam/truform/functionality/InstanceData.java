@@ -15,22 +15,19 @@ import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 public class InstanceData {
-    private double accelX;
-    private double accelY;
-    private double accelZ;
-    private double gyroX;
-    private double gyroY;
-    private double gyroZ;
+    private double X;
+    private double Y;
+    private double Z;
+    private int type;
 
     public void constructInstance() {
-        accelZ = 0;
-        accelY = 0;
-        accelX = 0;
-        gyroX = 0;
-        gyroZ = 0;
-        gyroY = 0;
+        Z = 0;
+        Y = 0;
+        X = 0;
+        type = 0;
     }
 
+    /*sets the stuff*/
     public void setInstanceData(String dataText) {
         /*Gather the bluetooth data here*/
         /*String format (for parsing)
@@ -44,16 +41,29 @@ public class InstanceData {
         int val2 = Integer.parseInt(scanner.next());
         int val3 = Integer.parseInt(scanner.next());
 
+        this.X = val1;
+        this.Y = val2;
+        this.Z = val3;
+
         if(type == "AC:") {
-            accelX = val1;
-            accelY = val2;
-            accelZ = val3;
+            this.type = 0;
         }
         else
         {
-            gyroX = val1;
-            gyroY = val2;
-            gyroZ = val3;
+            this.type = 1;
         }
+    }
+
+    public double getX(){
+        return this.X;
+    }
+    public double getY(){
+        return this.Y;
+    }
+    public double getZ(){
+        return this.Z;
+    }
+    public int getType(){
+        return this.type;
     }
 }

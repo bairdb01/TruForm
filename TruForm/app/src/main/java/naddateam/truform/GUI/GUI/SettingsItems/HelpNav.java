@@ -11,13 +11,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import naddateam.truform.GUI.GUI.Bluetooth.Bluetooth;
+import naddateam.truform.GUI.GUI.Bluetooth;
 import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.BicepCurlTut;
 import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.ChestTut;
 import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.HowCalibTut;
 import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.MakeWorkoutTut;
 import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.SquatsTut;
 import naddateam.truform.R;
+import naddateam.truform.Tester;
 
 /**
  * CIS3760
@@ -178,8 +179,8 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
                                                     //  startActivity(goChestTut);
                                                 }
                                                 else if (which == 4) {
-                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
-                                                    //  startActivity(goChestTut);
+                                                    Intent goBicepCurlTut = new Intent(HelpNav.this, BicepCurlTut.class);
+                                                    startActivity(goBicepCurlTut);
                                                 }
                                                 else if (which == 5) {
                                                     //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
@@ -268,6 +269,12 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
         else if (position == 3) {
             Intent goBlue = new Intent(HelpNav.this, Bluetooth.class);
             startActivity(goBlue);
+        }
+        else {
+            if (position == 4) {
+                Intent test = new Intent(this, Tester.class);
+                startActivity(test);
+            }
         }
     }
 

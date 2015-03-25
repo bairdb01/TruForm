@@ -3,6 +3,11 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-    </style>v
+    </style>
+    <style
+        name="cloudText" parent="@android:style/TextAppearance.Small">
+        <item name="android:textColor">#ecf0f1</item>
+    </style>
+
 
 </resources>

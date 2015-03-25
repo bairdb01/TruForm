@@ -36,7 +36,7 @@ public class UserNav extends Fragment {
         myListView = (ListView) rootview.findViewById(R.id.userListView);
 
         strListView = getResources().getStringArray(R.array.userListItems);
-        ArrayAdapter<String> objAdapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, strListView);
+        ArrayAdapter<String> objAdapter = new ArrayAdapter<String>(this.getActivity(), R.layout.listviewcloud_text, strListView);
         myListView.setAdapter(objAdapter);
 
         /*
