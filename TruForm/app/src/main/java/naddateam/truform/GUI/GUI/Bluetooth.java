@@ -70,7 +70,7 @@ public class Bluetooth extends Activity implements RadioGroup.OnCheckedChangeLis
     private static final int UART_PROFILE_CONNECTED = 20;
     private static final int UART_PROFILE_DISCONNECTED = 21;
     private static final int STATE_OFF = 10;
-    private static final ArrayList<InstanceData> dataArr = new ArrayList<InstanceData>();
+    public static ArrayList<InstanceData> dataArr = new ArrayList<InstanceData>();
 
     TextView mRemoteRssiVal;
     RadioGroup mRg;
@@ -289,8 +289,8 @@ public class Bluetooth extends Activity implements RadioGroup.OnCheckedChangeLis
 
     @Override
     public void onDestroy() {
-        ExerciseAnalysis exerciseAnalysis = new ExerciseAnalysis();
-        exerciseAnalysis.analyzeForm(dataArr,4);
+        //ExerciseAnalysis exerciseAnalysis = new ExerciseAnalysis();
+        //exerciseAnalysis.analyzeForm(dataArr,4);
 
         super.onDestroy();
         Log.d(TAG, "onDestroy()");
