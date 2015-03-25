@@ -12,12 +12,12 @@ import naddateam.truform.R;
 /**
  * CIS3760
  * Naddateam Truform
- * SchedulesNav.java
+ * CustomWorkNav.java
  * Author: Andrew Huynh
  * This schedule class is actually the "Custom Workouts" item on the Navigation Drawer but the name
- * has only been recently renamed, therefore during ALPHA it'll be called the SchedulesNav for now
+ * has only been recently renamed, therefore during ALPHA it'll be called the CustomWorkNav for now
  */
-public class SchedulesNav extends Fragment {
+public class CustomWorkNav extends Fragment {
     View rootview;
 
     @Override
@@ -26,7 +26,7 @@ public class SchedulesNav extends Fragment {
      * Custom Workouts
      */
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootview = inflater.inflate(R.layout.schedules_layout, container, false);
+        rootview = inflater.inflate(R.layout.customwork_layout, container, false);
         return rootview;
     }
 }

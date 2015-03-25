@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 
-import naddateam.truform.GUI.GUI.NavMenuItems.SchedulesNav;
+import naddateam.truform.GUI.GUI.NavMenuItems.CustomWorkNav;
 import naddateam.truform.GUI.GUI.NavMenuItems.SettingsNav;
 import naddateam.truform.GUI.GUI.NavMenuItems.SocialNav;
 import naddateam.truform.GUI.GUI.NavMenuItems.UserNav;
@@ -73,7 +73,7 @@ public class Drawer extends ActionBarActivity
                 selNavItem = new WorkoutNav();
                 break;
             case 3:
-                selNavItem = new SchedulesNav();
+                selNavItem = new CustomWorkNav();
                 break;
             case 4:
                 selNavItem = new SocialNav();

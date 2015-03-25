@@ -39,7 +39,7 @@ public class SettingsNav extends Fragment {
 
         strListView = getResources().getStringArray(R.array.settingsListItems);
         ArrayAdapter<String> objAdapter = new ArrayAdapter<String>(this.getActivity(),
-                android.R.layout.simple_list_item_1, strListView);
+                R.layout.listviewcloud_text, strListView);
         myListView.setAdapter(objAdapter);
 
         /*
