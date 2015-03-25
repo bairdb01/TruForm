@@ -136,7 +136,7 @@ public class ExerciseAnalysis extends GetDataNav {
         0 is somewhat close form (not good)
         -1 is bad form
         -2 is too long of a rest
-         */
+          */
         i = 0;
         for(i = 0; i<j; i++)
         {
