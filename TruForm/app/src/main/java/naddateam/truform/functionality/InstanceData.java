@@ -27,6 +27,7 @@ public class InstanceData {
         type = 0;
     }
 
+    /*sets the stuff*/
     public void setInstanceData(String dataText) {
         /*Gather the bluetooth data here*/
         /*String format (for parsing)
