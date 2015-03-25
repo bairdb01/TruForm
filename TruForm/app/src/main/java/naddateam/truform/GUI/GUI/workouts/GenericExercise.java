@@ -225,14 +225,15 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
             // Writes all the reps per set
             for (int i = 0; i < repsDone.size(); i++) {
                 fileWriter.write("reps="+repsDone.get(i));
+                fileWriter.write("\tweight="+weightDone.get(i));
                 fileWriter.write("\r\n");
             }
 
             // Writes all the weights per set
-            for (int i = 0; i < weightDone.size(); i++) {
-                fileWriter.write("weight="+weightDone.get(i));
-                fileWriter.write("\r\n");
-            }
+//            for (int i = 0; i < weightDone.size(); i++) {
+//                fileWriter.write("weight="+weightDone.get(i));
+//                fileWriter.write("\r\n");
+//            }
 
             fileWriter.flush();
             fileWriter.close();

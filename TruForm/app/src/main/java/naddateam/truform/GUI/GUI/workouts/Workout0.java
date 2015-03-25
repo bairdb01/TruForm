@@ -30,6 +30,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import naddateam.truform.R;
 
@@ -62,7 +64,7 @@ public class Workout0 extends ActionBarActivity implements AdapterView.OnItemCli
 
         setContentView(R.layout.activity_workout0);
         lv = (ListView)findViewById(R.id.listView0);
-//        ArrayAdapter<String> itemsAdapter =
+//        Array<String> itemsAdapter =
 //                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,workout);
         lv.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,workout));
         lv.setOnItemClickListener(this);
@@ -83,7 +85,6 @@ public class Workout0 extends ActionBarActivity implements AdapterView.OnItemCli
         exercise0.putExtra("exNum",position); //Sends which exercise number was clicked
         exercise0.putExtra("workoutName",workoutName); //Sends workout name
         startActivity(exercise0);
-
     }
 
 
@@ -112,7 +113,8 @@ public class Workout0 extends ActionBarActivity implements AdapterView.OnItemCli
     @Override
     public void onBackPressed(){
         // Writes the cached data from the exercises to a single non-volatile file
-        String woFilename = workoutName+"-stats";
+        String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+        String woFilename = workoutName + "-stats-" + date;
         File file;
         FileWriter fileWriter;
 
@@ -125,7 +127,7 @@ public class Workout0 extends ActionBarActivity implements AdapterView.OnItemCli
             for (int exNumber = 0; exNumber < lv.getCount(); exNumber ++) {
                 try {
                     // Open exercise data
-                    Toast.makeText(this,"Start for", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this,"Start for", Toast.LENGTH_SHORT).show();
                     String exFilename = workoutName + "-exercise" + exNumber;
                     File exData = new File(getCacheDir(),exFilename);
 //                    Toast.makeText(this,exFilename, Toast.LENGTH_SHORT).show();
@@ -145,7 +147,7 @@ public class Workout0 extends ActionBarActivity implements AdapterView.OnItemCli
                     Toast.makeText(this,"Error reading exercise data", Toast.LENGTH_SHORT).show();
                 }
             }
-            Toast.makeText(this,"Flush and Close", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this,"Flush and Close", Toast.LENGTH_SHORT).show();
             fileWriter.flush();
             fileWriter.close();
         } catch (Exception e) {
