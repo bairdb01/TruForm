@@ -22,7 +22,7 @@ import naddateam.truform.R;
 
 public class ExerciseAnalysis {
     private static int numGoodReps;
-    public static ArrayList<Integer> form = new ArrayList<Integer>();
+    public static ArrayList<String> form = new ArrayList<String>();
 
     //private ArrayList<InstanceData> dataPoints = new ArrayList<InstanceData>();
 
@@ -158,19 +158,19 @@ public class ExerciseAnalysis {
         {
             /*if(numZeroes.get(i) > 3)
             {
-                this.form.add(-2);
+                this.form.add("too long of a rest");
             }
             else*/ if((up.get(i) >= LOWER_BOUND) && (up.get(i) <= UPPER_BOUND) && (down.get(i) >= LOWER_BOUND) && (down.get(i) <= UPPER_BOUND))
             {
-                this.form.add(1);
+                this.form.add("GOOD");
             }
             else if((up.get(i) < 50) || (down.get(i) < 50))
             {
-                this.form.add(-1);
+                this.form.add("BAD");
             }
             else if(((up.get(i) > 50) && (up.get(i) < LOWER_BOUND)) || ((down.get(i) > 50) && (down.get(i) < LOWER_BOUND)))
             {
-                this.form.add(0);
+                this.form.add("CLOSE");
             }
         }
 

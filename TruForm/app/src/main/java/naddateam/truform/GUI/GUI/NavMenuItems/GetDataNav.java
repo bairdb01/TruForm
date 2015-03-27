@@ -25,7 +25,7 @@ public class GetDataNav extends ActionBarActivity {
         setContentView(R.layout.activity_get_data_nav);
         exerciseAnalysis.analyzeForm(stuff.dataArr, 5);
         lv = (ListView)findViewById(R.id.listView0);
-        ArrayAdapter<Integer> arrayAdapter = new ArrayAdapter<Integer> (
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String> (
             this,
             android.R.layout.simple_list_item_1,
             exerciseAnalysis.form ) ;
