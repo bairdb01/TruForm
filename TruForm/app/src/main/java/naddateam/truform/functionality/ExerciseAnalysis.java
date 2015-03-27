@@ -1,5 +1,6 @@
 package naddateam.truform.functionality;
 
+import android.util.Log;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ import naddateam.truform.R;
  *
  */
 
-public class ExerciseAnalysis extends GetDataNav {
+public class ExerciseAnalysis {
     private static int numGoodReps;
     public static ArrayList<Integer> form = new ArrayList<Integer>();
 
@@ -47,43 +48,46 @@ public class ExerciseAnalysis extends GetDataNav {
 
         /*Constants*/
         int LOWER_BOUND = 64;
-        int UPPER_BOUND = 85;
+        int UPPER_BOUND = 90;
         int i = 0;
         int j = 0;
         /*Flags*/
         int goingUp = 0;
         int sittingBottom = 0;
+        int zeroes = 0;
 
-        int[] numZeroes = null;
+        ArrayList<Integer> numZeroes = new ArrayList<Integer>();
 
-        int[] up = null;
-        int[] down = null;
+        ArrayList<Integer> up = new ArrayList<Integer>();
+        ArrayList<Integer> down = new ArrayList<Integer>();
 
-        ArrayList<Integer> gyroZArr = null;
+        ArrayList<Integer> gyroZArr = new ArrayList<Integer>();
         int gyroZ = 0;
         int totalGyroZUp = 0;
         int totalGyroZDown = 0;
-        int type = 0;
 
         InstanceData instance;
 
         for(i = 0; i < dataPoints.size(); i++)
         {
-            if(type == 1) {
+            if(dataPoints.get(i).getType() == 1) {
                 instance = dataPoints.get(i);
-                gyroZArr.add(i, instance.getZ());
+                gyroZArr.add(instance.getZ());
             }
         }
-
+        i = 0;
         while( (i < gyroZArr.size()) && ( j < numReps ) )
         {
+            Log.v("  TESTING  " , "Number: " + gyroZArr.get(i));
             gyroZ = gyroZArr.get(i);
 
 
             if ((gyroZ > 1) && (goingUp == 0)) { /*If you start to move upwards*/
                 if(totalGyroZDown < 0) /*If a downwards curl was just finished and not reset yet*/
                 {
-                    down[j] = totalGyroZDown*-1;
+                    zeroes = 0;
+                    numZeroes.add(zeroes);
+                    down.add(totalGyroZDown*-1);
                     totalGyroZDown = 0;
                     if(sittingBottom == 0) /*Hasn't counted a complete rep (they began the new curl fast) yet so count it*/
                     {
@@ -101,12 +105,14 @@ public class ExerciseAnalysis extends GetDataNav {
             }
             else if((gyroZ >= -1) && (gyroZ <= 1) && (goingUp == 1)) /*Sitting at the top of the curl*/
             {
-                numZeroes[j] += 1;
+                zeroes += 1;
             }
             else if ((gyroZ < -1) && (goingUp == 1)) { /*If you begin to go down*/
-                if(numZeroes[j] <= 3) /*Don't continue to count zeroes if you didn't wait long at the top*/
-                    numZeroes[j] = 0;
-                up[j] = totalGyroZUp; /*Now have the data for the up half of the curl, store*/
+                //if(numZeroes[j] <= 3) /*Don't continue to count zeroes if you didn't wait long at the top*/
+                    //numZeroes[j] = 0;
+                if(zeroes <= 3)
+                    zeroes = 0;
+                up.add(totalGyroZUp); /*Now have the data for the up half of the curl, store*/
                 totalGyroZUp = 0; /*And reset this for next*/
                 goingUp = 0; /*No longer going up*/
                 totalGyroZDown += gyroZ;
@@ -121,15 +127,19 @@ public class ExerciseAnalysis extends GetDataNav {
                     if(totalGyroZDown < 0) /*You're at the bottom of the curl and it hasn't increased the rep yet
 				subsequent zeroes found on new reps will not trigger a new rep, only the first one*/
                     {
-                        numZeroes[j] += 1;
-                        down[j] = totalGyroZDown*-1;
+                        //numZeroes[j] += 1;
+                        zeroes += 1;
+                        numZeroes.add(zeroes);
+                        down.add(totalGyroZDown*-1);
                         totalGyroZDown = 0;
                         goingUp = 0;
                         j++;
                     }
                     else /*It already reset it, so second+ zeroes*/
                     {
-                        numZeroes[j-1] += 1;
+                        //numZeroes[j-1] += 1;
+                        zeroes += 1;
+                        numZeroes.set(j-1,zeroes);
                     }
                 }
 
@@ -144,24 +154,23 @@ public class ExerciseAnalysis extends GetDataNav {
         -1 is bad form
         -2 is too long of a rest
           */
-        i = 0;
         for(i = 0; i<j; i++)
         {
-            if(numZeroes[i] > 3)
+            /*if(numZeroes.get(i) > 3)
             {
-                this.form.add(i,-2);
+                this.form.add(-2);
             }
-            else if((up[i] >= LOWER_BOUND) && (up[i] <= UPPER_BOUND) && (down[i] >= LOWER_BOUND) && (down[i] <= UPPER_BOUND))
+            else*/ if((up.get(i) >= LOWER_BOUND) && (up.get(i) <= UPPER_BOUND) && (down.get(i) >= LOWER_BOUND) && (down.get(i) <= UPPER_BOUND))
             {
-                this.form.add(i,1);
+                this.form.add(1);
             }
-            else if((up[i] < 40) || (down[i] < 40))
+            else if((up.get(i) < 50) || (down.get(i) < 50))
             {
-                this.form.add(i,-1);
+                this.form.add(-1);
             }
-            else if(((up[i] > 40) && (up[i] < LOWER_BOUND)) || ((down[i] > 40) && (down[i] < LOWER_BOUND)))
+            else if(((up.get(i) > 50) && (up.get(i) < LOWER_BOUND)) || ((down.get(i) > 50) && (down.get(i) < LOWER_BOUND)))
             {
-                this.form.add(i,0);
+                this.form.add(0);
             }
         }
 

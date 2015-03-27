@@ -182,7 +182,7 @@ public class Bluetooth extends Activity implements RadioGroup.OnCheckedChangeLis
     private Handler mHandler = new Handler() {
         @Override
 
-        //Handler events that received from UART service
+        //Handler events that received from UART service&
         public void handleMessage(Message msg) {
 
         }
@@ -244,7 +244,7 @@ public class Bluetooth extends Activity implements RadioGroup.OnCheckedChangeLis
                         try {
                             String text = new String(txValue, "UTF-8");
                             InstanceData inData = new InstanceData();
-                            inData.constructInstance();
+                            //inData.constructInstance();
                             inData.setInstanceData(text);
                             dataArr.add(inData);
                             String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());

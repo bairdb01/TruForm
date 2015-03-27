@@ -2,6 +2,7 @@ package naddateam.truform.GUI.GUI.NavMenuItems;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
@@ -22,7 +23,7 @@ public class GetDataNav extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_data_nav);
-        exerciseAnalysis.analyzeForm(stuff.dataArr, 4);
+        exerciseAnalysis.analyzeForm(stuff.dataArr, 5);
         lv = (ListView)findViewById(R.id.listView0);
         ArrayAdapter<Integer> arrayAdapter = new ArrayAdapter<Integer> (
             this,
