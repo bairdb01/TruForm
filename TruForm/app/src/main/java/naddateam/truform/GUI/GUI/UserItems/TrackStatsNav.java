@@ -16,7 +16,6 @@ import java.util.ArrayList;
 
 import naddateam.truform.GUI.GUI.workouts.GenericExercise;
 import naddateam.truform.R;
-import naddateam.truform.Workout_History;
 
 /**
  * CIS3760
@@ -52,7 +51,7 @@ public class TrackStatsNav extends ActionBarActivity implements AdapterView.OnIt
             pastWorkouts.toArray(woList);
 
             lv = (ListView) findViewById(R.id.pastWorkouts);
-            lv.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, woList));
+            lv.setAdapter(new ArrayAdapter<String>(this, R.layout.listviewcloud_text, woList));
             lv.setOnItemClickListener(this);
         } catch (Exception e) {
             Toast.makeText(this,"Error",Toast.LENGTH_SHORT);

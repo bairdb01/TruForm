@@ -132,6 +132,7 @@
     <string-array name="restoreItemsArr">
         <item>Clear Calibrations</item>
         <item>Clear User Information</item>
+        <item>Clear Workout History</item>
         <item>Reset Entire App</item>
     </string-array>
 
