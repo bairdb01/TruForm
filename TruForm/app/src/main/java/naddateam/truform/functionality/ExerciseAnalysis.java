@@ -23,10 +23,6 @@ public class ExerciseAnalysis extends GetDataNav {
     private static int numGoodReps;
     public static ArrayList<Integer> form = new ArrayList<Integer>();
 
-    private GetDataNav dataNav = new GetDataNav();
-    private ListView messageListView;
-
-
     //private ArrayList<InstanceData> dataPoints = new ArrayList<InstanceData>();
 
     /**
@@ -56,78 +52,89 @@ public class ExerciseAnalysis extends GetDataNav {
         int j = 0;
         /*Flags*/
         int goingUp = 0;
+        int sittingBottom = 0;
 
         int[] numZeroes = null;
 
-        double[] up = null;
-        double[] down = null;
+        int[] up = null;
+        int[] down = null;
 
-        double prevX = 0;
-        double prevY = 0;
-        double prevZ = 0;
-
-        double accelX = 0;
-        double accelY = 0;
-        double accelZ = 0;
-        double gyroX = 0;
-        double gyroY = 0;
-        double gyroZ = 0;
-        double startingAccelX = 0;
-        double startingAccelY = 0;
-        double totalGyroZUp = 0;
-        double totalGyroZDown = 0;
+        ArrayList<Integer> gyroZArr = null;
+        int gyroZ = 0;
+        int totalGyroZUp = 0;
+        int totalGyroZDown = 0;
         int type = 0;
+
         InstanceData instance;
-        while(j < numReps)
+
+        for(i = 0; i < dataPoints.size(); i++)
         {
-            for(i = 0; i < dataPoints.size(); i++) {
+            if(type == 1) {
                 instance = dataPoints.get(i);
-                type = instance.getType();
-                if (type == 0) {
-                    accelX = instance.getX();
-                    accelY = instance.getY();
-                    accelZ = instance.getZ();
-                }
-                else {
-                    gyroX = instance.getX();
-                    gyroY = instance.getY();
-                    gyroZ = instance.getZ();
-                }
-
-                if ((i % 2 == 0) && (i > 0)) /*On all even values (besides 0) we will have the accel and gyro data at a given time*/ {
-                    if ((gyroZ > 1) && (goingUp == 0)) { /*If you start to move upwards*/
-                        goingUp = 1; /*Set the flag for going upwards*/
-                        totalGyroZUp += gyroZ;
-                    }
-                    else if ((gyroZ > 1) && (goingUp == 1)) { /*If you continue to go upwards*/
-                        totalGyroZUp += gyroZ;
-
-                    }
-                    else if ((gyroZ < -1) && (goingUp == 1)) { /*If you begin to go down*/
-                        up[j] = totalGyroZUp; /*Now have the data for the up half of the curl, store*/
-                        goingUp = 0;
-                        totalGyroZDown += gyroZ;
-                    }
-                    else if ((gyroZ < -1) && (goingUp == 0)) { /*If you continue to go downwards*/
-                        totalGyroZDown += gyroZ;
-                    }
-                    else { /*Otherwise the user is not really moving*/
-                        if (goingUp == 1) {
-                            numZeroes[j] += 1;
-                        }
-                        else /*If you are at the bottom of the curl*/ {
-                            if (j > 0) /*If you are on a higher rep than the first (you can wait before going it's fine bro)*/ {
-                                numZeroes[j] += 1;
-                                down[j] = totalGyroZDown;
-                                j++;
-                                System.out.println("Rep completed, totalGyroUp: " + totalGyroZUp + " totalGyroDown: " + totalGyroZDown);
-                            }
-                        }
-                    }
-
-
-                }
+                gyroZArr.add(i, instance.getZ());
             }
+        }
+
+        while( (i < gyroZArr.size()) && ( j < numReps ) )
+        {
+            gyroZ = gyroZArr.get(i);
+
+
+            if ((gyroZ > 1) && (goingUp == 0)) { /*If you start to move upwards*/
+                if(totalGyroZDown < 0) /*If a downwards curl was just finished and not reset yet*/
+                {
+                    down[j] = totalGyroZDown*-1;
+                    totalGyroZDown = 0;
+                    if(sittingBottom == 0) /*Hasn't counted a complete rep (they began the new curl fast) yet so count it*/
+                    {
+                        j++;
+                    }
+
+                }
+                sittingBottom = 0;
+                goingUp = 1; /*Set the flag for going upwards*/
+                totalGyroZUp += gyroZ;
+            }
+            else if ((gyroZ > 1) && (goingUp == 1)) { /*If you continue to go upwards*/
+                totalGyroZUp += gyroZ;
+
+            }
+            else if((gyroZ >= -1) && (gyroZ <= 1) && (goingUp == 1)) /*Sitting at the top of the curl*/
+            {
+                numZeroes[j] += 1;
+            }
+            else if ((gyroZ < -1) && (goingUp == 1)) { /*If you begin to go down*/
+                if(numZeroes[j] <= 3) /*Don't continue to count zeroes if you didn't wait long at the top*/
+                    numZeroes[j] = 0;
+                up[j] = totalGyroZUp; /*Now have the data for the up half of the curl, store*/
+                totalGyroZUp = 0; /*And reset this for next*/
+                goingUp = 0; /*No longer going up*/
+                totalGyroZDown += gyroZ;
+            }
+            else if ((gyroZ < -1) && (goingUp == 0)) { /*If you continue to go downwards*/
+                totalGyroZDown += gyroZ;
+            }
+            else { /*Otherwise the user is not really moving*/
+                if((totalGyroZDown < 0) || (j > 0)) /*You've already completed a rep*/
+                {
+                    sittingBottom = 1;
+                    if(totalGyroZDown < 0) /*You're at the bottom of the curl and it hasn't increased the rep yet
+				subsequent zeroes found on new reps will not trigger a new rep, only the first one*/
+                    {
+                        numZeroes[j] += 1;
+                        down[j] = totalGyroZDown*-1;
+                        totalGyroZDown = 0;
+                        goingUp = 0;
+                        j++;
+                    }
+                    else /*It already reset it, so second+ zeroes*/
+                    {
+                        numZeroes[j-1] += 1;
+                    }
+                }
+
+            }
+            i++;
         }
 
         /*Now we have the arrays of gyroZ data and can examine the curls*/
@@ -140,21 +147,21 @@ public class ExerciseAnalysis extends GetDataNav {
         i = 0;
         for(i = 0; i<j; i++)
         {
-            if(numZeroes[j] > 3)
+            if(numZeroes[i] > 3)
             {
-                this.form.add(-2);
+                this.form.add(i,-2);
             }
             else if((up[i] >= LOWER_BOUND) && (up[i] <= UPPER_BOUND) && (down[i] >= LOWER_BOUND) && (down[i] <= UPPER_BOUND))
             {
-                this.form.add(1);
+                this.form.add(i,1);
             }
-            else if((up[i] > 40) && (up[i] < LOWER_BOUND) && (down[i] > 40) && (down[i] < LOWER_BOUND))
+            else if((up[i] < 40) || (down[i] < 40))
             {
-                this.form.add(0);
+                this.form.add(i,-1);
             }
-            else
+            else if(((up[i] > 40) && (up[i] < LOWER_BOUND)) || ((down[i] > 40) && (down[i] < LOWER_BOUND)))
             {
-                this.form.add(-1);
+                this.form.add(i,0);
             }
         }
 

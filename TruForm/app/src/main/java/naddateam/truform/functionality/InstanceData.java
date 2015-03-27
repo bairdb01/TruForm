@@ -15,10 +15,10 @@ import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 public class InstanceData {
-    private double X;
-    private double Y;
-    private double Z;
-    private int type;
+    private static int X;
+    private static int Y;
+    private static int Z;
+    private static int type;
 
     public void constructInstance() {
         Z = 0;
@@ -54,13 +54,13 @@ public class InstanceData {
         }
     }
 
-    public double getX(){
+    public int getX(){
         return this.X;
     }
-    public double getY(){
+    public int getY(){
         return this.Y;
     }
-    public double getZ(){
+    public int getZ(){
         return this.Z;
     }
     public int getType(){
