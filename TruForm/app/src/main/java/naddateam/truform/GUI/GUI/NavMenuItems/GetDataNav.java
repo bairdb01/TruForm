@@ -23,7 +23,7 @@ public class GetDataNav extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_data_nav);
-        exerciseAnalysis.analyzeForm(stuff.dataArr, 5);
+        exerciseAnalysis.analyzeForm(stuff.dataArr, 1);
         lv = (ListView)findViewById(R.id.listView0);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String> (
             this,

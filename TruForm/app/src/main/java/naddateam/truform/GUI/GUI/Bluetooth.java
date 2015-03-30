@@ -293,16 +293,16 @@ public class Bluetooth extends Activity implements RadioGroup.OnCheckedChangeLis
         //exerciseAnalysis.analyzeForm(dataArr,4);
 
         super.onDestroy();
-        Log.d(TAG, "onDestroy()");
-
-        try {
-            LocalBroadcastManager.getInstance(this).unregisterReceiver(UARTStatusChangeReceiver);
-        } catch (Exception ignore) {
-            Log.e(TAG, ignore.toString());
-        }
-        unbindService(mServiceConnection);
-        //mService.stopSelf();
-        mService= null;
+//        Log.d(TAG, "onDestroy()");
+//
+//        try {
+//            LocalBroadcastManager.getInstance(this).unregisterReceiver(UARTStatusChangeReceiver);
+//        } catch (Exception ignore) {
+//            Log.e(TAG, ignore.toString());
+//        }
+//        unbindService(mServiceConnection);
+//        //mService.stopSelf();
+//        mService= null;
     }
 
     @Override
