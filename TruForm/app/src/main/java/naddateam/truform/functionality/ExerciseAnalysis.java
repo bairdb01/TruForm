@@ -47,7 +47,7 @@ public class ExerciseAnalysis {
 
 
         /*Constants*/
-        int LOWER_BOUND = 64;
+        int LOWER_BOUND = 70;
         int UPPER_BOUND = 90;
         int GOOD_LOWER_BOUND = 55;
         int i = 0;
