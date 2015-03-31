@@ -191,7 +191,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 value = message.getBytes();
                 try {
                     Comm.writeRXCharacteristic(value);
-                    exerciseAnalysis.analyzeForm(ble.dataArr, 5);
+                    //exerciseAnalysis.analyzeForm(ble.dataArr);
                 }
                 catch (Exception e)
                 {
@@ -218,7 +218,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 value = message.getBytes();
                 try {
                     Comm.writeRXCharacteristic(value);
-                    exerciseAnalysis.analyzeForm(ble.dataArr, 5);
+                    exerciseAnalysis.analyzeForm(ble.dataArr);
                 }
                 catch (Exception e)
                 {

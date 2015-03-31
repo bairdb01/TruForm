@@ -57,7 +57,7 @@ public class GetDataNav extends ActionBarActivity {
                     value = message.getBytes();
                     Comm.writeRXCharacteristic(value);
                     btnSR.setText("Receive");
-                    exerciseAnalysis.analyzeForm(ble.dataArr, 5);
+                    exerciseAnalysis.analyzeForm(ble.dataArr);
                     displayList();
 
                 }

@@ -43,7 +43,7 @@ public class ExerciseAnalysis {
     /**
      * Checks whether the users form is correct based off an algorithm
      */
-    public void analyzeForm(ArrayList<InstanceData> dataPoints, int numReps) {
+    public void analyzeForm(ArrayList<InstanceData> dataPoints) {
 
 
         /*Constants*/
@@ -78,7 +78,7 @@ public class ExerciseAnalysis {
             }
         }
         i = 0;
-        while( (i < gyroZArr.size()) && ( j < numReps ) )
+        while( i < gyroZArr.size() )
         {
             gyroZ = gyroZArr.get(i);
 
