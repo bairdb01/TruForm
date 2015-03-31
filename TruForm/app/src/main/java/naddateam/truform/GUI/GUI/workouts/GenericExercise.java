@@ -29,10 +29,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import naddateam.truform.GUI.GUI.Bluetooth;
+import naddateam.truform.GUI.GUI.BluetoothLeUart;
 import naddateam.truform.functionality.CountDown;
 import naddateam.truform.ExerciseClasses.Exercise;
 import naddateam.truform.ExerciseClasses.Exercises;
 import naddateam.truform.R;
+import naddateam.truform.functionality.ExerciseAnalysis;
 
 /**
  * Note to self: Currently overwrites last reps/sets/weight completed on exit of screen
@@ -164,6 +167,12 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
      * Makes the start/abort/finish buttons perform stuff
      */
     public void onClick(View v) {
+        Bluetooth ble = new Bluetooth();
+        ExerciseAnalysis exerciseAnalysis = new ExerciseAnalysis();
+        BluetoothLeUart Comm = ble.getmService();
+        byte[] value;
+        String message = "G";
+        String btnVal;
         switch(v.getId()) {
             case(R.id.startBut):
                 //Toast.makeText(getApplicationContext(),"Start",Toast.LENGTH_SHORT);
@@ -172,16 +181,35 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 startTrack.setVisibility(View.INVISIBLE);
                 abortTrack.setEnabled(true);
                 abortTrack.setVisibility(View.VISIBLE);
+                finish.setEnabled(true);
+                finish.setVisibility(View.VISIBLE);
+
+                ble.dataArr.clear();
+                value = message.getBytes();
+                Comm.writeRXCharacteristic(value);
+                //btnSR.setText("Stop");
+                exerciseAnalysis.form.clear();
+
                 break;
             case(R.id.finBut):
                 //Toast.makeText(getApplicationContext(),"Fin",Toast.LENGTH_SHORT);
                 currentSet++;
                 sets.setText(String.valueOf(currentSet));
+                finish.setEnabled(false);
+                finish.setVisibility(View.INVISIBLE);
+                startTrack.setEnabled(true);
+                startTrack.setVisibility(View.VISIBLE);
 
                 //Grab the weights, sets, reps here
                 String repString = Integer.toString(reps.getValue());
                 repsDone.add(repString);
                 weightDone.add(weight.getText().toString());
+
+                message = "N";
+                value = message.getBytes();
+                Comm.writeRXCharacteristic(value);
+                //btnSR.setText("Receive");
+                exerciseAnalysis.analyzeForm(ble.dataArr, 5);
 
                 //Reset Reps and start the rest time
                 reps.setValue(reps.getMinValue());
