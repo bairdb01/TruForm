@@ -22,7 +22,7 @@ import naddateam.truform.R;
 
 public class ExerciseAnalysis {
     private static int numGoodReps;
-    public static ArrayList<String> form = new ArrayList<String>();
+    public ArrayList<String> form = new ArrayList<String>();
 
     //private ArrayList<InstanceData> dataPoints = new ArrayList<InstanceData>();
 

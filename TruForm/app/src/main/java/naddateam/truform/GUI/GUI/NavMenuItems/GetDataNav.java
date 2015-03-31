@@ -47,6 +47,7 @@ public class GetDataNav extends ActionBarActivity {
                     value = message.getBytes();
                     Comm.writeRXCharacteristic(value);
                     btnSR.setText("Stop");
+                    exerciseAnalysis.form.clear();
                 }
                 if(btnVal.equals("Stop"))
                 {
@@ -54,7 +55,8 @@ public class GetDataNav extends ActionBarActivity {
                     value = message.getBytes();
                     Comm.writeRXCharacteristic(value);
                     btnSR.setText("Receive");
-                    exerciseAnalysis.analyzeForm(ble.dataArr, 3);
+                    exerciseAnalysis.analyzeForm(ble.dataArr, 5);
+
                     displayList();
                 }
             }
@@ -64,10 +66,11 @@ public class GetDataNav extends ActionBarActivity {
 
     private void displayList()
     {
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String> (
+        ArrayAdapter<String> arrayAdapter;
+        arrayAdapter = new ArrayAdapter<String>(
                 this,
                 android.R.layout.simple_list_item_1,
-                exerciseAnalysis.form ) ;
+                exerciseAnalysis.form );
         lv.setAdapter(arrayAdapter);
     }
 
