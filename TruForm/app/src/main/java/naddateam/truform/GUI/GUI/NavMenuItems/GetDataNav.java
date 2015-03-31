@@ -49,6 +49,7 @@ public class GetDataNav extends ActionBarActivity {
                     Comm.writeRXCharacteristic(value);
                     btnSR.setText("Stop");
                     exerciseAnalysis.form.clear();
+
                 }
                 if(btnVal.equals("Stop"))
                 {
@@ -58,6 +59,7 @@ public class GetDataNav extends ActionBarActivity {
                     btnSR.setText("Receive");
                     exerciseAnalysis.analyzeForm(ble.dataArr, 5);
                     displayList();
+
                 }
             }
         });

@@ -144,14 +144,14 @@ public class Workout0 extends ActionBarActivity implements AdapterView.OnItemCli
                     //Toast.makeText(this,"End while", Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
                     e.printStackTrace();
-                    Toast.makeText(this,"Error reading exercise data", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(this,"Error reading exercise data", Toast.LENGTH_SHORT).show();
                 }
             }
             //Toast.makeText(this,"Flush and Close", Toast.LENGTH_SHORT).show();
             fileWriter.flush();
             fileWriter.close();
         } catch (Exception e) {
-            Toast.makeText(this,"Error writing", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this,"Error writing", Toast.LENGTH_SHORT).show();
         }
         deleteCache(this);
         super.onBackPressed();

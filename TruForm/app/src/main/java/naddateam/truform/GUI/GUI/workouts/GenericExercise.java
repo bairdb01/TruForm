@@ -110,17 +110,17 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
             // Finds all exercises files and writes to the workouts file
             File file = new File(getCacheDir(), workoutName + "-exercise" + exNumber);
 
-            if (file.exists())
-                Toast.makeText(this, "FILE EXISTS", Toast.LENGTH_SHORT).show();
-            else
-                Toast.makeText(this, "NULL FILE", Toast.LENGTH_SHORT).show();
+//            if (file.exists())
+//                Toast.makeText(this, "FILE EXISTS", Toast.LENGTH_SHORT).show();
+//            else
+//                Toast.makeText(this, "NULL FILE", Toast.LENGTH_SHORT).show();
 
 //            FileInputStream fis = new FileInputStream(file);
             BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
 
             String line = "";
             while ((line = bufferedReader.readLine()) != null) {
-                Toast.makeText(this, line, Toast.LENGTH_LONG).show();
+//                Toast.makeText(this, line, Toast.LENGTH_LONG).show();
                 //if (test.regionMatches(true,0,"rep",0, 3)) {
                     //reps.setValue(Integer.parseInt(test.replaceAll("[^0-9]+", "")));
                 if (line.regionMatches(0,"set",0,3)) {
@@ -133,7 +133,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
 
         } catch (Exception e) {
             e.printStackTrace();
-            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
         }
         //Toast.makeText(this, "End of Creation", Toast.LENGTH_SHORT).show();
     }
