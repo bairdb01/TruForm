@@ -110,8 +110,7 @@ public class ExerciseAnalysis {
             else if ((gyroZ < -1) && (goingUp == 1)) { /*If you begin to go down*/
                 //if(numZeroes[j] <= 3) /*Don't continue to count zeroes if you didn't wait long at the top*/
                     //numZeroes[j] = 0;
-                if(zeroes > 3)
-                    numZeroesTop.add(zeroes);
+                numZeroesTop.add(zeroes);
                 zeroes = 0;
                 up.add(totalGyroZUp); /*Now have the data for the up half of the curl, store*/
                 totalGyroZUp = 0; /*And reset this for next*/
