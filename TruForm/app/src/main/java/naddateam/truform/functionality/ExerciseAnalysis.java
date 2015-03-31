@@ -56,13 +56,14 @@ public class ExerciseAnalysis {
         int sittingBottom = 0;
         int zeroes = 0;
 
-        ArrayList<Integer> numZeroes = new ArrayList<Integer>();
+        ArrayList<Integer> numZeroesBottom = new ArrayList<Integer>();
+        ArrayList<Integer> numZeroesTop = new ArrayList<Integer>();
 
         ArrayList<Integer> up = new ArrayList<Integer>();
         ArrayList<Integer> down = new ArrayList<Integer>();
 
         ArrayList<Integer> gyroZArr = new ArrayList<Integer>();
-        int gyroZ = 0;
+        int gyroZ;
         int totalGyroZUp = 0;
         int totalGyroZDown = 0;
 
@@ -78,15 +79,14 @@ public class ExerciseAnalysis {
         i = 0;
         while( (i < gyroZArr.size()) && ( j < numReps ) )
         {
-            Log.v("  TESTING  " , "Number: " + gyroZArr.get(i));
             gyroZ = gyroZArr.get(i);
 
 
             if ((gyroZ > 1) && (goingUp == 0)) { /*If you start to move upwards*/
                 if(totalGyroZDown < 0) /*If a downwards curl was just finished and not reset yet*/
                 {
+                    numZeroesBottom.add(zeroes);
                     zeroes = 0;
-                    numZeroes.add(zeroes);
                     down.add(totalGyroZDown*-1);
                     totalGyroZDown = 0;
                     if(sittingBottom == 0) /*Hasn't counted a complete rep (they began the new curl fast) yet so count it*/
@@ -110,8 +110,9 @@ public class ExerciseAnalysis {
             else if ((gyroZ < -1) && (goingUp == 1)) { /*If you begin to go down*/
                 //if(numZeroes[j] <= 3) /*Don't continue to count zeroes if you didn't wait long at the top*/
                     //numZeroes[j] = 0;
-                if(zeroes <= 3)
-                    zeroes = 0;
+                if(zeroes > 3)
+                    numZeroesTop.add(zeroes);
+                zeroes = 0;
                 up.add(totalGyroZUp); /*Now have the data for the up half of the curl, store*/
                 totalGyroZUp = 0; /*And reset this for next*/
                 goingUp = 0; /*No longer going up*/
@@ -129,7 +130,7 @@ public class ExerciseAnalysis {
                     {
                         //numZeroes[j] += 1;
                         zeroes += 1;
-                        numZeroes.add(zeroes);
+                        numZeroesBottom.add(zeroes);
                         down.add(totalGyroZDown*-1);
                         totalGyroZDown = 0;
                         goingUp = 0;
@@ -139,7 +140,7 @@ public class ExerciseAnalysis {
                     {
                         //numZeroes[j-1] += 1;
                         zeroes += 1;
-                        numZeroes.set(j-1,zeroes);
+                        numZeroesBottom.set(j-1,zeroes);
                     }
                 }
 
@@ -147,30 +148,68 @@ public class ExerciseAnalysis {
             i++;
         }
 
+        int waitB = 0;
+        int waitT = 0;
         /*Now we have the arrays of gyroZ data and can examine the curls*/
         /*Reference:
+        4 is good form but there was too long of a wait at the bottom/top
+        3 is good form but there was too long of a wait at the top of the curl
+        2 is good form but there was too long of a wait at the bottom of the curl
         1 is good form for a rep
-        0 is somewhat close form (not good)
+        10 is somewhat close form (not good)
+        20 is somewhat close form but too long bott
+        30 is somewhat close form but too long top
+        40 is somewhat close form but too long both
         -1 is bad form
-        -2 is too long of a rest
+        -2 is bad form with too long at the bottom
+        -3 is bad form with too long at the top
+        -4 is bad form with too long at both
           */
         for(i = 0; i<j; i++)
         {
-            /*if(numZeroes.get(i) > 3)
+            waitB = 0;
+            waitT = 0;
+            if(numZeroesBottom.get(i) > 3)
             {
-                this.form.add(-2);
+                waitB = 1;
             }
-            else*/ if((up.get(i) >= LOWER_BOUND) && (up.get(i) <= UPPER_BOUND) && (down.get(i) >= LOWER_BOUND) && (down.get(i) <= UPPER_BOUND))
+            if(numZeroesTop.get(i) > 3)
             {
-                this.form.add(1);
+                waitT = 1;
+            }
+
+            if((up.get(i) >= LOWER_BOUND) && (up.get(i) <= UPPER_BOUND) && (down.get(i) >= LOWER_BOUND) && (down.get(i) <= UPPER_BOUND))
+            {
+                if((waitB == 0) && (waitT == 0))
+                    this.form.add(1);
+                else if((waitB == 1) && (waitT == 0))
+                    this.form.add(2);
+                else if((waitB == 0) && (waitT == 1))
+                    this.form.add(3);
+                else
+                    this.form.add(4);
             }
             else if((up.get(i) < 50) || (down.get(i) < 50))
             {
-                this.form.add(-1);
+                if((waitB == 0) && (waitT == 0))
+                    this.form.add(-1);
+                else if((waitB == 1) && (waitT == 0))
+                    this.form.add(-2);
+                else if((waitB == 0) && (waitT == 1))
+                    this.form.add(-3);
+                else
+                    this.form.add(-4);
             }
             else if(((up.get(i) > 50) && (up.get(i) < LOWER_BOUND)) || ((down.get(i) > 50) && (down.get(i) < LOWER_BOUND)))
             {
-                this.form.add(0);
+                if((waitB == 0) && (waitT == 0))
+                    this.form.add(10);
+                else if((waitB == 1) && (waitT == 0))
+                    this.form.add(20);
+                else if((waitB == 0) && (waitT == 1))
+                    this.form.add(30);
+                else
+                    this.form.add(40);
             }
         }
 
