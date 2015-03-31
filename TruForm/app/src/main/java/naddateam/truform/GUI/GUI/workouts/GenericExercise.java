@@ -187,6 +187,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 finish.setVisibility(View.VISIBLE);
 
                 ble.dataArr.clear();
+                message = "G";
                 value = message.getBytes();
                 try {
                     Comm.writeRXCharacteristic(value);
@@ -211,15 +212,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 abortTrack.setEnabled(false);
                 abortTrack.setVisibility(View.INVISIBLE);
 
-                //Set the number of reps done from the arduino
-                ExerciseAnalysis data = new ExerciseAnalysis();
-                reps.setText(data.form.size());
 
-                //Grab the weights, sets, reps here
-//                String repString = Integer.toString(reps.getValue());
-                String repString = reps.getText().toString();
-                repsDone.add(repString);
-                weightDone.add(weight.getText().toString());
 
                 message = "N";
                 value = message.getBytes();
@@ -231,6 +224,18 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 {
                     Toast.makeText(getApplicationContext(), "You are not Conncected to a BlueTooth device!", Toast.LENGTH_SHORT);
                 }
+
+
+                //Set the number of reps done from the arduino
+
+                reps.setText(Integer.toString(exerciseAnalysis.form.size()));
+
+                //Grab the weights, sets, reps here
+//                String repString = Integer.toString(reps.getValue());
+                String repString = reps.getText().toString();
+                repsDone.add(repString);
+                weightDone.add(weight.getText().toString());
+
                 //btnSR.setText("Receive");
 
                 //Reset Reps and start the rest time
