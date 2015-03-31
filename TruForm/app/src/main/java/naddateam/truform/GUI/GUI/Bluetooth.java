@@ -75,7 +75,7 @@ public class Bluetooth extends Activity implements RadioGroup.OnCheckedChangeLis
     TextView mRemoteRssiVal;
     RadioGroup mRg;
     private int mState = UART_PROFILE_DISCONNECTED;
-    private BluetoothLeUart mService;
+    private static BluetoothLeUart mService;
     private BluetoothDevice mDevice = null;
     private BluetoothAdapter mBtAdapter;
     private ListView messageListView;
@@ -159,6 +159,11 @@ public class Bluetooth extends Activity implements RadioGroup.OnCheckedChangeLis
 
         // Set initial UI state
 
+    }
+
+    public BluetoothLeUart getmService()
+    {
+        return mService;
     }
 
     //UART service connected/disconnected
