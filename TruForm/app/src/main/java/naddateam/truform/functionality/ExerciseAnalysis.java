@@ -49,6 +49,7 @@ public class ExerciseAnalysis {
         /*Constants*/
         int LOWER_BOUND = 64;
         int UPPER_BOUND = 90;
+        int GOOD_LOWER_BOUND = 55;
         int i = 0;
         int j = 0;
         /*Flags*/
@@ -108,8 +109,6 @@ public class ExerciseAnalysis {
                 zeroes += 1;
             }
             else if ((gyroZ < -1) && (goingUp == 1)) { /*If you begin to go down*/
-                //if(numZeroes[j] <= 3) /*Don't continue to count zeroes if you didn't wait long at the top*/
-                    //numZeroes[j] = 0;
                 numZeroesTop.add(zeroes);
                 zeroes = 0;
                 up.add(totalGyroZUp); /*Now have the data for the up half of the curl, store*/
@@ -188,7 +187,7 @@ public class ExerciseAnalysis {
                 else
                     this.form.add("Good form, but you waited too long at the bottom and the top of the curl.");
             }
-            else if((up.get(i) < 50) || (down.get(i) < 50))
+            else if((up.get(i) < GOOD_LOWER_BOUND) || (down.get(i) < GOOD_LOWER_BOUND))
             {
                 if((waitB == 0) && (waitT == 0))
                     this.form.add("Your form was bad, try lifting higher.");
