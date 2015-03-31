@@ -199,6 +199,8 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 finish.setVisibility(View.INVISIBLE);
                 startTrack.setEnabled(true);
                 startTrack.setVisibility(View.VISIBLE);
+                abortTrack.setEnabled(false);
+                abortTrack.setVisibility(View.INVISIBLE);
 
                 //Grab the weights, sets, reps here
                 String repString = Integer.toString(reps.getValue());
