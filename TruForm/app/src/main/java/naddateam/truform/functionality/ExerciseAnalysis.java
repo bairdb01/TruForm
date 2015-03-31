@@ -110,8 +110,7 @@ public class ExerciseAnalysis {
             else if ((gyroZ < -1) && (goingUp == 1)) { /*If you begin to go down*/
                 //if(numZeroes[j] <= 3) /*Don't continue to count zeroes if you didn't wait long at the top*/
                     //numZeroes[j] = 0;
-                if(zeroes > 3)
-                    numZeroesTop.add(zeroes);
+                numZeroesTop.add(zeroes);
                 zeroes = 0;
                 up.add(totalGyroZUp); /*Now have the data for the up half of the curl, store*/
                 totalGyroZUp = 0; /*And reset this for next*/
@@ -151,7 +150,20 @@ public class ExerciseAnalysis {
         int waitB = 0;
         int waitT = 0;
         /*Now we have the arrays of gyroZ data and can examine the curls*/
-
+        /*Reference:
+        4 is good form but there was too long of a wait at the bottom/top
+        3 is good form but there was too long of a wait at the top of the curl
+        2 is good form but there was too long of a wait at the bottom of the curl
+        1 is good form for a rep
+        10 is somewhat close form (not good)
+        20 is somewhat close form but too long bott
+        30 is somewhat close form but too long top
+        40 is somewhat close form but too long both
+        -1 is bad form
+        -2 is bad form with too long at the bottom
+        -3 is bad form with too long at the top
+        -4 is bad form with too long at both
+          */
         for(i = 0; i<j; i++)
         {
             waitB = 0;
