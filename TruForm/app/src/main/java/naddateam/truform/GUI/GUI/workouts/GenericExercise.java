@@ -36,6 +36,7 @@ import naddateam.truform.ExerciseClasses.Exercise;
 import naddateam.truform.ExerciseClasses.Exercises;
 import naddateam.truform.R;
 import naddateam.truform.functionality.ExerciseAnalysis;
+import naddateam.truform.functionality.InstanceData;
 
 /**
  * Note to self: Currently overwrites last reps/sets/weight completed on exit of screen
@@ -45,7 +46,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
     Button abortTrack;
     Button finish;
     TextView sets;
-    NumberPicker reps;
+    TextView reps;
     EditText weight;
     int currentSet;
     Exercise curExercise;
@@ -95,7 +96,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
         abortTrack = (Button) findViewById(R.id.abortBut);
         finish = (Button) findViewById(R.id.finBut);
         sets = (TextView) findViewById(R.id.textSets);
-        reps = (NumberPicker) findViewById(R.id.numberPickerReps);
+        reps = (TextView) findViewById(R.id.numberPickerReps);
         weight = (EditText) findViewById(R.id.numberWeight);
 
         //set listeners for buttons
@@ -106,8 +107,8 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
 
 
         //Setting the numberPickers' range
-        reps.setMinValue(1);
-        reps.setMaxValue(99);
+//        reps.setMinValue(1);
+//        reps.setMaxValue(99);
 
         // Checking if previous cache data is available in case workout incomplete
 
@@ -210,8 +211,13 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 abortTrack.setEnabled(false);
                 abortTrack.setVisibility(View.INVISIBLE);
 
+                //Set the number of reps done from the arduino
+                ExerciseAnalysis data = new ExerciseAnalysis();
+                reps.setText(data.form.size());
+
                 //Grab the weights, sets, reps here
-                String repString = Integer.toString(reps.getValue());
+//                String repString = Integer.toString(reps.getValue());
+                String repString = reps.getText().toString();
                 repsDone.add(repString);
                 weightDone.add(weight.getText().toString());
 
@@ -228,7 +234,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 //btnSR.setText("Receive");
 
                 //Reset Reps and start the rest time
-                reps.setValue(reps.getMinValue());
+//                reps.setValue(reps.getMinValue());
                 restTimer.startTimer((TextView) findViewById(R.id.restTime));
                 break;
             case(R.id.abortBut):
