@@ -51,6 +51,8 @@ int rollGyroVal;
 int pitchGyroVal;
 int yawGyroVal;
 
+int stopGo = 0;
+
 const int gyroNoiseThresh = 25; // Ignore gyroscope values below this value
 const int gyroDelayTime = 20; // refresh rate of gyroscope.
 float yawGyroValDouble; // running sums get very large. We need to poll the int from the register and convert it to a double
@@ -125,7 +127,31 @@ void loop()
 //
 //    // Next up, see if we have any data to get from the Serial console
 
-    if (Serial.available()) {
+    char c = 's';
+    
+    c = BTLEserial.read();
+    
+    
+    if( c == 'G')
+    {
+      stopGo = 1; 
+    }
+    else if(c == 'N')
+    {
+      stopGo = 0; 
+    }
+    else if(c = 'ÿ')
+    {
+       if(stopGo == 1)
+       {
+         c = 'G'; 
+       }
+       else
+       {
+         c = 'N'; 
+       }
+    }
+    if (c == 'G') {
       // Read a line from Serial
       Serial.setTimeout(100); // 100 millisecond timeout
       
@@ -199,19 +225,6 @@ void loop()
         angleY = totalClicksY / clicksPerDegCCWY;
         angleP = totalClicksP / clicksPerDegCCWR; 
         angleR = totalClicksR / clicksPerDegCCWR;
-              
-//        String yawSend = String(angleY);
-//        
-//        String pitchSend = String(angleP);
-//        
-//        String rollSend = String(angleR);
-//        
-//        String xSend = String(xRe);
-//        
-//        String ySend = String(yRe);
-//        
-//        String zSend = String(zRe);
-        
         
         //s = "Accel - X: " + xSend + " Y: " + ySend + " Z: " + zSend + "\n" + "Gyro - Yaw: " + yawSend + " Pitch: " + pitchSend + " Roll: " + rollSend;
         //s = xSend + "," + ySend + "," + zSend + "," + yawSend + "," + pitchSend + "," + rollSend;
@@ -255,28 +268,6 @@ void loop()
         //subEnd = subEnd + 19;
         delay(100);
       }
-      
-      /*for(int j = 0; j < loopVal; j++)
-      {
-        Serial.println("Array: ");
-        Serial.println(res[j]);
-        delay(500);
-      }*/
-      //int(analogRead(pinX)) + " Y: " + int(analogRead(pinY)) + " Z: " + int(analogRead(pinZ)); 
-      //Serial.readString();
-
-      // We need to convert the line to bytes, no more than 20 at this time
-      /*if(s.length() > 20)
-      {
-         int temp = s.length() % 19;
-         if(temp > 0)
-         {
-            loopVal = 1;
-         }
-         temp = s.length()/19;
-         loopVal = loopVal + temp;
-      }*/
-      //delay(100);
     }
   }
 }
