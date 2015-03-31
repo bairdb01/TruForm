@@ -55,6 +55,11 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
     String exerciseName;
     ArrayList <String> repsDone;
     ArrayList <String> weightDone;
+    Bluetooth ble = new Bluetooth();
+    ExerciseAnalysis exerciseAnalysis = new ExerciseAnalysis();
+    BluetoothLeUart Comm = ble.getmService();
+    byte[] value;
+    String message = "G";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -167,11 +172,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
      * Makes the start/abort/finish buttons perform stuff
      */
     public void onClick(View v) {
-        Bluetooth ble = new Bluetooth();
-        ExerciseAnalysis exerciseAnalysis = new ExerciseAnalysis();
-        BluetoothLeUart Comm = ble.getmService();
-        byte[] value;
-        String message = "G";
+
         String btnVal;
         switch(v.getId()) {
             case(R.id.startBut):
@@ -186,7 +187,14 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
 
                 ble.dataArr.clear();
                 value = message.getBytes();
-                Comm.writeRXCharacteristic(value);
+                try {
+                    Comm.writeRXCharacteristic(value);
+                    exerciseAnalysis.analyzeForm(ble.dataArr, 5);
+                }
+                catch (Exception e)
+                {
+                    Toast.makeText(this, "You are not Conncected to a BlueTooth device!", Toast.LENGTH_SHORT);
+                }
                 //btnSR.setText("Stop");
                 exerciseAnalysis.form.clear();
 
@@ -209,9 +217,15 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
 
                 message = "N";
                 value = message.getBytes();
-                Comm.writeRXCharacteristic(value);
+                try {
+                    Comm.writeRXCharacteristic(value);
+                    exerciseAnalysis.analyzeForm(ble.dataArr, 5);
+                }
+                catch (Exception e)
+                {
+                    Toast.makeText(getApplicationContext(), "You are not Conncected to a BlueTooth device!", Toast.LENGTH_SHORT);
+                }
                 //btnSR.setText("Receive");
-                exerciseAnalysis.analyzeForm(ble.dataArr, 5);
 
                 //Reset Reps and start the rest time
                 reps.setValue(reps.getMinValue());
@@ -273,6 +287,16 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
             e.printStackTrace();
         }
 
+        message = "N";
+        value = message.getBytes();
+        try {
+            Comm.writeRXCharacteristic(value);
+            //exerciseAnalysis.analyzeForm(ble.dataArr, 5);
+        }
+        catch (Exception e)
+        {
+            Toast.makeText(getApplicationContext(), "You are not Conncected to a BlueTooth device!", Toast.LENGTH_SHORT);
+        }
 
         super.onBackPressed();
     }
