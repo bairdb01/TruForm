@@ -156,11 +156,13 @@
             android:name=".GUI.GUI.UserItems.Workout_History" >
         </activity>
         <activity
-
             android:name=".GUI.GUI.NavMenuItems.GetDataNav"
             android:label="@string/title_activity_get_data_nav" >
-
         </activity>
+        <service
+            android:name=".GUI.GUI.BluetoothLeUart"
+            android:exported="false"
+            />
     </application>
 
 </manifest>
