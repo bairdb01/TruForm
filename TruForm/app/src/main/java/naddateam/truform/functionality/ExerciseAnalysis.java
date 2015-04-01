@@ -23,6 +23,7 @@ import naddateam.truform.R;
 public class ExerciseAnalysis {
     private static int numGoodReps;
     public ArrayList<String> form = new ArrayList<String>();
+    public ArrayList<Double> codedForm = new ArrayList<Double>();
 
     //private ArrayList<InstanceData> dataPoints = new ArrayList<InstanceData>();
 
@@ -178,6 +179,7 @@ public class ExerciseAnalysis {
 
             if((up.get(i) >= LOWER_BOUND) && (up.get(i) <= UPPER_BOUND) && (down.get(i) >= LOWER_BOUND) && (down.get(i) <= UPPER_BOUND))
             {
+                this.codedForm.add(1.00);
                 if((waitB == 0) && (waitT == 0))
                     this.form.add("Good form.");
                 else if((waitB == 1) && (waitT == 0))
@@ -189,6 +191,7 @@ public class ExerciseAnalysis {
             }
             else if((up.get(i) < GOOD_LOWER_BOUND) || (down.get(i) < GOOD_LOWER_BOUND))
             {
+                this.codedForm.add(0.50);
                 if((waitB == 0) && (waitT == 0))
                     this.form.add("Your form was bad, try lifting higher.");
                 else if((waitB == 1) && (waitT == 0))
@@ -200,6 +203,7 @@ public class ExerciseAnalysis {
             }
             else if(((up.get(i) > 50) && (up.get(i) < LOWER_BOUND)) || ((down.get(i) > 50) && (down.get(i) < LOWER_BOUND)))
             {
+                this.codedForm.add(0.00);
                 if((waitB == 0) && (waitT == 0))
                     this.form.add("Your form was close, try lifting higher.");
                 else if((waitB == 1) && (waitT == 0))
