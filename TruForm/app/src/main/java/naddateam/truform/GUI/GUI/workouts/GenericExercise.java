@@ -113,6 +113,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
         abortTrack.setOnClickListener(this);
         finish.setOnClickListener(this);
         reps.setOnClickListener(this);
+        view.setOnClickListener(this);
 
 
         //Setting the numberPickers' range
@@ -183,7 +184,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
      */
     public void onClick(View v) {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(GenericExercise.this);
         String btnVal;
         switch(v.getId()) {
             case(R.id.startBut):
@@ -286,7 +287,6 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 // Just goes back to previous screen without saving anything
                 super.onBackPressed();
                 break;
-
             case(R.id.viewBut):
                 builder.setTitle("TEST");
                 builder.create().show();
