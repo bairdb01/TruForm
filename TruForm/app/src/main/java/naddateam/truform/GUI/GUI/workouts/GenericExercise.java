@@ -15,6 +15,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -292,12 +293,12 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
             case(R.id.viewBut):
                 String printForm = "";
                 builder.setTitle("View Set Data");
+                if(exerciseAnalysis.form.size() == 0)
+                    printForm += "No data to show";
                 int i;
                 for(i = 0; i < exerciseAnalysis.form.size(); i++) {
                     printForm += exerciseAnalysis.form.get(i) + "\n";
                 }
-                if(i == 0)
-                    builder.setMessage("No data to show");
                 builder.setMessage(printForm);
                 builder.show();
                 break;
