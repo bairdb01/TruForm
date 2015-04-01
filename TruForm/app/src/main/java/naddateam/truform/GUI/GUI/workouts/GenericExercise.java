@@ -258,6 +258,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 // Just goes back to previous screen without saving anything
                 super.onBackPressed();
                 break;
+
             case(R.id.viewBut):
 
                 alertDialog.setTitle("View Sets");
