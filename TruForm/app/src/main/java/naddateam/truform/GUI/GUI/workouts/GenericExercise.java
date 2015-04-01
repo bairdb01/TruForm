@@ -69,7 +69,6 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
     BluetoothLeUart Comm = ble.getmService();
     byte[] value;
     String message = "G";
-    String printForm;
 
 
     @Override
@@ -291,11 +290,19 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 super.onBackPressed();
                 break;
             case(R.id.viewBut):
-                Toast.makeText(this, "Here be a broken button", Toast.LENGTH_SHORT).show();
+                String printForm = "";
                 //this.items = exerciseAnalysis.form.toArray(new CharSequence[exerciseAnalysis.form.size()]);
                 builder.setTitle("View Set Data");
-                for(int i = 0; i < exerciseAnalysis.form.size(); i++)
-                    printForm.concat(exerciseAnalysis.form.get(i));
+                ArrayList<String> testString = new ArrayList<String>();
+                testString.add("test");
+                testString.add("test");
+                testString.add("test");
+                //for(int i = 0; i < exerciseAnalysis.form.size(); i++)
+                    //printForm.concat(exerciseAnalysis.form.get(i));
+                int i;
+                for(i = 0; i < exerciseAnalysis.form.size(); i++) {
+                    printForm += exerciseAnalysis.form.get(i) + "\n";
+                }
                 builder.setMessage(printForm);
                 //builder.setMessage("Hello");
                 builder.show();
