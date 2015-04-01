@@ -179,7 +179,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
      */
     public void onClick(View v) {
 
-
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         String btnVal;
         switch(v.getId()) {
             case(R.id.startBut):
@@ -261,15 +261,8 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 break;
 
             case(R.id.viewBut):
-                new AlertDialog.Builder(this)
-                        .setTitle("View Set Data")
-                        .setMessage("Placeholder")
-                        .setNegativeButton("Close", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.cancel();
-                            }
-                        })
-                        .show();
+                builder.setTitle("TEST");
+                builder.create().show();
 
                 break;
         }
