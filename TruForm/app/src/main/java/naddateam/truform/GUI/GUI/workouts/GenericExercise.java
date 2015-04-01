@@ -12,6 +12,7 @@ package naddateam.truform.GUI.GUI.workouts;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -64,6 +65,9 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
     byte[] value;
     String message = "G";
 
+    //AlertDialogue
+    AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //Initialization of null variables
@@ -75,10 +79,6 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
         repsDone = new ArrayList<String>();
         weightDone = new ArrayList<String>();
 
-        //AlertDialogue
-        AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-        alertDialog.setTitle("View Sets");
-        alertDialog.setMessage("placeholder");
 
 
         //Retrieving data passed from previous activity
@@ -263,7 +263,17 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 super.onBackPressed();
                 break;
             case(R.id.viewBut):
-                //Start
+                alertDialog.setTitle("View Sets");
+                int i = 0;
+                for(i = 0; i < exerciseAnalysis.form.size(); i++)
+                    alertDialog.setMessage(exerciseAnalysis.form.get(i));
+                alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        alertDialog.cancel();
+                    }
+                });
+                alertDialog.show();
                 break;
         }
     }
