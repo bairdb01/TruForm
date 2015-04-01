@@ -235,6 +235,7 @@ public class Bluetooth extends Activity implements RadioGroup.OnCheckedChangeLis
                 });
             }
 
+            // :^)
 
             //*********************//
             if (action.equals(BluetoothLeUart.ACTION_GATT_SERVICES_DISCOVERED)) {

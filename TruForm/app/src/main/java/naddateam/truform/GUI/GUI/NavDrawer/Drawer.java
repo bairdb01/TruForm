@@ -72,13 +72,13 @@ public class Drawer extends ActionBarActivity
             case 2:
                 selNavItem = new WorkoutNav();
                 break;
-            case 3:
+            /*case 3: // Removed for Rc
                 selNavItem = new CustomWorkNav();
-                break;
-            case 4:
+                break;*/
+            case 3:
                 selNavItem = new SocialNav();
                 break;
-            case 5:
+            case 4:
                 selNavItem = new SettingsNav();
                 break;
         }
@@ -100,13 +100,13 @@ public class Drawer extends ActionBarActivity
             case 3:
                 mTitle = getString(R.string.workoutString);
                 break;
-            case 4:
+    /*        case 4: //Removed for RC
                 mTitle = getString(R.string.calibrationsString);
-                break;
-            case 5:
+                break; */
+            case 4:
                 mTitle = getString(R.string.customWorkoutString);
                 break;
-            case 6:
+            case 5:
                 mTitle = getString(R.string.settingString);
                 break;
         }

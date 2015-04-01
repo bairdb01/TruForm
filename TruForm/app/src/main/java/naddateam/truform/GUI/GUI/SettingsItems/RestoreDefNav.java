@@ -87,14 +87,12 @@ public class RestoreDefNav extends ActionBarActivity implements AdapterView.OnIt
                     .setCancelable(false)
                     .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
-                            Toast.makeText(getApplicationContext(), "User Info Cleared", Toast.LENGTH_SHORT).show();
-                            /*
-
-                            * CODE
-                            * HERE
-                            * TO APPLY CLEAR ALL USER SETTINGS
-                            *
-                            * */
+                            File file = new File(getFilesDir(),"userDetails");
+                            boolean deleted = file.delete();
+                            if (deleted)
+                                Toast.makeText(getApplicationContext(), "User Info Cleared", Toast.LENGTH_SHORT).show();
+                            else
+                                Toast.makeText(getApplicationContext(), "User Info Could Not Be Cleared", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -114,13 +112,14 @@ public class RestoreDefNav extends ActionBarActivity implements AdapterView.OnIt
                     .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             Toast.makeText(getApplicationContext(), "Workout History cleared", Toast.LENGTH_SHORT).show();
-                            /*
 
-                            * CODE
-                            * HERE
-                            * TO APPLY CLEAR ALL USER SETTINGS
-                            *
-                            * */
+                            File dirFiles = getFilesDir();
+                            for (String filename : dirFiles.list()) {
+                                if (filename.contains("stats")) {
+                                    File toDelete = new File(getFilesDir(), filename);
+                                    toDelete.delete();
+                                }
+                            }
                         }
                     })
                     .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {

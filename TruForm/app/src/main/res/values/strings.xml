@@ -19,6 +19,16 @@
 4) Return to start position.
 5) Remember to keep back and head straight in a neutral position throughout movement. Shoulders should be stabilized by squeezing shoulder blades together slightly - only the elbow joint should be moving.</string>
 
+    <string name="tutDumbChestPress">
+        1) Lie back on an incline bench with a dumbbell in each hand atop your thighs. The palms of your hands will be facing each other.\n
+        2) Then, using your thighs to help push the dumbbells up, lift the dumbbells one at a time so that you can hold them at shoulder width.\n
+        3) Once you have the dumbbells raised to shoulder width, rotate your wrists forward so that the palms of your hands are facing away from you. This will be your starting position.\n
+        4) Be sure to keep full control of the dumbbells at all times. Then breathe out and push the dumbbells up with your chest.\n
+        5) Lock your arms at the top, hold for a second, and then start slowly lowering the weight. Tip Ideally, lowering the weights should take about twice as long as raising them.
+        6) Repeat the movement for the prescribed amount of repetitions.\n
+        7) When you are done, place the dumbbells back on your thighs and then on the floor. This is the safest manner to release the dumbbells.
+    </string>
+
     <!-- TITLES and any other strings with "title" in it -->
     <!-- String items for the Calibration Action page -->
     <string name="title_calibActionCountdown">Countdown</string>
@@ -53,7 +63,7 @@
 
     <!-- List of setting items displayed when selecting "Settings" in the Navigation Drawer -->
     <string-array name="settingsListItems">
-        <item>Calibrations</item>
+    <!--<item>Calibrations</item>--> <!--Removed, due to limitations of our current status for RC-->
         <item>General</item>
         <item>Reset to Defaults</item>
         <item>Help</item>
@@ -117,13 +127,13 @@
     <!--
     For the Help Navigation.
     Calibrations = How to Calibrate
-    Workout Creation = How to Create own workout schedules
+    Workout Creation = How to Create own workout schedules (Removed for RC)
     Form = Bunch of workout info talking what they work and how to do it
     -->
     <string-array name="helpListItems">
         <item>Exercise Form</item>
-        <item>Workout Creation</item>
-        <item>Calibrations</item>
+        <!--<item>Workout Creation</item> REMOVED FOR RC-->
+        <!--<item>Calibrations REMOVED FOR RC</item>-->
         <item>BlueTooth</item>
         <item>Tests</item>
     </string-array>
@@ -149,7 +159,6 @@
         <item>Age</item>
         <item>Height (cm)</item>
         <item>Weight (kg)</item>
-        <item>BMI</item>
     </string-array>
 
     <string name="app_name">TruForm</string>
