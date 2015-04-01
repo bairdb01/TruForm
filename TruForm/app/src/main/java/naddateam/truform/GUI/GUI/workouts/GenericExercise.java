@@ -65,8 +65,6 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
     byte[] value;
     String message = "G";
 
-    //AlertDialogue
-    AlertDialog alertDialog = new AlertDialog.Builder(this).create();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,8 +76,6 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
         int completedSets = 0;
         repsDone = new ArrayList<String>();
         weightDone = new ArrayList<String>();
-
-
 
         //Retrieving data passed from previous activity
         Bundle variables = getIntent().getExtras();
@@ -182,7 +178,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
      * Makes the start/abort/finish buttons perform stuff
      */
     public void onClick(View v) {
-
+        final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
         String btnVal;
         switch(v.getId()) {
             case(R.id.startBut):
@@ -263,6 +259,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 super.onBackPressed();
                 break;
             case(R.id.viewBut):
+
                 alertDialog.setTitle("View Sets");
                 int i = 0;
                 for(i = 0; i < exerciseAnalysis.form.size(); i++)
