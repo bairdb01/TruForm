@@ -18,8 +18,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.NumberPicker;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -67,6 +69,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
     BluetoothLeUart Comm = ble.getmService();
     byte[] value;
     String message = "G";
+    CharSequence[] items;
 
 
     @Override
@@ -288,8 +291,12 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 super.onBackPressed();
                 break;
             case(R.id.viewBut):
-                builder.setTitle("TEST");
-                builder.setMessage("Hello");
+                Toast.makeText(this, "Here be a broken button", Toast.LENGTH_SHORT).show();
+                //this.items = exerciseAnalysis.form.toArray(new CharSequence[exerciseAnalysis.form.size()]);
+                builder.setTitle("View Set Data");
+                for(int i = 0; i < exerciseAnalysis.form.size(); i++)
+                    builder.setMessage(exerciseAnalysis.form.get(i));
+                //builder.setMessage("Hello");
                 builder.show();
 
 
