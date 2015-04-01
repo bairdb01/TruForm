@@ -82,7 +82,9 @@
         </activity>
         <activity
             android:name=".GUI.GUI.workouts.Workout0"
-            android:label="@string/title_activity_workout0" >
+            android:label="@string/title_activity_workout0"
+            android:parentActivityName=".GUI.GUI.workouts.GenericExercise">
+
         </activity>
         <activity
             android:name=".GUI.GUI.workouts.GenericExercise"
@@ -94,23 +96,28 @@
         </activity>
         <activity
             android:name=".GUI.GUI.SettingsItems.RestoreDefNav"
-            android:label="@string/title_activity_restore_def_nav" >
+            android:label="@string/title_activity_restore_def_nav"
+            android:parentActivityName=".GUI.GUI.SettingsItems.AboutNav">
         </activity>
         <activity
             android:name=".GUI.GUI.SettingsItems.AboutNav"
-            android:label="@string/title_activity_about" >
+            android:label="@string/title_activity_about"
+            android:parentActivityName=".GUI.GUI.SettingsItems.AboutNav">
         </activity>
         <activity
             android:name=".GUI.GUI.SettingsItems.HelpNav"
-            android:label="@string/title_activity_settings_help_nav" >
+            android:label="@string/title_activity_settings_help_nav"
+            android:parentActivityName=".GUI.GUI.SettingsItems.AboutNav">
         </activity>
         <activity
             android:name=".GUI.GUI.SettingsItems.GeneralNav"
-            android:label="@string/title_activity_audio_nav" >
+            android:label="@string/title_activity_audio_nav"
+            android:parentActivityName=".GUI.GUI.SettingsItems.AboutNav">
         </activity>
         <activity
             android:name=".GUI.GUI.UserItems.UserDetailsNav"
-            android:label="@string/title_activity_user_details_nav" >
+            android:label="@string/title_activity_user_details_nav"
+            android:parentActivityName=".GUI.GUI.UserItems.UserDetailsNav">
         </activity>
         <activity
             android:name=".GUI.GUI.DeviceListActivity"
@@ -142,7 +149,8 @@
         </activity>
         <activity
             android:name=".GUI.GUI.UserItems.TrackStatsNav"
-            android:label="@string/title_activity_track_stats_nav" >
+            android:label="@string/title_activity_track_stats_nav"
+            android:parentActivityName=".GUI.GUI.UserItems.TrackStatsNav">
         </activity>
         <activity
             android:name=".GUI.GUI.UserItems.CustomWorkNav"
@@ -153,11 +161,13 @@
             android:label="@string/title_activity_calibration_action" >
         </activity>
         <activity
-            android:name=".GUI.GUI.UserItems.Workout_History" >
+            android:name=".GUI.GUI.UserItems.Workout_History"
+            android:parentActivityName=".GUI.GUI.UserItems.TrackStatsNav">
         </activity>
         <activity
             android:name=".GUI.GUI.NavMenuItems.GetDataNav"
-            android:label="@string/title_activity_get_data_nav" >
+            android:label="@string/title_activity_get_data_nav"
+            android:parentActivityName=".GUI.GUI.SettingsItems.AboutNav">
         </activity>
         <service
             android:name=".GUI.GUI.BluetoothLeUart"

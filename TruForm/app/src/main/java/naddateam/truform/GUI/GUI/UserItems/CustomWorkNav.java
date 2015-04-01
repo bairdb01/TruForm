@@ -1,10 +1,15 @@
 package naddateam.truform.GUI.GUI.UserItems;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
+import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.MakeWorkoutTut;
 import naddateam.truform.R;
 /**
  * CIS3760
@@ -17,12 +22,19 @@ import naddateam.truform.R;
  * compile to one workout and they can set the reps/set and name of the workout. They can also post
  * it to the homescreen.
  */
-public class CustomWorkNav extends ActionBarActivity {
+public class CustomWorkNav extends ActionBarActivity implements View.OnClickListener{
+    Button helpBut;
+    Button newCustom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customwork_layout);
+        newCustom = (Button) findViewById(R.id.thisIsAButton1);
+        helpBut = (Button) findViewById(R.id.thisIsAButton2);
+
+        newCustom.setOnClickListener(this);
+        helpBut.setOnClickListener(this);
     }
 
 
@@ -51,5 +63,19 @@ public class CustomWorkNav extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()) {
+            case (R.id.thisIsAButton1):
+                Toast.makeText(getApplicationContext(), "Help", Toast.LENGTH_SHORT).show();
+                break;
+            case (R.id.thisIsAButton2):
+                Toast.makeText(getApplicationContext(), "Help", Toast.LENGTH_SHORT).show();
+                Intent goCustomTut = new Intent(CustomWorkNav.this, MakeWorkoutTut.class);
+                startActivity(goCustomTut);
+                break;
+        }
     }
 }

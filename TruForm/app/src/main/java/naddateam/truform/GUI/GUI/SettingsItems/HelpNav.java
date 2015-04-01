@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import naddateam.truform.GUI.GUI.Bluetooth;
 import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.BicepCurlTut;
@@ -57,7 +58,7 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
         final AlertDialog.Builder builderTwo = new AlertDialog.Builder(this);
         final AlertDialog.Builder builderThree = new AlertDialog.Builder(this);
         final AlertDialog.Builder builderFour = new AlertDialog.Builder(this);
-
+        final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         if (position == 0) {
             builderContain.setTitle("Select a category.")
                     .setItems(R.array.calibrationItemsArr, new DialogInterface.OnClickListener() {
@@ -78,8 +79,22 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
                                         .setItems(R.array.ChestAndTriceps, new DialogInterface.OnClickListener() {
                                             public void onClick(DialogInterface dialog, int which) {
                                                 if (which == 0) {
-                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
-                                                    //  startActivity(goChestTut);
+
+                                                    alertDialogBuilder.setTitle("Dumbbell Chest Press");
+                                                    //Set message
+                                                    alertDialogBuilder.setMessage(getString(R.string.tutDumbChestPress))
+                                                            .setCancelable(false)
+                                                            .setPositiveButton("Confirm",new DialogInterface.OnClickListener() {
+                                                                public void onClick(DialogInterface dialog,int id) {
+                                                                }
+                                                            })
+                                                            .setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+                                                                public void onClick(DialogInterface dialog,int id) {
+                                                                    dialog.cancel();
+                                                                }
+                                                            });
+                                                    AlertDialog alertDialog = alertDialogBuilder.create();
+                                                    alertDialog.show();
                                                 }
                                                 else if (which == 1) {
                                                     //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
@@ -252,26 +267,28 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
         /*
         * How to make a workout
          */
+        /*
         else if (position == 1) {
             Intent goMakeWorkoutTut = new Intent(HelpNav.this, MakeWorkoutTut.class);
             startActivity(goMakeWorkoutTut);
         }
+        */
         /*
-        * How to calibrate
+        * How to calibrate - Removed for RC
          */
-        else if (position == 2) {
+/*        else if (position == 2) {
             Intent goHowToCalibTut = new Intent(HelpNav.this, HowCalibTut.class);
             startActivity(goHowToCalibTut);
-        }
+        }*/
         /*
         * Bluetooth settings
          */
-        else if (position == 3) {
+        else if (position == 1) {
             Intent goBlue = new Intent(HelpNav.this, Bluetooth.class);
             startActivity(goBlue);
         }
         else {
-            if (position == 4) {
+            if (position == 2) {
                 Intent test = new Intent(this, Tester.class);
                 startActivity(test);
             }
@@ -299,5 +316,11 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onBackPressed() {
+        // Stores data in a file
+
+        super.onBackPressed();
     }
 }

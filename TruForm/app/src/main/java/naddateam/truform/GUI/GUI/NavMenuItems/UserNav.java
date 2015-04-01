@@ -61,13 +61,15 @@ public class UserNav extends Fragment {
                     Intent trackedStats = new Intent(UserNav.this.getActivity(), TrackStatsNav.class);
                     startActivity(trackedStats);
                 }
-                else if (position == 2) {
-                    /*
-                    * Opens to the custome workout page
-                     */
+                /*
+                * Opens to the custom workout page - THIS WORKS FOR SOME REASON NOW. Removed for RC
+                */
+/*                else if (position == 2) {
+
                     Intent customWorkouts = new Intent(UserNav.this.getActivity(), CustomWorkNav.class);
                     startActivity(customWorkouts);
-                }
+                }*/
+
             }
         });
         return rootview;
