@@ -21,6 +21,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.NumberPicker;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import naddateam.truform.GUI.GUI.Bluetooth;
@@ -50,6 +52,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
     Button view;
     TextView sets;
     TextView reps;
+    TextView completePer;
     EditText weight;
     int currentSet;
     Exercise curExercise;
@@ -103,6 +106,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
         reps = (TextView) findViewById(R.id.numberPickerReps);
         weight = (EditText) findViewById(R.id.numberWeight);
         view = (Button) findViewById(R.id.viewBut);
+        completePer = (TextView) findViewById(R.id.textView4);
 
         //set listeners for buttons
         startTrack.setOnClickListener(this);
@@ -231,6 +235,29 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                     Toast.makeText(this, "You are not Conncected to a BlueTooth device!", Toast.LENGTH_SHORT);
                 }
 
+                int size = exerciseAnalysis.form.size();
+                double total;
+                total = 0;
+                double percent;
+                percent = 0;
+
+                for(int i = 0; i < size; i++)
+                {
+                    if(exerciseAnalysis.codedForm.get(i) == (1.00))
+                    {
+                        total = total + 1.00;
+                    }
+                    else if(exerciseAnalysis.codedForm.get(i) == (0.50))
+                    {
+                        total = total + 0.50;
+                    }
+                    else if(exerciseAnalysis.codedForm.get(i) == (0.00))
+                    {
+                        total = total + 0.00;
+                    }
+                }
+                percent = (total/size) * 100;
+                completePer.setText(new DecimalFormat("##.##").format(percent) + ("%"));
 
                 //Set the number of reps done from the arduino
 
