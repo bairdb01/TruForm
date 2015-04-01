@@ -19,7 +19,7 @@ import naddateam.truform.R;
  * CIS3760
  * Naddateam Truform
  * RestoreDefNav.java
- * Author: Andrew Huynh
+ * Author: Benjamin Baird
  * This class is the Restore to Defaults for Nav Drawer > Settings > Reset to Defaults
  * There are different types we thought of. Clearing calibrations, clearing user info and clearing
  * everything up to the point when they got the app. There is currectly no functionality

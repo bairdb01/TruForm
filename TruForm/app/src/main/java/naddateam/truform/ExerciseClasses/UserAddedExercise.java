@@ -5,6 +5,10 @@
  * Author: Benjamin Baird
  * Last Modified March 1, 2015
  * Description: Custom exercises created by the workout data will be stored here
+ *
+ *
+ *
+ *              Not used at the moment. For future use.
  */
 
 package naddateam.truform.ExerciseClasses;

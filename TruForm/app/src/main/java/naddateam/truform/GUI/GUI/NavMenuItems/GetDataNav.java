@@ -1,3 +1,12 @@
+/**
+ * CIS3760
+ * Naddateam Truform
+ * Bluetooth.java
+ * Source: https://developer.mbed.org/forum/wiki-16691-forum/topic/5134/
+ * Last Modified by: Rob Little, Erik Hoffman
+ * This File is used to Display basic database functionality
+ */
+
 package naddateam.truform.GUI.GUI.NavMenuItems;
 
 import android.os.AsyncTask;
@@ -9,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,6 +52,7 @@ public class GetDataNav extends ActionBarActivity {
     ListView lv;
     Button btnSR;
     TextView title;
+    EditText Email, fName, lName, uName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +61,10 @@ public class GetDataNav extends ActionBarActivity {
         lv = (ListView)findViewById(R.id.listView0);
         btnSR = (Button)findViewById(R.id.button);
         title = (TextView)findViewById(R.id.textView7);
-
+        Email = (EditText) findViewById(R.id.emailTxt);
+        fName = (EditText) findViewById(R.id.fnameTxt);
+        lName = (EditText) findViewById(R.id.lnameTxt);
+        uName = (EditText) findViewById(R.id.unameTxt);
 
 
         btnSR.setOnClickListener(new View.OnClickListener() {
@@ -65,40 +79,29 @@ public class GetDataNav extends ActionBarActivity {
 
                 btnVal = btnSR.getText().toString();
 
-                if(btnVal.equals("Receive"))
+                if(btnVal.equals("Insert"))
                 {
                     /*ble.dataArr.clear();
                     value = message.getBytes();
                     Comm.writeRXCharacteristic(value);*/
-                    btnSR.setText("Stop");
+                    btnSR.setText("Select");
                     //exerciseAnalysis.form.clear();
 
-
+                    new DataBase(title, Email, fName, lName, uName, 1).execute(Email.getText().toString(), fName.getText().toString(), lName.getText().toString(), uName.getText().toString());
 
                 }
-                if(btnVal.equals("Stop"))
+                if(btnVal.equals("Select"))
                 {
                     /*message = "N";
                     value = message.getBytes();
                     Comm.writeRXCharacteristic(value);*/
                     btnSR.setText("Receive");
                     //exerciseAnalysis.analyzeForm(ble.dataArr);
-                    displayList();
-                    new DataBase(title).execute();
+                    new DataBase(title).execute(Email.getText().toString());
                 }
             }
         });
 
-    }
-
-    private void displayList()
-    {
-        ArrayAdapter<String> arrayAdapter;
-        arrayAdapter = new ArrayAdapter<String>(
-                this,
-                android.R.layout.simple_list_item_1,
-                exerciseAnalysis.form );
-        lv.setAdapter(arrayAdapter);
     }
 
     @Override
