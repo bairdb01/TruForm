@@ -1,4 +1,4 @@
-package naddateam.truform.functionality;
+package naddateam.truform.ExerciseClasses;
 
 /**
  * CIS3760
@@ -8,6 +8,11 @@ package naddateam.truform.functionality;
  * Last Modified March 1, 2015
  * Description: The central point of workouts. Contains all workouts created and returns workouts(s)
  *              on method calls.
+ *
+ *
+ *
+ *
+ *                            Not used at the moment. For future use.
  */
 import java.util.ArrayList;
 import java.util.HashMap;

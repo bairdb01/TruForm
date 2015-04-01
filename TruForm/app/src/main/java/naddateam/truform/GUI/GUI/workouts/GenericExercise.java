@@ -11,19 +11,14 @@
 package naddateam.truform.GUI.GUI.workouts;
 
 import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.NumberPicker;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,7 +37,6 @@ import naddateam.truform.ExerciseClasses.Exercise;
 import naddateam.truform.ExerciseClasses.Exercises;
 import naddateam.truform.R;
 import naddateam.truform.functionality.ExerciseAnalysis;
-import naddateam.truform.functionality.InstanceData;
 
 /**
  * Note to self: Currently overwrites last reps/sets/weight completed on exit of screen
@@ -66,7 +60,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
     ArrayList <String> weightDone;
     Bluetooth ble = new Bluetooth();
     ExerciseAnalysis exerciseAnalysis = new ExerciseAnalysis();
-    BluetoothLeUart Comm = ble.getmService();
+    BluetoothLeUart comm = ble.getmService();
     byte[] value;
     String message = "G";
 
@@ -203,12 +197,12 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 message = "G";
                 value = message.getBytes();
                 try {
-                    Comm.writeRXCharacteristic(value);
+                    comm.writeRXCharacteristic(value);
                     //exerciseAnalysis.analyzeForm(ble.dataArr);
                 }
                 catch (Exception e)
                 {
-                    Toast.makeText(this, "You are not Conncected to a BlueTooth device!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "You are not Connected to a BlueTooth device!", Toast.LENGTH_SHORT).show();
                 }
                 //btnSR.setText("Stop");
                 exerciseAnalysis.form.clear();
@@ -230,7 +224,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 message = "N";
                 value = message.getBytes();
                 try {
-                    Comm.writeRXCharacteristic(value);
+                    comm.writeRXCharacteristic(value);
                     exerciseAnalysis.analyzeForm(ble.dataArr);
                 }
                 catch (Exception e)
@@ -292,12 +286,12 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
             case(R.id.viewBut):
                 String printForm = "";
                 builder.setTitle("View Set Data");
+                if(exerciseAnalysis.form.size() == 0)
+                    printForm += "No data to show";
                 int i;
                 for(i = 0; i < exerciseAnalysis.form.size(); i++) {
                     printForm += exerciseAnalysis.form.get(i) + "\n";
                 }
-                if(i == 0)
-                    builder.setMessage("No data to show");
                 builder.setMessage(printForm);
                 builder.show();
                 break;
@@ -349,7 +343,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
         message = "N";
         value = message.getBytes();
         try {
-            Comm.writeRXCharacteristic(value);
+            comm.writeRXCharacteristic(value);
             //exerciseAnalysis.analyzeForm(ble.dataArr, 5);
         }
         catch (Exception e)

@@ -5,6 +5,11 @@
  * Author: Benjamin Baird
  * Last Modified March 1, 2015
  * Description: Stores data of HamstringCurls
+ *
+ *
+ *
+ *
+ *              Not used at the moment. For future use.
  */
 
 package naddateam.truform.ExerciseClasses;
