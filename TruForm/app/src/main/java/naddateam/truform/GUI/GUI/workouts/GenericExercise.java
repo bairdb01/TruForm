@@ -45,6 +45,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
     Button startTrack;
     Button abortTrack;
     Button finish;
+    Button view;
     TextView sets;
     TextView reps;
     EditText weight;
@@ -98,6 +99,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
         sets = (TextView) findViewById(R.id.textSets);
         reps = (TextView) findViewById(R.id.numberPickerReps);
         weight = (EditText) findViewById(R.id.numberWeight);
+        view = (Button) findViewById(R.id.viewBut);
 
         //set listeners for buttons
         startTrack.setOnClickListener(this);
@@ -253,6 +255,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 // Just goes back to previous screen without saving anything
                 super.onBackPressed();
                 break;
+            case(R.id.view)
         }
     }
 
