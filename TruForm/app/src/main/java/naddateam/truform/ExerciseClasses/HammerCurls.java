@@ -6,6 +6,10 @@
  * Last Modified March 1, 2015
  * Description: Stores data of hammer curls
  *              Allows navigation to each exercise
+ *
+ *
+ *
+ *              Not used at the moment. For future use.
  */
 
 package naddateam.truform.ExerciseClasses;

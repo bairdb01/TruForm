@@ -8,6 +8,12 @@ package naddateam.truform.functionality;
  * Last Modified March 1, 2015
  * Description: Manages settings that the user has selected as preferences.
  *              Stores all calibration data and exercise logs
+ *
+ *
+ *
+ *
+ *              Not used at the moment. For future use.
+ *
  */
 
 import java.util.HashMap;

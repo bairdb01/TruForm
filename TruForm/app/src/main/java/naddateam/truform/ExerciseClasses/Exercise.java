@@ -5,6 +5,11 @@
  * Author: Benjamin Baird
  * Last Modified March 1, 2015
  * Description: Generic class for other exercises to follow
+ *
+ *
+ *
+ *
+ *              Not used at the moment. For future use.
  */
 package naddateam.truform.ExerciseClasses;
 
