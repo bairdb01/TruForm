@@ -10,15 +10,20 @@
 
 package naddateam.truform.GUI.GUI.workouts;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.NumberPicker;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +32,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import naddateam.truform.GUI.GUI.Bluetooth;
@@ -45,8 +51,10 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
     Button startTrack;
     Button abortTrack;
     Button finish;
+    Button view;
     TextView sets;
     TextView reps;
+    TextView completePer;
     EditText weight;
     int currentSet;
     Exercise curExercise;
@@ -61,6 +69,8 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
     BluetoothLeUart Comm = ble.getmService();
     byte[] value;
     String message = "G";
+    String printForm;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,12 +108,15 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
         sets = (TextView) findViewById(R.id.textSets);
         reps = (TextView) findViewById(R.id.numberPickerReps);
         weight = (EditText) findViewById(R.id.numberWeight);
+        view = (Button) findViewById(R.id.viewBut);
+        completePer = (TextView) findViewById(R.id.textView4);
 
         //set listeners for buttons
         startTrack.setOnClickListener(this);
         abortTrack.setOnClickListener(this);
         finish.setOnClickListener(this);
         reps.setOnClickListener(this);
+        view.setOnClickListener(this);
 
 
         //Setting the numberPickers' range
@@ -174,6 +187,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
      */
     public void onClick(View v) {
 
+        AlertDialog.Builder builder = new AlertDialog.Builder(GenericExercise.this);
         String btnVal;
         switch(v.getId()) {
             case(R.id.startBut):
@@ -195,7 +209,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 }
                 catch (Exception e)
                 {
-                    Toast.makeText(this, "You are not Conncected to a BlueTooth device!", Toast.LENGTH_SHORT);
+                    Toast.makeText(this, "You are not Conncected to a BlueTooth device!", Toast.LENGTH_SHORT).show();
                 }
                 //btnSR.setText("Stop");
                 exerciseAnalysis.form.clear();
@@ -222,9 +236,32 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 }
                 catch (Exception e)
                 {
-                    Toast.makeText(getApplicationContext(), "You are not Conncected to a BlueTooth device!", Toast.LENGTH_SHORT);
+                    Toast.makeText(this, "You are not Conncected to a BlueTooth device!", Toast.LENGTH_SHORT);
                 }
 
+                int size = exerciseAnalysis.form.size();
+                double total;
+                total = 0;
+                double percent;
+                percent = 0;
+
+                for(int i = 0; i < size; i++)
+                {
+                    if(exerciseAnalysis.codedForm.get(i) == (1.00))
+                    {
+                        total = total + 1.00;
+                    }
+                    else if(exerciseAnalysis.codedForm.get(i) == (0.50))
+                    {
+                        total = total + 0.50;
+                    }
+                    else if(exerciseAnalysis.codedForm.get(i) == (0.00))
+                    {
+                        total = total + 0.00;
+                    }
+                }
+                percent = (total/size) * 100;
+                completePer.setText(new DecimalFormat("##.##").format(percent) + ("%"));
 
                 //Set the number of reps done from the arduino
 
@@ -252,6 +289,18 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
 
                 // Just goes back to previous screen without saving anything
                 super.onBackPressed();
+                break;
+            case(R.id.viewBut):
+                Toast.makeText(this, "Here be a broken button", Toast.LENGTH_SHORT).show();
+                //this.items = exerciseAnalysis.form.toArray(new CharSequence[exerciseAnalysis.form.size()]);
+                builder.setTitle("View Set Data");
+                for(int i = 0; i < exerciseAnalysis.form.size(); i++)
+                    printForm.concat(exerciseAnalysis.form.get(i));
+                builder.setMessage(printForm);
+                //builder.setMessage("Hello");
+                builder.show();
+
+
                 break;
         }
     }
