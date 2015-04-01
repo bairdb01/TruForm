@@ -13,6 +13,7 @@ package naddateam.truform.GUI.GUI.workouts;
 import android.app.AlertDialog;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -201,7 +202,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 }
                 catch (Exception e)
                 {
-                    Toast.makeText(this, "You are not Conncected to a BlueTooth device!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "You are not Connected to a BlueTooth device!", Toast.LENGTH_SHORT).show();
                 }
                 //btnSR.setText("Stop");
                 exerciseAnalysis.form.clear();
@@ -284,23 +285,15 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 break;
             case(R.id.viewBut):
                 String printForm = "";
-                //this.items = exerciseAnalysis.form.toArray(new CharSequence[exerciseAnalysis.form.size()]);
                 builder.setTitle("View Set Data");
-                ArrayList<String> testString = new ArrayList<String>();
-                testString.add("test");
-                testString.add("test");
-                testString.add("test");
-                //for(int i = 0; i < exerciseAnalysis.form.size(); i++)
-                    //printForm.concat(exerciseAnalysis.form.get(i));
+                if(exerciseAnalysis.form.size() == 0)
+                    printForm += "No data to show";
                 int i;
                 for(i = 0; i < exerciseAnalysis.form.size(); i++) {
                     printForm += exerciseAnalysis.form.get(i) + "\n";
                 }
                 builder.setMessage(printForm);
-                //builder.setMessage("Hello");
                 builder.show();
-
-
                 break;
         }
     }

@@ -1,5 +1,6 @@
 package naddateam.truform.GUI.GUI.NavMenuItems;
 
+import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,12 +10,28 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 
 import naddateam.truform.GUI.GUI.Bluetooth;
 import naddateam.truform.GUI.GUI.BluetoothLeUart;
+import naddateam.truform.GUI.GUI.DataBase;
 import naddateam.truform.R;
 import naddateam.truform.functionality.ExerciseAnalysis;
 import naddateam.truform.functionality.InstanceData;
@@ -24,6 +41,7 @@ public class GetDataNav extends ActionBarActivity {
     Bluetooth ble = new Bluetooth();
     ListView lv;
     Button btnSR;
+    TextView title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,35 +49,42 @@ public class GetDataNav extends ActionBarActivity {
 
         lv = (ListView)findViewById(R.id.listView0);
         btnSR = (Button)findViewById(R.id.button);
+        title = (TextView)findViewById(R.id.textView7);
+
+
 
         btnSR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BluetoothLeUart Comm = ble.getmService();
+                /*BluetoothLeUart Comm = ble.getmService();
                 byte[] value;
-                String message = "G";
+                String message = "G";*/
+                String retVal = "";
+                String retVal2 = "";
                 String btnVal;
 
                 btnVal = btnSR.getText().toString();
 
                 if(btnVal.equals("Receive"))
                 {
-                    ble.dataArr.clear();
+                    /*ble.dataArr.clear();
                     value = message.getBytes();
-                    Comm.writeRXCharacteristic(value);
+                    Comm.writeRXCharacteristic(value);*/
                     btnSR.setText("Stop");
-                    exerciseAnalysis.form.clear();
+                    //exerciseAnalysis.form.clear();
+
+
 
                 }
                 if(btnVal.equals("Stop"))
                 {
-                    message = "N";
+                    /*message = "N";
                     value = message.getBytes();
-                    Comm.writeRXCharacteristic(value);
+                    Comm.writeRXCharacteristic(value);*/
                     btnSR.setText("Receive");
-                    exerciseAnalysis.analyzeForm(ble.dataArr);
+                    //exerciseAnalysis.analyzeForm(ble.dataArr);
                     displayList();
-
+                    new DataBase(title).execute();
                 }
             }
         });
