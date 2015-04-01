@@ -183,7 +183,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
      */
     public void onClick(View v) {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(GenericExercise.this);
         String btnVal;
         switch(v.getId()) {
             case(R.id.startBut):
@@ -286,10 +286,12 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 // Just goes back to previous screen without saving anything
                 super.onBackPressed();
                 break;
-
             case(R.id.viewBut):
+                Toast.makeText(this, "Here be a broken button", Toast.LENGTH_SHORT).show();
                 builder.setTitle("TEST");
-                builder.create().show();
+                builder.setMessage("Hello");
+                builder.show();
+
 
                 break;
         }
