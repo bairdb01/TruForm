@@ -182,7 +182,8 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
      * Makes the start/abort/finish buttons perform stuff
      */
     public void onClick(View v) {
-        final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+
+
         String btnVal;
         switch(v.getId()) {
             case(R.id.startBut):
@@ -287,18 +288,16 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 break;
 
             case(R.id.viewBut):
+                new AlertDialog.Builder(this)
+                        .setTitle("View Set Data")
+                        .setMessage("Placeholder")
+                        .setNegativeButton("Close", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        })
+                        .show();
 
-                alertDialog.setTitle("View Sets");
-                int i = 0;
-                for(i = 0; i < exerciseAnalysis.form.size(); i++)
-                    alertDialog.setMessage(exerciseAnalysis.form.get(i));
-                alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        alertDialog.cancel();
-                    }
-                });
-                alertDialog.show();
                 break;
         }
     }
