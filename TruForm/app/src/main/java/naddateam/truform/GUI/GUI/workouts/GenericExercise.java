@@ -197,7 +197,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 }
                 catch (Exception e)
                 {
-                    Toast.makeText(this, "You are not Conncected to a BlueTooth device!", Toast.LENGTH_SHORT);
+                    Toast.makeText(this, "You are not Conncected to a BlueTooth device!", Toast.LENGTH_SHORT).show();
                 }
                 //btnSR.setText("Stop");
                 exerciseAnalysis.form.clear();
@@ -224,7 +224,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 }
                 catch (Exception e)
                 {
-                    Toast.makeText(getApplicationContext(), "You are not Conncected to a BlueTooth device!", Toast.LENGTH_SHORT);
+                    Toast.makeText(this, "You are not Conncected to a BlueTooth device!", Toast.LENGTH_SHORT);
                 }
 
 

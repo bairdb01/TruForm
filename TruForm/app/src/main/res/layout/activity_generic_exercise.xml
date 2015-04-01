@@ -139,5 +139,16 @@
         android:layout_centerHorizontal="true"
         android:textColor="#ecf0f1" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Form"
+        android:id="@+id/viewBut"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/repsText"
+        android:layout_alignStart="@+id/repsText"
+        android:layout_alignRight="@+id/repsText"
+        android:layout_alignEnd="@+id/repsText" />
+
 
 </RelativeLayout>
