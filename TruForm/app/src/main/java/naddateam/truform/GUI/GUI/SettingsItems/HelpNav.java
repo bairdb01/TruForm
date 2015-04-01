@@ -257,21 +257,21 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
             startActivity(goMakeWorkoutTut);
         }
         /*
-        * How to calibrate
+        * How to calibrate - Removed for RC
          */
-        else if (position == 2) {
+/*        else if (position == 2) {
             Intent goHowToCalibTut = new Intent(HelpNav.this, HowCalibTut.class);
             startActivity(goHowToCalibTut);
-        }
+        }*/
         /*
         * Bluetooth settings
          */
-        else if (position == 3) {
+        else if (position == 2) {
             Intent goBlue = new Intent(HelpNav.this, Bluetooth.class);
             startActivity(goBlue);
         }
         else {
-            if (position == 4) {
+            if (position == 3) {
                 Intent test = new Intent(this, Tester.class);
                 startActivity(test);
             }

@@ -53,7 +53,7 @@
 
     <!-- List of setting items displayed when selecting "Settings" in the Navigation Drawer -->
     <string-array name="settingsListItems">
-        <item>Calibrations</item>
+    <!--<item>Calibrations</item>--> <!--Removed, due to limitations of our current status for RC-->
         <item>General</item>
         <item>Reset to Defaults</item>
         <item>Help</item>
@@ -117,13 +117,13 @@
     <!--
     For the Help Navigation.
     Calibrations = How to Calibrate
-    Workout Creation = How to Create own workout schedules
+    Workout Creation = How to Create own workout schedules (Removed for RC)
     Form = Bunch of workout info talking what they work and how to do it
     -->
     <string-array name="helpListItems">
         <item>Exercise Form</item>
-        <item>Workout Creation</item>
-        <item>Calibrations</item>
+        <!--<item>Workout Creation</item> REMOVED FOR RC-->
+        <!--<item>Calibrations REMOVED FOR RC</item>-->
         <item>BlueTooth</item>
         <item>Tests</item>
     </string-array>
