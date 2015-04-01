@@ -10,6 +10,7 @@
 
 package naddateam.truform.GUI.GUI.workouts;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -73,6 +74,12 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
         int completedSets = 0;
         repsDone = new ArrayList<String>();
         weightDone = new ArrayList<String>();
+
+        //AlertDialogue
+        AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+        alertDialog.setTitle("View Sets");
+        alertDialog.setMessage("placeholder");
+
 
         //Retrieving data passed from previous activity
         Bundle variables = getIntent().getExtras();
@@ -255,7 +262,10 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 // Just goes back to previous screen without saving anything
                 super.onBackPressed();
                 break;
-            case(R.id.view):
+
+            case(R.id.viewBut):
+                //Start
+                break;
         }
     }
 
