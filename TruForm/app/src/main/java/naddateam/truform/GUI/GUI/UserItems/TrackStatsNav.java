@@ -44,7 +44,8 @@ public class TrackStatsNav extends ActionBarActivity implements AdapterView.OnIt
         try {
             File dirFiles = getFilesDir();
             for (String filename : dirFiles.list()) {
-                pastWorkouts.add(filename);
+                if (filename.equals("userDetails") == false)
+                    pastWorkouts.add(filename);
             }
 
             String[] woList = new String[pastWorkouts.size()];

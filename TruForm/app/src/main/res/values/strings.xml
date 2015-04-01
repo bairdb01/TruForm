@@ -159,7 +159,6 @@
         <item>Age</item>
         <item>Height (cm)</item>
         <item>Weight (kg)</item>
-        <item>BMI</item>
     </string-array>
 
     <string name="app_name">TruForm</string>

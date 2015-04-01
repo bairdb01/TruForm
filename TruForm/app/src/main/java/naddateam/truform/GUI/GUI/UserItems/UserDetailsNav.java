@@ -7,7 +7,13 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import naddateam.truform.R;
 /**
@@ -44,11 +50,26 @@ public class UserDetailsNav extends ActionBarActivity {
         userAge = (EditText) findViewById(R.id.userDetailAgeEdit);
         userHeight = (EditText) findViewById(R.id.userDetailHeightEdit);
 
-        File file = new File("android/data/naddateam.truform/files/","userDetails");
+        // Checking if previous cache data is available in case workout incomplete
 
-        // Read from file & load in the values
-        if (file.exists()) {
+        try {
+            // Finds all exercises files and writes to the workouts file
+            File file = new File(getFilesDir(), "userDetails");
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
 
+            String line = "";
+            line = bufferedReader.readLine();
+            userWeight.setText(line);
+            line = bufferedReader.readLine();
+            userName.setText(line);
+            line = bufferedReader.readLine();
+            userAge.setText(line);
+            line = bufferedReader.readLine();
+            userHeight.setText(line);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+//            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -72,14 +93,46 @@ public class UserDetailsNav extends ActionBarActivity {
             return true;
         }
 
+        // Saves the user details when the actionbar back button is pressed
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     /**
-     * Saves the user data in a file
+     * Saves the user data in a file when they press the hardware button
      */
-    public void onDestroy() {
+    public void onBackPressed() {
+        // Stores data in a file
+        String filename ="userDetails";
 
+        try {
+            File file;
+            FileWriter fileWriter;
+            file = new File(getFilesDir(), filename) ;
+            fileWriter = new FileWriter(file);
+
+            // Writes user details
+            fileWriter.write(userWeight.getText().toString());
+            fileWriter.write("\r\n");
+            fileWriter.write(userName.getText().toString());
+            fileWriter.write("\r\n");
+            fileWriter.write(userAge.getText().toString());
+            fileWriter.write("\r\n");
+            fileWriter.write(userHeight.getText().toString());
+
+
+            fileWriter.flush();
+            fileWriter.close();
+            //Toast.makeText(this,"Cached",Toast.LENGTH_SHORT).show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        super.onBackPressed();
     }
+
 }
