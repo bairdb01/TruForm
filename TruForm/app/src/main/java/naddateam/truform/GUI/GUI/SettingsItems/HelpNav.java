@@ -300,4 +300,10 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void onBackPressed() {
+        // Stores data in a file
+
+        super.onBackPressed();
+    }
 }
