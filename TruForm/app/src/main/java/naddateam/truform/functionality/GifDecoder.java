@@ -6,7 +6,8 @@ import java.io.InputStream;
 import java.util.Vector;
 
 /**
- * Created by Erik on 3/18/2015.
+ * Placed by Erik on 3/18/2015.
+ *
  */
 public class GifDecoder {
 

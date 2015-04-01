@@ -14,7 +14,7 @@ import naddateam.truform.R;
  * CIS3760
  * Naddateam Truform
  * ExerciseAnalysis.java
- * Author: Benjamin Baird and Erik Hoffman
+ * Author: Erik Hoffman and Benjamin Baird
  * Last Modified March 1, 2015
  * Description: Analyzing of data from device will be performed here.
  *

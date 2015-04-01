@@ -48,6 +48,15 @@ import naddateam.truform.functionality.InstanceData;
 /**
  * Note to self: Currently overwrites last reps/sets/weight completed on exit of screen
  */
+/**
+ * CIS3760
+ * Naddateam Truform
+ * CalibrationsNav.java
+ * Author: Rob Little, Erik Hoffman, Ben Baird
+ * This is the Calibrations navigation for Settings > Calibration in the drawer. It will consist
+ * of the dialog for the users to select a specific workout to calibrate. At the moment it does
+ * not do the actual calibrating, just navigate to the placeholding page.
+ */
 public class GenericExercise extends ActionBarActivity implements View.OnClickListener{
     Button startTrack;
     Button abortTrack;
