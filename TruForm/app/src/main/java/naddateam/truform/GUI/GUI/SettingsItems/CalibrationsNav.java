@@ -25,8 +25,8 @@ import naddateam.truform.R;
  */
 public class CalibrationsNav extends ActionBarActivity implements AdapterView.OnItemClickListener{
 
-@Override
-protected void onCreate(Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calibrations_layout); /*Display the layout*/
         ListView lv = (ListView)findViewById(R.id.calibrationListView); /*Populate layout with
@@ -34,12 +34,12 @@ protected void onCreate(Bundle savedInstanceState) {
         lv.setOnItemClickListener(this);
     }
 
-@Override
-/*
-* For the list, waits for input by the user. Depending what item the user hits, it will open
-* a new blank activity. Right now it only opens a generic calibrations page with no functionality.
- */
-public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+    @Override
+    /*
+    * For the list, waits for input by the user. Depending what item the user hits, it will open
+    * a new blank activity. Right now it only opens a generic calibrations page with no functionality.
+    */
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
     AlertDialog.Builder builder = new AlertDialog.Builder(this);
 

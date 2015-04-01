@@ -36,7 +36,7 @@ public class UserDetailsNav extends ActionBarActivity {
     EditText userName;
     EditText userAge;
     EditText userHeight;
-    TextView BMI = null; /* Body Mass Index, determined by a person's height and weight */
+//    TextView BMI = null; /* Body Mass Index, determined by a person's height and weight */
 
 
     @Override
