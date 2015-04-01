@@ -288,8 +288,11 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 super.onBackPressed();
                 break;
             case(R.id.viewBut):
+                Toast.makeText(this, "Here be a broken button", Toast.LENGTH_SHORT).show();
                 builder.setTitle("TEST");
-                builder.create().show();
+                builder.setMessage("Hello");
+                builder.show();
+
 
                 break;
         }
