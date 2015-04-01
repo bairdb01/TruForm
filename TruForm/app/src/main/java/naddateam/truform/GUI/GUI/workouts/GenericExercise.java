@@ -291,23 +291,15 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 break;
             case(R.id.viewBut):
                 String printForm = "";
-                //this.items = exerciseAnalysis.form.toArray(new CharSequence[exerciseAnalysis.form.size()]);
                 builder.setTitle("View Set Data");
-                ArrayList<String> testString = new ArrayList<String>();
-                testString.add("test");
-                testString.add("test");
-                testString.add("test");
-                //for(int i = 0; i < exerciseAnalysis.form.size(); i++)
-                    //printForm.concat(exerciseAnalysis.form.get(i));
                 int i;
                 for(i = 0; i < exerciseAnalysis.form.size(); i++) {
                     printForm += exerciseAnalysis.form.get(i) + "\n";
                 }
+                if(i == 0)
+                    builder.setMessage("No data to show");
                 builder.setMessage(printForm);
-                //builder.setMessage("Hello");
                 builder.show();
-
-
                 break;
         }
     }
