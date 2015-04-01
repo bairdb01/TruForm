@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
@@ -40,7 +41,7 @@ public class GetDataNav extends ActionBarActivity {
     Bluetooth ble = new Bluetooth();
     ListView lv;
     Button btnSR;
-    JSONObject json;
+    TextView title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +49,7 @@ public class GetDataNav extends ActionBarActivity {
 
         lv = (ListView)findViewById(R.id.listView0);
         btnSR = (Button)findViewById(R.id.button);
+        title = (TextView)findViewById(R.id.textView7);
 
 
 
@@ -82,7 +84,7 @@ public class GetDataNav extends ActionBarActivity {
                     btnSR.setText("Receive");
                     //exerciseAnalysis.analyzeForm(ble.dataArr);
                     displayList();
-                    new DataBase().execute();
+                    new DataBase(title).execute();
                 }
             }
         });
