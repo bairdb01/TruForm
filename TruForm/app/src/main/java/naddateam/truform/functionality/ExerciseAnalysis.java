@@ -28,20 +28,6 @@ public class ExerciseAnalysis {
     //private ArrayList<InstanceData> dataPoints = new ArrayList<InstanceData>();
 
     /**
-     * Begins tracking of users' motions0
-     */
-    public void beginTracking(){
-        //Initialize bluetooth tracking
-    }
-
-    /**
-     * Cancels tracking of an exercise
-     */
-    public void abortExercise () {
-        // Stop bluetooth tracking
-    }
-
-    /**
      * Checks whether the users form is correct based off an algorithm
      */
     public void analyzeForm(ArrayList<InstanceData> dataPoints) {
@@ -218,22 +204,6 @@ public class ExerciseAnalysis {
         this.numGoodReps = j;
         return;
 
-    }
-
-
-    /**
-     * Estimates how many calories were burned performing an exercise
-     */
-    public void caloriesBurned() {
-
-    }
-
-    public int getNumReps() {
-        return 0;
-    }
-
-    public int getNumSets() {
-        return 0;
     }
 
 }
