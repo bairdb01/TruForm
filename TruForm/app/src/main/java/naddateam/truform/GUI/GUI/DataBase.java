@@ -25,6 +25,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URL;
+import java.sql.Time;
 
 /**
  * Created by Robbie on 2015-04-01.
@@ -47,6 +48,10 @@ public class DataBase extends AsyncTask<String, Void, String> {
         this.lName = lName;
         this.uName = uName;
         this.flag = flag;
+    }
+    public DataBase(String email, String eid, String form, Time time)
+    {
+        
     }
 
     @Override
