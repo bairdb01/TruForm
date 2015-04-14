@@ -295,16 +295,20 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
 
                 Calendar c = Calendar.getInstance();
 
-                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-ddHH:mm:ss");
-                String formattedDate = df.format(c.getTime());
+                SimpleDateFormat day = new SimpleDateFormat("yyyy-MM-dd");
+                SimpleDateFormat time = new SimpleDateFormat("HH:mm:ss");
+                String formattedDay = day.format(c.getTime());
+                String formattedTime = time.format(c.getTime());
+                String dayTime = formattedDay + "%20" + formattedTime;
 
-                new DataBase("test@test.com", "1", dbForm, formattedDate, weight.getText().toString(), 2).execute();
+                new DataBase("test@test.com", "1", dbForm, dayTime, weight.getText().toString(), 2).execute();
 
                 //btnSR.setText("Receive");
 
                 //Reset Reps and start the rest time
 //                reps.setValue(reps.getMinValue());
                 restTimer.startTimer((TextView) findViewById(R.id.restTime));
+                //exerciseAnalysis.codedForm.clear();
                 break;
             case(R.id.abortBut):
                 //Toast.makeText(getApplicationContext(),"Abort",Toast.LENGTH_SHORT);
