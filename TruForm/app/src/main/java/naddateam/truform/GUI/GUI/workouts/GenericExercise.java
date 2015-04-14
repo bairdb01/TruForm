@@ -28,10 +28,13 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import naddateam.truform.GUI.GUI.Bluetooth;
 import naddateam.truform.GUI.GUI.BluetoothLeUart;
+import naddateam.truform.GUI.GUI.DataBase;
 import naddateam.truform.functionality.CountDown;
 import naddateam.truform.ExerciseClasses.Exercise;
 import naddateam.truform.ExerciseClasses.Exercises;
@@ -246,20 +249,24 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 total = 0;
                 double percent;
                 percent = 0;
+                String dbForm = "";
 
                 for(int i = 0; i < size; i++)
                 {
                     if(exerciseAnalysis.codedForm.get(i) == (1.00))
                     {
                         total = total + 1.00;
+                        dbForm = dbForm.concat("1_");
                     }
                     else if(exerciseAnalysis.codedForm.get(i) == (0.50))
                     {
                         total = total + 0.50;
+                        dbForm = dbForm.concat("2_");
                     }
                     else if(exerciseAnalysis.codedForm.get(i) == (0.00))
                     {
                         total = total + 0.00;
+                        dbForm = dbForm.concat("3_");
                     }
                 }
                 percent = (total/size) * 100;
@@ -274,6 +281,13 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 String repString = reps.getText().toString();
                 repsDone.add(repString);
                 weightDone.add(weight.getText().toString());
+
+                Calendar c = Calendar.getInstance();
+
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-ddHH:mm:ss");
+                String formattedDate = df.format(c.getTime());
+
+                new DataBase("test@test.com", "1", dbForm, formattedDate, weight.getText().toString(), 2).execute();
 
                 //btnSR.setText("Receive");
 
