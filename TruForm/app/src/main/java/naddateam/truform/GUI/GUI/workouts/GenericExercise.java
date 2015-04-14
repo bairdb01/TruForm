@@ -260,8 +260,8 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 total = 0;
                 double percent;
                 percent = 0;
-                String dbForm = "";
-
+                String dbForm;
+                dbForm = "";
                 for(int i = 0; i < size; i++)
                 {
                     if(exerciseAnalysis.codedForm.get(i) == (1.00))
@@ -308,7 +308,7 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 //Reset Reps and start the rest time
 //                reps.setValue(reps.getMinValue());
                 restTimer.startTimer((TextView) findViewById(R.id.restTime));
-                //exerciseAnalysis.codedForm.clear();
+                exerciseAnalysis.codedForm.clear();
                 break;
             case(R.id.abortBut):
                 //Toast.makeText(getApplicationContext(),"Abort",Toast.LENGTH_SHORT);
