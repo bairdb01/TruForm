@@ -237,11 +237,11 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 value = message.getBytes();
                 try {
                     comm.writeRXCharacteristic(value);
-                    if(workoutName.equals("Chest and Triceps")) {
+                    if(workoutName.equals("Chest And Triceps")) {
                         if (exNumber == 6)
                             exerciseAnalysis.analyzeTricepExt(ble.dataArr);
                     }
-                    else if(workoutName.equals("Back and Biceps")) {
+                    else if(workoutName.equals("Back And Biceps")) {
                         if (exNumber == 4)
                             exerciseAnalysis.analyzeForm(ble.dataArr);
                     }
