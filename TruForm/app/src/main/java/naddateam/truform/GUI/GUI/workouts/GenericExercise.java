@@ -234,11 +234,22 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 value = message.getBytes();
                 try {
                     comm.writeRXCharacteristic(value);
-                    exerciseAnalysis.analyzeForm(ble.dataArr);
+                    if(workoutName.equals("Chest and Triceps")) {
+                        if (exNumber == 6)
+                            exerciseAnalysis.analyzeTricepExt(ble.dataArr);
+                    }
+                    else if(workoutName.equals("Back and Biceps")) {
+                        if (exNumber == 4)
+                            exerciseAnalysis.analyzeForm(ble.dataArr);
+                    }
+                    else if(workoutName.equals("Shoulders")) {
+                        if (exNumber == 1)
+                            exerciseAnalysis.analyzeLatSide(ble.dataArr);
+                    }
                 }
                 catch (Exception e)
                 {
-                    Toast.makeText(this, "You are not Conncected to a BlueTooth device!", Toast.LENGTH_SHORT);
+                    Toast.makeText(this, "You are not Connected to a BlueTooth device!", Toast.LENGTH_SHORT);
                 }
 
                 int size = exerciseAnalysis.form.size();
