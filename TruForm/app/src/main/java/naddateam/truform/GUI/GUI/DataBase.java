@@ -117,7 +117,7 @@ public class DataBase extends AsyncTask<String, Void, String> {
         }
         else if (flag == 2)
         {
-            http://131.104.49.65/inPast.php?email=test@test.com&eid=1&form=1_1_1_3_1_&time=2015-04-13%2019:57:34&weight=0
+            Log.v("VALUE OF TIME", time);
             link = "http://131.104.49.65/inPast.php?email=" + email + "&eid=" + eid + "&form=" + form + "&time=" + time + "&weight=" + weight;
             try {
                 URL url = new URL(link);
