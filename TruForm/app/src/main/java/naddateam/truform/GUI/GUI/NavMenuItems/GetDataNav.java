@@ -87,7 +87,7 @@ public class GetDataNav extends ActionBarActivity {
                     btnSR.setText("Select");
                     //exerciseAnalysis.form.clear();
 
-                    new DataBase(title, Email, fName, lName, uName, 1).execute(Email.getText().toString(), fName.getText().toString(), lName.getText().toString(), uName.getText().toString());
+                    new DataBase(title, Email, fName, lName, uName, 1).execute();
 
                 }
                 if(btnVal.equals("Select"))
