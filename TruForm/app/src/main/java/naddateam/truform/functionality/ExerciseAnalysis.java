@@ -267,7 +267,7 @@ public class ExerciseAnalysis {
 
             if ((gyroZ > 1) && (goingUp == 0)) { /*If you start to move upwards*/
 
-                if((totalGyroZDown < 0) && (accelY > (startingAccelY - 5)) && (accelY < (startingAccelY + 5))) /*If a downwards curl was just finished and not reset yet*/
+                if((totalGyroZDown < 0) && (accelY > (startingAccelY - 7)) && (accelY < (startingAccelY + 7))) /*If a downwards curl was just finished and not reset yet*/
                 {
                     numZeroesBottom.add(zeroes);
                     zeroes = 0;
@@ -312,7 +312,7 @@ public class ExerciseAnalysis {
                 if((totalGyroZDown < 0) || (j > 0)) /*You've already completed a rep, need to make sure it's the second rep since they can sit on the first one*/
                 {
                     sittingBottom = 1; /*Now you are sitting at the bottom*/
-                    if((accelY > (startingAccelY - 5)) && (accelY < (startingAccelY + 5)) && (totalGyroZDown < 0)){
+                    if((accelY > (startingAccelY - 7)) && (accelY < (startingAccelY + 7)) && (totalGyroZDown < 0)){
                     /*Make sure they're at the bottom of the curl*/
                         zeroes += 1;
                         numZeroesBottom.add(zeroes);
@@ -380,7 +380,7 @@ public class ExerciseAnalysis {
             {
                 this.codedForm.add(0.00);
                 if((waitB == 0) && (waitT == 0))
-                    this.form.add("Your form was bad, try lifting higher.");
+                    this.form.add("up: "+ up.get(i) +" down: "+ down.get(i));//"Your form was bad, try lifting higher."
                 else if((waitB == 1) && (waitT == 0))
                     this.form.add("Your form was bad, and you waited too long at the bottom of the curl.");
                 else if((waitB == 0) && (waitT == 1))
@@ -392,7 +392,7 @@ public class ExerciseAnalysis {
             {
                 this.codedForm.add(0.50);
                 if((waitB == 0) && (waitT == 0))
-                    this.form.add("Your form was close, try lifting higher.");
+                    this.form.add("up: "+ up.get(i) +" down: "+ down.get(i));//"Your form was close, try lifting higher."
                 else if((waitB == 1) && (waitT == 0))
                     this.form.add("Your form was close, and you waited too long at the bottom of the curl.");
                 else if((waitB == 0) && (waitT == 1))
@@ -402,7 +402,7 @@ public class ExerciseAnalysis {
             }
             else {
                 this.codedForm.add(2.76);
-                this.form.add("Woah buddy.");
+                this.form.add("up: "+ up.get(i) +" down: "+ down.get(i));
             }
         }
         this.numGoodReps = j;
