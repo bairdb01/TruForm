@@ -265,20 +265,18 @@ public class ExerciseAnalysis {
                 startingAccelY = accelY;
             }
 
-            if((totalGyroZDown < 0) && (accelY > (startingAccelY - 5)) && (accelY < (startingAccelY + 5))) /*You've reached the bottom of the rep*/
-            {
-                numZeroesBottom.add(zeroes);
-                zeroes = 0;
-                down.add(totalGyroZDown*-1);
-                totalGyroZUp = 0;
-                totalGyroZDown = 0;
-                if(sittingBottom == 0)
-                    j++;
-            }
-
 
             if ((gyroZ > 1) && (goingUp == 0)) { /*If you start to move upwards*/
-                if(totalGyroZDown < 0) /*They started going up again after going down already*/
+
+                if((totalGyroZDown < 0) && (accelY > (startingAccelY - 5)) && (accelY < (startingAccelY + 5))) /*If a downwards curl was just finished and not reset yet*/
+                {
+                    numZeroesBottom.add(zeroes);
+                    zeroes = 0;
+                    down.add(totalGyroZDown*-1);
+                    totalGyroZDown = 0;
+                    j++;
+                }
+                else if(totalGyroZDown < 0) /*They started going up again after going down already*/
                     totalGyroZUp += previousGyroZDown;
                 sittingBottom = 0;
                 goingUp = 1; /*Set the flag for going upwards*/
@@ -288,7 +286,6 @@ public class ExerciseAnalysis {
             }
             else if ((gyroZ > 1) && (goingUp == 1)) { /*If you continue to go upwards*/
                 totalGyroZUp += gyroZ;
-
             }
             else if((gyroZ >= -1) && (gyroZ <= 1) && (goingUp == 1)) /*Sitting at some point in the curl*/
             {
@@ -313,14 +310,11 @@ public class ExerciseAnalysis {
                 }
             }
             else { /*Otherwise the user is not really moving*/
-                if((totalGyroZDown < 0) || (j > 0)) /*You've already completed a rep, make sure it's the second rep since they can sit on the first one*/
+                if((totalGyroZDown < 0) || (j > 0)) /*You've already completed a rep, need to make sure it's the second rep since they can sit on the first one*/
                 {
                     sittingBottom = 1; /*Now you are sitting at the bottom*/
-                    //if(totalGyroZDown < 0) /*You're at the bottom of the curl and it hasn't increased the rep yet
-				//subsequent zeroes found on new reps will not trigger a new rep, only the first one*/
                     if((accelY > (startingAccelY - 5)) && (accelY < (startingAccelY + 5)) && (totalGyroZDown < 0)){
                     /*Make sure they're at the bottom of the curl*/
-                        //numZeroes[j] += 1;
                         zeroes += 1;
                         numZeroesBottom.add(zeroes);
                         down.add(totalGyroZDown*-1);
@@ -328,9 +322,8 @@ public class ExerciseAnalysis {
                         goingUp = 0;
                         j++;
                     }
-                    else /*It already reset it, so second+ zeroes*/
+                    else /*It already reset it and there are more zeroes, so second+ zeroes*/
                     {
-                        //numZeroes[j-1] += 1;
                         zeroes += 1;
                         numZeroesBottom.set(j-1,zeroes);
                     }
