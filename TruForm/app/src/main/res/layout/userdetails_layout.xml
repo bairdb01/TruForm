@@ -26,123 +26,164 @@
             android:entries="@array/userDetailsListItems"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
-            <EditText
-                android:layout_width="171dp"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:text="First"
-                android:ems="12"
-                android:id="@+id/fnameTxt"
-                android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/userDetailsListView"
-                android:layout_toEndOf="@+id/userDetailsListView"
-                android:paddingTop="15dp"
-                android:layout_gravity="right" />
+            android:layout_alignParentStart="true"
+            android:visibility="invisible"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="visible"
+        android:id="@+id/btnLayout">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New User"
+            android:id="@+id/btnNew" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Existing User"
+            android:id="@+id/btnExisting" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Enter Email"
+            android:id="@+id/existingLabel"
+            android:layout_gravity="center_horizontal"
+            android:visibility="invisible"/>
+        <EditText
+            android:layout_width="269dp"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/getUser"
+            android:layout_gravity="center_horizontal"
+            android:visibility="invisible"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter"
+            android:id="@+id/confirmEmail"
+            android:layout_gravity="center_horizontal"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="invisible"
+        android:id="@+id/editLayout">
+        <EditText
+            android:layout_width="171dp"
+            android:layout_height="54dp"
+            android:text="First"
+            android:ems="12"
+            android:id="@+id/fnameTxt"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/userDetailsListView"
+            android:layout_toEndOf="@+id/userDetailsListView"
+            android:paddingTop="15dp"
+            android:layout_gravity="right" />
 
 
-            <EditText
-                android:layout_width="171dp"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:text="Last"
-                android:ems="12"
-                android:id="@+id/lnameTxt"
-                android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/userDetailsListView"
-                android:layout_toEndOf="@+id/userDetailsListView"
-                android:paddingTop="15dp"
-                android:layout_gravity="right" />
+        <EditText
+            android:layout_width="171dp"
+            android:layout_height="49dp"
+            android:text="Last"
+            android:ems="12"
+            android:id="@+id/lnameTxt"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/userDetailsListView"
+            android:layout_toEndOf="@+id/userDetailsListView"
+            android:paddingTop="15dp"
+            android:layout_gravity="right" />
 
-            <EditText
-                android:layout_width="171dp"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:text="something?"
-                android:ems="12"
-                android:id="@+id/genderTxt"
-                android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/userDetailsListView"
-                android:layout_toEndOf="@+id/userDetailsListView"
-                android:paddingTop="15dp"
-                android:layout_gravity="right" />
+        <EditText
+            android:layout_width="171dp"
+            android:layout_height="49dp"
+            android:text="\?"
+            android:ems="12"
+            android:id="@+id/genderTxt"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/userDetailsListView"
+            android:layout_toEndOf="@+id/userDetailsListView"
+            android:paddingTop="15dp"
+            android:layout_gravity="right" />
 
-            <EditText
-                android:layout_width="171dp"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:text="0"
-                android:ems="12"
-                android:id="@+id/ageTxt"
-                android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/userDetailsListView"
-                android:layout_toEndOf="@+id/userDetailsListView"
-                android:paddingTop="15dp"
-                android:layout_gravity="right" />
+        <EditText
+            android:layout_width="171dp"
+            android:layout_height="49dp"
+            android:inputType="textPersonName"
+            android:text="0"
+            android:ems="12"
+            android:id="@+id/ageTxt"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/userDetailsListView"
+            android:layout_toEndOf="@+id/userDetailsListView"
+            android:paddingTop="15dp"
+            android:layout_gravity="right" />
 
-            <EditText
-                android:layout_width="171dp"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:text="0"
-                android:ems="12"
-                android:id="@+id/heightTxt"
-                android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/userDetailsListView"
-                android:layout_toEndOf="@+id/userDetailsListView"
-                android:paddingTop="15dp"
-                android:layout_gravity="right" />
+        <EditText
+            android:layout_width="171dp"
+            android:layout_height="49dp"
+            android:text="0"
+            android:ems="12"
+            android:id="@+id/heightTxt"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/userDetailsListView"
+            android:layout_toEndOf="@+id/userDetailsListView"
+            android:paddingTop="15dp"
+            android:layout_gravity="right" />
 
-            <EditText
-                android:layout_width="171dp"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:text="0"
-                android:ems="12"
-                android:id="@+id/weightTxt"
-                android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/userDetailsListView"
-                android:layout_toEndOf="@+id/userDetailsListView"
-                android:paddingTop="15dp"
-                android:layout_gravity="right" />
-            <EditText
-                android:layout_width="171dp"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:ems="12"
-                android:id="@+id/emailTxt"
-                android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/userDetailsListView"
-                android:layout_toEndOf="@+id/userDetailsListView"
-                android:paddingTop="15dp"
-                android:layout_gravity="right" />
+        <EditText
+            android:layout_width="171dp"
+            android:layout_height="49dp"
+            android:text="0"
+            android:ems="12"
+            android:id="@+id/weightTxt"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/userDetailsListView"
+            android:layout_toEndOf="@+id/userDetailsListView"
+            android:paddingTop="15dp"
+            android:layout_gravity="right" />
 
-            <EditText
-                android:layout_width="171dp"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:text="user"
-                android:ems="12"
-                android:id="@+id/unameTxt"
-                android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/userDetailsListView"
-                android:layout_toEndOf="@+id/userDetailsListView"
-                android:paddingTop="15dp"
-                android:layout_gravity="right" />
+        <EditText
+            android:layout_width="171dp"
+            android:layout_height="49dp"
+            android:ems="12"
+            android:id="@+id/emailTxt"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/userDetailsListView"
+            android:layout_toEndOf="@+id/userDetailsListView"
+            android:paddingTop="15dp"
+            android:layout_gravity="right" />
 
-            <Button
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="Insert"
-                android:id="@+id/button"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_gravity="right" />
+        <EditText
+            android:layout_width="171dp"
+            android:layout_height="49dp"
+            android:text="user"
+            android:ems="12"
+            android:id="@+id/unameTxt"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/userDetailsListView"
+            android:layout_toEndOf="@+id/userDetailsListView"
+            android:paddingTop="15dp"
+            android:layout_gravity="right" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Insert"
+            android:id="@+id/button"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="right" />
 
 
     </LinearLayout>

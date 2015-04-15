@@ -2,13 +2,17 @@ package naddateam.truform.GUI.GUI.UserItems;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.Layout;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -35,16 +39,17 @@ import naddateam.truform.functionality.ExerciseAnalysis;
  *      Or just make a button to update
  */
 
-public class UserDetailsNav extends ActionBarActivity {
+public class UserDetailsNav extends ActionBarActivity implements View.OnClickListener{
     EditText userWeight;
     EditText userAge;
     EditText userHeight;
     ExerciseAnalysis exerciseAnalysis = new ExerciseAnalysis();
     Bluetooth ble = new Bluetooth();
     ListView lv;
-    Button btnSR;
-    TextView title;
-    EditText Email, fName, lName, uName, gender;
+    Button btnSR, btnNew, btnExisting, btnEnter;
+    View btnLayout, editLayout;
+    TextView title, existingLbl;
+    EditText Email, fName, lName, uName, gender, getEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,72 +57,130 @@ public class UserDetailsNav extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.userdetails_layout);
 
-        lv = (ListView)findViewById(R.id.listView0);
+        lv = (ListView) findViewById(R.id.userDetailsListView);
         userWeight = (EditText) findViewById(R.id.weightTxt);
         userAge = (EditText) findViewById(R.id.ageTxt);
         userHeight = (EditText) findViewById(R.id.heightTxt);
-        btnSR = (Button)findViewById(R.id.button);
-        title = (TextView)findViewById(R.id.title);
+        btnSR = (Button) findViewById(R.id.button);
+        title = (TextView) findViewById(R.id.title);
         Email = (EditText) findViewById(R.id.emailTxt);
         fName = (EditText) findViewById(R.id.fnameTxt);
         lName = (EditText) findViewById(R.id.lnameTxt);
         uName = (EditText) findViewById(R.id.unameTxt);
         gender = (EditText) findViewById(R.id.genderTxt);
+        btnExisting = (Button) findViewById(R.id.btnExisting);
+        btnNew = (Button) findViewById(R.id.btnNew);
+        btnSR = (Button) findViewById(R.id.button);
+        btnLayout = findViewById(R.id.btnLayout);
+        editLayout = findViewById(R.id.editLayout);
+        existingLbl = (TextView) findViewById(R.id.existingLabel);
+        btnEnter = (Button) findViewById(R.id.confirmEmail);
+        getEmail = (EditText) findViewById(R.id.getUser);
 
+        btnSR.setOnClickListener(this);
+        btnExisting.setOnClickListener(this);
+        btnNew.setOnClickListener(this);
+        btnEnter.setOnClickListener(this);
+    }
         // Checking if previous cache data is available in case workout incomplete
 
-        try {
-            // Finds all exercises files and writes to the workouts file
-            File file = new File(getFilesDir(), "userDetails");
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
 
-            String line = "";
 
-            line = bufferedReader.readLine();
-            fName.setText(line);
-            line = bufferedReader.readLine();
-            lName.setText(line);
-            line = bufferedReader.readLine();
-            gender.setText(line);
-            line = bufferedReader.readLine();
-            userAge.setText(line);
-            line = bufferedReader.readLine();
-            userHeight.setText(line);
-            line = bufferedReader.readLine();
-            userWeight.setText(line);
-            line = bufferedReader.readLine();
-            Email.setText(line);
-            line = bufferedReader.readLine();
-            uName.setText(line);
+//        try {
+//            // Finds all exercises files and writes to the workouts file
+//            File file = new File(getFilesDir(), "userDetails");
+//            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+//
+//            String line = "";
+//
+//            line = bufferedReader.readLine();
+//            fName.setText(line);
+//            line = bufferedReader.readLine();
+//            lName.setText(line);
+//            line = bufferedReader.readLine();
+//            gender.setText(line);
+//            line = bufferedReader.readLine();
+//            userAge.setText(line);
+//            line = bufferedReader.readLine();
+//            userHeight.setText(line);
+//            line = bufferedReader.readLine();
+//            userWeight.setText(line);
+//            line = bufferedReader.readLine();
+//            Email.setText(line);
+//            line = bufferedReader.readLine();
+//            uName.setText(line);
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+////            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+//        }
 
-        } catch (Exception e) {
-            e.printStackTrace();
-//            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+        @Override
+        public void onClick(View v) {
+            String btnVal;
+            btnVal = btnSR.getText().toString();
+
+            switch(v.getId())
+            {
+                case (R.id.btnExisting):
+                    existingLbl.setVisibility(View.VISIBLE);
+                    btnEnter.setVisibility(View.VISIBLE);
+                    getEmail.setVisibility(View.VISIBLE);
+                    btnExisting.setVisibility(View.INVISIBLE);
+                    btnNew.setVisibility(View.INVISIBLE);
+                    break;
+                case (R.id.confirmEmail):
+                    btnLayout.setVisibility(View.INVISIBLE);
+                    editLayout.setVisibility(View.VISIBLE);
+                    lv.setVisibility(View.VISIBLE);
+                    btnSR.setVisibility(View.INVISIBLE);
+                    //btnSR.setText("Insert");
+                    String retUsers = "";
+                    String retStats = "";
+                    String[] values = new String[5];
+
+                    try {
+                        retUsers = new DataBase(getEmail.getText().toString(), 0).execute().get();
+                        retStats = new DataBase(getEmail.getText().toString(), 5).execute().get();
+                    } catch (Exception e) {
+                        Log.v("error", e.toString());
+                    }
+                    Log.v("VALUES1: ", retUsers);
+
+                    Log.v("VALUES2: ", retStats);
+
+                    values = retUsers.split(" ");
+                    Email.setText(values[0]);
+                    fName.setText(values[1]);
+                    lName.setText(values[2]);
+                    uName.setText(values[3]);
+                    values = retStats.split(" ");
+                    userHeight.setText(values[1]);
+                    userWeight.setText(values[2]);
+                    userAge.setText(values[3]);
+                    gender.setText(values[4]);
+                    break;
+                case (R.id.btnNew):
+                    btnLayout.setVisibility(View.INVISIBLE);
+                    editLayout.setVisibility(View.VISIBLE);
+                    lv.setVisibility(View.VISIBLE);
+                    btnSR.setVisibility(View.VISIBLE);
+                    break;
+                case (R.id.button):
+                    btnSR.setVisibility(View.INVISIBLE);
+                    String retVal = "";
+                    try{
+                        retVal = new DataBase(Email.getText().toString(), fName.getText().toString(), lName.getText().toString(), uName.getText().toString(), 1).execute().get();
+                        new DataBase(Email.getText().toString(), userHeight.getText().toString(), userWeight.getText().toString(), userAge.getText().toString(), gender.getText().toString(), 4).execute();
+                        Toast.makeText(getApplicationContext(), retVal, Toast.LENGTH_SHORT).show();
+                    }
+                    catch(Exception e)
+                    {
+                        Log.v("error", e.toString());
+                    }
+                    break;
         }
-
-
-
-        btnSR.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String btnVal;
-                btnVal = btnSR.getText().toString();
-
-                if(btnVal.equals("Insert"))
-                {
-                    btnSR.setText("Select");
-                    new DataBase(title, Email, fName, lName, uName, 1).execute();
-                }
-                if(btnVal.equals("Select"))
-                {
-                    btnSR.setText("Receive");
-                    new DataBase(title).execute(Email.getText().toString());
-                }
-            }
-        });
-
-    }
-
+        }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
