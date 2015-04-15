@@ -44,7 +44,7 @@ public class UserDetailsNav extends ActionBarActivity {
     ListView lv;
     Button btnSR;
     TextView title;
-    EditText Email, fName, lName, uName;
+    EditText Email, fName, lName, uName, gender;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +62,7 @@ public class UserDetailsNav extends ActionBarActivity {
         fName = (EditText) findViewById(R.id.fnameTxt);
         lName = (EditText) findViewById(R.id.lnameTxt);
         uName = (EditText) findViewById(R.id.unameTxt);
+        gender = (EditText) findViewById(R.id.genderTxt);
 
         // Checking if previous cache data is available in case workout incomplete
 
@@ -76,6 +77,8 @@ public class UserDetailsNav extends ActionBarActivity {
             fName.setText(line);
             line = bufferedReader.readLine();
             lName.setText(line);
+            line = bufferedReader.readLine();
+            gender.setText(line);
             line = bufferedReader.readLine();
             userAge.setText(line);
             line = bufferedReader.readLine();
@@ -161,6 +164,8 @@ public class UserDetailsNav extends ActionBarActivity {
             fileWriter.write(fName.getText().toString());
             fileWriter.write("\r\n");
             fileWriter.write(lName.getText().toString());
+            fileWriter.write("\r\n");
+            fileWriter.write(gender.getText().toString());
             fileWriter.write("\r\n");
             fileWriter.write(userAge.getText().toString());
             fileWriter.write("\r\n");

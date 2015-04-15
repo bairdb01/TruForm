@@ -157,6 +157,7 @@
     <string-array name="userDetailsListItems">
         <item>First Name</item>
         <item>Last Name</item>
+        <item>Gender</item>
         <item>Age</item>
         <item>Height (cm)</item>
         <item>Weight (kg)</item>
