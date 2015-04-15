@@ -62,7 +62,7 @@
                 android:layout_width="171dp"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:text="?"
+                android:text="something?"
                 android:ems="12"
                 android:id="@+id/genderTxt"
                 android:layout_alignParentTop="true"
