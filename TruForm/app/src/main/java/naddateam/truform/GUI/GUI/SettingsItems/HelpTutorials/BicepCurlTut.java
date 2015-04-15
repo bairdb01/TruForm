@@ -16,11 +16,11 @@ public class BicepCurlTut extends ActionBarActivity {
 
         InputStream stream = null;
         try {
-            stream = getAssets().open("Db_curl.gif");
+            stream = getAssets().open("db_curl.gif");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        GifWebView view = new GifWebView(this, "file:///android_asset/Db_curl.gif");
+        GifWebView view = new GifWebView(this, "file:///android_asset/db_curl.gif");
 
         setContentView(view);
     }
