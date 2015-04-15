@@ -77,13 +77,14 @@ public class GetDataNav extends ActionBarActivity {
                 if(btnVal.equals("Insert"))
                 {
                     btnSR.setText("Select");
-                    new DataBase(title, Email, fName, lName, uName, 1).execute();
+
+                    new DataBase(Email.getText().toString(), fName.getText().toString(), lName.getText().toString(), uName.getText().toString(), 1).execute();
 
                 }
                 if(btnVal.equals("Select"))
                 {
-                    btnSR.setText("Receive");
-                    new DataBase(title).execute(Email.getText().toString());
+                    btnSR.setText("Insert");
+                    new DataBase(Email.getText().toString(), 0).execute();
                 }
             }
         });

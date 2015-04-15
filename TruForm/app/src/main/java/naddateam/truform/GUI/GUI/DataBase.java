@@ -33,19 +33,18 @@ import java.text.SimpleDateFormat;
  */
 public class DataBase extends AsyncTask<String, Void, String> {
     private TextView title;
-    private EditText Email, fName, lName, uName;
+    private String fName, lName, uName;
     private int flag, eid;
-    private String email, form, time, weight;
+    private String email, form, time, weight, timeStart, timeEnd, height, age, gender, retString;
 
-    public DataBase(TextView title)
+    public DataBase(String email, int flag)
     {
-        this.title = title;
-        this.flag = 0;
+        this.email = email;
+        this.flag = flag;
     }
-    public DataBase(TextView title, EditText Email, EditText fName, EditText lName, EditText uName, int flag)
+    public DataBase(String email, String fName, String lName, String uName, int flag)
     {
-        this.title = title;
-        this.Email = Email;
+        this.email = email;
         this.fName = fName;
         this.lName = lName;
         this.uName = uName;
@@ -60,12 +59,28 @@ public class DataBase extends AsyncTask<String, Void, String> {
         this.weight = weight;
         this.flag = flag;
     }
+    public DataBase(String email, String timeStart, String timeEnd, int flag)
+    {
+        this.email = email;
+        this.timeStart = timeStart;
+        this.timeEnd = timeEnd;
+        this.flag = flag;
+    }
+    public DataBase(String email, String height, String weight, String age, String gender, int flag)
+    {
+        this.email = email;
+        this.height = height;
+        this.weight = weight;
+        this.age = age;
+        this.gender = gender;
+        this.flag = flag;
+    }
 
     @Override
     protected String doInBackground(String... arg0) {
         String link;
+        //selecting the user data from the db
         if(flag == 0) {
-            String email = (String)arg0[0];
             link = "http://131.104.49.65/show.php?email=" + email;
             try {
                 URL url = new URL(link);
@@ -87,14 +102,11 @@ public class DataBase extends AsyncTask<String, Void, String> {
                 e.printStackTrace();
             }
         }
+        //insert the user data into the db
         else if (flag == 1)
         {
-            String email = this.Email.getText().toString();
-            String first = this.fName.getText().toString();
-            String last = this.lName.getText().toString();
-            String usr = this.uName.getText().toString();
-            link = "http://131.104.49.65/insert.php?email=" + email + "&fname=" + first + "&lname=" + last + "&uname=" + usr;
-
+            link = "http://131.104.49.65/insert.php?email=" + email + "&fname=" + fName + "&lname=" + lName + "&uname=" + uName;
+            link = link.replace(" ", "");
             try {
                 URL url = new URL(link);
                 HttpClient client = new DefaultHttpClient();
@@ -115,10 +127,85 @@ public class DataBase extends AsyncTask<String, Void, String> {
                 e.printStackTrace();
             }
         }
+        //insert the workout data into the db
         else if (flag == 2)
         {
             Log.v("VALUE OF TIME", time);
             link = "http://131.104.49.65/inPast.php?email=" + email + "&eid=" + eid + "&form=" + form + "&time=" + time + "&weight=" + weight;
+            try {
+                URL url = new URL(link);
+                HttpClient client = new DefaultHttpClient();
+                HttpGet request = new HttpGet();
+                request.setURI(new URI(link));
+                HttpResponse response = client.execute(request);
+                BufferedReader in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+                StringBuffer sb = new StringBuffer("");
+                String line = "";
+                while ((line = in.readLine()) != null) {
+                    sb.append(line);
+                    break;
+                }
+                Log.v("Testing", sb.toString());
+                in.close();
+                return sb.toString();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        //select the the previous workout data from the db
+        else if (flag == 3)
+        {
+            link = "http://131.104.49.65/selectPast.php?email=" + email + "&tstart=" + timeStart + "&tend=" + timeEnd;
+            try {
+                URL url = new URL(link);
+                HttpClient client = new DefaultHttpClient();
+                HttpGet request = new HttpGet();
+                request.setURI(new URI(link));
+                HttpResponse response = client.execute(request);
+                BufferedReader in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+                StringBuffer sb = new StringBuffer("");
+                String line = "";
+                while ((line = in.readLine()) != null) {
+                    sb.append(line);
+                    break;
+                }
+                Log.v("Testing", sb.toString());
+                in.close();
+                return sb.toString();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        //insert User stats into the db
+        else if (flag == 4)
+        {
+            link = "http://131.104.49.65/inStats.php?email=" + email + "&height=" + height + "&weight=" + weight + "&age=" + age + "&gender=" + gender;
+            link = link.replace(" ", "");
+            try {
+                URL url = new URL(link);
+                HttpClient client = new DefaultHttpClient();
+                HttpGet request = new HttpGet();
+                request.setURI(new URI(link));
+                HttpResponse response = client.execute(request);
+                BufferedReader in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+                StringBuffer sb = new StringBuffer("");
+                String line = "";
+                while ((line = in.readLine()) != null) {
+                    sb.append(line);
+                    break;
+                }
+                Log.v("Testing", sb.toString());
+                in.close();
+                return sb.toString();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        //select the user stats from the db
+        else if (flag == 5)
+        {
+            link = "http://131.104.49.65/selectStats.php?email=" + email;
+            link = link.replace(" ", "");
             try {
                 URL url = new URL(link);
                 HttpClient client = new DefaultHttpClient();
@@ -144,8 +231,8 @@ public class DataBase extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String result){
-        if(flag == 0) {
-            this.title.setText(result);
+        if(flag == 0 || flag == 5 || flag == 3) {
+            retString = result;
         }
     }
 }
