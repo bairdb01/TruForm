@@ -271,7 +271,6 @@ public class ExerciseAnalysis {
                 {
                     numZeroesBottom.add(zeroes);
                     zeroes = 0;
-                    up.add(totalGyroZUp); /*Now have the data for the up half of the curl, store*/
                     down.add(totalGyroZDown*-1);
                     totalGyroZDown = 0;
                     j++;
@@ -292,6 +291,7 @@ public class ExerciseAnalysis {
                 zeroes += 1;
             }
             else if ((gyroZ < -1) && (goingUp == 1)) { /*If you begin to go down, also check to make sure there was an up portion*/
+                up.add(totalGyroZUp); /*Now have the data for the up half of the curl, store*/
                 previousGyroZDown = gyroZ;
                 numZeroesTop.add(zeroes);
                 zeroes = 0;
