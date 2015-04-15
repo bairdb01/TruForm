@@ -209,8 +209,8 @@ public class ExerciseAnalysis {
     public void analyzeLatSide(ArrayList <InstanceData> dataPoints)
     {
         /*Constants*/
-        int LOWER_BOUND = 45;
-        int UPPER_BOUND = 31;
+        int LOWER_BOUND = 31;
+        int UPPER_BOUND = 45;
         int GOOD_LOWER_BOUND = 26;
         int i = 0;
         int j = 0;
@@ -319,7 +319,7 @@ public class ExerciseAnalysis {
                     //if(totalGyroZDown < 0) /*You're at the bottom of the curl and it hasn't increased the rep yet
 				//subsequent zeroes found on new reps will not trigger a new rep, only the first one*/
                     if((accelY > (startingAccelY - 5)) && (accelY < (startingAccelY + 5)) && (totalGyroZDown < 0)){
-                    /*Comparing the accelerometer values to see if you've reached the starting point again*/
+                    /*Make sure they're at the bottom of the curl*/
                         //numZeroes[j] += 1;
                         zeroes += 1;
                         numZeroesBottom.add(zeroes);
