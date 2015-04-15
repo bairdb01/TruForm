@@ -312,7 +312,7 @@ public class ExerciseAnalysis {
                     sittingBottom = 1; /*Now you are sitting at the bottom*/
                     //if(totalGyroZDown < 0) /*You're at the bottom of the curl and it hasn't increased the rep yet
 				//subsequent zeroes found on new reps will not trigger a new rep, only the first one*/
-                    if((accelY > (startingAccelY - 5)) && (accelY < (startingAccelY + 5) && (accelZ > (startingAccelZ - 5)) && (accelZ < (startingAccelZ + 5)))){
+                    if((accelY > (startingAccelY - 5)) && (accelY < (startingAccelY + 5) && (totalGyroZDown < 0))){
                     /*Comparing the accelerometer values to see if you've reached the starting point again*/
                         //numZeroes[j] += 1;
                         zeroes += 1;
