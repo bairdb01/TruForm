@@ -403,7 +403,7 @@ public class ExerciseAnalysis {
             {
                 this.codedForm.add(0.00);
                 if((waitB == 0) && (waitT == 0))
-                    this.form.add("up: "+ up.get(i) +" down: "+ down.get(i));//"Your form was bad, try lifting higher."
+                    this.form.add("Your form was bad, try lifting higher.");
                 else if((waitB == 1) && (waitT == 0))
                     this.form.add("Your form was bad, and you waited too long at the bottom of the curl.");
                 else if((waitB == 0) && (waitT == 1))
@@ -415,7 +415,7 @@ public class ExerciseAnalysis {
             {
                 this.codedForm.add(0.50);
                 if((waitB == 0) && (waitT == 0))
-                    this.form.add("up: "+ up.get(i) +" down: "+ down.get(i));//"Your form was close, try lifting higher."
+                    this.form.add("Your form was close, try lifting higher.");
                 else if((waitB == 1) && (waitT == 0))
                     this.form.add("Your form was close, and you waited too long at the bottom of the curl.");
                 else if((waitB == 0) && (waitT == 1))
@@ -431,8 +431,8 @@ public class ExerciseAnalysis {
     public void analyzeTricepExt(ArrayList <InstanceData> dataPoints) {
       /*Constants*/
         int LOWER_BOUND = 30;
-        int UPPER_BOUND = 55;
-        int GOOD_LOWER_BOUND = 35;
+        int UPPER_BOUND = 60;
+        int GOOD_LOWER_BOUND = 40;
         int i = 0;
         int j = 0;
         /*Flags*/

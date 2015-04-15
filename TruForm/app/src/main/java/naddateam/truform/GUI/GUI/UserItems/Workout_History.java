@@ -40,19 +40,16 @@ public class Workout_History extends ActionBarActivity  implements AdapterView.O
         //Read workout file
         ArrayList allExercise = new ArrayList();
         try {
-            String retVal = "";
-
-            retVal = new DataBase("test@test.com", "2014-04-15"+"%20"+"00:00:00", "2014-04-15"+"%20"+"23:59:59", 2).get();
-//            File file = new File(getFilesDir(), workoutName);
-//            BufferedReader bf = new BufferedReader(new FileReader(file));
-//            //Get exercise data from file
-//            String line = "test";
-//            while ((line = bf.readLine()) != null) {
-//                //if (line.matches(".*\\d+.*")){
-//                    //Toast.makeText(this, "added line", Toast.LENGTH_SHORT).show();
-//                    allExercise.add(line);
-//                //}
-            //}
+            File file = new File(getFilesDir(), workoutName);
+            BufferedReader bf = new BufferedReader(new FileReader(file));
+            //Get exercise data from file
+            String line = "test";
+            while ((line = bf.readLine()) != null) {
+                //if (line.matches(".*\\d+.*")){
+                    //Toast.makeText(this, "added line", Toast.LENGTH_SHORT).show();
+                    allExercise.add(line);
+                //}
+            }
         } catch (Exception e) {
             e.printStackTrace();
             Toast.makeText(this,"Error loading workout file",Toast.LENGTH_SHORT);
