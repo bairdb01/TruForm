@@ -209,9 +209,9 @@ public class ExerciseAnalysis {
     public void analyzeLatSide(ArrayList <InstanceData> dataPoints)
     {
         /*Constants*/
-        int LOWER_BOUND = 31;
-        int UPPER_BOUND = 45;
-        int GOOD_LOWER_BOUND = 26;
+        int LOWER_BOUND = 35;
+        int UPPER_BOUND = 55;
+        int GOOD_LOWER_BOUND = 30;
         int i = 0;
         int j = 0;
         /*Flags*/
@@ -268,10 +268,11 @@ public class ExerciseAnalysis {
 
             if ((gyroZ > 1) && (goingUp == 0)) { /*If you start to move upwards*/
 
-                if((totalGyroZDown < 0) && (accelY > (startingAccelY - 5)) && (accelY < (startingAccelY + 5))) /*If a downwards curl was just finished and not reset yet*/
+                if((totalGyroZDown < 0) && (accelY > (startingAccelY - 5)) && (accelY < (startingAccelY + 5))) /*If a rep was just finished and not reset yet*/
                 {
                     numZeroesBottom.add(zeroes);
                     zeroes = 0;
+                    up.add(totalGyroZUp); /*Now have the data for the up half of the curl, store*/
                     down.add(totalGyroZDown*-1);
                     totalGyroZDown = 0;
                     j++;
@@ -295,7 +296,6 @@ public class ExerciseAnalysis {
                 previousGyroZDown = gyroZ;
                 numZeroesTop.add(zeroes);
                 zeroes = 0;
-                up.add(totalGyroZUp); /*Now have the data for the up half of the curl, store*/
                 goingUp = 0; /*No longer going up*/
                 totalGyroZDown += gyroZ;
             }
