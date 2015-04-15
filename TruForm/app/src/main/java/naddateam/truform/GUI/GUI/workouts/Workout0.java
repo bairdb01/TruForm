@@ -106,6 +106,11 @@ public class Workout0 extends ActionBarActivity implements AdapterView.OnItemCli
         if (id == R.id.action_settings) {
             return true;
         }
+        // Saves the user details when the actionbar back button is pressed
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }

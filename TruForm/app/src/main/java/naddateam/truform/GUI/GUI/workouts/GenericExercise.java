@@ -181,6 +181,11 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
             return true;
         }
 
+        // Saves the user details when the actionbar back button is pressed
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -194,6 +199,8 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
 
         AlertDialog.Builder builder = new AlertDialog.Builder(GenericExercise.this);
         String btnVal;
+        int eid = 0;
+
         switch(v.getId()) {
             case(R.id.startBut):
                 //Toast.makeText(getApplicationContext(),"Start",Toast.LENGTH_SHORT);
@@ -240,14 +247,17 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                     if(workoutName.equals("Chest And Triceps")) {
                         if (exNumber == 6)
                             exerciseAnalysis.analyzeTricepExt(ble.dataArr);
+                        eid = 3;
                     }
                     else if(workoutName.equals("Back And Biceps")) {
                         if (exNumber == 4)
                             exerciseAnalysis.analyzeForm(ble.dataArr);
+                        eid = 1;
                     }
                     else if(workoutName.equals("Shoulders")) {
                         if (exNumber == 1)
                             exerciseAnalysis.analyzeLatSide(ble.dataArr);
+                        eid = 2;
                     }
                 }
                 catch (Exception e)
@@ -301,7 +311,24 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 String formattedTime = time.format(c.getTime());
                 String dayTime = formattedDay + "%20" + formattedTime;
 
-                new DataBase("test@test.com", "1", dbForm, dayTime, weight.getText().toString(), 2).execute();
+                // Grab user email from file
+                String userEmail = "";
+                try {
+                    // Finds all exercises files and writes to the workouts file
+                    File file = new File(getFilesDir(), "userDetails");
+                    BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+                    userEmail = bufferedReader.readLine();
+
+                    //counts 5 times cause 6 times is the email
+                    for (int i =0; i < 5; i++)
+                        bufferedReader.readLine();
+                    userEmail = bufferedReader.readLine();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+
+                new DataBase(userEmail, eid, dbForm, dayTime, weight.getText().toString(), 2).execute();
 
                 //btnSR.setText("Receive");
 
