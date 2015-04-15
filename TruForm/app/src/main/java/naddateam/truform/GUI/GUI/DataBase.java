@@ -34,8 +34,8 @@ import java.text.SimpleDateFormat;
 public class DataBase extends AsyncTask<String, Void, String> {
     private TextView title;
     private EditText Email, fName, lName, uName;
-    private int flag;
-    private String email, eid, form, time, weight;
+    private int flag, eid;
+    private String email, form, time, weight;
 
     public DataBase(TextView title)
     {
@@ -51,7 +51,7 @@ public class DataBase extends AsyncTask<String, Void, String> {
         this.uName = uName;
         this.flag = flag;
     }
-    public DataBase(String email, String eid, String form, String time, String weight, int flag)
+    public DataBase(String email, int eid, String form, String time, String weight, int flag)
     {
         this.email = email;
         this.eid = eid;

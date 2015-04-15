@@ -155,10 +155,13 @@
 
     <!-- List of User Detail items -->
     <string-array name="userDetailsListItems">
-        <item>Name</item>
+        <item>First Name</item>
+        <item>Last Name</item>
         <item>Age</item>
         <item>Height (cm)</item>
         <item>Weight (kg)</item>
+        <item>Email</item>
+        <item>User Id</item>
     </string-array>
 
     <string name="app_name">TruForm</string>

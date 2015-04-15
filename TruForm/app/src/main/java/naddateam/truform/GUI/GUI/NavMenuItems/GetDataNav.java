@@ -70,33 +70,19 @@ public class GetDataNav extends ActionBarActivity {
         btnSR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*BluetoothLeUart Comm = ble.getmService();
-                byte[] value;
-                String message = "G";*/
-                String retVal = "";
-                String retVal2 = "";
                 String btnVal;
 
                 btnVal = btnSR.getText().toString();
 
                 if(btnVal.equals("Insert"))
                 {
-                    /*ble.dataArr.clear();
-                    value = message.getBytes();
-                    Comm.writeRXCharacteristic(value);*/
                     btnSR.setText("Select");
-                    //exerciseAnalysis.form.clear();
-
                     new DataBase(title, Email, fName, lName, uName, 1).execute();
 
                 }
                 if(btnVal.equals("Select"))
                 {
-                    /*message = "N";
-                    value = message.getBytes();
-                    Comm.writeRXCharacteristic(value);*/
                     btnSR.setText("Receive");
-                    //exerciseAnalysis.analyzeForm(ble.dataArr);
                     new DataBase(title).execute(Email.getText().toString());
                 }
             }

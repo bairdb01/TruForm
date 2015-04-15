@@ -4,7 +4,10 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -12,10 +15,11 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
+import naddateam.truform.GUI.GUI.Bluetooth;
+import naddateam.truform.GUI.GUI.DataBase;
 import naddateam.truform.R;
+import naddateam.truform.functionality.ExerciseAnalysis;
 /**
  * CIS3760
  * Naddateam Truform
@@ -33,11 +37,14 @@ import naddateam.truform.R;
 
 public class UserDetailsNav extends ActionBarActivity {
     EditText userWeight;
-    EditText userName;
     EditText userAge;
     EditText userHeight;
-//    TextView BMI = null; /* Body Mass Index, determined by a person's height and weight */
-
+    ExerciseAnalysis exerciseAnalysis = new ExerciseAnalysis();
+    Bluetooth ble = new Bluetooth();
+    ListView lv;
+    Button btnSR;
+    TextView title;
+    EditText Email, fName, lName, uName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +52,16 @@ public class UserDetailsNav extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.userdetails_layout);
 
-        userWeight = (EditText) findViewById(R.id.userDetailWeightEdit);
-        userName = (EditText) findViewById(R.id.userDetailNameEdit);
-        userAge = (EditText) findViewById(R.id.userDetailAgeEdit);
-        userHeight = (EditText) findViewById(R.id.userDetailHeightEdit);
+        lv = (ListView)findViewById(R.id.listView0);
+        userWeight = (EditText) findViewById(R.id.weightTxt);
+        userAge = (EditText) findViewById(R.id.ageTxt);
+        userHeight = (EditText) findViewById(R.id.heightTxt);
+        btnSR = (Button)findViewById(R.id.button);
+        title = (TextView)findViewById(R.id.title);
+        Email = (EditText) findViewById(R.id.emailTxt);
+        fName = (EditText) findViewById(R.id.fnameTxt);
+        lName = (EditText) findViewById(R.id.lnameTxt);
+        uName = (EditText) findViewById(R.id.unameTxt);
 
         // Checking if previous cache data is available in case workout incomplete
 
@@ -58,19 +71,48 @@ public class UserDetailsNav extends ActionBarActivity {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
 
             String line = "";
+
             line = bufferedReader.readLine();
-            userWeight.setText(line);
+            fName.setText(line);
             line = bufferedReader.readLine();
-            userName.setText(line);
+            lName.setText(line);
             line = bufferedReader.readLine();
             userAge.setText(line);
             line = bufferedReader.readLine();
             userHeight.setText(line);
+            line = bufferedReader.readLine();
+            userWeight.setText(line);
+            line = bufferedReader.readLine();
+            Email.setText(line);
+            line = bufferedReader.readLine();
+            uName.setText(line);
 
         } catch (Exception e) {
             e.printStackTrace();
 //            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
         }
+
+
+
+        btnSR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String btnVal;
+                btnVal = btnSR.getText().toString();
+
+                if(btnVal.equals("Insert"))
+                {
+                    btnSR.setText("Select");
+                    new DataBase(title, Email, fName, lName, uName, 1).execute();
+                }
+                if(btnVal.equals("Select"))
+                {
+                    btnSR.setText("Receive");
+                    new DataBase(title).execute(Email.getText().toString());
+                }
+            }
+        });
+
     }
 
 
@@ -116,13 +158,20 @@ public class UserDetailsNav extends ActionBarActivity {
             fileWriter = new FileWriter(file);
 
             // Writes user details
-            fileWriter.write(userWeight.getText().toString());
+            fileWriter.write(fName.getText().toString());
             fileWriter.write("\r\n");
-            fileWriter.write(userName.getText().toString());
+            fileWriter.write(lName.getText().toString());
             fileWriter.write("\r\n");
             fileWriter.write(userAge.getText().toString());
             fileWriter.write("\r\n");
             fileWriter.write(userHeight.getText().toString());
+            fileWriter.write("\r\n");
+            fileWriter.write(userWeight.getText().toString());
+            fileWriter.write("\r\n");
+            fileWriter.write(Email.getText().toString());
+            fileWriter.write("\r\n");
+            fileWriter.write(uName.getText().toString());
+            fileWriter.write("\r\n");
 
 
             fileWriter.flush();
