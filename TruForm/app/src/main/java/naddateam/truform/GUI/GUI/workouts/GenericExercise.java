@@ -181,6 +181,11 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
             return true;
         }
 
+        // Saves the user details when the actionbar back button is pressed
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 
