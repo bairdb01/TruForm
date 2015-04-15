@@ -239,13 +239,15 @@ public class ExerciseAnalysis {
         int totalGyroZUp = 0;
         int totalGyroZDown = 0;
 
+        int previousGyroZDown = 0; /*Used to measure difference in case user falters a bit in a rep*/
+
 
         InstanceData instance;
 
         for(i = 0; i < dataPoints.size(); i++)
         {
             instance = dataPoints.get(i);
-            if(dataPoints.get(i).getType() == 1) {
+            if(instance.getType() == 1) {
                 gyroZArr.add(instance.getZ());
             }
             else
@@ -253,6 +255,7 @@ public class ExerciseAnalysis {
         }
 
         i = 0;
+
         while( i < gyroZArr.size() )
         {
             gyroZ = (-1)*gyroZArr.get(i);
@@ -264,44 +267,49 @@ public class ExerciseAnalysis {
                 startingAccelZ = accelZ;
             }
 
-            if ((gyroZ > 1) && (goingUp == 0)) { /*If you start to move upwards*/
-                if(totalGyroZDown < 0) /*If a downwards curl was just finished and not reset yet*/
-                {
-                    numZeroesBottom.add(zeroes);
-                    zeroes = 0;
-                    down.add(totalGyroZDown*-1);
-                    totalGyroZDown = 0;
-                    if(sittingBottom == 0) /*Hasn't counted a complete rep (they began the new curl fast) yet so count it*/
-                    {
-                        j++;
-                    }
+            if((totalGyroZDown < 0) && (accelY > (startingAccelY - 5)) && (accelY < (startingAccelY + 5))) /*You've reached the bottom of the rep*/
+            {
+                numZeroesBottom.add(zeroes);
+                zeroes = 0;
+                down.add(totalGyroZDown*-1);
+                totalGyroZUp = 0;
+                totalGyroZDown = 0;
+                if(sittingBottom == 0)
+                    j++;
+            }
 
-                }
+
+            if ((gyroZ > 1) && (goingUp == 0)) { /*If you start to move upwards*/
+                if(totalGyroZDown < 0) /*They started going up again after going down already*/
+                    totalGyroZUp += previousGyroZDown;
                 sittingBottom = 0;
                 goingUp = 1; /*Set the flag for going upwards*/
                 totalGyroZUp = 0;
                 totalGyroZUp += gyroZ;
+
             }
             else if ((gyroZ > 1) && (goingUp == 1)) { /*If you continue to go upwards*/
                 totalGyroZUp += gyroZ;
 
             }
-            else if((gyroZ >= -1) && (gyroZ <= 1) && (goingUp == 1)) /*Sitting at the top of the curl*/
+            else if((gyroZ >= -1) && (gyroZ <= 1) && (goingUp == 1)) /*Sitting at some point in the curl*/
             {
                 zeroes += 1;
             }
             else if ((gyroZ < -1) && (goingUp == 1)) { /*If you begin to go down, also check to make sure there was an up portion*/
+                previousGyroZDown = gyroZ;
                 numZeroesTop.add(zeroes);
                 zeroes = 0;
                 up.add(totalGyroZUp); /*Now have the data for the up half of the curl, store*/
-                totalGyroZUp = 0; /*And reset this for next*/
                 goingUp = 0; /*No longer going up*/
                 totalGyroZDown += gyroZ;
             }
             else if ((gyroZ < -1) && (goingUp == 0)) { /*If you continue to go downwards or go downwards from start*/
-                if(totalGyroZUp > 0) /*There was an up portion already*/
+                if(totalGyroZUp > 0) /*There was an up portion already*/ {
+                    previousGyroZDown = gyroZ;
                     totalGyroZDown += gyroZ;
-                else /*This else checks for moving downwards despite not starting i.e swinging the weight past your leg by accident or something*/ {
+                }
+                else { /*This else checks for moving downwards despite not starting i.e swinging the weight past your leg by accident or something*/
                     /*Subtract that bottom part from the new rep, since they are starting lower now*/
                     subtractFarBottom += gyroZ;
                 }
@@ -312,7 +320,7 @@ public class ExerciseAnalysis {
                     sittingBottom = 1; /*Now you are sitting at the bottom*/
                     //if(totalGyroZDown < 0) /*You're at the bottom of the curl and it hasn't increased the rep yet
 				//subsequent zeroes found on new reps will not trigger a new rep, only the first one*/
-                    if((accelY > (startingAccelY - 15)) && (accelY < (startingAccelY + 15) && (totalGyroZDown < 0))){
+                    if((accelY > (startingAccelY - 5)) && (accelY < (startingAccelY + 5) && (totalGyroZDown < 0))){
                     /*Comparing the accelerometer values to see if you've reached the starting point again*/
                         //numZeroes[j] += 1;
                         zeroes += 1;
