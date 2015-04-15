@@ -1,5 +1,6 @@
 package naddateam.truform.GUI.GUI.SettingsItems;
 
+import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -8,9 +9,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 import naddateam.truform.GUI.GUI.Bluetooth;
 import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.BicepCurlTut;
@@ -20,6 +26,7 @@ import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.MakeWorkoutTut;
 import naddateam.truform.GUI.GUI.SettingsItems.HelpTutorials.SquatsTut;
 import naddateam.truform.R;
 import naddateam.truform.Tester;
+import naddateam.truform.functionality.GifWebView;
 
 /**
  * CIS3760
@@ -80,9 +87,9 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
                                             public void onClick(DialogInterface dialog, int which) {
                                                 if (which == 0) {
 
-                                                    alertDialogBuilder.setTitle("Dumbbell Chest Press");
+                                                    //alertDialogBuilder.setTitle("Dumbbell Chest Press");
                                                     //Set message
-                                                    alertDialogBuilder.setMessage(getString(R.string.tutDumbChestPress))
+                                                    /*alertDialogBuilder.setMessage(getString(R.string.tutDumbChestPress))
                                                             .setCancelable(false)
                                                             .setPositiveButton("Confirm",new DialogInterface.OnClickListener() {
                                                                 public void onClick(DialogInterface dialog,int id) {
@@ -94,31 +101,170 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
                                                                 }
                                                             });
                                                     AlertDialog alertDialog = alertDialogBuilder.create();
-                                                    alertDialog.show();
+                                                    alertDialog.show();*/
+                                                    alertDialogBuilder.setTitle("Dumbbell Chest Press");
+                                                    alertDialogBuilder.setCancelable(false);
+                                                    alertDialogBuilder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int id) {
+                                                        }
+                                                    });
+                                                    alertDialogBuilder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog,int id) {
+                                                            dialog.cancel();
+                                                        }
+                                                    });
+                                                    InputStream stream = null;
+                                                    try {
+                                                        stream = getAssets().open("db_benchpress.gif");
+                                                    } catch (IOException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    GifWebView view = new GifWebView(HelpNav.this, "file:///android_asset/db_benchpress.gif");
+                                                    alertDialogBuilder.setView(view);
+                                                    alertDialogBuilder.create().show();
                                                 }
                                                 else if (which == 1) {
-                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
-                                                    //  startActivity(goChestTut);
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, InclineChestTut.class);
+                                                    //  startActivity(InclineChestTut);
+                                                    alertDialogBuilder.setTitle("Incline Bench Press");
+                                                    alertDialogBuilder.setCancelable(false);
+                                                    alertDialogBuilder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int id) {
+                                                        }
+                                                    });
+                                                    alertDialogBuilder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog,int id) {
+                                                            dialog.cancel();
+                                                        }
+                                                    });
+                                                    InputStream stream = null;
+                                                    try {
+                                                        stream = getAssets().open("bb_incline_benchpress.gif");
+                                                    } catch (IOException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    GifWebView view = new GifWebView(HelpNav.this, "file:///android_asset/bb_incline_benchpress.gif");
+                                                    alertDialogBuilder.setView(view);
+                                                    alertDialogBuilder.create().show();
                                                 }
                                                 else if (which == 2) {
-                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
-                                                    //  startActivity(goChestTut);
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, DumbFliesChestTut.class);
+                                                    //  startActivity(DumbFliesChestTut);
+                                                    alertDialogBuilder.setTitle("Dumbbell Flies");
+                                                    alertDialogBuilder.setCancelable(false);
+                                                    alertDialogBuilder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int id) {
+                                                        }
+                                                    });
+                                                    alertDialogBuilder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog,int id) {
+                                                            dialog.cancel();
+                                                        }
+                                                    });
+                                                    InputStream stream = null;
+                                                    try {
+                                                        stream = getAssets().open("db_fly.gif");
+                                                    } catch (IOException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    GifWebView view = new GifWebView(HelpNav.this, "file:///android_asset/db_fly.gif");
+                                                    alertDialogBuilder.setView(view);
+                                                    alertDialogBuilder.create().show();
                                                 }
                                                 else if (which == 3) {
-                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
-                                                    //  startActivity(goChestTut);
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, IncFliesChestTut.class);
+                                                    //  startActivity(IncFliesChestTut);
+                                                    alertDialogBuilder.setTitle("Incline Flies");
+                                                    alertDialogBuilder.setCancelable(false);
+                                                    alertDialogBuilder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int id) {
+                                                        }
+                                                    });
+                                                    alertDialogBuilder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog,int id) {
+                                                            dialog.cancel();
+                                                        }
+                                                    });
+                                                    InputStream stream = null;
+                                                    try {
+                                                        stream = getAssets().open("db_incline_fly.gif");
+                                                    } catch (IOException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    GifWebView view = new GifWebView(HelpNav.this, "file:///android_asset/db_incline_fly.gif");
+                                                    alertDialogBuilder.setView(view);
+                                                    alertDialogBuilder.create().show();
                                                 }
                                                 else if (which == 4) {
-                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
-                                                    //  startActivity(goChestTut);
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, SkullChestTut.class);
+                                                    //  startActivity(SkullChestTut);
+                                                    alertDialogBuilder.setTitle("Skull Crushers");
+                                                    alertDialogBuilder.setCancelable(false);
+                                                    alertDialogBuilder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int id) {
+                                                        }
+                                                    });
+                                                    alertDialogBuilder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog,int id) {
+                                                            dialog.cancel();
+                                                        }
+                                                    });
+                                                    InputStream stream = null;
+                                                    try {
+                                                        stream = getAssets().open("bb_skull_crushers.gif");
+                                                    } catch (IOException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    GifWebView view = new GifWebView(HelpNav.this, "file:///android_asset/bb_skull_crushers.gif");
+                                                    alertDialogBuilder.setView(view);
+                                                    alertDialogBuilder.create().show();
                                                 }
                                                 else if (which == 5) {
-                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
-                                                    //  startActivity(goChestTut);
+                                                    //  Dips
+                                                    alertDialogBuilder.setTitle("Skull Crushers");
+                                                    alertDialogBuilder.setCancelable(false);
+                                                    alertDialogBuilder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int id) {
+                                                        }
+                                                    });
+                                                    alertDialogBuilder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog,int id) {
+                                                            dialog.cancel();
+                                                        }
+                                                    });
+                                                    InputStream stream = null;
+                                                    try {
+                                                        stream = getAssets().open("cb_tricep_dip.gif");
+                                                    } catch (IOException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    GifWebView view = new GifWebView(HelpNav.this, "file:///android_asset/cb_tricep_dip.gif");
+                                                    alertDialogBuilder.setView(view);
+                                                    alertDialogBuilder.create().show();
                                                 }
                                                 else if (which == 6) {
-                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
-                                                    //  startActivity(goChestTut);
+                                                    //  Intent goChestTut = new Intent(HelpNav.this, TricepExtTut.class);
+                                                    // startActivity(TricepExtTut);
+                                                    alertDialogBuilder.setTitle("Skull Crushers");
+                                                    alertDialogBuilder.setCancelable(false);
+                                                    alertDialogBuilder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int id) {
+                                                        }
+                                                    });
+                                                    alertDialogBuilder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog,int id) {
+                                                            dialog.cancel();
+                                                        }
+                                                    });
+                                                    InputStream stream = null;
+                                                    try {
+                                                        stream = getAssets().open("bb_skull_crushers.gif");
+                                                    } catch (IOException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    GifWebView view = new GifWebView(HelpNav.this, "file:///android_asset/bb_skull_crushers.gif");
+                                                    alertDialogBuilder.setView(view);
+                                                    alertDialogBuilder.create().show();
                                                 }
                                             }
                                         });
