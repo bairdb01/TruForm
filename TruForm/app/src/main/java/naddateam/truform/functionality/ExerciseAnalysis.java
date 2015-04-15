@@ -260,15 +260,16 @@ public class ExerciseAnalysis {
         {
             gyroZ = (-1)*gyroZArr.get(i);
             accelY = accelYArr.get(i);
-            accelZ = accelZArr.get(i);
+            //accelZ = accelZArr.get(i);
             if(i == 0)
             {
                 startingAccelY = accelY;
-                startingAccelZ = accelZ;
+                //startingAccelZ = accelZ;
             }
 
-            if((totalGyroZDown < 0) && (accelY > (startingAccelY - 5)) && (accelY < (startingAccelY + 5))) /*You've reached the bottom of the rep*/
+            if((totalGyroZDown < 0) && (accelY > (startingAccelY - 15)) && (accelY < (startingAccelY + 15))) /*You've reached the bottom of the rep*/
             {
+                Log.v("FINISHED REP", "REP NUMBER "+j);
                 numZeroesBottom.add(zeroes);
                 zeroes = 0;
                 down.add(totalGyroZDown*-1);
@@ -320,7 +321,7 @@ public class ExerciseAnalysis {
                     sittingBottom = 1; /*Now you are sitting at the bottom*/
                     //if(totalGyroZDown < 0) /*You're at the bottom of the curl and it hasn't increased the rep yet
 				//subsequent zeroes found on new reps will not trigger a new rep, only the first one*/
-                    if((accelY > (startingAccelY - 5)) && (accelY < (startingAccelY + 5) && (totalGyroZDown < 0))){
+                    if((accelY > (startingAccelY - 15)) && (accelY < (startingAccelY + 15) && (totalGyroZDown < 0))){
                     /*Comparing the accelerometer values to see if you've reached the starting point again*/
                         //numZeroes[j] += 1;
                         zeroes += 1;
@@ -341,6 +342,8 @@ public class ExerciseAnalysis {
             }
             i++;
         }
+
+
         int waitB = 0;
         int waitT = 0;
         /*Now we have the arrays of gyroZ data and can examine the curls*/
@@ -358,6 +361,7 @@ public class ExerciseAnalysis {
         -3 is bad form with too long at the top
         -4 is bad form with too long at both
           */
+        Log.v("Number of reps", ""+(j));
         for(i = 0; i<j; i++)
         {
             waitB = 0;
@@ -385,7 +389,7 @@ public class ExerciseAnalysis {
             }
             else if((up.get(i) < GOOD_LOWER_BOUND) || (down.get(i) < GOOD_LOWER_BOUND))
             {
-                this.codedForm.add(0.50);
+                this.codedForm.add(0.00);
                 if((waitB == 0) && (waitT == 0))
                     this.form.add("Your form was bad, try lifting higher.");
                 else if((waitB == 1) && (waitT == 0))
@@ -395,9 +399,9 @@ public class ExerciseAnalysis {
                 else
                     this.form.add("Your form was bad, and you waited too long at the bottom and the top of the curl.");
             }
-            else if(((up.get(i) > 50) && (up.get(i) < LOWER_BOUND)) || ((down.get(i) > 50) && (down.get(i) < LOWER_BOUND)))
+            else if(((up.get(i) > GOOD_LOWER_BOUND) && (up.get(i) < LOWER_BOUND)) || ((down.get(i) > GOOD_LOWER_BOUND) && (down.get(i) < LOWER_BOUND)))
             {
-                this.codedForm.add(0.00);
+                this.codedForm.add(0.50);
                 if((waitB == 0) && (waitT == 0))
                     this.form.add("Your form was close, try lifting higher.");
                 else if((waitB == 1) && (waitT == 0))
@@ -406,6 +410,10 @@ public class ExerciseAnalysis {
                     this.form.add("Your form was close, and you waited too long at the top of the curl.");
                 else
                     this.form.add("Your form was close, and you waited too long at the bottom and the top of the curl.");
+            }
+            else {
+                this.codedForm.add(2.76);
+                this.form.add("Woah buddy.");
             }
         }
         this.numGoodReps = j;
