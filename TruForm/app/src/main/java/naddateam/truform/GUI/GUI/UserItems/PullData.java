@@ -4,10 +4,10 @@ package naddateam.truform.GUI.GUI.UserItems;
  * Created by Erik on 4/16/2015.
  */
 public class PullData {
-    private static String workout;
-    private static String eid;
+    private String workout;
+    private String eid;
 
-    public void Constructor(String workoutset, String eidset)
+    public PullData(String workoutset, String eidset)
     {
         this.workout = workoutset;
         this.eid = eidset;

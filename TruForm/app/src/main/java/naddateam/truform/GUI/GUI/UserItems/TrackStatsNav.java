@@ -21,6 +21,7 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import naddateam.truform.GUI.GUI.DataBase;
 import naddateam.truform.GUI.GUI.workouts.GenericExercise;
@@ -30,7 +31,7 @@ import naddateam.truform.R;
  * CIS3760
  * Naddateam Truform
  * TrackStatsNav.java
- * Author: Benjamin Baird
+ * Author: Benjamin Baird & Rob Little
  * Allows the user to be able to view their past workouts
  *
  *
@@ -44,6 +45,12 @@ public class TrackStatsNav extends ActionBarActivity implements AdapterView.OnIt
     private TextView tv;
     static Dialog pickTimeDialog ;
     private int day, month, year;
+    private ArrayList<String> Eid = new ArrayList<String>();
+    private ArrayList<String> Form = new ArrayList<String>();
+    private ArrayList<String> Weight = new ArrayList<String>();
+    private ArrayList<String> Workout = new ArrayList<String>();
+    private ArrayList<PullData> pastWorkouts = new ArrayList<PullData>();
+    private static ArrayList<workoutInfo> info = new ArrayList<workoutInfo>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +62,6 @@ public class TrackStatsNav extends ActionBarActivity implements AdapterView.OnIt
     }
     private void dataBaseCall()
     {
-        //ArrayList<PullData> pastWorkouts = new ArrayList<PullData>();
         String retVal, startTime, endTime;
 
         Calendar c = Calendar.getInstance();
@@ -71,11 +77,7 @@ public class TrackStatsNav extends ActionBarActivity implements AdapterView.OnIt
         try {
             retVal = new DataBase("test@test.com", startTime, endTime, 3).execute().get();
             String[] data = retVal.split(" ");
-            String[] Eid = new String[data.length / 4];
-            String[] Form = new String[data.length / 4];
-            String[] Weight = new String[data.length / 4];
-            String[] Workout = new String[data.length / 4];
-            int i, x;
+            int i, x, j, isIn;
             Log.v("Length: ", data.length + "");
             for(i = 0; i < data.length; i++) {
                 Log.v("TOKENS: ", data[i]);
@@ -83,18 +85,26 @@ public class TrackStatsNav extends ActionBarActivity implements AdapterView.OnIt
             x = 0;
             for(i = 0; i < data.length; i = i + 4)
             {
-                Eid[x] = data[i];
-                Form[x] = data[i+1];
-                Weight[x] = data[i+2];
-                Workout[x] = data[i+3];
+                Eid.add(data[i]);
+                Form.add(data[i+1]);
+                Weight.add(data[i+2]);
+                Workout.add(data[i+3]);
                 x++;
             }
 
             for(i = 0; i < x; i++)
             {
-                if(!pastWorkouts.contains(Workout[x]))
+                isIn = 0;
+                for(j = 0; j < pastWorkouts.size(); j++)
                 {
-                    pastWorkouts.add(Workout[x]);
+                    if(pastWorkouts.get(j).getWorkout().equals(Workout.get(i)))
+                    {
+                        isIn = 1;
+                    }
+                }
+                if(isIn == 0)
+                {
+                    pastWorkouts.add(new PullData(Workout.get(i), Eid.get(i)));
                 }
             }
 
@@ -105,7 +115,21 @@ public class TrackStatsNav extends ActionBarActivity implements AdapterView.OnIt
 //            }
 
             String[] woList = new String[pastWorkouts.size()];
-            pastWorkouts.toArray(woList);
+            for(i = 0; i < pastWorkouts.size(); i++)
+            {
+                if(pastWorkouts.get(i).getEid().equals("1"))
+                {
+                    woList[i] = "Back And Biceps";
+                }
+                else if(pastWorkouts.get(i).getEid().equals("2"))
+                {
+                    woList[i] = "Shoulders";
+                }
+                else if(pastWorkouts.get(i).getEid().equals("3"))
+                {
+                    woList[i] = "Chest And Triceps";
+                }
+            }
 
             lv = (ListView) findViewById(R.id.pastWorkouts);
             lv.setAdapter(new ArrayAdapter<String>(this, R.layout.listviewcloud_text, woList));
@@ -138,9 +162,25 @@ public class TrackStatsNav extends ActionBarActivity implements AdapterView.OnIt
         return super.onOptionsItemSelected(item);
     }
 
+    public ArrayList<workoutInfo> getInfo()
+    {
+        return info;
+    }
+
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         // Opens the exercise
-        Toast.makeText(this, String.valueOf(position), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, String.valueOf(position), Toast.LENGTH_SHORT).show();
+        int i;
+        info.clear();
+
+        String Num = pastWorkouts.get(position).getWorkout();
+        for(i = 0; i < Workout.size(); i++)
+        {
+            if(Workout.get(i).equals(Num))
+            {
+                info.add(new workoutInfo(Form.get(i), Weight.get(i), Eid.get(i)));
+            }
+        }
         Intent workout = new Intent(this , Workout_History.class);
         String workoutName = lv.getItemAtPosition(position).toString();
         workout.putExtra("workoutName",workoutName); //Sends workout name
