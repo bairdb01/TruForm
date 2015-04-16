@@ -221,7 +221,7 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
                                                 }
                                                 else if (which == 5) {
                                                     //  Dips
-                                                    alertDialogBuilder.setTitle("Skull Crushers");
+                                                    alertDialogBuilder.setTitle("Dips");
                                                     alertDialogBuilder.setCancelable(false);
                                                     alertDialogBuilder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                                                         public void onClick(DialogInterface dialog, int id) {
@@ -245,7 +245,7 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
                                                 else if (which == 6) {
                                                     //  Intent goChestTut = new Intent(HelpNav.this, TricepExtTut.class);
                                                     // startActivity(TricepExtTut);
-                                                    alertDialogBuilder.setTitle("Skull Crushers");
+                                                    alertDialogBuilder.setTitle("Tricep Kickback");
                                                     alertDialogBuilder.setCancelable(false);
                                                     alertDialogBuilder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                                                         public void onClick(DialogInterface dialog, int id) {
@@ -258,11 +258,11 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
                                                     });
                                                     InputStream stream = null;
                                                     try {
-                                                        stream = getAssets().open("bb_skull_crushers.gif");
+                                                        stream = getAssets().open("db_kickback.gif");
                                                     } catch (IOException e) {
                                                         e.printStackTrace();
                                                     }
-                                                    GifWebView view = new GifWebView(HelpNav.this, "file:///android_asset/bb_skull_crushers.gif");
+                                                    GifWebView view = new GifWebView(HelpNav.this, "file:///android_asset/db_kickback.gif");
                                                     alertDialogBuilder.setView(view);
                                                     alertDialogBuilder.create().show();
                                                 }
