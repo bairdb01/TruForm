@@ -82,7 +82,7 @@ public class ExerciseAnalysis {
 
         while( i < gyroZArr.size() )
         {
-            gyroZ = (-1)*gyroZArr.get(i);
+            gyroZ = gyroZArr.get(i);
             accelY = accelYArr.get(i);
             if(i == 0)
             {
