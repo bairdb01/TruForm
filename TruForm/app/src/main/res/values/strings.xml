@@ -131,9 +131,6 @@
     -->
     <string-array name="helpListItems">
         <item>Exercise Form</item>
-        <!--<item>Workout Creation</item> REMOVED FOR RC-->
-        <!--<item>Calibrations REMOVED FOR RC</item>-->
-        <item>BlueTooth</item>
         <item>Tests</item>
     </string-array>
 

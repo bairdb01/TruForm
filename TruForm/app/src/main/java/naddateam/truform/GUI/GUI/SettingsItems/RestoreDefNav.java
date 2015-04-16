@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -35,7 +36,13 @@ public class RestoreDefNav extends ActionBarActivity implements AdapterView.OnIt
 
         setContentView(R.layout.restoredef_layout);
         ListView lv = (ListView)findViewById(R.id.restoreDefList);
-
+        lv.setAdapter(new ArrayAdapter<String>(this, R.layout.listviewcloud_text,
+                new String[]{
+                        "Clear Calibrations",
+                        "Clear User Information",
+                        "Clear Workout History",
+                        "Reset Entire App",
+                }));
         /*
         * Listening for user input
          */

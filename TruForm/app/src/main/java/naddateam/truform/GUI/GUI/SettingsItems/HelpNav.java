@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -48,7 +49,17 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settingshelp_layout);
         ListView lv = (ListView)findViewById(R.id.helpListView);
+        lv.setAdapter(new ArrayAdapter<String>(this, R.layout.listviewcloud_text,
+                new String[]{
+                        "Exercise Form","Tests",
+                }));
         lv.setOnItemClickListener(this);
+        /*
+        String[] woList = new String[pastWorkouts.size()];
+        pastWorkouts.toArray(woList);
+        lv = (ListView) findViewById(R.id.pastWorkouts);
+        lv.setAdapter(new ArrayAdapter<String>(this, R.layout.listviewcloud_text, helpListItems));
+        */
     }
 
     @Override
@@ -410,35 +421,11 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
                     });
             builderContain.create().show();
         }
-        /*
-        * How to make a workout
-         */
-        /*
         else if (position == 1) {
-            Intent goMakeWorkoutTut = new Intent(HelpNav.this, MakeWorkoutTut.class);
-            startActivity(goMakeWorkoutTut);
-        }
-        */
-        /*
-        * How to calibrate - Removed for RC
-         */
-/*        else if (position == 2) {
-            Intent goHowToCalibTut = new Intent(HelpNav.this, HowCalibTut.class);
-            startActivity(goHowToCalibTut);
-        }*/
-        /*
-        * Bluetooth settings
-         */
-        else if (position == 1) {
-            Intent goBlue = new Intent(HelpNav.this, Bluetooth.class);
-            startActivity(goBlue);
-        }
-        else {
-            if (position == 2) {
                 Intent test = new Intent(this, Tester.class);
                 startActivity(test);
-            }
         }
+
     }
 
 
