@@ -1,89 +1,69 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<!--CIS3760-->
-<!--Naddateam Truform-->
-<!--socialnet_layout.xml-->
-<!--Author: Erik Hoffman-->
-<!--Description: Layout for the social network page, uses facebook and twitter icons as buttons-->
-
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:id="@+id/social"
-    android:background="#16a085">
+    android:orientation="vertical"
+    android:padding="@dimen/activity_vertical_margin" >
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/login_layout"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:weightSum="1"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="visible" >
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="#0080B4"
+            android:text="@string/btn_login"
+            android:textColor="#fff" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/share_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:visibility="gone" >
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/user_name"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:text="@string/hello"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/socialNetString"
-            android:id="@+id/textView8"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="0.16"
-            android:textColor="#ecf0f1" />
+            android:textColor="#0080B4" />
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
+        <!--<ImageView-->
+            <!--android:id="@+id/imageView"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="150dp"-->
+            <!--android:scaleType="centerCrop"-->
+            <!--android:src="@drawable/lakeside_view" />-->
+
+        <EditText
+            android:id="@+id/share_text"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="0.10">
+            android:layout_marginTop="5dp"
+            android:background="#cceaf3"
+            android:hint="@string/share_instructions"
+            android:inputType="textMultiLine"
+            android:minLines="5"
+            android:padding="10dp" />
 
-            <ImageButton
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:id="@+id/facebookButton"
-                android:layout_gravity="center_horizontal"
-                android:src="@drawable/facebookicon" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/social_facebookString"
-                android:id="@+id/textView10"
-                android:textColor="#ecf0f1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/btn_share"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="0.08">
-
-            <ImageButton
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:id="@+id/twitterButton"
-                android:layout_gravity="center_horizontal"
-                android:src="@drawable/twittericon" />
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="@string/social_twitterString"
-                    android:id="@+id/textView9"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="#ecf0f1" />
-            </LinearLayout>
-        </LinearLayout>
-
+            android:layout_marginTop="10dp"
+            android:background="#0080B4"
+            android:text="@string/btn_share"
+            android:textColor="#fff" />
     </LinearLayout>
-</RelativeLayout>
+
+</LinearLayout>

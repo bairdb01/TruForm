@@ -223,6 +223,10 @@ public class ExerciseAnalysis {
                 else
                     this.form.add("Your form was close, and you waited too long at the bottom and the top of the curl.");
             }
+            else
+            {
+                this.form.add("up: "+ up.get(i) +" down: "+ down.get(i));
+            }
         }
         this.numGoodReps = j;
         return;
