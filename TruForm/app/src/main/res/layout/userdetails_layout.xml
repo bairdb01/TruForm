@@ -27,6 +27,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:textColor="#ecf0f1"
             android:visibility="invisible"/>
 
     <LinearLayout
@@ -40,12 +41,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="New User"
+            android:textColor="#ecf0f1"
             android:id="@+id/btnNew" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Existing User"
+            android:textColor="#ecf0f1"
             android:id="@+id/btnExisting" />
         <TextView
             android:layout_width="wrap_content"
@@ -54,6 +57,7 @@
             android:text="Enter Email"
             android:id="@+id/existingLabel"
             android:layout_gravity="center_horizontal"
+            android:textColor="#ecf0f1"
             android:visibility="invisible"/>
         <EditText
             android:layout_width="269dp"
@@ -62,6 +66,7 @@
             android:ems="10"
             android:id="@+id/getUser"
             android:layout_gravity="center_horizontal"
+            android:textColor="#ecf0f1"
             android:visibility="invisible"/>
         <Button
             android:layout_width="wrap_content"
@@ -69,6 +74,7 @@
             android:text="Enter"
             android:id="@+id/confirmEmail"
             android:layout_gravity="center_horizontal"
+            android:textColor="#ecf0f1"
             android:visibility="invisible" />
 
     </LinearLayout>
@@ -88,6 +94,7 @@
             android:layout_toRightOf="@+id/userDetailsListView"
             android:layout_toEndOf="@+id/userDetailsListView"
             android:paddingTop="15dp"
+            android:textColor="#ecf0f1"
             android:layout_gravity="right" />
 
 
@@ -101,6 +108,7 @@
             android:layout_toRightOf="@+id/userDetailsListView"
             android:layout_toEndOf="@+id/userDetailsListView"
             android:paddingTop="15dp"
+            android:textColor="#ecf0f1"
             android:layout_gravity="right" />
 
         <EditText
@@ -113,6 +121,7 @@
             android:layout_toRightOf="@+id/userDetailsListView"
             android:layout_toEndOf="@+id/userDetailsListView"
             android:paddingTop="15dp"
+            android:textColor="#ecf0f1"
             android:layout_gravity="right" />
 
         <EditText
@@ -126,6 +135,7 @@
             android:layout_toRightOf="@+id/userDetailsListView"
             android:layout_toEndOf="@+id/userDetailsListView"
             android:paddingTop="15dp"
+            android:textColor="#ecf0f1"
             android:layout_gravity="right" />
 
         <EditText
@@ -138,6 +148,7 @@
             android:layout_toRightOf="@+id/userDetailsListView"
             android:layout_toEndOf="@+id/userDetailsListView"
             android:paddingTop="15dp"
+            android:textColor="#ecf0f1"
             android:layout_gravity="right" />
 
         <EditText
@@ -150,6 +161,7 @@
             android:layout_toRightOf="@+id/userDetailsListView"
             android:layout_toEndOf="@+id/userDetailsListView"
             android:paddingTop="15dp"
+            android:textColor="#ecf0f1"
             android:layout_gravity="right" />
 
         <EditText
@@ -161,6 +173,7 @@
             android:layout_toRightOf="@+id/userDetailsListView"
             android:layout_toEndOf="@+id/userDetailsListView"
             android:paddingTop="15dp"
+            android:textColor="#ecf0f1"
             android:layout_gravity="right" />
 
         <EditText
@@ -173,6 +186,7 @@
             android:layout_toRightOf="@+id/userDetailsListView"
             android:layout_toEndOf="@+id/userDetailsListView"
             android:paddingTop="15dp"
+            android:textColor="#ecf0f1"
             android:layout_gravity="right" />
 
         <Button
@@ -183,6 +197,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:textColor="#ecf0f1"
             android:layout_gravity="right" />
 
 
