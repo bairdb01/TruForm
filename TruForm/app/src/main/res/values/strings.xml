@@ -234,4 +234,16 @@
     <string name="title_activity_get_data_nav">GetDataNav</string>
 
 
+    <string name="hello">Hello, </string>
+    <string name="login_instructions">Login to twiter</string>
+    <string name="share_instructions">Enter share message</string>
+    <string name="btn_login">Login to Twitter</string>
+    <string name="btn_share">Share</string>
+
+    <!-- Twitter Configurations -->
+    <string name="twitter_callback">http://javatechig.android.app</string>
+    <string name="twitter_consumer_key"> USQPXbZUQRBJfZFMVAGX5HUgQ</string>
+    <string name="twitter_consumer_secret">kRVpBkZFbspYJ3ncNGypWBREPFE4VIQuJqAdcQBKfaQCPd9NLP</string>
+    <string name="twitter_oauth_verifier">oauth_verifier</string>
+    <!-- End Configurations -->
 </resources>
