@@ -18,17 +18,7 @@
         android:id="@id/title"
         />
 
-        <ListView
-            android:layout_weight="0.5"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/userDetailsListView"
-            android:entries="@array/userDetailsListItems"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:textColor="#ecf0f1"
-            android:visibility="invisible"/>
+
 
     <LinearLayout
         android:orientation="vertical"
@@ -78,117 +68,143 @@
             android:visibility="invisible" />
 
     </LinearLayout>
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:visibility="invisible"
         android:id="@+id/editLayout">
-        <EditText
-            android:layout_width="171dp"
-            android:layout_height="54dp"
-            android:text="First"
-            android:ems="12"
-            android:id="@+id/fnameTxt"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/userDetailsListView"
-            android:layout_toEndOf="@+id/userDetailsListView"
-            android:paddingTop="15dp"
-            android:textColor="#ecf0f1"
-            android:layout_gravity="right" />
 
 
-        <EditText
-            android:layout_width="171dp"
-            android:layout_height="49dp"
-            android:text="Last"
-            android:ems="12"
-            android:id="@+id/lnameTxt"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/userDetailsListView"
-            android:layout_toEndOf="@+id/userDetailsListView"
-            android:paddingTop="15dp"
-            android:textColor="#ecf0f1"
-            android:layout_gravity="right" />
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <EditText
-            android:layout_width="171dp"
-            android:layout_height="49dp"
-            android:text="\?"
-            android:ems="12"
-            android:id="@+id/genderTxt"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/userDetailsListView"
-            android:layout_toEndOf="@+id/userDetailsListView"
-            android:paddingTop="15dp"
-            android:textColor="#ecf0f1"
-            android:layout_gravity="right" />
+            <ListView
+                android:layout_width="159dp"
+                android:layout_height="450dp"
+                android:id="@+id/userDetailsListView"
+                android:entries="@array/userDetailsListItems"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textColor="#ecf0f1"
+                android:visibility="visible"
+                android:layout_alignRight="@+id/fnameTxt"
+                android:layout_alignEnd="@+id/unameTxt" />
 
-        <EditText
-            android:layout_width="171dp"
-            android:layout_height="49dp"
-            android:inputType="textPersonName"
-            android:text="0"
-            android:ems="12"
-            android:id="@+id/ageTxt"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/userDetailsListView"
-            android:layout_toEndOf="@+id/userDetailsListView"
-            android:paddingTop="15dp"
-            android:textColor="#ecf0f1"
-            android:layout_gravity="right" />
+    <EditText
+        android:layout_width="171dp"
+        android:layout_height="54dp"
+        android:text="First"
+        android:ems="12"
+        android:id="@+id/fnameTxt"
+        android:paddingTop="15dp"
+        android:textColor="#ecf0f1"
+        android:layout_gravity="right"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
-        <EditText
-            android:layout_width="171dp"
-            android:layout_height="49dp"
-            android:text="0"
-            android:ems="12"
-            android:id="@+id/heightTxt"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/userDetailsListView"
-            android:layout_toEndOf="@+id/userDetailsListView"
-            android:paddingTop="15dp"
-            android:textColor="#ecf0f1"
-            android:layout_gravity="right" />
 
-        <EditText
-            android:layout_width="171dp"
-            android:layout_height="49dp"
-            android:text="0"
-            android:ems="12"
-            android:id="@+id/weightTxt"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/userDetailsListView"
-            android:layout_toEndOf="@+id/userDetailsListView"
-            android:paddingTop="15dp"
-            android:textColor="#ecf0f1"
-            android:layout_gravity="right" />
+    <EditText
+        android:layout_width="171dp"
+        android:layout_height="49dp"
+        android:text="Last"
+        android:ems="12"
+        android:id="@+id/lnameTxt"
 
-        <EditText
-            android:layout_width="171dp"
-            android:layout_height="49dp"
-            android:ems="12"
-            android:id="@+id/emailTxt"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/userDetailsListView"
-            android:layout_toEndOf="@+id/userDetailsListView"
-            android:paddingTop="15dp"
-            android:textColor="#ecf0f1"
-            android:layout_gravity="right" />
+        android:paddingTop="15dp"
+        android:textColor="#ecf0f1"
+        android:layout_gravity="right"
+        android:layout_below="@+id/fnameTxt"
+        android:layout_alignParentRight="true" />
 
-        <EditText
-            android:layout_width="171dp"
-            android:layout_height="49dp"
-            android:text="user"
-            android:ems="12"
-            android:id="@+id/unameTxt"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/userDetailsListView"
-            android:layout_toEndOf="@+id/userDetailsListView"
-            android:paddingTop="15dp"
-            android:textColor="#ecf0f1"
-            android:layout_gravity="right" />
+    <EditText
+        android:layout_width="171dp"
+        android:layout_height="49dp"
+        android:text="\?"
+        android:ems="12"
+        android:id="@+id/genderTxt"
+        android:paddingTop="15dp"
+        android:textColor="#ecf0f1"
+        android:layout_gravity="right"
+        android:layout_below="@+id/lnameTxt"
+        android:layout_alignParentRight="true" />
 
+    <EditText
+        android:layout_width="171dp"
+        android:layout_height="49dp"
+        android:inputType="textPersonName"
+        android:text="0"
+        android:ems="12"
+        android:id="@+id/ageTxt"
+
+        android:paddingTop="15dp"
+        android:textColor="#ecf0f1"
+        android:layout_gravity="right"
+        android:layout_below="@+id/genderTxt"
+        android:layout_alignParentRight="true" />
+
+    <EditText
+        android:layout_width="171dp"
+        android:layout_height="49dp"
+        android:text="0"
+        android:ems="12"
+        android:id="@+id/heightTxt"
+
+        android:paddingTop="15dp"
+        android:textColor="#ecf0f1"
+        android:layout_gravity="right"
+        android:layout_below="@+id/ageTxt"
+        android:layout_alignParentRight="true" />
+
+    <EditText
+        android:layout_width="171dp"
+        android:layout_height="49dp"
+        android:text="0"
+        android:ems="12"
+        android:id="@+id/weightTxt"
+
+        android:paddingTop="15dp"
+        android:textColor="#ecf0f1"
+        android:layout_gravity="right"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/heightTxt"
+        android:layout_alignParentRight="true" />
+
+    <EditText
+        android:layout_width="171dp"
+        android:layout_height="49dp"
+        android:ems="12"
+        android:id="@+id/emailTxt"
+
+        android:paddingTop="15dp"
+        android:textColor="#ecf0f1"
+        android:layout_gravity="right"
+        android:layout_below="@+id/weightTxt"
+        android:layout_alignParentRight="true" />
+
+    <EditText
+        android:layout_width="171dp"
+        android:layout_height="49dp"
+        android:text="user"
+        android:ems="12"
+        android:id="@+id/unameTxt"
+
+        android:paddingTop="15dp"
+        android:textColor="#ecf0f1"
+        android:layout_gravity="right"
+        android:layout_below="@+id/emailTxt"
+        android:layout_alignParentRight="true" />
+
+        </RelativeLayout>
+    </ScrollView>
         <Button
             android:layout_width="100dp"
             android:layout_height="wrap_content"
@@ -199,8 +215,6 @@
             android:layout_alignParentStart="true"
             android:textColor="#ecf0f1"
             android:layout_gravity="right" />
-
-
     </LinearLayout>
 
 

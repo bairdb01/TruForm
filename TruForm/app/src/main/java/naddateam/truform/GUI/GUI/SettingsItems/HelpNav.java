@@ -100,7 +100,7 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
 
                                                     //alertDialogBuilder.setTitle("Dumbbell Chest Press");
                                                     //Set message
-                                                    /*alertDialogBuilder.setMessage(getString(R.string.tutDumbChestPress))
+                                                    /*
                                                             .setCancelable(false)
                                                             .setPositiveButton("Confirm",new DialogInterface.OnClickListener() {
                                                                 public void onClick(DialogInterface dialog,int id) {
@@ -132,6 +132,7 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
                                                     }
                                                     GifWebView view = new GifWebView(HelpNav.this, "file:///android_asset/db_benchpress.gif");
                                                     alertDialogBuilder.setView(view);
+                                                    alertDialogBuilder.setMessage(getString(R.string.tutDumbChestPress));
                                                     alertDialogBuilder.create().show();
                                                 }
                                                 else if (which == 1) {
@@ -288,8 +289,6 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
                             * 2 Leg Extensions
                             * 3 Hamstring Curls
                             * 4 Lying Hamstring Curls
-                            * 5 Dips
-                            * 6 Tricep Extensions
                              */
                             else if (which == 1) {
                                 builderTwo.setTitle("Select an Exercise")
@@ -298,22 +297,122 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
                                                 if (which == 0) {
                                                     //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
                                                     //  startActivity(goChestTut);
+                                                    alertDialogBuilder.setTitle("Squat");
+                                                    alertDialogBuilder.setCancelable(false);
+                                                    alertDialogBuilder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int id) {
+                                                        }
+                                                    });
+                                                    alertDialogBuilder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog,int id) {
+                                                            dialog.cancel();
+                                                        }
+                                                    });
+                                                    InputStream stream = null;
+                                                    try {
+                                                        stream = getAssets().open("bb_squat.gif");
+                                                    } catch (IOException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    GifWebView view = new GifWebView(HelpNav.this, "file:///android_asset/bb_squat.gif");
+                                                    alertDialogBuilder.setView(view);
+                                                    alertDialogBuilder.create().show();
                                                 }
                                                 else if (which == 1) {
                                                     //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
                                                     //  startActivity(goChestTut);
+                                                    alertDialogBuilder.setTitle("Front Squats");
+                                                    alertDialogBuilder.setCancelable(false);
+                                                    alertDialogBuilder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int id) {
+                                                        }
+                                                    });
+                                                    alertDialogBuilder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog,int id) {
+                                                            dialog.cancel();
+                                                        }
+                                                    });
+                                                    InputStream stream = null;
+                                                    try {
+                                                        stream = getAssets().open("bb_front_squat.gif");
+                                                    } catch (IOException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    GifWebView view = new GifWebView(HelpNav.this, "file:///android_asset/bb_front_squat.gif");
+                                                    alertDialogBuilder.setView(view);
+                                                    alertDialogBuilder.create().show();
                                                 }
                                                 else if (which == 2) {
                                                     //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
                                                     //  startActivity(goChestTut);
+                                                    alertDialogBuilder.setTitle("Leg Extensions");
+                                                    alertDialogBuilder.setCancelable(false);
+                                                    alertDialogBuilder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int id) {
+                                                        }
+                                                    });
+                                                    alertDialogBuilder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog,int id) {
+                                                            dialog.cancel();
+                                                        }
+                                                    });
+                                                    InputStream stream = null;
+                                                    try {
+                                                        stream = getAssets().open("leg_extension.gif");
+                                                    } catch (IOException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    GifWebView view = new GifWebView(HelpNav.this, "file:///android_asset/leg_extension.gif");
+                                                    alertDialogBuilder.setView(view);
+                                                    alertDialogBuilder.create().show();
                                                 }
                                                 else if (which == 3) {
                                                     //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
                                                     //  startActivity(goChestTut);
+                                                    alertDialogBuilder.setTitle("Hamstring Curl");
+                                                    alertDialogBuilder.setCancelable(false);
+                                                    alertDialogBuilder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int id) {
+                                                        }
+                                                    });
+                                                    alertDialogBuilder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog,int id) {
+                                                            dialog.cancel();
+                                                        }
+                                                    });
+                                                    InputStream stream = null;
+                                                    try {
+                                                        stream = getAssets().open("hamstring_curl_raised.gif");
+                                                    } catch (IOException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    GifWebView view = new GifWebView(HelpNav.this, "file:///android_asset/hamstring_curl_raised.gif");
+                                                    alertDialogBuilder.setView(view);
+                                                    alertDialogBuilder.create().show();
                                                 }
                                                 else if (which == 4) {
                                                     //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
                                                     //  startActivity(goChestTut);
+                                                    alertDialogBuilder.setTitle("Lying Hamstring Curl");
+                                                    alertDialogBuilder.setCancelable(false);
+                                                    alertDialogBuilder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int id) {
+                                                        }
+                                                    });
+                                                    alertDialogBuilder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog,int id) {
+                                                            dialog.cancel();
+                                                        }
+                                                    });
+                                                    InputStream stream = null;
+                                                    try {
+                                                        stream = getAssets().open("hamstring_curl.gif");
+                                                    } catch (IOException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    GifWebView view = new GifWebView(HelpNav.this, "file:///android_asset/hamstring_curl.gif");
+                                                    alertDialogBuilder.setView(view);
+                                                    alertDialogBuilder.create().show();
                                                 }
                                             }
                                         });
@@ -327,8 +426,7 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
                             * 3 Cable Rows
                             * 4 Dumbbell Bicep Curls
                             * 5 Barbell Bicep Curls
-                            * 6 Tricep Extensions
-                            * 7 Spider Curls
+                            * 6 Spider Curls
                              */
                             else if (which == 2) {
                                 builderThree.setTitle("Select an Exercise")
@@ -337,34 +435,170 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
                                                 if (which == 0) {
                                                     //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
                                                     //  startActivity(goChestTut);
+                                                    alertDialogBuilder.setTitle("Deadlifts");
+                                                    alertDialogBuilder.setCancelable(false);
+                                                    alertDialogBuilder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int id) {
+                                                        }
+                                                    });
+                                                    alertDialogBuilder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog,int id) {
+                                                            dialog.cancel();
+                                                        }
+                                                    });
+                                                    InputStream stream = null;
+                                                    try {
+                                                        stream = getAssets().open("deadlift.gif");
+                                                    } catch (IOException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    GifWebView view = new GifWebView(HelpNav.this, "file:///android_asset/deadlift.gif");
+                                                    alertDialogBuilder.setView(view);
+                                                    alertDialogBuilder.create().show();
                                                 }
                                                 else if (which == 1) {
                                                     //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
                                                     //  startActivity(goChestTut);
+                                                    alertDialogBuilder.setTitle("Bentover Rows");
+                                                    alertDialogBuilder.setCancelable(false);
+                                                    alertDialogBuilder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int id) {
+                                                        }
+                                                    });
+                                                    alertDialogBuilder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog,int id) {
+                                                            dialog.cancel();
+                                                        }
+                                                    });
+                                                    InputStream stream = null;
+                                                    try {
+                                                        stream = getAssets().open("db_bentover_row.gif");
+                                                    } catch (IOException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    GifWebView view = new GifWebView(HelpNav.this, "file:///android_asset/db_bentover_row.gif");
+                                                    alertDialogBuilder.setView(view);
+                                                    alertDialogBuilder.create().show();
                                                 }
                                                 else if (which == 2) {
                                                     //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
                                                     //  startActivity(goChestTut);
+                                                    alertDialogBuilder.setTitle("Wide Grip Pullbar");
+                                                    alertDialogBuilder.setCancelable(false);
+                                                    alertDialogBuilder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int id) {
+                                                        }
+                                                    });
+                                                    alertDialogBuilder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog,int id) {
+                                                            dialog.cancel();
+                                                        }
+                                                    });
+                                                    InputStream stream = null;
+                                                    try {
+                                                        stream = getAssets().open("widegrip_pullbar.gif");
+                                                    } catch (IOException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    GifWebView view = new GifWebView(HelpNav.this, "file:///android_asset/widegrip_pullbar.gif");
+                                                    alertDialogBuilder.setView(view);
+                                                    alertDialogBuilder.create().show();
                                                 }
                                                 else if (which == 3) {
                                                     //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
                                                     //  startActivity(goChestTut);
+                                                    alertDialogBuilder.setTitle("Cable Rows");
+                                                    alertDialogBuilder.setCancelable(false);
+                                                    alertDialogBuilder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int id) {
+                                                        }
+                                                    });
+                                                    alertDialogBuilder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog,int id) {
+                                                            dialog.cancel();
+                                                        }
+                                                    });
+                                                    InputStream stream = null;
+                                                    try {
+                                                        stream = getAssets().open("seated_row.gif");
+                                                    } catch (IOException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    GifWebView view = new GifWebView(HelpNav.this, "file:///android_asset/seated_row.gif");
+                                                    alertDialogBuilder.setView(view);
+                                                    alertDialogBuilder.create().show();
                                                 }
                                                 else if (which == 4) {
-                                                    Intent goBicepCurlTut = new Intent(HelpNav.this, BicepCurlTut.class);
-                                                    startActivity(goBicepCurlTut);
+                                                    //Intent goBicepCurlTut = new Intent(HelpNav.this, BicepCurlTut.class);
+                                                    //startActivity(goBicepCurlTut);
+                                                    alertDialogBuilder.setTitle("Dumbbell Bicep Curls");
+                                                    alertDialogBuilder.setCancelable(false);
+                                                    alertDialogBuilder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int id) {
+                                                        }
+                                                    });
+                                                    alertDialogBuilder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog,int id) {
+                                                            dialog.cancel();
+                                                        }
+                                                    });
+                                                    InputStream stream = null;
+                                                    try {
+                                                        stream = getAssets().open("db_curl.gif");
+                                                    } catch (IOException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    GifWebView view = new GifWebView(HelpNav.this, "file:///android_asset/db_curl.gif");
+                                                    alertDialogBuilder.setView(view);
+                                                    alertDialogBuilder.create().show();
                                                 }
                                                 else if (which == 5) {
                                                     //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
                                                     //  startActivity(goChestTut);
+                                                    alertDialogBuilder.setTitle("Barbell Curls");
+                                                    alertDialogBuilder.setCancelable(false);
+                                                    alertDialogBuilder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int id) {
+                                                        }
+                                                    });
+                                                    alertDialogBuilder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog,int id) {
+                                                            dialog.cancel();
+                                                        }
+                                                    });
+                                                    InputStream stream = null;
+                                                    try {
+                                                        stream = getAssets().open("bb_curl.gif");
+                                                    } catch (IOException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    GifWebView view = new GifWebView(HelpNav.this, "file:///android_asset/bb_curl.gif");
+                                                    alertDialogBuilder.setView(view);
+                                                    alertDialogBuilder.create().show();
                                                 }
                                                 else if (which == 6) {
                                                     //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
                                                     //  startActivity(goChestTut);
-                                                }
-                                                else if (which == 7) {
-                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
-                                                    //  startActivity(goChestTut);
+                                                    alertDialogBuilder.setTitle("Spider Curls");
+                                                    alertDialogBuilder.setCancelable(false);
+                                                    alertDialogBuilder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int id) {
+                                                        }
+                                                    });
+                                                    alertDialogBuilder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog,int id) {
+                                                            dialog.cancel();
+                                                        }
+                                                    });
+                                                    InputStream stream = null;
+                                                    try {
+                                                        stream = getAssets().open("bb_preacher_curl.gif");
+                                                    } catch (IOException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    GifWebView view = new GifWebView(HelpNav.this, "file:///android_asset/bb_preacher_curl.gif");
+                                                    alertDialogBuilder.setView(view);
+                                                    alertDialogBuilder.create().show();
                                                 }
                                             }
                                         });
@@ -384,34 +618,98 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
                                                 if (which == 0) {
                                                     //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
                                                     //  startActivity(goChestTut);
+                                                    alertDialogBuilder.setTitle("Shoulder Press");
+                                                    alertDialogBuilder.setCancelable(false);
+                                                    alertDialogBuilder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int id) {
+                                                        }
+                                                    });
+                                                    alertDialogBuilder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog,int id) {
+                                                            dialog.cancel();
+                                                        }
+                                                    });
+                                                    InputStream stream = null;
+                                                    try {
+                                                        stream = getAssets().open("bb_shoulder_press.gif");
+                                                    } catch (IOException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    GifWebView view = new GifWebView(HelpNav.this, "file:///android_asset/bb_shoulder_press.gif");
+                                                    alertDialogBuilder.setView(view);
+                                                    alertDialogBuilder.create().show();
                                                 }
                                                 else if (which == 1) {
                                                     //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
                                                     //  startActivity(goChestTut);
+                                                    alertDialogBuilder.setTitle("Lateral Raises");
+                                                    alertDialogBuilder.setCancelable(false);
+                                                    alertDialogBuilder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int id) {
+                                                        }
+                                                    });
+                                                    alertDialogBuilder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog,int id) {
+                                                            dialog.cancel();
+                                                        }
+                                                    });
+                                                    InputStream stream = null;
+                                                    try {
+                                                        stream = getAssets().open("db_lateral_raise.gif");
+                                                    } catch (IOException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    GifWebView view = new GifWebView(HelpNav.this, "file:///android_asset/db_lateral_raise.gif");
+                                                    alertDialogBuilder.setView(view);
+                                                    alertDialogBuilder.create().show();
                                                 }
                                                 else if (which == 2) {
                                                     //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
                                                     //  startActivity(goChestTut);
+                                                    alertDialogBuilder.setTitle("Reverse Flies");
+                                                    alertDialogBuilder.setCancelable(false);
+                                                    alertDialogBuilder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int id) {
+                                                        }
+                                                    });
+                                                    alertDialogBuilder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog,int id) {
+                                                            dialog.cancel();
+                                                        }
+                                                    });
+                                                    InputStream stream = null;
+                                                    try {
+                                                        stream = getAssets().open("seated_reverse_fly.gif");
+                                                    } catch (IOException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    GifWebView view = new GifWebView(HelpNav.this, "file:///android_asset/seated_reverse_fly.gif");
+                                                    alertDialogBuilder.setView(view);
+                                                    alertDialogBuilder.create().show();
                                                 }
                                                 else if (which == 3) {
                                                     //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
                                                     //  startActivity(goChestTut);
-                                                }
-                                                else if (which == 4) {
-                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
-                                                    //  startActivity(goChestTut);
-                                                }
-                                                else if (which == 5) {
-                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
-                                                    //  startActivity(goChestTut);
-                                                }
-                                                else if (which == 6) {
-                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
-                                                    //  startActivity(goChestTut);
-                                                }
-                                                else if (which == 7) {
-                                                    //  Intent goChestTut = new Intent(HelpNav.this, ChestTut.class);
-                                                    //  startActivity(goChestTut);
+                                                    alertDialogBuilder.setTitle("Upright Barbell Rows");
+                                                    alertDialogBuilder.setCancelable(false);
+                                                    alertDialogBuilder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int id) {
+                                                        }
+                                                    });
+                                                    alertDialogBuilder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog,int id) {
+                                                            dialog.cancel();
+                                                        }
+                                                    });
+                                                    InputStream stream = null;
+                                                    try {
+                                                        stream = getAssets().open("bb_upright_row.gif");
+                                                    } catch (IOException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    GifWebView view = new GifWebView(HelpNav.this, "file:///android_asset/bb_upright_row.gif");
+                                                    alertDialogBuilder.setView(view);
+                                                    alertDialogBuilder.create().show();
                                                 }
                                             }
                                         });
