@@ -26,9 +26,9 @@
 
     <ListView android:layout_height="fill_parent" android:layout_width="fill_parent" android:id="@+id/new_devices" android:stackFromBottom="true" android:layout_weight="2" android:textColor="#4169e1"/>
 
-    <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/scanning" android:id="@+id/empty"/>
+    <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/scanning" android:textColor="#ecf0f1" android:id="@+id/empty"/>
 
-    <Button android:layout_height="wrap_content" android:layout_width="match_parent" android:text="@android:string/cancel" android:id="@+id/btn_cancel"/>
+    <Button android:layout_height="wrap_content" android:layout_width="match_parent" android:text="@android:string/cancel" android:textColor="#ecf0f1" android:id="@+id/btn_cancel"/>
 
 </LinearLayout>
 

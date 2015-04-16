@@ -64,11 +64,10 @@
     <!-- List of setting items displayed when selecting "Settings" in the Navigation Drawer -->
     <string-array name="settingsListItems">
     <!--<item>Calibrations</item>--> <!--Removed, due to limitations of our current status for RC-->
-        <item>General</item>
         <item>Reset to Defaults</item>
         <item>Help</item>
+        <item>Bluetooth</item>
         <item>About</item>
-        <item>Get Data</item>
     </string-array>
     <string-array name="dummyList">
         <item>Item 1</item>
@@ -132,9 +131,6 @@
     -->
     <string-array name="helpListItems">
         <item>Exercise Form</item>
-        <!--<item>Workout Creation</item> REMOVED FOR RC-->
-        <!--<item>Calibrations REMOVED FOR RC</item>-->
-        <item>BlueTooth</item>
         <item>Tests</item>
     </string-array>
 
