@@ -1,14 +1,19 @@
 package naddateam.truform.GUI.GUI.UserItems;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.NumberPicker;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -30,9 +35,10 @@ import naddateam.truform.R;
  *
  * Bugs: Currently crashes when item is clicked, sends a null position or something of that sort
  */
-public class TrackStatsNav extends ActionBarActivity implements AdapterView.OnItemClickListener{
+public class TrackStatsNav extends ActionBarActivity implements AdapterView.OnItemClickListener, NumberPicker.OnValueChangeListener{
     ListView lv;
-
+    private TextView tv;
+    static Dialog pickTimeDialog ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +46,8 @@ public class TrackStatsNav extends ActionBarActivity implements AdapterView.OnIt
 
         ArrayList pastWorkouts = new ArrayList();
         String retVal, time;
+
+        show(); /*THIIIIIIIIIIIIIIIIIISSSSSSSSSSSS IS TO SHOW THE DIALOG THAT POPS UP, GET VALUES HERE TO SET THE DATE*/
 
         // Grab file names and add them to the list of past workouts
         try {
@@ -91,5 +99,70 @@ public class TrackStatsNav extends ActionBarActivity implements AdapterView.OnIt
         String workoutName = lv.getItemAtPosition(position).toString();
         workout.putExtra("workoutName",workoutName); //Sends workout name
         startActivity(workout);
+    }
+
+    /*
+    * SHOW()
+    * This function shows the dialog when you hit this screen.
+    * Currently it is void, because it does literally nothing.
+    * When you do stuff with it, of course it is needed to be changed.*/
+    public void show()
+    {
+
+        final Dialog pickTimeDialog = new Dialog(this);
+
+        pickTimeDialog.setTitle("Select a Time");
+        pickTimeDialog.setContentView(R.layout.dialoglaylay);
+
+        Button pickCancel = (Button) pickTimeDialog.findViewById(R.id.pickerCancel);
+        Button pickSet = (Button) pickTimeDialog.findViewById(R.id.pickerSet);
+
+        final NumberPicker pickDate = (NumberPicker) pickTimeDialog.findViewById(R.id.numberPickDate);
+        pickDate.setMaxValue(31); // max value 100
+        pickDate.setMinValue(1);   // min value 0
+        pickDate.setWrapSelectorWheel(false);
+        pickDate.setOnValueChangedListener(this);
+
+        final NumberPicker pickMonth = (NumberPicker) pickTimeDialog.findViewById(R.id.numberPickMonth);
+        pickMonth.setMaxValue(12); // max value 100
+        pickMonth.setMinValue(1);   // min value 0
+        pickMonth.setWrapSelectorWheel(false);
+        pickMonth.setOnValueChangedListener(this);
+
+        final NumberPicker pickYear = (NumberPicker) pickTimeDialog.findViewById(R.id.numberPickYear);
+        pickYear.setMaxValue(2015); // max value 100
+        pickYear.setMinValue(1999);   // min value 0
+        pickYear.setWrapSelectorWheel(false);
+        pickYear.setOnValueChangedListener(this);
+
+        pickCancel.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                /*CANCEL, do nothing or even have this option?*/
+                pickTimeDialog.cancel();
+            }
+        });
+        pickSet.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                /*get values when hitting "set"*/
+                // int day = pickDate.getValue();
+                // int month = pickMonth.getValue();
+                // int year = pickYear.getValue();
+                // i think this is how you get the values
+                // recommend, returning an array of these values back to show(); then do stuff with it?
+                pickTimeDialog.cancel(); // dismiss the dialog
+            }
+        });
+        pickTimeDialog.show();
+
+
+    }
+
+    @Override
+    public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+        Log.i("value is", "" + newVal);
     }
 }
