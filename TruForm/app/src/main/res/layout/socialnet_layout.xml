@@ -36,7 +36,7 @@
             android:paddingBottom="10dp"
             android:text="@string/hello"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#0080B4" />
+            android:textColor="#ecf0f1" />
 
         <!--<ImageView-->
             <!--android:id="@+id/imageView"-->
