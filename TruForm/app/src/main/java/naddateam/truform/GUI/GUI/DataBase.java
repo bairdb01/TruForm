@@ -34,7 +34,7 @@ import java.text.SimpleDateFormat;
 public class DataBase extends AsyncTask<String, Void, String> {
     private TextView title;
     private String fName, lName, uName;
-    private int flag, eid;
+    private int flag, eid, workout;
     private String email, form, time, weight, timeStart, timeEnd, height, age, gender, retString;
 
     public DataBase(String email, int flag)
@@ -50,13 +50,14 @@ public class DataBase extends AsyncTask<String, Void, String> {
         this.uName = uName;
         this.flag = flag;
     }
-    public DataBase(String email, int eid, String form, String time, String weight, int flag)
+    public DataBase(String email, int eid, String form, String time, String weight, int workout, int flag)
     {
         this.email = email;
         this.eid = eid;
         this.form = form;
         this.time = time;
         this.weight = weight;
+        this.workout = workout;
         this.flag = flag;
     }
     public DataBase(String email, String timeStart, String timeEnd, int flag)
@@ -73,6 +74,10 @@ public class DataBase extends AsyncTask<String, Void, String> {
         this.weight = weight;
         this.age = age;
         this.gender = gender;
+        this.flag = flag;
+    }
+    public DataBase(int flag)
+    {
         this.flag = flag;
     }
 
@@ -131,7 +136,7 @@ public class DataBase extends AsyncTask<String, Void, String> {
         else if (flag == 2)
         {
             Log.v("VALUE OF TIME", time);
-            link = "http://131.104.49.65/inPast.php?email=" + email + "&eid=" + eid + "&form=" + form + "&time=" + time + "&weight=" + weight;
+            link = "http://131.104.49.65/inPast.php?email=" + email + "&eid=" + eid + "&form=" + form + "&time=" + time + "&weight=" + weight + "&workout=" + workout;
             try {
                 URL url = new URL(link);
                 HttpClient client = new DefaultHttpClient();
@@ -205,6 +210,30 @@ public class DataBase extends AsyncTask<String, Void, String> {
         else if (flag == 5)
         {
             link = "http://131.104.49.65/selectStats.php?email=" + email;
+            link = link.replace(" ", "");
+            try {
+                URL url = new URL(link);
+                HttpClient client = new DefaultHttpClient();
+                HttpGet request = new HttpGet();
+                request.setURI(new URI(link));
+                HttpResponse response = client.execute(request);
+                BufferedReader in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+                StringBuffer sb = new StringBuffer("");
+                String line = "";
+                while ((line = in.readLine()) != null) {
+                    sb.append(line);
+                    break;
+                }
+                Log.v("Testing", sb.toString());
+                in.close();
+                return sb.toString();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        else if (flag == 6)
+        {
+            link = "http://131.104.49.65/selectWorkout.php";
             link = link.replace(" ", "");
             try {
                 URL url = new URL(link);

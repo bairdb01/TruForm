@@ -16,6 +16,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,11 +34,14 @@ import java.io.FileWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import naddateam.truform.GUI.GUI.DataBase;
 import naddateam.truform.R;
 
 public class Workout0 extends ActionBarActivity implements AdapterView.OnItemClickListener{
     ListView lv;
     static String workoutName;
+    String retVal;
+    static int workoutNum = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,16 +54,32 @@ public class Workout0 extends ActionBarActivity implements AdapterView.OnItemCli
         setTitle(workoutName);
         String[] workout = {"Empty"};
 
+        try
+        {
+            workoutNum = 0;
+            retVal = new DataBase(6).execute().get();
+            workoutNum = Integer.parseInt(retVal);
+
+        }
+        catch(Exception e)
+        {
+            Log.v("error", e.toString());
+        }
+
         // Selects the workout based on name
         // Should be changed to access the Workouts/Exercises class
         if (workoutName.equals("Legs")) {
             workout = getResources().getStringArray(R.array.Legs);
+            workoutNum++;
         } else if (workoutName.equals("Back And Biceps")) {
             workout = getResources().getStringArray(R.array.BackAndBiceps);
+            workoutNum++;
         } else if (workoutName.equals("Chest And Triceps")) {
             workout = getResources().getStringArray(R.array.ChestAndTriceps);
+            workoutNum++;
         } else if (workoutName.equals("Shoulders")) {
             workout = getResources().getStringArray(R.array.Shoulders);
+            workoutNum++;
         }
 
         setContentView(R.layout.activity_workout0);
@@ -68,6 +88,11 @@ public class Workout0 extends ActionBarActivity implements AdapterView.OnItemCli
 //                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,workout);
         lv.setAdapter(new ArrayAdapter<String>(this, R.layout.listviewcloud_text,workout));
         lv.setOnItemClickListener(this);
+    }
+
+    public int getWorkoutNum()
+    {
+        return workoutNum;
     }
 
     @Override
