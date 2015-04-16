@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -81,6 +82,7 @@ public class UserDetailsNav extends ActionBarActivity implements View.OnClickLis
         btnExisting.setOnClickListener(this);
         btnNew.setOnClickListener(this);
         btnEnter.setOnClickListener(this);
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
         // Checking if previous cache data is available in case workout incomplete
 
