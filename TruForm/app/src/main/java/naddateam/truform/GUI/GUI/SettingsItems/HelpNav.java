@@ -100,7 +100,7 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
 
                                                     //alertDialogBuilder.setTitle("Dumbbell Chest Press");
                                                     //Set message
-                                                    /*alertDialogBuilder.setMessage(getString(R.string.tutDumbChestPress))
+                                                    /*
                                                             .setCancelable(false)
                                                             .setPositiveButton("Confirm",new DialogInterface.OnClickListener() {
                                                                 public void onClick(DialogInterface dialog,int id) {
@@ -132,6 +132,7 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
                                                     }
                                                     GifWebView view = new GifWebView(HelpNav.this, "file:///android_asset/db_benchpress.gif");
                                                     alertDialogBuilder.setView(view);
+                                                    alertDialogBuilder.setMessage(getString(R.string.tutDumbChestPress));
                                                     alertDialogBuilder.create().show();
                                                 }
                                                 else if (which == 1) {
