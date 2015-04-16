@@ -330,7 +330,10 @@ public class GenericExercise extends ActionBarActivity implements View.OnClickLi
                 Workout0 workout0 = new Workout0();
                 int workout = workout0.getWorkoutNum();
 
-                new DataBase("test@test.com", eid, dbForm, dayTime, weight.getText().toString(), workout, 2).execute();
+                if(dbForm.contains("_"))
+                {
+                    new DataBase("test@test.com", eid, dbForm, dayTime, weight.getText().toString(), workout, 2).execute();
+                }
 
                 //btnSR.setText("Receive");
 

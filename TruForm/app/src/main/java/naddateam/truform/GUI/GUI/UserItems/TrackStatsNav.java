@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,8 +18,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
+import naddateam.truform.GUI.GUI.DataBase;
 import naddateam.truform.GUI.GUI.workouts.GenericExercise;
 import naddateam.truform.R;
 
@@ -39,18 +43,57 @@ public class TrackStatsNav extends ActionBarActivity implements AdapterView.OnIt
     ListView lv;
     private TextView tv;
     static Dialog pickTimeDialog ;
+    private int day, month, year;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trackstats_layout);
 
-        ArrayList pastWorkouts = new ArrayList();
-        String retVal, time;
+
 
         show(); /*THIIIIIIIIIIIIIIIIIISSSSSSSSSSSS IS TO SHOW THE DIALOG THAT POPS UP, GET VALUES HERE TO SET THE DATE*/
+    }
+    private void dataBaseCall()
+    {
+        ArrayList pastWorkouts = new ArrayList();
+        String retVal, startTime, endTime;
+
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat time = new SimpleDateFormat("HH:mm:ss");
+        String formattedDay = date.format(c.getTime());
+        String formattedTime = time.format(c.getTime());
+
+        endTime = formattedDay + "%20" + formattedTime;
+        startTime = year + "-" + month + "-" + day + "%20" + "00:00:00";
 
         // Grab file names and add them to the list of past workouts
         try {
+            retVal = new DataBase("test@test.com", startTime, endTime, 3).execute().get();
+            String[] data = retVal.split(" ");
+            String[] Eid = new String[data.length / 4];
+            String[] Form = new String[data.length / 4];
+            String[] Weight = new String[data.length / 4];
+            String[] Workout = new String[data.length / 4];
+            int i, x;
+            Log.v("Length: ", data.length + "");
+            for(i = 0; i < data.length; i++) {
+                Log.v("TOKENS: ", data[i]);
+            }
+            x = 0;
+            for(i = 0; i < data.length; i = i + 4)
+            {
+                Eid[x] = data[i];
+                Form[x] = data[i+1];
+                Weight[x] = data[i+2];
+                Workout[x] = data[i+3];
+                x++;
+            }
+
+            for(i = 0; i < x; i++)
+            {
+                
+            }
 
 //            File dirFiles = getFilesDir();
 //            for (String filename : dirFiles.list()) {
@@ -94,7 +137,7 @@ public class TrackStatsNav extends ActionBarActivity implements AdapterView.OnIt
 
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         // Opens the exercise
-        Toast.makeText(this, String.valueOf(position) ,Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, String.valueOf(position), Toast.LENGTH_SHORT).show();
         Intent workout = new Intent(this , Workout_History.class);
         String workoutName = lv.getItemAtPosition(position).toString();
         workout.putExtra("workoutName",workoutName); //Sends workout name
@@ -131,7 +174,7 @@ public class TrackStatsNav extends ActionBarActivity implements AdapterView.OnIt
 
         final NumberPicker pickYear = (NumberPicker) pickTimeDialog.findViewById(R.id.numberPickYear);
         pickYear.setMaxValue(2015); // max value 100
-        pickYear.setMinValue(1999);   // min value 0
+        pickYear.setMinValue(2010);   // min value 0
         pickYear.setWrapSelectorWheel(false);
         pickYear.setOnValueChangedListener(this);
 
@@ -148,9 +191,10 @@ public class TrackStatsNav extends ActionBarActivity implements AdapterView.OnIt
             @Override
             public void onClick(View v) {
                 /*get values when hitting "set"*/
-                // int day = pickDate.getValue();
-                // int month = pickMonth.getValue();
-                // int year = pickYear.getValue();
+                day = pickDate.getValue();
+                month = pickMonth.getValue();
+                year = pickYear.getValue();
+                dataBaseCall();
                 // i think this is how you get the values
                 // recommend, returning an array of these values back to show(); then do stuff with it?
                 pickTimeDialog.cancel(); // dismiss the dialog
@@ -163,6 +207,6 @@ public class TrackStatsNav extends ActionBarActivity implements AdapterView.OnIt
 
     @Override
     public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-        Log.i("value is", "" + newVal);
+        //Log.i("value is", "" + newVal);
     }
 }
