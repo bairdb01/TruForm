@@ -55,7 +55,7 @@ public class TrackStatsNav extends ActionBarActivity implements AdapterView.OnIt
     }
     private void dataBaseCall()
     {
-        ArrayList pastWorkouts = new ArrayList();
+        //ArrayList<PullData> pastWorkouts = new ArrayList<PullData>();
         String retVal, startTime, endTime;
 
         Calendar c = Calendar.getInstance();
@@ -92,7 +92,10 @@ public class TrackStatsNav extends ActionBarActivity implements AdapterView.OnIt
 
             for(i = 0; i < x; i++)
             {
-                
+                if(!pastWorkouts.contains(Workout[x]))
+                {
+                    pastWorkouts.add(Workout[x]);
+                }
             }
 
 //            File dirFiles = getFilesDir();
