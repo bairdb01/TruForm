@@ -234,7 +234,7 @@
     <string name="title_activity_get_data_nav">GetDataNav</string>
 
 
-    <string name="hello">Hello, </string>
+    <string name="hello">Hello </string>
     <string name="login_instructions">Login to twiter</string>
     <string name="share_instructions">Enter share message</string>
     <string name="btn_login">Login to Twitter</string>

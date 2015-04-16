@@ -123,7 +123,7 @@ public class SocialNav extends Fragment implements View.OnClickListener {
 
             String username = mSharedPreferences.getString(PREF_USER_NAME, "");
             userName.setText(getResources ().getString(R.string.hello)
-                    + username);
+                    + " " + username);
 
         } else {
             loginLayout.setVisibility(View.VISIBLE);
