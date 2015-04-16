@@ -39,14 +39,16 @@ public class TrackStatsNav extends ActionBarActivity implements AdapterView.OnIt
         setContentView(R.layout.trackstats_layout);
 
         ArrayList pastWorkouts = new ArrayList();
+        String retVal, time;
 
         // Grab file names and add them to the list of past workouts
         try {
-            File dirFiles = getFilesDir();
-            for (String filename : dirFiles.list()) {
-                if (filename.equals("userDetails") == false)
-                    pastWorkouts.add(filename);
-            }
+
+//            File dirFiles = getFilesDir();
+//            for (String filename : dirFiles.list()) {
+//                if (filename.equals("userDetails") == false)
+//                    pastWorkouts.add(filename);
+//            }
 
             String[] woList = new String[pastWorkouts.size()];
             pastWorkouts.toArray(woList);
