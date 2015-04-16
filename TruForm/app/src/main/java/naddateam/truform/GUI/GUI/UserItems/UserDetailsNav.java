@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -56,8 +57,20 @@ public class UserDetailsNav extends ActionBarActivity implements View.OnClickLis
         //getActionBar().setDisplayHomeAsUpEnabled(true);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.userdetails_layout);
-
         lv = (ListView) findViewById(R.id.userDetailsListView);
+        lv.setAdapter(new ArrayAdapter<String>(this, R.layout.listviewcloud_text,
+                new String[]{
+                        "First Name",
+                        "Last Name",
+                        "Gender",
+                        "Age",
+                        "Height (cm)",
+                        "Weight (lbs)",
+                        "Email",
+                        "User ID",
+                }));
+        lv.setScrollContainer(false);
+
         userWeight = (EditText) findViewById(R.id.weightTxt);
         userAge = (EditText) findViewById(R.id.ageTxt);
         userHeight = (EditText) findViewById(R.id.heightTxt);
