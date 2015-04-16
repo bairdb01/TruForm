@@ -33,9 +33,9 @@ public class ExerciseAnalysis {
     /* 70, 110, 55*/
     public void analyzeForm(ArrayList<InstanceData> dataPoints) {
         /*Constants*/
-        int LOWER_BOUND = 55;
+        int LOWER_BOUND = 70;
         int UPPER_BOUND = 110;
-        int GOOD_LOWER_BOUND = 70;
+        int GOOD_LOWER_BOUND = 55;
         int i = 0;
         int j = 0;
         /*Flags*/
@@ -82,7 +82,7 @@ public class ExerciseAnalysis {
 
         while( i < gyroZArr.size() )
         {
-            gyroZ = gyroZArr.get(i);
+            gyroZ = (-1)*gyroZArr.get(i);
             accelY = accelYArr.get(i);
             if(i == 0)
             {
@@ -203,7 +203,6 @@ public class ExerciseAnalysis {
             {
                 this.codedForm.add(0.00);
                 if((waitB == 0) && (waitT == 0))
-                    //this.form.add("up: "+ up.get(i) +" down: "+ down.get(i));//
                     this.form.add("Your form was bad, try lifting higher.");
                 else if((waitB == 1) && (waitT == 0))
                     this.form.add("Your form was bad, and you waited too long at the bottom of the curl.");
@@ -216,7 +215,6 @@ public class ExerciseAnalysis {
             {
                 this.codedForm.add(0.50);
                 if((waitB == 0) && (waitT == 0))
-                    //this.form.add("up: "+ up.get(i) +" down: "+ down.get(i));//
                     this.form.add("Your form was close, try lifting higher.");
                 else if((waitB == 1) && (waitT == 0))
                     this.form.add("Your form was close, and you waited too long at the bottom of the curl.");
