@@ -51,7 +51,7 @@ public class HelpNav extends ActionBarActivity implements AdapterView.OnItemClic
         ListView lv = (ListView)findViewById(R.id.helpListView);
         lv.setAdapter(new ArrayAdapter<String>(this, R.layout.listviewcloud_text,
                 new String[]{
-                        "Exercise Form","Tests",
+                        "Exercise Form Tutorials",
                 }));
         lv.setOnItemClickListener(this);
         /*
